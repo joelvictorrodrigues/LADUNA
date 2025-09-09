@@ -246,7 +246,7 @@ export const Contact = () => {
               <div className="space-y-4">
                 <div>
                   <h5 className="text-brand-primary font-semibold mb-1">Quanto tempo para ver resultados?</h5>
-                  <p className="text-sm text-gray-300">Primeiros resultados em 30-60 dias, otimização contínua.</p>
+                  <p className="text-sm text-gray-300">Primeiros resultados em 15 dias, otimização contínua.</p>
                 </div>
                 <div>
                   <h5 className="text-brand-primary font-semibold mb-1">Qual investimento mínimo?</h5>
