@@ -43,7 +43,14 @@ export const Footer = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone size={16} className="text-brand-primary" />
-                  <span className="text-gray-300 text-sm">{companyInfo.contact.phone}</span>
+                  <a 
+                    href={companyInfo.contact.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-primary hover:text-brand-hover transition-colors text-sm"
+                  >
+                    {companyInfo.contact.phone}
+                  </a>
                 </div>
                 <div className="flex items-center gap-3">
                   <MapPin size={16} className="text-brand-primary" />
