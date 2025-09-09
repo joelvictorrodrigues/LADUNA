@@ -112,12 +112,6 @@ export const Header = () => {
                 Portfólio
               </button>
               <button 
-                onClick={() => scrollToSection('blog')}
-                className="nav-link text-left"
-              >
-                Blog
-              </button>
-              <button 
                 onClick={() => scrollToSection('contact')}
                 className="btn-primary w-full mt-4"
               >
