@@ -164,28 +164,12 @@ export const Footer = () => {
               <span className="text-gray-300 text-sm">Siga-nos:</span>
               <div className="flex gap-3">
                 <a 
-                  href={companyInfo.contact.social.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gray-800 hover:bg-brand-primary/20 p-2 rounded-lg transition-colors"
-                >
-                  <Linkedin size={20} className="text-gray-300 hover:text-brand-primary" />
-                </a>
-                <a 
-                  href={companyInfo.contact.social.instagram}
+                  href="https://www.instagram.com/ladunastudio?igsh=M2kyNWR4ODlrdXdo"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gray-800 hover:bg-brand-primary/20 p-2 rounded-lg transition-colors"
                 >
                   <Instagram size={20} className="text-gray-300 hover:text-brand-primary" />
-                </a>
-                <a 
-                  href={companyInfo.contact.social.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gray-800 hover:bg-brand-primary/20 p-2 rounded-lg transition-colors"
-                >
-                  <Facebook size={20} className="text-gray-300 hover:text-brand-primary" />
                 </a>
               </div>
             </div>
