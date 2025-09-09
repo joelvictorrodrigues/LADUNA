@@ -12,10 +12,11 @@
   
   /* Text Colors */
   --text-primary: #d9fb06;
-  --text-secondary: #888680;
-  --text-muted: #302f2c;
+  --text-secondary: #b8b8b0;
+  --text-muted: #a0a09a;
   --text-inverse: #1a1c1b;
   --text-white: #ffffff;
+  --text-light-gray: #c4c4c0;
   
   /* LADUNA Brand Colors */
   --brand-primary: #d9fb06;
