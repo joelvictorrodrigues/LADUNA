@@ -8,6 +8,7 @@ import { Portfolio } from './components/Portfolio';
 import { Blog } from './components/Blog';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { ChatWidget } from './components/ChatWidget';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <ChatWidget />
     </div>
   );
 }
