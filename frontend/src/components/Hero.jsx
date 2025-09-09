@@ -31,15 +31,15 @@ export const Hero = () => {
       {/* Content */}
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl">
-          <div className="mb-6">
+          <div className="mb-8">
             <img 
               src="https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/04zo24ap_PRETO%20E%20BRANCO.pdf.png" 
               alt="LADUNA STUDIO Logo" 
-              className="h-20 w-auto mb-8"
+              className="h-32 w-auto mb-12"
             />
           </div>
           
-          <h1 className="hero-title mb-6">
+          <h1 className="hero-title mb-6" style={{color: '#888680'}}>
             Elevando Sua Presença Digital
           </h1>
           
