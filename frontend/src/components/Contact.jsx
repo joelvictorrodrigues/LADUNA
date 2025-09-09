@@ -214,9 +214,16 @@ export const Contact = () => {
                     <Phone className="text-brand-primary" size={20} />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold mb-1">Telefone</h4>
-                    <p className="text-gray-300">{companyInfo.contact.phone}</p>
-                    <p className="text-sm text-gray-400">Seg a Sex, 9h às 18h</p>
+                    <h4 className="text-white font-semibold mb-1">Telefone / WhatsApp</h4>
+                    <a 
+                      href={companyInfo.contact.whatsapp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-brand-primary hover:text-brand-hover transition-colors"
+                    >
+                      {companyInfo.contact.phone}
+                    </a>
+                    <p className="text-sm text-gray-400">{companyInfo.contact.schedule}</p>
                   </div>
                 </div>
 
