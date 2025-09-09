@@ -67,11 +67,11 @@ export const About = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto justify-items-center">
           {teamMembers.map((member) => (
             <div 
               key={member.id}
-              className="team-card bg-black border border-gray-800 rounded-lg overflow-hidden card-hover-effect"
+              className="team-card bg-black border border-gray-800 rounded-lg overflow-hidden card-hover-effect w-full max-w-sm"
             >
               <div className="team-card-image relative">
                 <img 
