@@ -30,7 +30,7 @@ export const Hero = () => {
 
       {/* Content */}
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start lg:items-center">
           {/* Left Content */}
           <div className="order-2 lg:order-1">
             <h1 className="hero-title mb-6 text-white">
