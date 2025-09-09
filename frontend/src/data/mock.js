@@ -195,7 +195,7 @@ export const testimonials = [
 ];
 
 export const companyInfo = {
-  name: "LADUNA",
+  name: "LADUNA STUDIO",
   tagline: "Elevando Sua Presença Digital",
   description: "Somos uma agência de marketing digital especializada em gerar resultados reais para empresas que querem crescer online. Combinamos estratégia, criatividade e tecnologia para transformar sua presença digital.",
   mission: "Nossa missão é acelerar o crescimento dos nossos clientes através de estratégias digitais inovadoras e eficazes.",
@@ -208,13 +208,15 @@ export const companyInfo = {
     "Parceria de longo prazo"
   ],
   contact: {
-    email: "contato@laduna.digital",
-    phone: "+55 11 99999-9999",
-    address: "São Paulo, SP - Brasil",
+    email: "ladunastudio@gmail.com",
+    phone: "+55 66 99613-9483",
+    whatsapp: "https://wa.me/5566996139483",
+    address: "Mato Grosso - Brasil",
+    schedule: "Segunda a Sexta das 8h às 18h",
     social: {
-      linkedin: "https://linkedin.com/company/laduna-digital",
-      instagram: "https://instagram.com/laduna.digital",
-      facebook: "https://facebook.com/laduna.digital"
+      linkedin: "https://linkedin.com/company/laduna-studio",
+      instagram: "https://instagram.com/laduna.studio",
+      facebook: "https://facebook.com/laduna.studio"
     }
   }
 };
