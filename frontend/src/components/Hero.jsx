@@ -38,7 +38,7 @@ export const Hero = () => {
             </h1>
             
             <p className="body-large mb-8 max-w-2xl">
-              Transformamos sua presença digital com estratégias comprovadas que geram resultados reais. 
+              Nós da LADUNA transformamos sua presença digital com estratégias comprovadas que geram resultados reais. 
               Mais leads, mais vendas, mais crescimento.
             </p>
 
