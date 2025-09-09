@@ -90,7 +90,7 @@ export const portfolioProjects = [
   },
   {
     id: 4,
-    title: "FazendaBrasil Imóveis",
+    title: "Comércio de Fazendas",
     category: "Imobiliária & Agronegócios",
     description: "Desenvolvemos estratégia digital completa que resultou em 350% de aumento nas consultas e vendas de propriedades rurais em todo o país.",
     image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=400&fit=crop",
