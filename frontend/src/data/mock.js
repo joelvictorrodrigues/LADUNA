@@ -107,27 +107,19 @@ export const portfolioProjects = [
 export const teamMembers = [
   {
     id: 1,
-    name: "Carolina Silva",
-    position: "CEO & Estrategista Digital",
-    bio: "10+ anos de experiência em marketing digital. Especialista em estratégias de crescimento para empresas de médio e grande porte.",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop",
-    linkedin: "https://linkedin.com/in/carolina-silva"
+    name: "Joel Rodrigues",
+    position: "Diretor de Performance",
+    bio: "Especialista em Google Ads e Meta Ads com mais de R$ 50M em investimento gerenciado. Certificações Google e Meta.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    linkedin: "https://linkedin.com/in/joel-rodrigues"
   },
   {
     id: 2,
-    name: "Ricardo Santos",
-    position: "Diretor de Performance",
-    bio: "Especialista em Google Ads e Meta Ads com mais de R$ 50M em investimento gerenciado. Certificações Google e Meta.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
-    linkedin: "https://linkedin.com/in/ricardo-santos"
-  },
-  {
-    id: 3,
-    name: "Ana Rodrigues",
+    name: "Talita Vieira",
     position: "Head de SEO",
     bio: "Especialista em SEO técnico e estratégico. Responsável por mais de 100 projetos de otimização bem-sucedidos.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
-    linkedin: "https://linkedin.com/in/ana-rodrigues"
+    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop",
+    linkedin: "https://linkedin.com/in/talita-vieira"
   }
 ];
 
