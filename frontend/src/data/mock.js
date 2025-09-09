@@ -90,17 +90,17 @@ export const portfolioProjects = [
   },
   {
     id: 4,
-    title: "Gourmet Express",
-    category: "Alimentação & Delivery",
-    description: "Implementamos campanhas de tráfego pago que resultaram em 400% de aumento nos pedidos online durante a pandemia.",
-    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=600&h=400&fit=crop",
+    title: "FazendaBrasil Imóveis",
+    category: "Imobiliária & Agronegócios",
+    description: "Desenvolvemos estratégia digital completa que resultou em 350% de aumento nas consultas e vendas de propriedades rurais em todo o país.",
+    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=400&fit=crop",
     results: {
-      orderIncrease: "400%",
-      customerAcquisition: "300%",
-      appDownloads: "250%",
-      revenueGrowth: "350%"
+      inquiriesIncrease: "350%",
+      salesGrowth: "280%",
+      websiteTraffic: "400%",
+      leadQuality: "90%"
     },
-    services: ["Facebook Ads", "Instagram Marketing", "App Store Optimization"]
+    services: ["Google Ads", "SEO Rural", "Marketing de Conteúdo"]
   }
 ];
 
