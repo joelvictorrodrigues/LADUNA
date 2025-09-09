@@ -3,38 +3,38 @@
 export const services = [
   {
     id: 1,
+    title: "Gestão de Redes Sociais",
+    description: "Gerenciamento completo das suas redes sociais com conteúdo engajante e estratégias de crescimento.",
+    icon: "share-2",
+    features: ["Criação de conteúdo", "Gestão de comunidade", "Campanhas sociais", "Relatórios de performance"]
+  },
+  {
+    id: 2,
     title: "Estratégia de Marketing Digital",
     description: "Desenvolvemos estratégias personalizadas para maximizar seu ROI e alcançar seus objetivos de negócio.",
     icon: "target",
     features: ["Análise de mercado", "Definição de personas", "Estratégia multicanal", "KPIs e métricas"]
   },
   {
-    id: 2,
+    id: 3,
     title: "Tráfego Pago",
     description: "Campanhas otimizadas no Google Ads, Meta Ads, TikTok Ads e LinkedIn Ads para gerar leads qualificados.",
     icon: "trending-up",
     features: ["Google Ads", "Meta Ads", "TikTok Ads", "LinkedIn Ads"]
   },
   {
-    id: 3,
+    id: 4,
     title: "SEO",
     description: "Otimização para mecanismos de busca para aumentar sua visibilidade orgânica e atrair mais clientes.",
     icon: "search",
     features: ["SEO On-page", "SEO Técnico", "Link Building", "Análise de concorrência"]
   },
   {
-    id: 4,
+    id: 5,
     title: "Marketing de Conteúdo",
     description: "Criação de conteúdo estratégico e campanhas de Inbound Marketing para educar e converter leads.",
     icon: "edit-3",
     features: ["Blog posts", "E-books", "Webinars", "Email Marketing"]
-  },
-  {
-    id: 5,
-    title: "Gestão de Redes Sociais",
-    description: "Gerenciamento completo das suas redes sociais com conteúdo engajante e estratégias de crescimento.",
-    icon: "share-2",
-    features: ["Criação de conteúdo", "Gestão de comunidade", "Campanhas sociais", "Relatórios de performance"]
   },
   {
     id: 6,
