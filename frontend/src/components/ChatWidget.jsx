@@ -122,7 +122,7 @@ export const ChatWidget = () => {
       {/* Chat Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed bottom-6 right-6 z-50 p-4 rounded-full transition-all duration-300 shadow-2xl ${
+        className={`fixed bottom-6 left-6 z-50 p-4 rounded-full transition-all duration-300 shadow-2xl ${
           isOpen 
             ? 'bg-gray-800 hover:bg-gray-700' 
             : 'bg-brand-primary hover:bg-brand-hover'
@@ -137,7 +137,7 @@ export const ChatWidget = () => {
 
       {/* Chat Widget */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-3rem)] h-[500px] bg-gray-900 rounded-lg shadow-2xl border border-gray-700 flex flex-col">
+        <div className="fixed bottom-24 left-6 z-50 w-96 max-w-[calc(100vw-3rem)] h-[500px] bg-gray-900 rounded-lg shadow-2xl border border-gray-700 flex flex-col">
           {/* Header */}
           <div className="p-4 bg-brand-primary rounded-t-lg">
             <div className="flex items-center gap-3">
