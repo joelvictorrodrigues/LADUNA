@@ -217,7 +217,7 @@ export const Footer = () => {
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <div>
                 <p className="text-gray-400 text-sm">
-                  © {currentYear} LADUNA Digital Marketing. Todos os direitos reservados.
+                  © {currentYear} LADUNA STUDIO Digital Marketing. Todos os direitos reservados.
                 </p>
               </div>
               <div className="flex gap-6">
