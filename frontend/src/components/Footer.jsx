@@ -23,7 +23,7 @@ export const Footer = () => {
               <img 
                 src="https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/siw2m2vs_PRETO%20E%20BRANCO2.png" 
                 alt="LADUNA STUDIO Logo" 
-                className="h-12 w-auto mb-4"
+                className="h-16 w-auto mb-4"
               />
               <p className="body-small text-gray-300 max-w-md">
                 {companyInfo.description}
