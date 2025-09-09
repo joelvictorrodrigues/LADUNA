@@ -49,7 +49,7 @@ export const Services = () => {
                     <IconComponent className="text-brand-primary" size={24} />
                   </div>
                   <h3 className="heading-4 text-white mb-3">{service.title}</h3>
-                  <p className="body-small text-gray-400 mb-4">{service.description}</p>
+                  <p className="body-small text-gray-300 mb-4">{service.description}</p>
                 </div>
 
                 {/* Expandable Features */}
