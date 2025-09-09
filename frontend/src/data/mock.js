@@ -110,7 +110,7 @@ export const teamMembers = [
     name: "Joel Rodrigues",
     position: "Diretor de Performance",
     bio: "Especialista em Google Ads e Meta Ads com mais de R$ 50M em investimento gerenciado. Certificações Google e Meta.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop",
     linkedin: "https://linkedin.com/in/joel-rodrigues"
   },
   {
@@ -118,7 +118,7 @@ export const teamMembers = [
     name: "Talita Vieira",
     position: "Head de SEO",
     bio: "Especialista em SEO técnico e estratégico. Responsável por mais de 100 projetos de otimização bem-sucedidos.",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
     linkedin: "https://linkedin.com/in/talita-vieira"
   }
 ];
