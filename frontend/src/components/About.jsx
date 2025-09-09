@@ -73,13 +73,6 @@ export const About = () => {
               key={member.id}
               className="team-card bg-black border border-gray-800 rounded-lg overflow-hidden card-hover-effect w-full max-w-sm"
             >
-              <div className="team-card-image relative">
-                <img 
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-64 object-cover"
-                />
-              </div>
               <div className="team-card-content p-6">
                 <h4 className="heading-5 text-white mb-2">{member.name}</h4>
                 <p className="text-brand-primary font-semibold mb-3">{member.position}</p>
