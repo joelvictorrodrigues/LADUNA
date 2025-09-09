@@ -91,7 +91,7 @@ export const Hero = () => {
           </div>
 
           {/* Right Content - Logo */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end lg:pt-8">
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end lg:-mt-8">
             <img 
               src="https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/2q3nlgbl_PRETO%20E%20BRANCO.pdf.png" 
               alt="LADUNA STUDIO Logo" 
