@@ -194,7 +194,6 @@ export const companyInfo = {
   vision: "Ser a agência de marketing digital mais reconhecida pela qualidade dos resultados e excelência no atendimento.",
   values: [
     "Transparência total nos resultados",
-    "Foco em ROI e performance",
     "Atendimento personalizado",
     "Inovação constante",
     "Parceria de longo prazo"
