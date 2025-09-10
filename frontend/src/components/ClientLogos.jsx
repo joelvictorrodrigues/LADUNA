@@ -76,21 +76,42 @@ export const ClientLogos = () => {
           </p>
         </div>
 
-        {/* Animated Logos Carousel */}
-        <div className="relative overflow-hidden py-12">
-          <div className="logos-scroll flex items-center space-x-24">
-            {duplicatedLogos.map((client, index) => (
-              <div 
-                key={`${client.id}-${index}`}
-                className="flex-shrink-0 transition-all duration-300 hover:scale-110"
-              >
-                <img 
-                  src={client.logo}
-                  alt={client.name}
-                  className="h-40 w-80 object-contain transition-all duration-300 hover:drop-shadow-lg"
-                />
-              </div>
-            ))}
+        {/* Animated Logos Carousels */}
+        <div className="space-y-8">
+          {/* Primeiro Carrossel - Movendo para Direita */}
+          <div className="relative overflow-hidden py-6">
+            <div className="logos-scroll-right flex items-center space-x-24">
+              {duplicatedFirstCarousel.map((client, index) => (
+                <div 
+                  key={`first-${client.id}-${index}`}
+                  className="flex-shrink-0 transition-all duration-300 hover:scale-110"
+                >
+                  <img 
+                    src={client.logo}
+                    alt={client.name}
+                    className="h-40 w-80 object-contain transition-all duration-300 hover:drop-shadow-lg"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Segundo Carrossel - Movendo para Esquerda */}
+          <div className="relative overflow-hidden py-6">
+            <div className="logos-scroll-left flex items-center space-x-24">
+              {duplicatedSecondCarousel.map((client, index) => (
+                <div 
+                  key={`second-${client.id}-${index}`}
+                  className="flex-shrink-0 transition-all duration-300 hover:scale-110"
+                >
+                  <img 
+                    src={client.logo}
+                    alt={client.name}
+                    className="h-40 w-80 object-contain transition-all duration-300 hover:drop-shadow-lg"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
