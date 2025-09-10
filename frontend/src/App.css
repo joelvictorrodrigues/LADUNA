@@ -87,7 +87,6 @@ body {
   font-size: clamp(2rem, 2.5rem + 1vw, 3rem); 
   line-height: 0.9; 
   text-transform: uppercase; 
-  color: var(--text-primary); 
 }
 
 .heading-4 { 
