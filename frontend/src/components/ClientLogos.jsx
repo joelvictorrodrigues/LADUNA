@@ -27,6 +27,11 @@ export const ClientLogos = () => {
       id: 5,
       name: "JH Smart",
       logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/ahhdamnu_18.png"
+    },
+    {
+      id: 11,
+      name: "Compagni Brasil",
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/w47d6bez_25.png"
     }
   ];
 
@@ -56,6 +61,11 @@ export const ClientLogos = () => {
       id: 10,
       name: "ME Mundo dos Esportes",
       logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/jthie9bn_23.png"
+    },
+    {
+      id: 12,
+      name: "Agronegócio Logo",
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/v1fjs3s5_26.png"
     }
   ];
 
