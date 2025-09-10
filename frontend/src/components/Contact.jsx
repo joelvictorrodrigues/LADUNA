@@ -38,10 +38,10 @@ export const Contact = () => {
 
       // Enviando email via EmailJS
       await emailjs.send(
-        'service_laduna', // Service ID
-        'template_laduna', // Template ID  
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
         templateParams,
-        'laduna_public_key' // Public Key
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
       );
 
       console.log('Email enviado com sucesso!');
