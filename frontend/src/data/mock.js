@@ -48,10 +48,10 @@ export const services = [
 export const portfolioProjects = [
   {
     id: 1,
-    title: "EcoTech Solutions",
-    category: "Tecnologia Sustentável",
+    title: "UpSmart",
+    category: "Tecnologia",
     description: "Aumentamos em 300% o tráfego orgânico e geramos 150+ leads qualificados mensais através de uma estratégia integrada de SEO e tráfego pago.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+    image: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/65bwbsai_1.HEIC",
     results: {
       trafficIncrease: "300%",
       leadsGenerated: "150+",
