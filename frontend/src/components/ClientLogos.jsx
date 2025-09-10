@@ -20,8 +20,8 @@ export const ClientLogos = () => {
     },
     {
       id: 4,
-      name: "Cliente 4",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/jrzqircz_17.png"
+      name: "UpSmart",
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/oerrm3tx_UpSmart%20-%20Logotipo.pdf.png"
     },
     {
       id: 5,
