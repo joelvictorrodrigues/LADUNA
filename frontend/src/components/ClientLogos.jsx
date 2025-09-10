@@ -86,42 +86,38 @@ export const ClientLogos = () => {
           </p>
         </div>
 
-        {/* Animated Logos Carousels */}
-        <div className="space-y-8">
-          {/* Primeiro Carrossel - Movendo para Direita */}
-          <div className="relative overflow-hidden py-6">
-            <div className="logos-scroll-right flex items-center space-x-8">
-              {duplicatedFirstCarousel.map((client, index) => (
-                <div 
-                  key={`first-${client.id}-${index}`}
-                  className="flex-shrink-0 transition-all duration-300 hover:scale-110"
-                >
-                  <img 
-                    src={client.logo}
-                    alt={client.name}
-                    className="h-40 w-80 object-contain transition-all duration-300 hover:drop-shadow-lg"
-                  />
-                </div>
-              ))}
-            </div>
+        {/* Static Logos Grid - 2 Rows */}
+        <div className="space-y-12">
+          {/* Primeira Linha */}
+          <div className="flex items-center justify-center gap-8 flex-wrap">
+            {firstCarouselLogos.map((client) => (
+              <div 
+                key={client.id}
+                className="transition-all duration-300 hover:scale-110"
+              >
+                <img 
+                  src={client.logo}
+                  alt={client.name}
+                  className="h-24 w-48 object-contain transition-all duration-300 hover:drop-shadow-lg"
+                />
+              </div>
+            ))}
           </div>
 
-          {/* Segundo Carrossel - Movendo para Esquerda */}
-          <div className="relative overflow-hidden py-6">
-            <div className="logos-scroll-left flex items-center space-x-8">
-              {duplicatedSecondCarousel.map((client, index) => (
-                <div 
-                  key={`second-${client.id}-${index}`}
-                  className="flex-shrink-0 transition-all duration-300 hover:scale-110"
-                >
-                  <img 
-                    src={client.logo}
-                    alt={client.name}
-                    className="h-40 w-80 object-contain transition-all duration-300 hover:drop-shadow-lg"
-                  />
-                </div>
-              ))}
-            </div>
+          {/* Segunda Linha */}
+          <div className="flex items-center justify-center gap-8 flex-wrap">
+            {secondCarouselLogos.map((client) => (
+              <div 
+                key={client.id}
+                className="transition-all duration-300 hover:scale-110"
+              >
+                <img 
+                  src={client.logo}
+                  alt={client.name}
+                  className="h-24 w-48 object-contain transition-all duration-300 hover:drop-shadow-lg"
+                />
+              </div>
+            ))}
           </div>
         </div>
 
