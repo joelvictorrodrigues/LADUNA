@@ -398,12 +398,12 @@ body {
 }
 
 .logos-scroll-right {
-  animation: scroll-logos-right 20s linear infinite;
+  animation: scroll-logos-right 10s linear infinite;
   width: fit-content;
 }
 
 .logos-scroll-left {
-  animation: scroll-logos-left 20s linear infinite;
+  animation: scroll-logos-left 10s linear infinite;
   width: fit-content;
 }
 
