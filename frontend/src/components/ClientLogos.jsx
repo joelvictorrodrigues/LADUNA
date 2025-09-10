@@ -90,7 +90,7 @@ export const ClientLogos = () => {
         <div className="space-y-8">
           {/* Primeiro Carrossel - Movendo para Direita */}
           <div className="relative overflow-hidden py-6">
-            <div className="logos-scroll-right flex items-center space-x-12">
+            <div className="logos-scroll-right flex items-center space-x-8">
               {duplicatedFirstCarousel.map((client, index) => (
                 <div 
                   key={`first-${client.id}-${index}`}
