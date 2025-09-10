@@ -15,8 +15,8 @@ export const ClientLogos = () => {
     },
     {
       id: 3,
-      name: "Cliente 3",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/lroq5xg5_16.png"
+      name: "Churrascada",
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/ltd4m338_17.png"
     },
     {
       id: 4,
