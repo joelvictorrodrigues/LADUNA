@@ -38,7 +38,7 @@ export const Portfolio = () => {
                 <img 
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300 brightness-125 contrast-110"
+                  className="w-full h-80 object-cover object-top group-hover:scale-105 transition-transform duration-300 brightness-125 contrast-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-transparent"></div>
                 <div className="absolute top-4 right-4">
