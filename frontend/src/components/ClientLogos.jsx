@@ -49,8 +49,8 @@ export const ClientLogos = () => {
     },
     {
       id: 8,
-      name: "Compra de Ouro Brasil Gold",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/1iqwkoc0_21.png"
+      name: "Brasil Gold",
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/x5acsbsw_BRASIL%20GOLD.pdf.png"
     },
     {
       id: 9,
