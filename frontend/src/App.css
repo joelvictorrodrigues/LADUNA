@@ -371,7 +371,16 @@ body {
   }
 }
 
-@keyframes scroll-logos {
+@keyframes scroll-logos-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scroll-logos-left {
   0% {
     transform: translateX(0);
   }
@@ -388,8 +397,13 @@ body {
   animation: float 3s ease-in-out infinite;
 }
 
-.logos-scroll {
-  animation: scroll-logos 12s linear infinite;
+.logos-scroll-right {
+  animation: scroll-logos-right 15s linear infinite;
+  width: fit-content;
+}
+
+.logos-scroll-left {
+  animation: scroll-logos-left 15s linear infinite;
   width: fit-content;
 }
 
