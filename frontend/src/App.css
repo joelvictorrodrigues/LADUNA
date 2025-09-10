@@ -389,7 +389,7 @@ body {
 }
 
 .logos-scroll {
-  animation: scroll-logos 20s linear infinite;
+  animation: scroll-logos 12s linear infinite;
   width: fit-content;
 }
 
