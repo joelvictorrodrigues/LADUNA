@@ -1,8 +1,8 @@
 import React from 'react';
 
 export const ClientLogos = () => {
-  // Logos reais das empresas clientes da LADUNA STUDIO
-  const clientLogos = [
+  // Primeiro carrossel - movendo para direita
+  const firstCarouselLogos = [
     {
       id: 1,
       name: "V'Bella",
@@ -27,7 +27,11 @@ export const ClientLogos = () => {
       id: 5,
       name: "JH Smart",
       logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/ahhdamnu_18.png"
-    },
+    }
+  ];
+
+  // Segundo carrossel - movendo para esquerda
+  const secondCarouselLogos = [
     {
       id: 6,
       name: "ME Fitness",
@@ -55,8 +59,9 @@ export const ClientLogos = () => {
     }
   ];
 
-  // Duplicamos os logos para criar um loop infinito
-  const duplicatedLogos = [...clientLogos, ...clientLogos];
+  // Duplicamos os logos para criar loops infinitos
+  const duplicatedFirstCarousel = [...firstCarouselLogos, ...firstCarouselLogos];
+  const duplicatedSecondCarousel = [...secondCarouselLogos, ...secondCarouselLogos];
 
   return (
     <section className="py-20 bg-gradient-to-b from-white via-gray-50 to-white">
