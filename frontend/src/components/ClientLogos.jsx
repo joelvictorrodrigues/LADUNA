@@ -59,9 +59,9 @@ export const ClientLogos = () => {
     }
   ];
 
-  // Duplicamos os logos para criar loops infinitos
-  const duplicatedFirstCarousel = [...firstCarouselLogos, ...firstCarouselLogos];
-  const duplicatedSecondCarousel = [...secondCarouselLogos, ...secondCarouselLogos];
+  // Duplicamos os logos MAIS VEZES para ter mais logos por linha
+  const duplicatedFirstCarousel = [...firstCarouselLogos, ...firstCarouselLogos, ...firstCarouselLogos];
+  const duplicatedSecondCarousel = [...secondCarouselLogos, ...secondCarouselLogos, ...secondCarouselLogos];
 
   return (
     <section className="py-20 bg-gradient-to-b from-white via-gray-50 to-white">
