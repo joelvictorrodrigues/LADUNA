@@ -82,7 +82,7 @@ export const ClientLogos = () => {
                 <img 
                   src={client.logo}
                   alt={client.name}
-                  className="h-32 w-64 object-contain transition-all duration-300 hover:drop-shadow-lg"
+                  className="h-40 w-80 object-contain transition-all duration-300 hover:drop-shadow-lg"
                 />
               </div>
             ))}
