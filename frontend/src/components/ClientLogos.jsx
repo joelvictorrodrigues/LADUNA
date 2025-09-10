@@ -73,7 +73,7 @@ export const ClientLogos = () => {
 
         {/* Animated Logos Carousel */}
         <div className="relative overflow-hidden py-8">
-          <div className="logos-scroll flex items-center space-x-20">
+          <div className="logos-scroll flex items-center space-x-24">
             {duplicatedLogos.map((client, index) => (
               <div 
                 key={`${client.id}-${index}`}
