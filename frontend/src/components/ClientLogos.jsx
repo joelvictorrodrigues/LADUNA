@@ -66,7 +66,7 @@ export const ClientLogos = () => {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <p className="body-large text-black mb-8">
+          <p className="body-large mb-8" style={{color: '#000000'}}>
             Sua empresa pode ser a próxima nessa linha de sucesso!
           </p>
           <button 
