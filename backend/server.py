@@ -46,6 +46,79 @@ class ContactForm(BaseModel):
     service: Optional[str] = ""
     message: str
 
+async def send_contact_email(form_data: ContactForm):
+    """Send contact form email using Gmail SMTP"""
+    try:
+        # Gmail SMTP configuration
+        smtp_server = "smtp.gmail.com"
+        smtp_port = 587
+        sender_email = os.environ.get('GMAIL_EMAIL')
+        sender_password = os.environ.get('GMAIL_APP_PASSWORD')
+        
+        if not sender_email or not sender_password:
+            raise HTTPException(status_code=500, detail="Email configuration not found")
+        
+        # Create message
+        message = MIMEMultipart()
+        message["From"] = sender_email
+        message["To"] = sender_email  # Send to the same Gmail account
+        message["Subject"] = f"Nova mensagem de {form_data.name} - LADUNA STUDIO"
+        
+        # Email body
+        body = f"""
+Você recebeu uma nova mensagem através do site LADUNA STUDIO:
+
+Nome: {form_data.name}
+Email: {form_data.email}
+Telefone: {form_data.phone}
+Empresa: {form_data.company or 'Não informado'}
+Serviço de interesse: {form_data.service or 'Não especificado'}
+
+Mensagem:
+{form_data.message}
+
+---
+Enviado através do formulário de contato do site LADUNA STUDIO
+Data: {datetime.now().strftime('%d/%m/%Y às %H:%M')}
+        """
+        
+        message.attach(MIMEText(body, "plain"))
+        
+        # Send email
+        server = smtplib.SMTP(smtp_server, smtp_port)
+        server.starttls()
+        server.login(sender_email, sender_password)
+        text = message.as_string()
+        server.sendmail(sender_email, sender_email, text)
+        server.quit()
+        
+        return True
+        
+    except Exception as e:
+        logger.error(f"Error sending email: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to send email: {str(e)}")
+
+@api_router.post("/contact")
+async def submit_contact_form(form_data: ContactForm):
+    """Handle contact form submission"""
+    try:
+        # Send email
+        await send_contact_email(form_data)
+        
+        # Optionally save to database
+        contact_dict = form_data.dict()
+        contact_dict['id'] = str(uuid.uuid4())
+        contact_dict['timestamp'] = datetime.utcnow()
+        await db.contacts.insert_one(contact_dict)
+        
+        return {"message": "Mensagem enviada com sucesso!", "success": True}
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error in contact form submission: {e}")
+        raise HTTPException(status_code=500, detail="Internal server error")
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
