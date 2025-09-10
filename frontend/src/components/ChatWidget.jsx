@@ -94,7 +94,10 @@ export const ChatWidget = () => {
 
   const handleOptionClick = (option) => {
     if (option === 'WhatsApp' || option === 'Abrir WhatsApp') {
-      window.open(companyInfo.contact.whatsapp, '_blank');
+      // Link direto para WhatsApp com mensagem personalizada
+      const message = encodeURIComponent("Olá! Vim através do site da LADUNA STUDIO e gostaria de saber mais sobre os serviços de marketing digital.");
+      const whatsappURL = `https://wa.me/5566996139483?text=${message}`;
+      window.open(whatsappURL, '_blank');
       return;
     }
     if (option === 'E-mail') {
