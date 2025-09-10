@@ -373,7 +373,7 @@ body {
 
 @keyframes scroll-logos-right {
   0% {
-    transform: translateX(-50%);
+    transform: translateX(-33.33%);
   }
   100% {
     transform: translateX(0);
@@ -385,7 +385,7 @@ body {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-33.33%);
   }
 }
 
@@ -398,12 +398,12 @@ body {
 }
 
 .logos-scroll-right {
-  animation: scroll-logos-right 15s linear infinite;
+  animation: scroll-logos-right 20s linear infinite;
   width: fit-content;
 }
 
 .logos-scroll-left {
-  animation: scroll-logos-left 15s linear infinite;
+  animation: scroll-logos-left 20s linear infinite;
   width: fit-content;
 }
 
