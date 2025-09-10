@@ -27,6 +27,31 @@ export const ClientLogos = () => {
       id: 5,
       name: "JH Smart",
       logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/ahhdamnu_18.png"
+    },
+    {
+      id: 6,
+      name: "ME Fitness",
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/qjqxbhnp_19.png"
+    },
+    {
+      id: 7,
+      name: "Logo Caveira",
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/yrylxbzp_20.png"
+    },
+    {
+      id: 8,
+      name: "Compra de Ouro Brasil Gold",
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/1iqwkoc0_21.png"
+    },
+    {
+      id: 9,
+      name: "Fisio Trate",
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/gclb0fsn_22.png"
+    },
+    {
+      id: 10,
+      name: "ME Mundo dos Esportes",
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/jthie9bn_23.png"
     }
   ];
 
