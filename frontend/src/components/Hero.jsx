@@ -21,7 +21,7 @@ export const Hero = () => {
       {/* Background Image */}
       <div className="hero-background">
         <img 
-          src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&h=1080&fit=crop"
+          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&h=1080&fit=crop"
           alt="Digital Marketing Team"
           className="hero-image"
         />
