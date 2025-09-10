@@ -138,25 +138,25 @@ export const ClientLogos = () => {
         </div>
       </div>
 
-      {/* Stats Section with Black Background */}
-      <div className="bg-black py-16 mt-12">
+      {/* Stats Section with White Background */}
+      <div className="bg-white py-16 mt-12">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-brand-primary mb-3">50+</div>
-              <div className="text-gray-300 text-base">Clientes Atendidos</div>
+              <div className="text-4xl font-bold text-black mb-3">50+</div>
+              <div className="text-gray-600 text-base">Clientes Atendidos</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-brand-primary mb-3">200+</div>
-              <div className="text-gray-300 text-base">Projetos Realizados</div>
+              <div className="text-4xl font-bold text-black mb-3">200+</div>
+              <div className="text-gray-600 text-base">Projetos Realizados</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-brand-primary mb-3">300%</div>
-              <div className="text-gray-300 text-base">Aumento Médio de Vendas</div>
+              <div className="text-4xl font-bold text-black mb-3">300%</div>
+              <div className="text-gray-600 text-base">Aumento Médio de Vendas</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-brand-primary mb-3">5</div>
-              <div className="text-gray-300 text-base">Anos de Experiência</div>
+              <div className="text-4xl font-bold text-black mb-3">5</div>
+              <div className="text-gray-600 text-base">Anos de Experiência</div>
             </div>
           </div>
         </div>
