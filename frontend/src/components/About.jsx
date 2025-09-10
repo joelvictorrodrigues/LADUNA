@@ -77,14 +77,6 @@ export const About = () => {
                 <h4 className="heading-5 text-white mb-2">{member.name}</h4>
                 <p className="text-brand-primary font-semibold mb-3">{member.position}</p>
                 <p className="body-small text-gray-300 mb-4">{member.bio}</p>
-                <a 
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="link-text text-sm"
-                >
-                  LinkedIn →
-                </a>
               </div>
             </div>
           ))}
