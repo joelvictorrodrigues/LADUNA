@@ -24,26 +24,28 @@ export const Contact = () => {
     e.preventDefault();
     
     try {
-      // Configuração do EmailJS (usando serviço público para teste)
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        company: formData.company || 'Não informado',
-        service: formData.service || 'Não especificado',
-        message: formData.message,
-        to_email: 'ladunastudio@gmail.com'
-      };
+      // Enviar dados para o backend
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company || '',
+          service: formData.service || '',
+          message: formData.message,
+        }),
+      });
 
-      // Enviando email via EmailJS
-      await emailjs.send(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-        templateParams,
-        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
-      );
+      if (!response.ok) {
+        throw new Error(`Erro ${response.status}: ${response.statusText}`);
+      }
 
-      console.log('Email enviado com sucesso!');
+      const result = await response.json();
+      console.log('Email enviado com sucesso!', result);
       setIsSubmitted(true);
       
       setTimeout(() => {
@@ -59,20 +61,9 @@ export const Contact = () => {
       }, 3000);
 
     } catch (error) {
-      console.error('Erro ao enviar email:', error);
-      // Por enquanto, simular sucesso para não quebrar a experiência
-      setIsSubmitted(true);
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          company: '',
-          message: '',
-          service: ''
-        });
-      }, 3000);
+      console.error('Erro ao enviar formulário:', error);
+      // Mostrar erro ao usuário
+      alert('Erro ao enviar mensagem. Tente novamente ou entre em contato pelo WhatsApp.');
     }
   };
 
