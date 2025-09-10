@@ -87,9 +87,9 @@ export const ClientLogos = () => {
         </div>
 
         {/* Static Logos Grid - 2 Rows */}
-        <div className="space-y-12">
+        <div className="space-y-8">
           {/* Primeira Linha */}
-          <div className="flex items-center justify-center gap-8 flex-wrap">
+          <div className="flex items-center justify-center gap-6">
             {firstCarouselLogos.map((client) => (
               <div 
                 key={client.id}
@@ -98,14 +98,14 @@ export const ClientLogos = () => {
                 <img 
                   src={client.logo}
                   alt={client.name}
-                  className="h-24 w-48 object-contain transition-all duration-300 hover:drop-shadow-lg"
+                  className="h-20 w-40 object-contain transition-all duration-300 hover:drop-shadow-lg"
                 />
               </div>
             ))}
           </div>
 
           {/* Segunda Linha */}
-          <div className="flex items-center justify-center gap-8 flex-wrap">
+          <div className="flex items-center justify-center gap-6">
             {secondCarouselLogos.map((client) => (
               <div 
                 key={client.id}
@@ -114,7 +114,7 @@ export const ClientLogos = () => {
                 <img 
                   src={client.logo}
                   alt={client.name}
-                  className="h-24 w-48 object-contain transition-all duration-300 hover:drop-shadow-lg"
+                  className="h-20 w-40 object-contain transition-all duration-300 hover:drop-shadow-lg"
                 />
               </div>
             ))}
