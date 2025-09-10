@@ -66,8 +66,8 @@ export const ClientLogos = () => {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <p className="body-large text-gray-700 mb-8">
-            Sua empresa pode ser a próxima success story!
+          <p className="body-large text-black mb-8">
+            Sua empresa pode ser a próxima nessa linha de sucesso!
           </p>
           <button 
             onClick={() => {
