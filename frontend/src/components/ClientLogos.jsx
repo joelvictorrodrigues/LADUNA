@@ -108,7 +108,7 @@ export const ClientLogos = () => {
 
           {/* Segundo Carrossel - Movendo para Esquerda */}
           <div className="relative overflow-hidden py-6">
-            <div className="logos-scroll-left flex items-center space-x-12">
+            <div className="logos-scroll-left flex items-center space-x-8">
               {duplicatedSecondCarousel.map((client, index) => (
                 <div 
                   key={`second-${client.id}-${index}`}
