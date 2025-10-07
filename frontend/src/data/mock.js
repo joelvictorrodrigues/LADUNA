@@ -60,20 +60,7 @@ export const portfolioProjects = [
     },
     services: ["SEO", "Google Ads", "Content Marketing"]
   },
-  {
-    id: 2,
-    title: "Bella Vida Spa",
-    category: "Bem-estar & Beleza",
-    description: "Desenvolvemos uma campanha integrada que resultou em 200% de aumento nas reservas online e fortalecimento da presença digital.",
-    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&h=400&fit=crop",
-    results: {
-      bookingIncrease: "200%",
-      socialGrowth: "400%",
-      brandAwareness: "250%",
-      customerRetention: "85%"
-    },
-    services: ["Social Media", "Google Ads", "Website Development"]
-  },
+  // Bella Vida Spa removed by user request
   {
     id: 3,
     title: "TechStart Hub",
