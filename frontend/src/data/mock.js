@@ -141,15 +141,7 @@ export const testimonials = [
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop"
   },
   // Bella Vida Spa testimonial removed by user request
-  {
-    id: 3,
-    name: "João Carlos",
-    company: "TechStart Hub",
-    position: "Founder",
-    content: "A estratégia de Inbound Marketing da LADUNA foi fundamental para o crescimento da nossa startup. Geraram mais de 500 leads qualificados em 4 meses.",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop"
-  }
+  // TechStart Hub testimonial removed by user request
 ];
 
 export const companyInfo = {
