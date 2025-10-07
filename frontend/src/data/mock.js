@@ -140,15 +140,7 @@ export const testimonials = [
     rating: 5,
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop"
   },
-  {
-    id: 2,
-    name: "Maria Fernanda",
-    company: "Bella Vida Spa",
-    position: "Proprietária",
-    content: "Profissionais excepcionais! Conseguiram dobrar nossas reservas online e nossa presença nas redes sociais explodiu. Recomendo de olhos fechados.",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop"
-  },
+  // Bella Vida Spa testimonial removed by user request
   {
     id: 3,
     name: "João Carlos",
