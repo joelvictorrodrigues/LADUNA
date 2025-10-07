@@ -38,6 +38,12 @@
   --neutral-light: #dfddd6;
 }
 
+/* Hide Emergent badge */
+#emergent-badge {
+  display: none !important;
+  visibility: hidden !important;
+}
+
 /* Base Styles */
 * {
   margin: 0;
