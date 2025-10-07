@@ -61,20 +61,7 @@ export const portfolioProjects = [
     services: ["SEO", "Google Ads", "Content Marketing"]
   },
   // Bella Vida Spa removed by user request
-  {
-    id: 3,
-    title: "TechStart Hub",
-    category: "Startups & Inovação",
-    description: "Criamos uma estratégia de Inbound Marketing que gerou 500+ leads qualificados e aumentou o reconhecimento da marca em 180%.",
-    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&h=400&fit=crop",
-    results: {
-      leadsGenerated: "500+",
-      brandRecognition: "180%",
-      websiteTraffic: "250%",
-      conversionRate: "12%"
-    },
-    services: ["Inbound Marketing", "Content Creation", "SEO"]
-  },
+  // TechStart Hub removed by user request
   {
     id: 4,
     title: "Comércio de Fazendas",
