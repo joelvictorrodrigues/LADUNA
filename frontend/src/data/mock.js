@@ -83,7 +83,7 @@ export const teamMembers = [
     id: 1,
     name: "Joel Rodrigues",
     position: "Diretor de Performance",
-    bio: "Especialista em estratégia de Marketing, conteúdo e desenvolvimento estratégico de sites.",
+    bio: "Especialista em estratégia de marketing, conteúdo e desenvolvimento estratégico da presença digital.",
     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop",
     linkedin: ""
   },
@@ -93,6 +93,14 @@ export const teamMembers = [
     position: "Head de SEO",
     bio: "Especialista em gestão de redes sociais, estratégia digital e SEO.",
     image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
+    linkedin: ""
+  },
+  {
+    id: 3,
+    name: "Amanda Rodrigues",
+    position: "Projetos e Análise de Resultados",
+    bio: "Responsável pela elaboração de projetos, análise de dados e acompanhamento de resultados estratégicos.",
+    image: "https://images.unsplash.com/photo-1494790108755-2616b612b577?w=400&h=400&fit=crop",
     linkedin: ""
   }
 ];
