@@ -79,7 +79,7 @@ export const ClientLogos = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="heading-3 text-black mb-6">
-            Marcas que confiaram na nossa estratégia
+            MARCAS QUE CONFIARAM NA NOSSA ESTRATÉGIA
           </h2>
           <p className="body-large mb-6" style={{color: '#000000'}}>
             Parcerias construídas com foco em estratégia, posicionamento e crescimento real.
