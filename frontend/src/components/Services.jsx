@@ -89,7 +89,7 @@ export const Services = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center bg-gray-900 p-12 rounded-lg border border-gray-800">
+        <div className="text-center bg-gray-900 p-12 rounded-lg border border-gray-800" style={{ marginBottom: '40px' }}>
           <h3 className="heading-3 text-white mb-4">
             Pronto para Transformar Seu Negócio?
           </h3>
