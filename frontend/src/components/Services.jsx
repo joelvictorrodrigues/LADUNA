@@ -30,7 +30,7 @@ export const Services = () => {
             Nossos Serviços
           </h2>
           <p className="body-large max-w-3xl mx-auto text-gray-300">
-            Oferecemos soluções completas de marketing digital para transformar sua presença online e acelerar seu crescimento.
+            Soluções completas para estruturar, fortalecer e escalar sua presença digital.
           </p>
         </div>
 
