@@ -196,7 +196,7 @@ body {
 .btn-primary:hover {
   transform: scale(1.02);
   background: var(--brand-hover);
-  box-shadow: 0 4px 16px rgba(107, 114, 128, 0.3);
+  box-shadow: 0 4px 16px rgba(85, 85, 85, 0.3);
 }
 
 .btn-primary:active {
