@@ -73,11 +73,11 @@ export const Services = () => {
                 </div>
 
                 <div className="mt-6">
-                  <button className="text-brand-primary text-sm font-semibold flex items-center gap-2 group-hover:gap-3 transition-all">
+                  <button className="text-sm font-semibold flex items-center gap-2 group-hover:gap-3 transition-all" style={{ color: '#FFFFFF', opacity: 0.4 }}>
                     {selectedService === service.id ? 'Ver menos' : 'Saiba mais'}
                     <ArrowRight size={16} className={`transition-transform ${
                       selectedService === service.id ? 'rotate-90' : ''
-                    }`} />
+                    }`} style={{ color: '#FFFFFF', opacity: 0.4 }} />
                   </button>
                 </div>
               </div>
