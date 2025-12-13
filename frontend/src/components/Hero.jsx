@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, TrendingUp, Users, Zap } from 'lucide-react';
+import { ArrowRight, Clock, TrendingUp, Users, Zap } from 'lucide-react';
 
 export const Hero = () => {
   const scrollToContact = () => {
