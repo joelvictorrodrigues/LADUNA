@@ -108,9 +108,10 @@ export const Services = () => {
               color: '#000000',
               border: '0px',
               borderRadius: '999px',
-              height: '48px',
-              width: '320px',
-              justifyContent: 'center'
+              height: '44px',
+              width: '280px',
+              justifyContent: 'center',
+              fontSize: '0.85rem'
             }}
           >
             AGENDAR CONSULTORIA GRATUITA
