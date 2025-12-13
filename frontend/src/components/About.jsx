@@ -15,7 +15,11 @@ export const About = () => {
           }}>
             SOBRE A LADUNA
           </h2>
-          <p className="body-large max-w-4xl mx-auto text-gray-300">
+          <p className="mx-auto text-white" style={{ 
+            maxWidth: '900px',
+            lineHeight: '1.6',
+            fontSize: '1.175rem'
+          }}>
             {companyInfo.description}
           </p>
         </div>
