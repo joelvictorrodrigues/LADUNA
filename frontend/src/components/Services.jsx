@@ -93,7 +93,7 @@ export const Services = () => {
           <h3 className="heading-3 text-white mb-4">
             Pronto para Transformar Seu Negócio?
           </h3>
-          <p className="body-medium text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="body-medium mb-8 max-w-2xl mx-auto" style={{ color: '#FFFFFF', opacity: 0.85 }}>
             Agende uma consultoria gratuita e descubra como podemos acelerar o crescimento da sua empresa.
           </p>
           <button 
