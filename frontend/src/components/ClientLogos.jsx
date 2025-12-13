@@ -133,7 +133,7 @@ export const ClientLogos = () => {
             }}
             className="btn-primary"
           >
-            Quero Fazer Parte
+            QUERO FAZER PARTE
           </button>
         </div>
       </div>
