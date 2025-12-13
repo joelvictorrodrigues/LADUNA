@@ -160,7 +160,7 @@ export const About = () => {
                 <User style={{ 
                   color: '#FFFFFF', 
                   opacity: 0.4 
-                }} size={20} />
+                }} size={24} />
               </div>
               <h4 className="text-white mb-2" style={{ 
                 fontSize: '1.375rem',
