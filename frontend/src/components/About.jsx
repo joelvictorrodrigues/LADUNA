@@ -251,7 +251,7 @@ export const About = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-16" style={{ marginBottom: '80px' }}>
           <div className="bg-brand-primary/10 p-12 rounded-lg border border-brand-primary/20">
             <h3 className="heading-4 text-white mb-4">
               Prontos para Trabalhar Juntos?
