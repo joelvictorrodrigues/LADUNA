@@ -253,7 +253,7 @@ export const About = () => {
         {/* CTA Section */}
         <div className="text-center mt-16" style={{ marginBottom: '80px' }}>
           <div className="p-12 rounded-lg relative overflow-hidden" style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1611829517505-0235064854fc?w=1200&h=600&fit=crop")',
+            backgroundImage: 'url("https://images.unsplash.com/photo-1611224260559-cc96f32fd423?w=1200&h=600&fit=crop")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
