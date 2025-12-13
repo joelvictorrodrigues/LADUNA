@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle, Target, Eye, Heart } from 'lucide-react';
+import { CheckCircle, Target, Eye, Heart, User, UserCheck, Smile } from 'lucide-react';
 import { companyInfo, teamMembers } from '../data/mock';
 
 export const About = () => {
