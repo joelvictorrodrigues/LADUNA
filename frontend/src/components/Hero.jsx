@@ -46,7 +46,7 @@ export const Hero = () => {
                 onClick={scrollToContact}
                 className="btn-primary flex items-center justify-center gap-2"
               >
-                Consultoria Gratuita
+                CONSULTORIA GRATUITA
                 <ArrowRight size={20} />
               </button>
               <button 
