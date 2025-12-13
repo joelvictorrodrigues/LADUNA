@@ -144,64 +144,109 @@ export const About = () => {
 
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-items-center mb-6">
-            {teamMembers.slice(0, 2).map((member) => (
-              <div 
-                key={member.id}
-                className="w-full max-w-sm" 
-                style={{ 
-                  backgroundColor: '#0B0B0B',
-                  border: '1px solid #1E1E1E',
-                  borderRadius: '16px',
-                  padding: '32px'
-                }}
-              >
-                <h4 className="text-white mb-2" style={{ 
-                  fontSize: '1.375rem',
-                  fontWeight: '600'
-                }}>{member.name}</h4>
-                <p className="mb-4" style={{ 
-                  color: '#BDBDBD',
-                  fontSize: '14px',
-                  opacity: 1
-                }}>{member.position}</p>
-                <p style={{ 
-                  color: '#CFCFCF',
-                  fontSize: '0.95rem',
-                  lineHeight: '1.6'
-                }}>{member.bio}</p>
+            {/* Joel Rodrigues */}
+            <div 
+              className="w-full max-w-sm relative transition-colors duration-300" 
+              style={{ 
+                backgroundColor: '#0B0B0B',
+                border: '1px solid #1E1E1E',
+                borderRadius: '16px',
+                padding: '32px'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.borderColor = '#888888'}
+              onMouseLeave={(e) => e.currentTarget.style.borderColor = '#1E1E1E'}
+            >
+              <div className="absolute top-4 right-4">
+                <User style={{ 
+                  color: '#FFFFFF', 
+                  opacity: 0.4 
+                }} size={20} />
               </div>
-            ))}
+              <h4 className="text-white mb-2" style={{ 
+                fontSize: '1.375rem',
+                fontWeight: '600'
+              }}>{teamMembers[0].name}</h4>
+              <p className="mb-4" style={{ 
+                color: '#BDBDBD',
+                fontSize: '14px',
+                opacity: 1
+              }}>{teamMembers[0].position}</p>
+              <p style={{ 
+                color: '#CFCFCF',
+                fontSize: '0.95rem',
+                lineHeight: '1.6'
+              }}>{teamMembers[0].bio}</p>
+            </div>
+
+            {/* Talita Vieira */}
+            <div 
+              className="w-full max-w-sm relative transition-colors duration-300" 
+              style={{ 
+                backgroundColor: '#0B0B0B',
+                border: '1px solid #1E1E1E',
+                borderRadius: '16px',
+                padding: '32px'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.borderColor = '#888888'}
+              onMouseLeave={(e) => e.currentTarget.style.borderColor = '#1E1E1E'}
+            >
+              <div className="absolute top-4 right-4">
+                <UserCheck style={{ 
+                  color: '#FFFFFF', 
+                  opacity: 0.4 
+                }} size={20} />
+              </div>
+              <h4 className="text-white mb-2" style={{ 
+                fontSize: '1.375rem',
+                fontWeight: '600'
+              }}>{teamMembers[1].name}</h4>
+              <p className="mb-4" style={{ 
+                color: '#BDBDBD',
+                fontSize: '14px',
+                opacity: 1
+              }}>{teamMembers[1].position}</p>
+              <p style={{ 
+                color: '#CFCFCF',
+                fontSize: '0.95rem',
+                lineHeight: '1.6'
+              }}>{teamMembers[1].bio}</p>
+            </div>
           </div>
           
           {/* Amanda centralizada */}
           <div className="flex justify-center">
-            {teamMembers.slice(2, 3).map((member) => (
-              <div 
-                key={member.id}
-                className="w-full max-w-sm" 
-                style={{ 
-                  backgroundColor: '#0B0B0B',
-                  border: '1px solid #1E1E1E',
-                  borderRadius: '16px',
-                  padding: '32px'
-                }}
-              >
-                <h4 className="text-white mb-2" style={{ 
-                  fontSize: '1.375rem',
-                  fontWeight: '600'
-                }}>{member.name}</h4>
-                <p className="mb-4" style={{ 
-                  color: '#BDBDBD',
-                  fontSize: '14px',
-                  opacity: 1
-                }}>{member.position}</p>
-                <p style={{ 
-                  color: '#CFCFCF',
-                  fontSize: '0.95rem',
-                  lineHeight: '1.6'
-                }}>{member.bio}</p>
+            <div 
+              className="w-full max-w-sm relative transition-colors duration-300" 
+              style={{ 
+                backgroundColor: '#0B0B0B',
+                border: '1px solid #1E1E1E',
+                borderRadius: '16px',
+                padding: '32px'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.borderColor = '#888888'}
+              onMouseLeave={(e) => e.currentTarget.style.borderColor = '#1E1E1E'}
+            >
+              <div className="absolute top-4 right-4">
+                <Smile style={{ 
+                  color: '#FFFFFF', 
+                  opacity: 0.4 
+                }} size={20} />
               </div>
-            ))}
+              <h4 className="text-white mb-2" style={{ 
+                fontSize: '1.375rem',
+                fontWeight: '600'
+              }}>{teamMembers[2].name}</h4>
+              <p className="mb-4" style={{ 
+                color: '#BDBDBD',
+                fontSize: '14px',
+                opacity: 1
+              }}>{teamMembers[2].position}</p>
+              <p style={{ 
+                color: '#CFCFCF',
+                fontSize: '0.95rem',
+                lineHeight: '1.6'
+              }}>{teamMembers[2].bio}</p>
+            </div>
           </div>
         </div>
 
