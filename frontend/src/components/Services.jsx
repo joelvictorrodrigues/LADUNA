@@ -27,7 +27,7 @@ export const Services = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-white mb-6" style={{ 
-            fontSize: '2.52rem',
+            fontSize: '2.27rem',
             fontWeight: '700'
           }}>
             NOSSOS SERVIÇOS
