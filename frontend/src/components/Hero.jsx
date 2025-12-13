@@ -53,7 +53,7 @@ export const Hero = () => {
                 onClick={scrollToServices}
                 className="btn-secondary"
               >
-                Nossos Serviços
+                NOSSOS SERVIÇOS
               </button>
             </div>
 
