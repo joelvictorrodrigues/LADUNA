@@ -59,7 +59,7 @@ export const About = () => {
 
         {/* Team Section */}
         <div className="text-center mb-12">
-          <h3 className="heading-3 text-brand-primary mb-4">
+          <h3 className="heading-3 text-white mb-4">
             Quem está por trás da LADUNA
           </h3>
           <p className="body-medium text-gray-300 max-w-2xl mx-auto">
