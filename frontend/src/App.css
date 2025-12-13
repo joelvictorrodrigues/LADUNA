@@ -18,12 +18,12 @@
   --text-white: #ffffff;
   --text-light-gray: #c4c4c0;
   
-  /* LADUNA Brand Colors - Preto, Branco e Cinza */
-  --brand-primary: #6b7280;
-  --brand-hover: #9ca3af;
-  --brand-active: #4b5563;
+  /* LADUNA Brand Colors - APENAS Preto, Branco e Cinzas */
+  --brand-primary: #333333;
+  --brand-hover: #555555;
+  --brand-active: #222222;
   --brand-dark: #000000;
-  --brand-gray: #6b7280;
+  --brand-gray: #777777;
   
   /* Borders */  
   --border-light: rgba(107, 114, 128, 0.3);
