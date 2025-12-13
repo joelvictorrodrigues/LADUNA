@@ -252,7 +252,15 @@ export const About = () => {
 
         {/* CTA Section */}
         <div className="text-center mt-16" style={{ marginBottom: '80px' }}>
-          <div className="bg-brand-primary/10 p-12 rounded-lg border border-brand-primary/20">
+          <div className="p-12 rounded-lg relative overflow-hidden" style={{
+            backgroundImage: 'url("https://images.unsplash.com/photo-1611829517505-0235064854fc?w=1200&h=600&fit=crop")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            filter: 'brightness(0.8)'
+          }}>
+            <div className="absolute inset-0 bg-black opacity-70 z-0"></div>
+            <div className="relative z-10">
             <h3 className="heading-4 text-white mb-4">
               Prontos para Trabalhar Juntos?
             </h3>
