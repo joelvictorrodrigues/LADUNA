@@ -1,18 +1,6 @@
-import React, { useState } from 'react';
-import { ExternalLink, TrendingUp, Users, Zap, DollarSign } from 'lucide-react';
-import { portfolioProjects } from '../data/mock';
+import React from 'react';
 
 export const Portfolio = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
-
-  const openProject = (project) => {
-    setSelectedProject(project);
-  };
-
-  const closeProject = () => {
-    setSelectedProject(null);
-  };
-
   return (
     <section id="portfolio" className="py-24 bg-black">
       <div className="container mx-auto px-6">
@@ -22,7 +10,7 @@ export const Portfolio = () => {
             Nosso Portfólio
           </h2>
           <p className="body-large max-w-3xl mx-auto text-gray-300">
-            Conheça alguns dos projetos que transformaram a presença digital dos nossos clientes e geraram resultados excepcionais.
+            Atuamos em projetos de tecnologia, varejo, imobiliário, agronegócio e serviços, sempre com foco em crescimento estratégico, posicionamento de marca e resultados sustentáveis.
           </p>
         </div>
 
