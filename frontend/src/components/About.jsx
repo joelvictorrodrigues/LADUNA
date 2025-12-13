@@ -126,10 +126,18 @@ export const About = () => {
 
         {/* Team Section */}
         <div className="text-center mb-12">
-          <h3 className="heading-3 text-white mb-4">
-            Quem está por trás da LADUNA
+          <h3 className="text-white mb-4" style={{ 
+            fontSize: '2.3rem',
+            fontWeight: '700'
+          }}>
+            QUEM ESTÁ POR TRÁS DA LADUNA
           </h3>
-          <p className="body-medium text-gray-300 max-w-2xl mx-auto">
+          <p className="mx-auto" style={{ 
+            color: '#E6E6E6',
+            maxWidth: '820px',
+            fontSize: '1.1rem',
+            lineHeight: '1.5'
+          }}>
             Conheça os especialistas por trás dos resultados excepcionais que entregamos aos nossos clientes.
           </p>
         </div>
