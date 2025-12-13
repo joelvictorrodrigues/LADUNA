@@ -26,16 +26,15 @@
   --brand-gray: #6b7280;
   
   /* Borders */  
-  --border-light: rgba(63, 72, 22, 0.5);
-  --border-medium: #3f4816;
-  --border-strong: #888680;
+  --border-light: rgba(107, 114, 128, 0.3);
+  --border-medium: #6b7280;
+  --border-strong: #4b5563;
   
   /* Supporting Colors */
-  --secondary-olive: #3f4816;
-  --secondary-yellow: #f8d47a;
-  --secondary-blue: #0073e6;
+  --secondary-gray: #9ca3af;
+  --secondary-dark: #374151;
   --neutral-white: white;
-  --neutral-light: #dfddd6;
+  --neutral-light: #f3f4f6;
 }
 
 /* Hide Emergent badge */
