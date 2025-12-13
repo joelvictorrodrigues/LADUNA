@@ -143,7 +143,7 @@ export const About = () => {
         </div>
 
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-items-center mb-6">
             {teamMembers.slice(0, 2).map((member) => (
               <div 
                 key={member.id}
