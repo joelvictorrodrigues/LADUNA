@@ -278,6 +278,40 @@ body {
   overflow: hidden;
 }
 
+/* NAVBAR ESPECÍFICA CONFORME BRIEFING */
+.navbar-laduna {
+  background-color: #0B0B0B;
+  height: 72px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+}
+
+.navbar-link {
+  color: #FFFFFF;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navbar-link:hover {
+  color: #A0A0A0;
+}
+
+.navbar-cta-button {
+  background-color: #FFFFFF;
+  color: #0B0B0B;
+  border: 1px solid #1D1D1D;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.navbar-cta-button:hover {
+  background-color: #F2F2F2;
+}
+
 .hero-image {
   object-fit: cover;
   width: 100%;
