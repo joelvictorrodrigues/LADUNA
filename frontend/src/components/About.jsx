@@ -265,7 +265,7 @@ export const About = () => {
               Prontos para Trabalhar Juntos?
             </h3>
             <p className="body-medium text-gray-300 mb-8 max-w-2xl mx-auto">
-              Nossa equipe está preparada para transformar sua presença digital e acelerar o crescimento do seu negócio.
+              Nossa equipe está preparada para transformar sua presença digital<br />e acelerar o crescimento do seu negócio.
             </p>
             <button 
               onClick={() => {
