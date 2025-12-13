@@ -142,19 +142,67 @@ export const About = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto justify-items-center">
-          {teamMembers.map((member) => (
-            <div 
-              key={member.id}
-              className="team-card bg-black border border-gray-800 rounded-lg overflow-hidden card-hover-effect w-full max-w-sm"
-            >
-              <div className="team-card-content p-6">
-                <h4 className="heading-5 text-white mb-2">{member.name}</h4>
-                <p className="text-brand-primary font-semibold mb-3">{member.position}</p>
-                <p className="body-small text-gray-300 mb-4">{member.bio}</p>
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center mb-6">
+            {teamMembers.slice(0, 2).map((member) => (
+              <div 
+                key={member.id}
+                className="w-full max-w-sm" 
+                style={{ 
+                  backgroundColor: '#0B0B0B',
+                  border: '1px solid #1E1E1E',
+                  borderRadius: '16px',
+                  padding: '32px'
+                }}
+              >
+                <h4 className="text-white mb-2" style={{ 
+                  fontSize: '1.375rem',
+                  fontWeight: '600'
+                }}>{member.name}</h4>
+                <p className="mb-4" style={{ 
+                  color: '#BDBDBD',
+                  fontSize: '14px',
+                  opacity: 1
+                }}>{member.position}</p>
+                <p style={{ 
+                  color: '#CFCFCF',
+                  fontSize: '0.95rem',
+                  lineHeight: '1.6'
+                }}>{member.bio}</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          
+          {/* Amanda centralizada */}
+          <div className="flex justify-center">
+            {teamMembers.slice(2, 3).map((member) => (
+              <div 
+                key={member.id}
+                className="w-full max-w-sm" 
+                style={{ 
+                  backgroundColor: '#0B0B0B',
+                  border: '1px solid #1E1E1E',
+                  borderRadius: '16px',
+                  padding: '32px'
+                }}
+              >
+                <h4 className="text-white mb-2" style={{ 
+                  fontSize: '1.375rem',
+                  fontWeight: '600'
+                }}>{member.name}</h4>
+                <p className="mb-4" style={{ 
+                  color: '#BDBDBD',
+                  fontSize: '14px',
+                  opacity: 1
+                }}>{member.position}</p>
+                <p style={{ 
+                  color: '#CFCFCF',
+                  fontSize: '0.95rem',
+                  lineHeight: '1.6'
+                }}>{member.bio}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* CTA Section */}
