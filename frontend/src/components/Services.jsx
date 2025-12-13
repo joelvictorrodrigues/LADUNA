@@ -60,11 +60,11 @@ export const Services = () => {
                   selectedService === service.id ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                 }`}>
                   <div className="border-t border-gray-800 pt-4 mt-4">
-                    <h4 className="text-brand-primary font-semibold mb-3">Incluí:</h4>
+                    <h4 style={{ color: '#FFFFFF', opacity: 0.4 }} className="font-semibold mb-3">Incluí:</h4>
                     <ul className="space-y-2">
                       {service.features.map((feature, index) => (
                         <li key={index} className="flex items-center gap-2 text-gray-300">
-                          <Check size={16} className="text-brand-primary" />
+                          <Check size={16} style={{ color: '#FFFFFF', opacity: 0.4 }} />
                           <span className="text-sm">{feature}</span>
                         </li>
                       ))}
