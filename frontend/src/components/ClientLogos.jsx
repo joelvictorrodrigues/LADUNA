@@ -79,10 +79,10 @@ export const ClientLogos = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="heading-3 text-black mb-6">
-            Empresas que Confiaram na LADUNA STUDIO
+            Marcas que confiaram na nossa estratégia
           </h2>
           <p className="body-large mb-6" style={{color: '#000000'}}>
-            Orgulhosos de trabalhar com empresas inovadoras que transformaram sua presença digital conosco.
+            Parcerias construídas com foco em estratégia, posicionamento e crescimento real.
           </p>
         </div>
 
