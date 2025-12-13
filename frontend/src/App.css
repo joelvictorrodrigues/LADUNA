@@ -25,16 +25,16 @@
   --brand-dark: #000000;
   --brand-gray: #777777;
   
-  /* Borders */  
-  --border-light: rgba(107, 114, 128, 0.3);
-  --border-medium: #6b7280;
-  --border-strong: #4b5563;
+  /* Borders - APENAS Cinzas */
+  --border-light: rgba(85, 85, 85, 0.2);
+  --border-medium: #555555;
+  --border-strong: #333333;
   
-  /* Supporting Colors */
-  --secondary-gray: #9ca3af;
-  --secondary-dark: #374151;
-  --neutral-white: white;
-  --neutral-light: #f3f4f6;
+  /* Supporting Colors - APENAS Escala de Cinza */
+  --secondary-gray: #777777;
+  --secondary-dark: #222222;
+  --neutral-white: #FFFFFF;
+  --neutral-light: #CFCFCF;
 }
 
 /* Hide Emergent badge */
