@@ -22,7 +22,7 @@ export const Services = () => {
   };
 
   return (
-    <section id="services" className="py-24 bg-black">
+    <section id="services" className="bg-black" style={{ paddingTop: '80px', paddingBottom: '96px' }}>
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
