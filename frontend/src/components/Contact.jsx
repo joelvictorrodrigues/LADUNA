@@ -24,28 +24,34 @@ export const Contact = () => {
     e.preventDefault();
     
     try {
-      // Enviar dados para o backend
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/contact`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          company: formData.company || '',
-          service: formData.service || '',
-          message: formData.message,
-        }),
-      });
+      // Formatar dados para WhatsApp
+      const mensagemWhatsApp = `🔥 *Nova Solicitação - LADUNA STUDIO*
 
-      if (!response.ok) {
-        throw new Error(`Erro ${response.status}: ${response.statusText}`);
-      }
+👤 *Nome:* ${formData.name}
+📧 *Email:* ${formData.email}
+📱 *Telefone:* ${formData.phone}
+🏢 *Empresa:* ${formData.company || 'Não informado'}
+🎯 *Serviço de Interesse:* ${formData.service || 'Não especificado'}
 
-      const result = await response.json();
-      console.log('Email enviado com sucesso!', result);
+💬 *Mensagem:*
+${formData.message}
+
+---
+_Enviado através do formulário do site LADUNA STUDIO_`;
+
+      // Codificar mensagem para URL
+      const mensagemCodificada = encodeURIComponent(mensagemWhatsApp);
+      
+      // Número do WhatsApp da LADUNA
+      const numeroWhatsApp = '5566996139483';
+      
+      // URL do WhatsApp
+      const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`;
+      
+      // Abrir WhatsApp
+      window.open(urlWhatsApp, '_blank');
+      
+      // Mostrar confirmação
       setIsSubmitted(true);
       
       setTimeout(() => {
@@ -61,9 +67,8 @@ export const Contact = () => {
       }, 3000);
 
     } catch (error) {
-      console.error('Erro ao enviar formulário:', error);
-      // Mostrar erro ao usuário
-      alert('Erro ao enviar mensagem. Tente novamente ou entre em contato pelo WhatsApp.');
+      console.error('Erro ao processar formulário:', error);
+      alert('Erro ao processar formulário. Tente novamente.');
     }
   };
 
