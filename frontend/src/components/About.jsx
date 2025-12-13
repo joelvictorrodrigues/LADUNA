@@ -264,7 +264,18 @@ export const About = () => {
                 const element = document.getElementById('contact');
                 if (element) element.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="btn-primary"
+              style={{
+                backgroundColor: '#FFFFFF',
+                color: '#000000',
+                borderRadius: '999px',
+                height: '48px',
+                width: '220px',
+                border: '0px',
+                fontWeight: '600',
+                fontSize: '0.95rem',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
+              }}
             >
               VAMOS CONVERSAR
             </button>
