@@ -27,7 +27,7 @@ export const Services = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="heading-2 text-white mb-6">
-            Nossos Serviços
+            NOSSOS SERVIÇOS
           </h2>
           <p className="body-large max-w-3xl mx-auto text-gray-300">
             Soluções completas para estruturar, fortalecer e escalar sua presença digital.
