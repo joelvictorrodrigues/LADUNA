@@ -48,8 +48,8 @@ export const Services = () => {
                 onClick={() => setSelectedService(selectedService === service.id ? null : service.id)}
               >
                 <div className="mb-6">
-                  <div className="bg-brand-primary/20 p-3 rounded-lg inline-block mb-4">
-                    <IconComponent className="text-brand-primary" size={24} />
+                  <div className="bg-white/10 p-3 rounded-lg inline-block mb-4">
+                    <IconComponent style={{ color: '#FFFFFF', opacity: 0.4 }} size={24} />
                   </div>
                   <h3 className="heading-4 text-white mb-3">{service.title}</h3>
                   <p className="body-small text-gray-300 mb-4">{service.description}</p>
