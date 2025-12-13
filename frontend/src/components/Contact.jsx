@@ -82,7 +82,7 @@ export const Contact = () => {
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="heading-2 text-brand-primary mb-6">
+          <h2 className="heading-2 text-white mb-6">
             Vamos Conversar
           </h2>
           <p className="body-large max-w-3xl mx-auto text-gray-300">
