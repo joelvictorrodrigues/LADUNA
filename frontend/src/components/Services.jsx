@@ -90,8 +90,12 @@ export const Services = () => {
 
         {/* CTA Section */}
         <div className="text-center bg-gray-900 p-12 rounded-lg border border-gray-800" style={{ marginBottom: '40px' }}>
-          <h3 className="heading-3 text-white mb-4">
-            Pronto para Transformar Seu Negócio?
+          <h3 className="text-white mb-4" style={{ 
+            fontSize: '1.6rem', 
+            fontWeight: '700',
+            lineHeight: '1.2'
+          }}>
+            PRONTO PARA TRANSFORMAR SEU NEGÓCIO?
           </h3>
           <p className="body-medium mb-8 max-w-2xl mx-auto" style={{ color: '#FFFFFF', opacity: 0.85 }}>
             Agende uma consultoria gratuita e descubra como podemos acelerar o crescimento da sua empresa.
