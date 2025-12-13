@@ -98,7 +98,7 @@ export const About = () => {
               }}
               className="btn-primary"
             >
-              Vamos Conversar
+              VAMOS CONVERSAR
             </button>
           </div>
         </div>
