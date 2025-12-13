@@ -21,8 +21,8 @@ export const Hero = () => {
       {/* Background Image */}
       <div className="hero-background">
         <img 
-          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&h=1080&fit=crop"
-          alt="Digital Marketing Team"
+          src="https://images.unsplash.com/photo-1611829517505-0235064854fc?w=1920&h=1080&fit=crop"
+          alt="Modern Business Architecture"
           className="hero-image"
         />
         <div className="hero-overlay"></div>
