@@ -75,7 +75,7 @@ export const Hero = () => {
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="flex items-center gap-3">
-                <div className="bg-gray-800/30 p-3 rounded-lg">
+                <div className="p-3 rounded-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}>
                   <TrendingUp style={{ color: '#FFFFFF' }} size={20} />
                 </div>
                 <div>
@@ -84,7 +84,7 @@ export const Hero = () => {
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="bg-gray-800/30 p-3 rounded-lg">
+                <div className="p-3 rounded-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}>
                   <Users style={{ color: '#FFFFFF' }} size={20} />
                 </div>
                 <div>
@@ -93,7 +93,7 @@ export const Hero = () => {
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="bg-gray-800/30 p-3 rounded-lg">
+                <div className="p-3 rounded-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}>
                   <Zap style={{ color: '#FFFFFF' }} size={20} />
                 </div>
                 <div>
@@ -102,7 +102,7 @@ export const Hero = () => {
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="bg-gray-800/30 p-3 rounded-lg">
+                <div className="p-3 rounded-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}>
                   <Users style={{ color: '#FFFFFF' }} size={20} />
                 </div>
                 <div style={{ minWidth: '120px' }}>
