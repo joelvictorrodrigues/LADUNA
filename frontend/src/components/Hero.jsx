@@ -33,7 +33,7 @@ export const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start lg:items-center">
           {/* Left Content */}
           <div className="order-2 lg:order-1">
-            <h1 className="hero-title mb-6 text-white">
+            <h1 className="hero-title mb-6" style={{ color: '#FFFFFF' }}>
               Marketing estratégico para empresas e profissionais que querem crescer de verdade.
             </h1>
             
