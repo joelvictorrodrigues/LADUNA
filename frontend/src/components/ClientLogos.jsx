@@ -135,7 +135,12 @@ export const ClientLogos = () => {
               const element = document.getElementById('contact');
               if (element) element.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="btn-primary"
+            className="px-8 py-3 rounded-lg font-semibold transition-colors duration-200"
+            style={{
+              backgroundColor: '#000000',
+              color: '#CFCFCF',
+              border: 'none'
+            }}
           >
             QUERO FAZER PARTE
           </button>
