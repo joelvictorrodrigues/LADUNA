@@ -13,9 +13,10 @@ export const Portfolio = () => {
             Atuamos em projetos de tecnologia, varejo, imobiliário, agronegócio e serviços, sempre com foco em crescimento estratégico, posicionamento de marca e resultados sustentáveis.
           </p>
         </div>
-
-        {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      </div>
+    </section>
+  );
+};
           {portfolioProjects.map((project) => (
             <div 
               key={project.id}
