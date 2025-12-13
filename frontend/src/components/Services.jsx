@@ -98,9 +98,18 @@ export const Services = () => {
           </p>
           <button 
             onClick={scrollToContact}
-            className="btn-primary inline-flex items-center gap-2"
+            className="inline-flex items-center gap-2 font-semibold transition-colors duration-200"
+            style={{
+              backgroundColor: '#FFFFFF',
+              color: '#000000',
+              border: '0px',
+              borderRadius: '999px',
+              height: '48px',
+              width: '320px',
+              justifyContent: 'center'
+            }}
           >
-            Agendar Consultoria Gratuita
+            AGENDAR CONSULTORIA GRATUITA
             <ArrowRight size={20} />
           </button>
         </div>
