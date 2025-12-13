@@ -21,6 +21,7 @@ function App() {
         <Services />
         <Portfolio />
         <ClientLogos />
+        <FinalCTA />
         <Contact />
       </main>
       <Footer />
