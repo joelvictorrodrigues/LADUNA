@@ -9,7 +9,7 @@ export const CTAIntermediate = () => {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-r from-brand-primary via-brand-primary to-yellow-400">
+    <section className="py-24 bg-gray-100">
       <div className="container mx-auto px-6">
         <div className="text-center">
           <h2 className="heading-2 text-black mb-6 font-bold">
