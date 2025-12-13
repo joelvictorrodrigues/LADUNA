@@ -85,13 +85,15 @@ export const About = () => {
           </div>
 
           {/* Values */}
-          <div className="p-8 flex flex-col" style={{ 
+          <div className="p-8 flex flex-col transition-colors duration-300" style={{ 
             backgroundColor: '#0B0B0B',
             border: '1px solid #1E1E1E',
             borderRadius: '16px',
             boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
             minHeight: '280px'
-          }}>
+          }}
+          onMouseEnter={(e) => e.target.style.borderColor = '#888888'}
+          onMouseLeave={(e) => e.target.style.borderColor = '#1E1E1E'}>
             <div className="inline-block mb-6">
               <Heart style={{ 
                 color: '#FFFFFF', 
