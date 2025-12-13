@@ -103,7 +103,7 @@ export const Hero = () => {
               </div>
               <div className="flex items-center gap-3">
                 <div className="p-3 rounded-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}>
-                  <Users style={{ color: '#FFFFFF' }} size={20} />
+                  <Clock style={{ color: '#FFFFFF' }} size={20} />
                 </div>
                 <div style={{ minWidth: '120px' }}>
                   <div className="text-xl font-bold" style={{ color: '#FFFFFF' }}>5 anos</div>
