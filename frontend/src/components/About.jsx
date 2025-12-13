@@ -25,40 +25,93 @@ export const About = () => {
         </div>
 
         {/* Mission, Vision, Values Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20" style={{ height: 'auto' }}>
           {/* Mission */}
-          <div className="bg-black p-8 rounded-lg border border-gray-800">
-            <div className="bg-brand-primary/20 p-3 rounded-lg inline-block mb-6">
-              <Target className="text-brand-primary" size={24} />
+          <div className="p-8 flex flex-col" style={{ 
+            backgroundColor: '#0B0B0B',
+            border: '1px solid #1E1E1E',
+            borderRadius: '16px',
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+            minHeight: '280px'
+          }}>
+            <div className="inline-block mb-6">
+              <Target style={{ 
+                color: '#FFFFFF', 
+                opacity: 0.7 
+              }} size={24} />
             </div>
-            <h3 className="heading-5 text-white mb-4">Missão</h3>
-            <p className="body-small text-gray-300">
+            <h3 className="text-white mb-4" style={{ 
+              fontSize: '1.375rem',
+              fontWeight: '600'
+            }}>Missão</h3>
+            <p style={{ 
+              color: '#CFCFCF',
+              fontSize: '0.95rem',
+              lineHeight: '1.5'
+            }}>
               {companyInfo.mission}
             </p>
           </div>
 
           {/* Vision */}
-          <div className="bg-black p-8 rounded-lg border border-gray-800">
-            <div className="bg-brand-primary/20 p-3 rounded-lg inline-block mb-6">
-              <Eye className="text-brand-primary" size={24} />
+          <div className="p-8 flex flex-col" style={{ 
+            backgroundColor: '#0B0B0B',
+            border: '1px solid #1E1E1E',
+            borderRadius: '16px',
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+            minHeight: '280px'
+          }}>
+            <div className="inline-block mb-6">
+              <Eye style={{ 
+                color: '#FFFFFF', 
+                opacity: 0.7 
+              }} size={24} />
             </div>
-            <h3 className="heading-5 text-white mb-4">Visão</h3>
-            <p className="body-small text-gray-300">
+            <h3 className="text-white mb-4" style={{ 
+              fontSize: '1.375rem',
+              fontWeight: '600'
+            }}>Visão</h3>
+            <p style={{ 
+              color: '#CFCFCF',
+              fontSize: '0.95rem',
+              lineHeight: '1.5'
+            }}>
               {companyInfo.vision}
             </p>
           </div>
 
           {/* Values */}
-          <div className="bg-black p-8 rounded-lg border border-gray-800">
-            <div className="bg-brand-primary/20 p-3 rounded-lg inline-block mb-6">
-              <Heart className="text-brand-primary" size={24} />
+          <div className="p-8 flex flex-col" style={{ 
+            backgroundColor: '#0B0B0B',
+            border: '1px solid #1E1E1E',
+            borderRadius: '16px',
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+            minHeight: '280px'
+          }}>
+            <div className="inline-block mb-6">
+              <Heart style={{ 
+                color: '#FFFFFF', 
+                opacity: 0.7 
+              }} size={24} />
             </div>
-            <h3 className="heading-5 text-white mb-4">Valores</h3>
-            <ul className="space-y-2">
+            <h3 className="text-white mb-4" style={{ 
+              fontSize: '1.375rem',
+              fontWeight: '600'
+            }}>Valores</h3>
+            <ul style={{ marginTop: '0' }}>
               {companyInfo.values.map((value, index) => (
-                <li key={index} className="flex items-start gap-2 text-gray-300">
-                  <CheckCircle size={16} className="text-brand-primary mt-0.5 flex-shrink-0" />
-                  <span className="text-sm">{value}</span>
+                <li key={index} className="flex items-start gap-3" style={{ 
+                  marginBottom: '12px',
+                  color: '#CFCFCF',
+                  fontSize: '0.95rem'
+                }}>
+                  <CheckCircle size={16} style={{ 
+                    color: '#FFFFFF',
+                    opacity: 0.7,
+                    marginTop: '2px',
+                    flexShrink: 0
+                  }} />
+                  <span>{value}</span>
                 </li>
               ))}
             </ul>
