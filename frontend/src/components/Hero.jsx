@@ -34,12 +34,11 @@ export const Hero = () => {
           {/* Left Content */}
           <div className="order-2 lg:order-1">
             <h1 className="hero-title mb-6 text-white">
-              Elevando Sua Presença Digital
+              Marketing estratégico para empresas e profissionais que querem crescer de verdade.
             </h1>
             
-            <p className="body-large mb-8 max-w-2xl">
-              Nós da LADUNA transformamos sua presença digital com estratégias comprovadas que geram resultados reais. 
-              Mais leads, mais vendas, mais crescimento.
+            <p className="body-large mb-8 max-w-2xl text-gray-300">
+              Cuidamos da sua presença digital para fortalecer sua marca, organizar sua comunicação e acelerar o crescimento do seu negócio.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
