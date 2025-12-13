@@ -287,6 +287,7 @@ export const About = () => {
             >
               VAMOS CONVERSAR
             </button>
+            </div>
           </div>
         </div>
       </div>
