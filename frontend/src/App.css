@@ -228,7 +228,7 @@ body {
   background: var(--brand-primary);
   color: var(--text-inverse);
   transform: scale(1.02);
-  box-shadow: 0 4px 16px rgba(107, 114, 128, 0.2);
+  box-shadow: 0 4px 16px rgba(85, 85, 85, 0.2);
 }
 
 .btn-secondary:active {
