@@ -138,7 +138,7 @@ export const About = () => {
             fontSize: '1.1rem',
             lineHeight: '1.5'
           }}>
-            Conheça os especialistas por trás dos resultados excepcionais que entregamos aos nossos clientes.
+            Conheça os especialistas por trás dos resultados excepcionais<br />que entregamos aos nossos clientes.
           </p>
         </div>
 
