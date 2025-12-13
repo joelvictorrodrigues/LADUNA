@@ -78,7 +78,11 @@ export const ClientLogos = () => {
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="heading-3 text-black mb-6">
+          <h2 className="text-black mb-6" style={{ 
+            fontSize: '1.8rem', 
+            fontWeight: '700',
+            lineHeight: '1.2'
+          }}>
             MARCAS QUE CONFIARAM NA NOSSA ESTRATÉGIA
           </h2>
           <p className="body-large mb-6" style={{color: '#000000'}}>
