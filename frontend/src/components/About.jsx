@@ -227,10 +227,10 @@ export const About = () => {
               onMouseLeave={(e) => e.currentTarget.style.borderColor = '#1E1E1E'}
             >
               <div className="absolute top-4 right-4">
-                <Smile style={{ 
+                <User style={{ 
                   color: '#FFFFFF', 
                   opacity: 0.4 
-                }} size={20} />
+                }} size={24} />
               </div>
               <h4 className="text-white mb-2" style={{ 
                 fontSize: '1.375rem',
