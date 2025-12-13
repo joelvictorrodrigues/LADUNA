@@ -37,7 +37,7 @@ export const Hero = () => {
               Marketing estratégico para empresas e profissionais que querem crescer de verdade.
             </h1>
             
-            <p className="body-large mb-8 max-w-2xl text-gray-300">
+            <p className="body-large mb-8 max-w-2xl" style={{ color: '#A0A0A0' }}>
               Cuidamos da sua presença digital para fortalecer sua marca, organizar sua comunicação e acelerar o crescimento do seu negócio.
             </p>
 
