@@ -105,9 +105,9 @@ _Enviado através do formulário do site LADUNA STUDIO_`;
                 <div className="bg-brand-primary/20 p-4 rounded-full inline-block mb-4">
                   <CheckCircle className="text-brand-primary" size={32} />
                 </div>
-                <h4 className="heading-5 text-white mb-2">Mensagem Enviada!</h4>
+                <h4 className="heading-5 text-white mb-2">WhatsApp Aberto!</h4>
                 <p className="body-small text-gray-300">
-                  Obrigado pelo seu interesse! Entraremos em contato em até 24 horas.
+                  Seus dados foram formatados para o WhatsApp. Complete o envio na janela aberta!
                 </p>
               </div>
             ) : (
