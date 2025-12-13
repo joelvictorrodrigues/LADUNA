@@ -44,7 +44,10 @@ export const Services = () => {
             return (
               <div 
                 key={service.id}
-                className="group relative bg-gray-900 p-8 rounded-lg border border-gray-800 hover:border-brand-primary/50 transition-all duration-300 cursor-pointer"
+                className="group relative bg-gray-900 p-8 rounded-lg border border-gray-800 transition-all duration-300 cursor-pointer"
+                style={{ transitionProperty: 'border-color' }}
+                onMouseEnter={(e) => e.currentTarget.style.borderColor = '#FFFFFF'}
+                onMouseLeave={(e) => e.currentTarget.style.borderColor = '#374151'}
                 onClick={() => setSelectedService(selectedService === service.id ? null : service.id)}
               >
                 <div className="mb-6">
