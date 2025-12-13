@@ -58,32 +58,41 @@ export const Hero = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="flex items-center gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="flex items-center gap-3">
                 <div className="bg-brand-primary/20 p-3 rounded-lg">
-                  <TrendingUp className="text-brand-primary" size={24} />
+                  <TrendingUp className="text-brand-primary" size={20} />
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-brand-primary">+300%</div>
-                  <div className="text-gray-300 text-sm">Aumento médio em vendas</div>
+                  <div className="text-xl font-bold text-brand-primary">+300%</div>
+                  <div className="text-gray-300 text-xs">Aumento médio em vendas</div>
                 </div>
               </div>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
                 <div className="bg-brand-primary/20 p-3 rounded-lg">
-                  <Users className="text-brand-primary" size={24} />
+                  <Users className="text-brand-primary" size={20} />
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-brand-primary">50+</div>
-                  <div className="text-gray-300 text-sm">Clientes satisfeitos</div>
+                  <div className="text-xl font-bold text-brand-primary">50+</div>
+                  <div className="text-gray-300 text-xs">Clientes atendidos</div>
                 </div>
               </div>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
                 <div className="bg-brand-primary/20 p-3 rounded-lg">
-                  <Zap className="text-brand-primary" size={24} />
+                  <Zap className="text-brand-primary" size={20} />
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-brand-primary">5 anos</div>
-                  <div className="text-gray-300 text-sm">De experiência comprovada</div>
+                  <div className="text-xl font-bold text-brand-primary">200+</div>
+                  <div className="text-gray-300 text-xs">Projetos realizados</div>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="bg-brand-primary/20 p-3 rounded-lg">
+                  <Users className="text-brand-primary" size={20} />
+                </div>
+                <div>
+                  <div className="text-xl font-bold text-brand-primary">5 anos</div>
+                  <div className="text-gray-300 text-xs">De experiência comprovada</div>
                 </div>
               </div>
             </div>
