@@ -83,7 +83,7 @@ export const Contact = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="heading-2 text-white mb-6">
-            Vamos Conversar
+            VAMOS CONVERSAR
           </h2>
           <p className="body-large max-w-3xl mx-auto text-gray-300">
             Pronto para transformar sua presença digital? Agende uma consultoria gratuita e descubra como podemos acelerar o crescimento do seu negócio.
