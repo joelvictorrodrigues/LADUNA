@@ -105,9 +105,9 @@ export const Hero = () => {
                 <div className="bg-gray-800/30 p-3 rounded-lg">
                   <Users style={{ color: '#FFFFFF' }} size={20} />
                 </div>
-                <div>
+                <div style={{ minWidth: '120px' }}>
                   <div className="text-xl font-bold" style={{ color: '#FFFFFF' }}>5 anos</div>
-                  <div className="text-xs" style={{ color: '#A0A0A0' }}>De experiência comprovada</div>
+                  <div className="text-xs whitespace-nowrap" style={{ color: '#A0A0A0' }}>De experiência</div>
                 </div>
               </div>
             </div>
