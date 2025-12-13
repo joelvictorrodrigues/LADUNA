@@ -17,7 +17,7 @@ export const Hero = () => {
   };
 
   return (
-    <section id="home" className="hero-section">
+    <section id="home" className="hero-section" style={{ paddingTop: '72px' }}>
       {/* Background Image */}
       <div className="hero-background">
         <img 
