@@ -210,7 +210,7 @@ export const Contact = () => {
                   type="submit"
                   className="btn-primary w-full flex items-center justify-center gap-2"
                 >
-                  Enviar Mensagem
+                  ENVIAR MENSAGEM
                   <Send size={20} />
                 </button>
 
