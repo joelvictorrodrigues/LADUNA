@@ -65,7 +65,7 @@ export const Header = () => {
             {/* CTA Button */}
             <button 
               onClick={() => scrollToSection('contact')}
-              className="px-6 py-3 font-semibold transition-colors duration-200 rounded-lg"
+              className="px-4 py-2 font-medium transition-colors duration-200 rounded-md text-sm"
               style={{ 
                 backgroundColor: '#FFFFFF', 
                 color: '#0B0B0B',
