@@ -15,7 +15,7 @@ export const CTAIntermediate = () => {
           <h2 className="heading-2 text-black mb-6 font-bold">
             PRONTO PARA TRANSFORMAR SEU NEGÓCIO?
           </h2>
-          <p className="body-large max-w-3xl mx-auto text-black mb-8">
+          <p className="body-large max-w-3xl mx-auto text-gray-600 mb-8">
             Agende uma consultoria gratuita e descubra como podemos acelerar o crescimento da sua empresa.
           </p>
           <button 
