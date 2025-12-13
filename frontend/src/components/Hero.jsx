@@ -44,14 +44,23 @@ export const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <button 
                 onClick={scrollToContact}
-                className="btn-primary flex items-center justify-center gap-2"
+                className="px-8 py-4 rounded-lg font-semibold transition-colors duration-200 flex items-center justify-center gap-2"
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  color: '#0B0B0B'
+                }}
               >
                 CONSULTORIA GRATUITA
                 <ArrowRight size={20} />
               </button>
               <button 
                 onClick={scrollToServices}
-                className="btn-secondary"
+                className="px-8 py-4 rounded-lg font-semibold transition-colors duration-200"
+                style={{
+                  backgroundColor: 'transparent',
+                  border: '1px solid #FFFFFF',
+                  color: '#FFFFFF'
+                }}
               >
                 NOSSOS SERVIÇOS
               </button>
