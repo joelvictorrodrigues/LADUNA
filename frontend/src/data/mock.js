@@ -147,12 +147,12 @@ export const testimonials = [
 export const companyInfo = {
   name: "LADUNA STUDIO",
   tagline: "Elevando Sua Presença Digital",
-  description: "Somos uma agência de marketing digital especializada em gerar resultados reais para empresas que querem crescer online. Combinamos estratégia, criatividade e tecnologia para transformar sua presença digital.",
-  mission: "Nossa missão é acelerar o crescimento dos nossos clientes através de estratégias digitais inovadoras e eficazes.",
-  vision: "Ser a agência de marketing digital mais reconhecida pela qualidade dos resultados e excelência no atendimento.",
+  description: "Somos uma agência de marketing estratégico especializada em gerar crescimento real para empresas e profissionais. Combinamos estratégia, criatividade e tecnologia para fortalecer marcas, organizar a presença digital e criar caminhos claros de evolução no mercado.",
+  mission: "Acelerar o crescimento dos clientes com estratégia digital clara e eficaz.",
+  vision: "Ser referência em qualidade, resultados e relacionamento.",
   values: [
-    "Transparência total nos resultados",
-    "Atendimento personalizado",
+    "Transparência total",
+    "Atendimento personalizado", 
     "Inovação constante",
     "Parceria de longo prazo"
   ],
