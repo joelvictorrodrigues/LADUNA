@@ -15,10 +15,16 @@ export const ChatWidget = () => {
       {/* WhatsApp Direct Button */}
       <button
         onClick={handleWhatsAppRedirect}
-        className="fixed bottom-6 left-6 z-50 p-4 bg-brand-primary hover:bg-brand-hover rounded-full transition-all duration-300 shadow-2xl hover:scale-110"
+        className="fixed bottom-6 left-6 z-50 p-4 rounded-full transition-all duration-300 shadow-2xl hover:scale-110"
+        style={{
+          backgroundColor: '#25D366',
+          color: '#FFFFFF'
+        }}
+        onMouseEnter={(e) => e.target.style.backgroundColor = '#128C7E'}
+        onMouseLeave={(e) => e.target.style.backgroundColor = '#25D366'}
         title="Falar via WhatsApp"
       >
-        <MessageCircle size={24} className="text-black" />
+        <MessageCircle size={24} style={{ color: '#FFFFFF' }} />
       </button>
     </>
   );
