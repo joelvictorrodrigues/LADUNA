@@ -22,7 +22,7 @@ export const FinalCTA = () => {
             onClick={scrollToContact}
             className="btn-primary"
           >
-            Começar meu projeto
+            COMEÇAR MEU PROJETO
           </button>
         </div>
       </div>
