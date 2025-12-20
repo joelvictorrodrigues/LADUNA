@@ -18,7 +18,6 @@ function App() {
         <Hero />
         <About />
         <Services />
-        <Portfolio />
         <ClientLogos />
         <FinalCTA />
         <Contact />
