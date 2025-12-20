@@ -4,7 +4,7 @@ import { companyInfo, teamMembers } from '../data/mock';
 
 export const About = () => {
   return (
-    <section id="about" className="py-24 bg-gray-900">
+    <section id="about" className="bg-gray-900" style={{ paddingTop: '96px', paddingBottom: '0' }}>
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
@@ -249,7 +249,7 @@ export const About = () => {
         </div>
 
         {/* Image Section */}
-        <div className="mt-16 -mx-6 -mb-1" style={{ backgroundColor: '#111827' }}>
+        <div className="-mx-6" style={{ marginTop: '64px', marginBottom: '-1px' }}>
           <img 
             src="https://customer-assets.emergentagent.com/job_laduna-landing/artifacts/sqxxoulf_3333.png"
             alt="LADUNA STUDIO Team"
