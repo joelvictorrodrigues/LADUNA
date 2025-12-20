@@ -250,45 +250,13 @@ export const About = () => {
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center mt-16" style={{ marginBottom: '20px' }}>
-          <div className="p-12 rounded-lg relative overflow-hidden" style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1611224260559-cc96f32fd423?w=1200&h=600&fit=crop")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            filter: 'brightness(0.8)'
-          }}>
-            <div className="absolute inset-0 bg-black opacity-70 z-0"></div>
-            <div className="relative z-10">
-            <h3 className="heading-4 text-white mb-4">
-              Prontos para Trabalhar Juntos?
-            </h3>
-            <p className="body-medium text-gray-300 mb-8 max-w-2xl mx-auto">
-              Nossa equipe está preparada para transformar sua presença digital<br />e acelerar o crescimento do seu negócio.
-            </p>
-            <button 
-              onClick={() => {
-                const element = document.getElementById('contact');
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
-              }}
-              style={{
-                backgroundColor: '#FFFFFF',
-                color: '#000000',
-                borderRadius: '999px',
-                height: '48px',
-                width: '220px',
-                border: '0px',
-                fontWeight: '600',
-                fontSize: '0.95rem',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease'
-              }}
-            >
-              VAMOS CONVERSAR
-            </button>
-            </div>
-          </div>
+        {/* Image Section */}
+        <div className="text-center mt-16 mb-20">
+          <img 
+            src="https://customer-assets.emergentagent.com/job_laduna-landing/artifacts/sqxxoulf_3333.png"
+            alt="LADUNA STUDIO Team"
+            className="w-full max-w-4xl mx-auto rounded-lg"
+          />
         </div>
       </div>
     </section>
