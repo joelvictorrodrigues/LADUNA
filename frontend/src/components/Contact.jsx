@@ -51,7 +51,7 @@ export const Contact = () => {
               </div>
               <h4 className="text-white font-semibold mb-2">WhatsApp</h4>
               <a 
-                href={companyInfo.contact.whatsapp}
+                href="https://linktr.ee/ladunastudio"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-white transition-colors text-sm"
