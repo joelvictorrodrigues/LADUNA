@@ -145,6 +145,30 @@ export const Footer = () => {
                   Sites & Landing Pages
                 </button>
               </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('services')}
+                  className="text-gray-300 hover:text-white transition-colors text-sm text-left"
+                >
+                  Reels & Produção Cinematográfica
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('services')}
+                  className="text-gray-300 hover:text-white transition-colors text-sm text-left"
+                >
+                  Apresentações & Materiais
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('services')}
+                  className="text-gray-300 hover:text-white transition-colors text-sm text-left"
+                >
+                  Google & Automação
+                </button>
+              </li>
             </ul>
           </div>
         </div>

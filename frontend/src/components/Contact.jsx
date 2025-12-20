@@ -15,7 +15,7 @@ export const Contact = () => {
       </div>
 
       {/* Chess Piece Image - Right Side */}
-      <div className="absolute right-20 top-1/2 transform -translate-y-1/2 opacity-20 pointer-events-none">
+      <div className="absolute right-20 top-1/2 transform -translate-y-1/2 opacity-20 pointer-events-none" style={{ marginTop: '60px' }}>
         <img 
           src="https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/dcewi3ab_2222222.png"
           alt="Chess Piece"
