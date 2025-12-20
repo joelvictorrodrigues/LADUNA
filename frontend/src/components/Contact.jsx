@@ -14,6 +14,15 @@ export const Contact = () => {
         />
       </div>
 
+      {/* Chess Piece Image - Right Side */}
+      <div className="absolute right-20 top-1/2 transform -translate-y-1/2 opacity-20 pointer-events-none">
+        <img 
+          src="https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/dcewi3ab_2222222.png"
+          alt="Chess Piece"
+          style={{ width: '250px', height: 'auto' }}
+        />
+      </div>
+
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
@@ -49,28 +58,28 @@ export const Contact = () => {
         </div>
 
         {/* Contact Information */}
-        <div className="max-w-xl mx-auto">
+        <div className="max-w-md mx-auto">
           <h3 className="heading-4 text-white mb-6 text-center">Outras Formas de Contato</h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg border border-gray-800">
-              <div className="bg-white/10 p-3 rounded-lg mb-4">
-                <Mail className="text-white" size={24} />
+          <div className="grid grid-cols-2 gap-4">
+            <div className="flex flex-col items-center justify-center text-center p-4 bg-gray-900 rounded-lg border border-gray-800 aspect-square">
+              <div className="bg-white/10 p-2 rounded-lg mb-3">
+                <Mail className="text-white" size={20} />
               </div>
-              <h4 className="text-white font-semibold mb-2">E-mail</h4>
-              <p className="text-gray-300 text-sm">{companyInfo.contact.email}</p>
+              <h4 className="text-white font-semibold text-sm mb-1">E-mail</h4>
+              <p className="text-gray-300 text-xs">{companyInfo.contact.email}</p>
             </div>
 
-            <div className="flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg border border-gray-800">
-              <div className="bg-white/10 p-3 rounded-lg mb-4">
-                <Phone className="text-white" size={24} />
+            <div className="flex flex-col items-center justify-center text-center p-4 bg-gray-900 rounded-lg border border-gray-800 aspect-square">
+              <div className="bg-white/10 p-2 rounded-lg mb-3">
+                <Phone className="text-white" size={20} />
               </div>
-              <h4 className="text-white font-semibold mb-2">WhatsApp</h4>
+              <h4 className="text-white font-semibold text-sm mb-1">WhatsApp</h4>
               <a 
                 href="https://linktr.ee/ladunastudio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white transition-colors text-sm"
+                className="text-gray-300 hover:text-white transition-colors text-xs"
               >
                 {companyInfo.contact.phone}
               </a>
