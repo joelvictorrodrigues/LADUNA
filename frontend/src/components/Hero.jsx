@@ -79,7 +79,7 @@ export const Hero = () => {
                   <TrendingUp style={{ color: '#FFFFFF' }} size={20} />
                 </div>
                 <div className="text-xl font-bold" style={{ color: '#FFFFFF' }}>+300%</div>
-                <div className="text-xs" style={{ color: '#A0A0A0' }}>Aumento médio em vendas</div>
+                <div className="text-xs" style={{ color: '#A0A0A0' }}>Aumento médio<br />em vendas</div>
               </div>
               <div className="flex flex-col items-center text-center">
                 <div className="p-3 rounded-lg mb-2" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}>
