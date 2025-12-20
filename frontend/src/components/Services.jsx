@@ -88,36 +88,6 @@ export const Services = () => {
           })}
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center bg-gray-900 p-12 rounded-lg border border-gray-800" style={{ marginBottom: '40px' }}>
-          <h3 className="text-white mb-4" style={{ 
-            fontSize: '1.6rem', 
-            fontWeight: '700',
-            lineHeight: '1.2'
-          }}>
-            PRONTO PARA TRANSFORMAR SEU NEGÓCIO?
-          </h3>
-          <p className="body-medium mb-8 max-w-2xl mx-auto" style={{ color: '#FFFFFF', opacity: 0.85 }}>
-            Agende uma consultoria gratuita e descubra como podemos acelerar o crescimento da sua empresa.
-          </p>
-          <button 
-            onClick={scrollToContact}
-            className="inline-flex items-center gap-2 font-semibold transition-colors duration-200"
-            style={{
-              backgroundColor: '#FFFFFF',
-              color: '#000000',
-              border: '0px',
-              borderRadius: '999px',
-              height: '44px',
-              width: '280px',
-              justifyContent: 'center',
-              fontSize: '0.85rem'
-            }}
-          >
-            AGENDAR CONSULTORIA GRATUITA
-            <ArrowRight size={20} />
-          </button>
-        </div>
       </div>
     </section>
   );
