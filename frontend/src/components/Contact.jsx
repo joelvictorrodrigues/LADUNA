@@ -5,17 +5,20 @@ import { companyInfo } from '../data/mock';
 export const Contact = () => {
   return (
     <section id="contact" className="py-24 bg-black relative overflow-hidden">
-      {/* Giant Chess Piece Background */}
-      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 opacity-10 pointer-events-none">
-        <svg width="400" height="600" viewBox="0 0 100 150" fill="white">
-          {/* King Chess Piece */}
-          <path d="M50 5 L50 15 M45 10 L55 10" stroke="white" strokeWidth="3" fill="none"/>
-          <circle cx="50" cy="25" r="8" fill="white"/>
-          <path d="M35 35 Q50 45 65 35 L62 55 Q50 60 38 55 Z" fill="white"/>
-          <ellipse cx="50" cy="60" rx="18" ry="8" fill="white"/>
-          <path d="M32 60 L28 120 Q50 130 72 120 L68 60" fill="white"/>
-          <ellipse cx="50" cy="125" rx="30" ry="12" fill="white"/>
-          <rect x="20" y="130" width="60" height="15" rx="3" fill="white"/>
+      {/* Giant Chess Queen Background */}
+      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 opacity-20 pointer-events-none">
+        <svg width="350" height="550" viewBox="0 0 100 150" fill="#777777">
+          {/* Queen Chess Piece */}
+          <circle cx="50" cy="8" r="4" fill="#777777"/>
+          <circle cx="30" cy="15" r="3" fill="#777777"/>
+          <circle cx="70" cy="15" r="3" fill="#777777"/>
+          <circle cx="20" cy="25" r="3" fill="#777777"/>
+          <circle cx="80" cy="25" r="3" fill="#777777"/>
+          <path d="M20 28 L30 50 L50 40 L70 50 L80 28 L75 55 Q50 65 25 55 Z" fill="#777777"/>
+          <ellipse cx="50" cy="60" rx="28" ry="8" fill="#777777"/>
+          <path d="M22 60 L18 115 Q50 125 82 115 L78 60" fill="#777777"/>
+          <ellipse cx="50" cy="120" rx="35" ry="10" fill="#777777"/>
+          <rect x="15" y="125" width="70" height="12" rx="3" fill="#777777"/>
         </svg>
       </div>
 
@@ -23,7 +26,7 @@ export const Contact = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-white mb-8" style={{ 
-            fontSize: '1.5rem',
+            fontSize: '1.8rem',
             fontWeight: '700',
             textTransform: 'uppercase',
             letterSpacing: '0.05em'
