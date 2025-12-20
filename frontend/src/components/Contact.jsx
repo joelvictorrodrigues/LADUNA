@@ -5,16 +5,13 @@ import { companyInfo } from '../data/mock';
 export const Contact = () => {
   return (
     <section id="contact" className="py-24 bg-black relative overflow-hidden">
-      {/* Giant Chess Knight Background - Left Side */}
-      <div className="absolute left-0 top-1/2 transform -translate-y-1/2 opacity-15 pointer-events-none" style={{ marginLeft: '-50px' }}>
-        <svg width="280" height="400" viewBox="0 0 100 140" fill="#777777">
-          {/* Knight/Cavalo Chess Piece */}
-          <path d="M30 25 Q25 15 35 10 Q45 5 55 15 Q65 10 70 20 L75 35 Q80 45 70 55 L65 50 Q60 60 55 65 L55 75 Q65 80 70 90 L70 110 Q50 120 30 110 L30 90 Q35 80 45 75 L45 65 Q40 60 35 50 L30 55 Q20 45 25 35 Z" fill="#777777"/>
-          <ellipse cx="50" cy="115" rx="25" ry="8" fill="#777777"/>
-          <rect x="25" y="118" width="50" height="10" rx="2" fill="#777777"/>
-          {/* Eye */}
-          <circle cx="55" cy="30" r="3" fill="#333333"/>
-        </svg>
+      {/* Chess Queen Image - Left Side */}
+      <div className="absolute left-20 top-1/2 transform -translate-y-1/2 opacity-20 pointer-events-none">
+        <img 
+          src="https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/i1ad58xm_11111.png"
+          alt="Chess Queen"
+          style={{ width: '250px', height: 'auto' }}
+        />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
