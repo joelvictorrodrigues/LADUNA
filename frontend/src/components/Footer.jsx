@@ -48,10 +48,6 @@ export const Footer = () => {
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <MapPin size={16} className="text-gray-300" />
-                <span className="text-gray-300 text-sm">{companyInfo.contact.address}</span>
-              </div>
-              <div className="flex items-center gap-3">
                 <Building2 size={16} className="text-gray-300" />
                 <span className="text-gray-300 text-sm">CNPJ: 64.110.259/0001-78</span>
               </div>
