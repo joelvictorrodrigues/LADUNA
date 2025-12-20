@@ -249,7 +249,7 @@ export const About = () => {
         </div>
 
         {/* Image Section */}
-        <div className="mt-16 mb-20 -mx-6">
+        <div className="mt-16 -mx-6">
           <img 
             src="https://customer-assets.emergentagent.com/job_laduna-landing/artifacts/sqxxoulf_3333.png"
             alt="LADUNA STUDIO Team"
