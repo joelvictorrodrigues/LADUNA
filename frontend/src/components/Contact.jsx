@@ -102,8 +102,8 @@ _Enviado através do formulário do site LADUNA STUDIO_`;
             
             {isSubmitted ? (
               <div className="text-center py-12">
-                <div className="bg-brand-primary/20 p-4 rounded-full inline-block mb-4">
-                  <CheckCircle className="text-brand-primary" size={32} />
+                <div className="bg-green-500/20 p-4 rounded-full inline-block mb-4">
+                  <MessageCircle style={{ color: '#25D366' }} size={32} />
                 </div>
                 <h4 className="heading-5 text-white mb-2">WhatsApp Aberto!</h4>
                 <p className="body-small text-gray-300">
