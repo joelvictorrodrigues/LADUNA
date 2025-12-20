@@ -73,42 +73,34 @@ export const Hero = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="flex items-center gap-3">
-                <div className="p-3 rounded-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 justify-items-center">
+              <div className="flex flex-col items-center text-center">
+                <div className="p-3 rounded-lg mb-2" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}>
                   <TrendingUp style={{ color: '#FFFFFF' }} size={20} />
                 </div>
-                <div>
-                  <div className="text-xl font-bold" style={{ color: '#FFFFFF' }}>+300%</div>
-                  <div className="text-xs" style={{ color: '#A0A0A0' }}>Aumento médio em vendas</div>
-                </div>
+                <div className="text-xl font-bold" style={{ color: '#FFFFFF' }}>+300%</div>
+                <div className="text-xs" style={{ color: '#A0A0A0' }}>Aumento médio em vendas</div>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="p-3 rounded-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}>
+              <div className="flex flex-col items-center text-center">
+                <div className="p-3 rounded-lg mb-2" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}>
                   <Users style={{ color: '#FFFFFF' }} size={20} />
                 </div>
-                <div>
-                  <div className="text-xl font-bold" style={{ color: '#FFFFFF' }}>50+</div>
-                  <div className="text-xs" style={{ color: '#A0A0A0' }}>Clientes atendidos</div>
-                </div>
+                <div className="text-xl font-bold" style={{ color: '#FFFFFF' }}>50+</div>
+                <div className="text-xs" style={{ color: '#A0A0A0' }}>Clientes atendidos</div>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="p-3 rounded-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}>
+              <div className="flex flex-col items-center text-center">
+                <div className="p-3 rounded-lg mb-2" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}>
                   <Zap style={{ color: '#FFFFFF' }} size={20} />
                 </div>
-                <div>
-                  <div className="text-xl font-bold" style={{ color: '#FFFFFF' }}>200+</div>
-                  <div className="text-xs" style={{ color: '#A0A0A0' }}>Projetos realizados</div>
-                </div>
+                <div className="text-xl font-bold" style={{ color: '#FFFFFF' }}>200+</div>
+                <div className="text-xs" style={{ color: '#A0A0A0' }}>Projetos realizados</div>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="p-3 rounded-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}>
+              <div className="flex flex-col items-center text-center">
+                <div className="p-3 rounded-lg mb-2" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}>
                   <Clock style={{ color: '#FFFFFF' }} size={20} />
                 </div>
-                <div style={{ minWidth: '120px' }}>
-                  <div className="text-xl font-bold" style={{ color: '#FFFFFF' }}>5 anos</div>
-                  <div className="text-xs whitespace-nowrap" style={{ color: '#A0A0A0' }}>De experiência</div>
-                </div>
+                <div className="text-xl font-bold" style={{ color: '#FFFFFF' }}>5 anos</div>
+                <div className="text-xs whitespace-nowrap" style={{ color: '#A0A0A0' }}>De experiência</div>
               </div>
             </div>
           </div>
