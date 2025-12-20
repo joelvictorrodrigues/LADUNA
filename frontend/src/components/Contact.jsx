@@ -5,20 +5,15 @@ import { companyInfo } from '../data/mock';
 export const Contact = () => {
   return (
     <section id="contact" className="py-24 bg-black relative overflow-hidden">
-      {/* Giant Chess Queen Background */}
-      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 opacity-20 pointer-events-none">
-        <svg width="350" height="550" viewBox="0 0 100 150" fill="#777777">
-          {/* Queen Chess Piece */}
-          <circle cx="50" cy="8" r="4" fill="#777777"/>
-          <circle cx="30" cy="15" r="3" fill="#777777"/>
-          <circle cx="70" cy="15" r="3" fill="#777777"/>
-          <circle cx="20" cy="25" r="3" fill="#777777"/>
-          <circle cx="80" cy="25" r="3" fill="#777777"/>
-          <path d="M20 28 L30 50 L50 40 L70 50 L80 28 L75 55 Q50 65 25 55 Z" fill="#777777"/>
-          <ellipse cx="50" cy="60" rx="28" ry="8" fill="#777777"/>
-          <path d="M22 60 L18 115 Q50 125 82 115 L78 60" fill="#777777"/>
-          <ellipse cx="50" cy="120" rx="35" ry="10" fill="#777777"/>
-          <rect x="15" y="125" width="70" height="12" rx="3" fill="#777777"/>
+      {/* Giant Chess Knight Background - Left Side */}
+      <div className="absolute left-0 top-1/2 transform -translate-y-1/2 opacity-15 pointer-events-none" style={{ marginLeft: '-50px' }}>
+        <svg width="280" height="400" viewBox="0 0 100 140" fill="#777777">
+          {/* Knight/Cavalo Chess Piece */}
+          <path d="M30 25 Q25 15 35 10 Q45 5 55 15 Q65 10 70 20 L75 35 Q80 45 70 55 L65 50 Q60 60 55 65 L55 75 Q65 80 70 90 L70 110 Q50 120 30 110 L30 90 Q35 80 45 75 L45 65 Q40 60 35 50 L30 55 Q20 45 25 35 Z" fill="#777777"/>
+          <ellipse cx="50" cy="115" rx="25" ry="8" fill="#777777"/>
+          <rect x="25" y="118" width="50" height="10" rx="2" fill="#777777"/>
+          {/* Eye */}
+          <circle cx="55" cy="30" r="3" fill="#333333"/>
         </svg>
       </div>
 
@@ -26,17 +21,17 @@ export const Contact = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-white mb-8" style={{ 
-            fontSize: '1.8rem',
+            fontSize: '2rem',
             fontWeight: '700',
             textTransform: 'uppercase',
             letterSpacing: '0.05em'
           }}>
             Consultoria de Diagnóstico Estratégico LADUNA
           </h2>
-          <p className="body-large max-w-3xl mx-auto text-gray-300 mb-10" style={{ lineHeight: '1.8' }}>
-            Pronto para transformar sua presença digital?<br />
-            Vamos mapear seu próximo passo, responda a algumas perguntas rápidas<br />
-            e a LADUNA entra em contato mostrando o melhor caminho.
+          <p className="max-w-3xl mx-auto text-gray-300 mb-10" style={{ lineHeight: '1.8' }}>
+            <span style={{ fontSize: '1.35rem', display: 'block', marginBottom: '8px' }}>Pronto para transformar sua presença digital?</span>
+            <span style={{ fontSize: '1.1rem' }}>Vamos mapear seu próximo passo, responda a algumas perguntas rápidas<br />
+            e a LADUNA entra em contato mostrando o melhor caminho.</span>
           </p>
           
           {/* CTA Button with floating effect */}
