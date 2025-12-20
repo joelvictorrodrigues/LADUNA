@@ -180,7 +180,7 @@ export const companyInfo = {
     email: "ladunastudio@gmail.com",
     phone: "+55 66 99613-9483",
     whatsapp: "https://wa.me/5566996139483",
-    address: "Mato Grosso - Brasil",
+    address: "",
     schedule: "Segunda a Sexta das 8h às 18h",
     social: {
       linkedin: "https://linkedin.com/company/laduna-studio",
