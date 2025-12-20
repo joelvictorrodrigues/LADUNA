@@ -259,12 +259,12 @@ export const About = () => {
         </div>
 
         {/* Image Section */}
-        <div className="-mx-6" style={{ marginTop: '48px', marginBottom: '-1px', overflow: 'hidden', maxHeight: '400px' }}>
+        <div className="-mx-6" style={{ marginTop: '48px', marginBottom: '-1px' }}>
           <img 
             src="https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/ycgbpabs_3333.png"
             alt="LADUNA STUDIO Team"
             className="w-full"
-            style={{ display: 'block', objectFit: 'cover', objectPosition: 'center bottom', width: '100%', height: '500px' }}
+            style={{ display: 'block', width: '100%', height: 'auto' }}
           />
         </div>
       </div>
