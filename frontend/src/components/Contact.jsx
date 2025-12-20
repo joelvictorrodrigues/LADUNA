@@ -33,10 +33,10 @@ export const Contact = () => {
         </div>
 
         {/* Contact Information */}
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-xl mx-auto">
           <h3 className="heading-4 text-white mb-6 text-center">Outras Formas de Contato</h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg border border-gray-800">
               <div className="bg-white/10 p-3 rounded-lg mb-4">
                 <Mail className="text-white" size={24} />
@@ -58,14 +58,6 @@ export const Contact = () => {
               >
                 {companyInfo.contact.phone}
               </a>
-            </div>
-
-            <div className="flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg border border-gray-800">
-              <div className="bg-white/10 p-3 rounded-lg mb-4">
-                <MapPin className="text-white" size={24} />
-              </div>
-              <h4 className="text-white font-semibold mb-2">Localização</h4>
-              <p className="text-gray-300 text-sm">{companyInfo.contact.address}</p>
             </div>
           </div>
         </div>
