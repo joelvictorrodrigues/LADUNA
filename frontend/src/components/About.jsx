@@ -251,11 +251,11 @@ export const About = () => {
         </div>
 
         {/* Image Section */}
-        <div className="text-center mt-16 mb-20">
+        <div className="mt-16 mb-20 -mx-6">
           <img 
             src="https://customer-assets.emergentagent.com/job_laduna-landing/artifacts/sqxxoulf_3333.png"
             alt="LADUNA STUDIO Team"
-            className="w-full max-w-4xl mx-auto rounded-lg"
+            className="w-full h-64 object-cover"
           />
         </div>
       </div>
