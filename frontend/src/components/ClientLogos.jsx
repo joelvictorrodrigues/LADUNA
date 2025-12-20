@@ -2,102 +2,122 @@ import React from 'react';
 
 export const ClientLogos = () => {
   // Todas as logos organizadas em 6 linhas de 3
+  // Tamanho base: 110px altura x 220px largura (+10%)
+  // UpSmart, Churrascada, Carla Bianconi: 120px altura x 240px largura (+20%)
   const allLogos = [
     // Linha 1
     {
       id: 1,
       name: "V'Bella",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/nx4yc5f6_14.png"
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/nx4yc5f6_14.png",
+      size: 'normal'
     },
     {
       id: 2,
       name: "Master Festa e Embalagens",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/bafi9m2h_15.png"
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/bafi9m2h_15.png",
+      size: 'normal'
     },
     {
       id: 3,
       name: "Churrascada",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/ltd4m338_17.png"
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/ltd4m338_17.png",
+      size: 'larger' // +20%
     },
     // Linha 2
     {
       id: 4,
       name: "UpSmart",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/oerrm3tx_UpSmart%20-%20Logotipo.pdf.png"
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/oerrm3tx_UpSmart%20-%20Logotipo.pdf.png",
+      size: 'larger' // +20%
     },
     {
       id: 5,
       name: "Acqua & Sabão",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/gfr304xt_24.png"
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/gfr304xt_24.png",
+      size: 'normal'
     },
     {
       id: 11,
       name: "Compagni Brasil",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/w47d6bez_25.png"
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/w47d6bez_25.png",
+      size: 'normal'
     },
     // Linha 3
     {
       id: 6,
       name: "ME Fitness",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/qjqxbhnp_19.png"
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/qjqxbhnp_19.png",
+      size: 'normal'
     },
     {
       id: 7,
       name: "Logo Caveira",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/yrylxbzp_20.png"
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/yrylxbzp_20.png",
+      size: 'normal'
     },
     {
       id: 8,
       name: "Brasil Gold",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/x5acsbsw_BRASIL%20GOLD.pdf.png"
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/x5acsbsw_BRASIL%20GOLD.pdf.png",
+      size: 'normal'
     },
     // Linha 4
     {
       id: 9,
       name: "Fisio Trate",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/gclb0fsn_22.png"
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/gclb0fsn_22.png",
+      size: 'normal'
     },
     {
       id: 10,
       name: "ME Mundo dos Esportes",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/jthie9bn_23.png"
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/jthie9bn_23.png",
+      size: 'normal'
     },
     {
       id: 12,
       name: "Agronegócio Logo",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/v1fjs3s5_26.png"
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/v1fjs3s5_26.png",
+      size: 'normal'
     },
     // Linha 5
     {
       id: 13,
       name: "Carla Bianconi",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/ih7f7k0m_2%20-%20SEM%20FUNDO.png"
+      logo: "https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/ih7f7k0m_2%20-%20SEM%20FUNDO.png",
+      size: 'larger' // +20%
     },
     {
       id: 14,
       name: "Karine Alcantara",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/x2izh7hz_KARINE%20ALCANTARA%20POSTS.png"
+      logo: "https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/x2izh7hz_KARINE%20ALCANTARA%20POSTS.png",
+      size: 'normal'
     },
     {
       id: 15,
       name: "Oliva",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/g00lqjl5_LOGO%20OLIVA.png"
+      logo: "https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/g00lqjl5_LOGO%20OLIVA.png",
+      size: 'normal'
     },
     // Linha 6
     {
       id: 16,
       name: "UpSeg",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/ai9t4zy4_UPSEG%20LOGO.pdf.png"
+      logo: "https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/ai9t4zy4_UPSEG%20LOGO.pdf.png",
+      size: 'normal'
     },
     {
       id: 17,
       name: "Transparente",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/dmcx6hlg_TRANSPARENTE.png"
+      logo: "https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/dmcx6hlg_TRANSPARENTE.png",
+      size: 'normal'
     },
     {
       id: 18,
       name: "PowerFit",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/78aod8gw__POWEFIT%20Stories.png"
+      logo: "https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/78aod8gw__POWEFIT%20Stories.png",
+      size: 'normal'
     }
   ];
 
@@ -106,6 +126,13 @@ export const ClientLogos = () => {
   for (let i = 0; i < allLogos.length; i += 3) {
     rows.push(allLogos.slice(i, i + 3));
   }
+
+  const getSize = (size) => {
+    if (size === 'larger') {
+      return { height: '120px', width: '240px' }; // +20%
+    }
+    return { height: '110px', width: '220px' }; // +10% base
+  };
 
   return (
     <section className="py-16 bg-gradient-to-b from-white via-gray-50 to-white">
@@ -141,7 +168,7 @@ export const ClientLogos = () => {
                     src={client.logo}
                     alt={client.name}
                     className="object-contain transition-all duration-300 hover:drop-shadow-lg"
-                    style={{ height: '100px', width: '200px' }}
+                    style={getSize(client.size)}
                   />
                 </div>
               ))}
