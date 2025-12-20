@@ -129,7 +129,7 @@ export const ClientLogos = () => {
 
   const getSize = (size) => {
     if (size === 'larger') {
-      return { height: '120px', width: '240px' }; // +20%
+      return { height: '132px', width: '264px' }; // +30% (original +10% + additional +10%)
     }
     return { height: '110px', width: '220px' }; // +10% base
   };

@@ -19,7 +19,7 @@ export const Contact = () => {
         <img 
           src="https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/dcewi3ab_2222222.png"
           alt="Chess Piece"
-          style={{ width: '250px', height: 'auto' }}
+          style={{ width: '300px', height: 'auto' }}
         />
       </div>
 
