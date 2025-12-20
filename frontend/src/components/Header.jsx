@@ -23,7 +23,7 @@ export const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <img 
-              src="https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/siw2m2vs_PRETO%20E%20BRANCO2.png" 
+              src="https://customer-assets.emergentagent.com/job_laduna-landing/artifacts/k6lgluz6_00001.png" 
               alt="LADUNA STUDIO Logo" 
               className="h-10 w-auto"
             />
