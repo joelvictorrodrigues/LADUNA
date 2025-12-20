@@ -152,7 +152,7 @@ export const Footer = () => {
               <span className="text-gray-300 text-sm">Siga-nos:</span>
               <div className="flex gap-3">
                 <a 
-                  href="https://www.instagram.com/ladunastudio?igsh=M2kyNWR4ODlrdXdo"
+                  href="https://linktr.ee/ladunastudio"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gray-800 hover:bg-white/20 p-2 rounded-lg transition-colors"
