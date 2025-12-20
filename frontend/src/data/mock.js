@@ -3,45 +3,57 @@
 export const services = [
   {
     id: 1,
-    title: "Gestão de Redes Sociais",
-    description: "Gerenciamento completo das suas redes sociais com conteúdo engajante e estratégias de crescimento.",
-    icon: "share-2",
-    features: ["Criação de conteúdo", "Gestão de comunidade", "Campanhas sociais", "Relatórios de performance"]
+    title: "Estratégia & Diagnóstico",
+    description: "Mapeamos seu cenário, identificamos gargalos e definimos um plano claro de ação.",
+    icon: "target"
   },
   {
     id: 2,
-    title: "Estratégia de Marketing Digital",
-    description: "Desenvolvemos estratégias personalizadas para maximizar seu ROI e alcançar seus objetivos de negócio.",
-    icon: "target",
-    features: ["Análise de mercado", "Definição de personas", "Estratégia multicanal", "KPIs e métricas"]
+    title: "Gestão de Social Media",
+    description: "Gestão de perfil + conteúdo com constância, estética profissional e direção estratégica pra atrair e vender.",
+    icon: "share-2"
   },
   {
     id: 3,
-    title: "Tráfego Pago",
-    description: "Campanhas otimizadas no Google Ads, Meta Ads, TikTok Ads e LinkedIn Ads para gerar leads qualificados.",
-    icon: "trending-up",
-    features: ["Google Ads", "Meta Ads", "TikTok Ads", "LinkedIn Ads"]
+    title: "Conteúdo & Copy",
+    description: "Planejamento editorial + legendas estratégicas pra aumentar retenção, conexão e conversão.",
+    icon: "edit-3"
   },
   {
     id: 4,
-    title: "SEO",
-    description: "Otimização para mecanismos de busca para aumentar sua visibilidade orgânica e atrair mais clientes.",
-    icon: "search",
-    features: ["SEO On-page", "SEO Técnico", "Link Building", "Análise de concorrência"]
+    title: "Tráfego Pago & Performance",
+    description: "Campanhas estruturadas e otimizadas (Meta/Google) com foco em performance e ROI, do simples ao avançado.",
+    icon: "trending-up"
   },
   {
     id: 5,
-    title: "Marketing de Conteúdo",
-    description: "Criação de conteúdo estratégico e campanhas de Inbound Marketing para educar e converter leads.",
-    icon: "edit-3",
-    features: ["Blog posts", "E-books", "Webinars", "Email Marketing"]
+    title: "Branding & Identidade Visual",
+    description: "Criação ou redesign de identidade pra sua marca parar de parecer \"só mais uma\" e ganhar presença.",
+    icon: "palette"
   },
   {
     id: 6,
-    title: "Desenvolvimento de Sites",
-    description: "Criação de websites e landing pages otimizadas para conversão e experiência do usuário.",
-    icon: "monitor",
-    features: ["Sites responsivos", "Landing pages", "E-commerce", "Otimização de conversão"]
+    title: "Sites & Landing Pages",
+    description: "Sites e páginas de alta conversão com estrutura estratégica pra captar leads ou gerar vendas.",
+    icon: "monitor"
+  },
+  {
+    id: 7,
+    title: "Reels & Produção Cinematográfica",
+    description: "Vídeos cinematográficos e captação que elevam o valor percebido da marca.",
+    icon: "video"
+  },
+  {
+    id: 8,
+    title: "Apresentações & Materiais",
+    description: "Diagramação e criação de materiais profissionais: apresentações, propostas, catálogos e afins.",
+    icon: "file-text"
+  },
+  {
+    id: 9,
+    title: "Google & Automação",
+    description: "Google Business Profile pra autoridade/local + automações e chatbots (WhatsApp/ManyChat) pra não perder leads.",
+    icon: "zap"
   }
 ];
 
