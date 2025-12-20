@@ -74,7 +74,7 @@ export const ClientLogos = () => {
   const duplicatedSecondCarousel = [...secondCarouselLogos, ...secondCarouselLogos, ...secondCarouselLogos];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white via-gray-50 to-white">
+    <section className="py-12 bg-gradient-to-b from-white via-gray-50 to-white">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
@@ -138,7 +138,7 @@ export const ClientLogos = () => {
             className="px-8 py-3 rounded-lg font-semibold transition-colors duration-200"
             style={{
               backgroundColor: '#000000',
-              color: '#CFCFCF',
+              color: '#FFFFFF',
               border: 'none'
             }}
           >
