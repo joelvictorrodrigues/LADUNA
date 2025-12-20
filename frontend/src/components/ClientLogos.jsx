@@ -1,8 +1,8 @@
 import React from 'react';
 
 export const ClientLogos = () => {
-  // Primeiro carrossel - movendo para direita
-  const firstCarouselLogos = [
+  // Primeira linha de logos
+  const firstRowLogos = [
     {
       id: 1,
       name: "V'Bella",
@@ -21,7 +21,8 @@ export const ClientLogos = () => {
     {
       id: 4,
       name: "UpSmart",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/oerrm3tx_UpSmart%20-%20Logotipo.pdf.png"
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/oerrm3tx_UpSmart%20-%20Logotipo.pdf.png",
+      larger: true // Flag para logo maior
     },
     {
       id: 5,
@@ -35,8 +36,8 @@ export const ClientLogos = () => {
     }
   ];
 
-  // Segundo carrossel - movendo para esquerda
-  const secondCarouselLogos = [
+  // Segunda linha de logos
+  const secondRowLogos = [
     {
       id: 6,
       name: "ME Fitness",
@@ -69,9 +70,34 @@ export const ClientLogos = () => {
     }
   ];
 
-  // Duplicamos os logos MAIS VEZES para ter mais logos por linha
-  const duplicatedFirstCarousel = [...firstCarouselLogos, ...firstCarouselLogos, ...firstCarouselLogos];
-  const duplicatedSecondCarousel = [...secondCarouselLogos, ...secondCarouselLogos, ...secondCarouselLogos];
+  // Terceira linha de logos (novos)
+  const thirdRowLogos = [
+    {
+      id: 13,
+      name: "Logo 2",
+      logo: "https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/ih7f7k0m_2%20-%20SEM%20FUNDO.png"
+    },
+    {
+      id: 14,
+      name: "Karine Alcantara",
+      logo: "https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/x2izh7hz_KARINE%20ALCANTARA%20POSTS.png"
+    },
+    {
+      id: 15,
+      name: "Oliva",
+      logo: "https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/g00lqjl5_LOGO%20OLIVA.png"
+    },
+    {
+      id: 16,
+      name: "UpSeg",
+      logo: "https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/ai9t4zy4_UPSEG%20LOGO.pdf.png"
+    },
+    {
+      id: 17,
+      name: "Transparente",
+      logo: "https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/dmcx6hlg_TRANSPARENTE.png"
+    }
+  ];
 
   return (
     <section className="py-12 bg-gradient-to-b from-white via-gray-50 to-white">
@@ -90,11 +116,29 @@ export const ClientLogos = () => {
           </p>
         </div>
 
-        {/* Static Logos Grid - 2 Rows */}
+        {/* Static Logos Grid - 3 Rows */}
         <div className="space-y-8">
           {/* Primeira Linha */}
-          <div className="flex items-center justify-center gap-6">
-            {firstCarouselLogos.map((client) => (
+          <div className="flex items-center justify-center gap-6 flex-wrap">
+            {firstRowLogos.map((client) => (
+              <div 
+                key={client.id}
+                className="transition-all duration-300 hover:scale-110"
+              >
+                <img 
+                  src={client.logo}
+                  alt={client.name}
+                  className={`object-contain transition-all duration-300 hover:drop-shadow-lg ${
+                    client.larger ? 'h-24 w-48' : 'h-20 w-40'
+                  }`}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Segunda Linha */}
+          <div className="flex items-center justify-center gap-6 flex-wrap">
+            {secondRowLogos.map((client) => (
               <div 
                 key={client.id}
                 className="transition-all duration-300 hover:scale-110"
@@ -108,9 +152,9 @@ export const ClientLogos = () => {
             ))}
           </div>
 
-          {/* Segunda Linha */}
-          <div className="flex items-center justify-center gap-6">
-            {secondCarouselLogos.map((client) => (
+          {/* Terceira Linha (Novos logos) */}
+          <div className="flex items-center justify-center gap-6 flex-wrap">
+            {thirdRowLogos.map((client) => (
               <div 
                 key={client.id}
                 className="transition-all duration-300 hover:scale-110"
