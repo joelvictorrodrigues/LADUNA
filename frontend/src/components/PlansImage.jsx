@@ -13,7 +13,7 @@ export const PlansImage = () => {
       {/* CTA Button */}
       <div className="bg-white py-12 text-center">
         <a 
-          href="https://linktr.ee/ladunastudio"
+          href="https://tally.so/r/GxKJbk"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block px-10 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 animate-float"

@@ -9,10 +9,10 @@ export const Contact = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="heading-2 text-white mb-6">
-            VAMOS CONVERSAR
+            Consultoria de Diagnóstico Estratégico LADUNA
           </h2>
           <p className="body-large max-w-3xl mx-auto text-gray-300 mb-8">
-            Pronto para transformar sua presença digital? Agende uma consultoria gratuita e descubra como podemos acelerar o crescimento do seu negócio.
+            Pronto para transformar sua presença digital? Vamos mapear seu próximo passo, responda a algumas perguntas rápidas e a LADUNA entra em contato mostrando o melhor caminho.
           </p>
           
           {/* CTA Button */}
@@ -27,8 +27,7 @@ export const Contact = () => {
               border: 'none'
             }}
           >
-            SOLICITE SUA CONSULTORIA GRATUITA
-            <ArrowRight size={20} />
+            Começar agora →
           </a>
         </div>
 

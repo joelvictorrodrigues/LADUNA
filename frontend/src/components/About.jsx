@@ -4,7 +4,7 @@ import { companyInfo, teamMembers } from '../data/mock';
 
 export const About = () => {
   return (
-    <section id="about" className="bg-gray-900" style={{ paddingTop: '96px', paddingBottom: '0' }}>
+    <section id="about" className="bg-gray-900" style={{ paddingTop: '60px', paddingBottom: '0' }}>
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
