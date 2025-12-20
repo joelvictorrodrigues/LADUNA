@@ -1,87 +1,8 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle, MessageCircle } from 'lucide-react';
+import React from 'react';
+import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 import { companyInfo } from '../data/mock';
 
 export const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    message: '',
-    service: ''
-  });
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    try {
-      // Formatar dados para WhatsApp
-      const mensagemWhatsApp = `🔥 *Nova Solicitação - LADUNA STUDIO*
-
-👤 *Nome:* ${formData.name}
-📧 *Email:* ${formData.email}
-📱 *Telefone:* ${formData.phone}
-🏢 *Empresa:* ${formData.company || 'Não informado'}
-🎯 *Serviço de Interesse:* ${formData.service || 'Não especificado'}
-
-💬 *Mensagem:*
-${formData.message}
-
----
-_Enviado através do formulário do site LADUNA STUDIO_`;
-
-      // Codificar mensagem para URL
-      const mensagemCodificada = encodeURIComponent(mensagemWhatsApp);
-      
-      // Número do WhatsApp da LADUNA
-      const numeroWhatsApp = '5566996139483';
-      
-      // URL do WhatsApp
-      const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`;
-      
-      // Abrir WhatsApp
-      window.open(urlWhatsApp, '_blank');
-      
-      // Mostrar confirmação
-      setIsSubmitted(true);
-      
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          company: '',
-          message: '',
-          service: ''
-        });
-      }, 3000);
-
-    } catch (error) {
-      console.error('Erro ao processar formulário:', error);
-      alert('Erro ao processar formulário. Tente novamente.');
-    }
-  };
-
-  const services = [
-    'Estratégia de Marketing Digital',
-    'Tráfego Pago (Google Ads, Meta Ads)',
-    'SEO - Otimização para Motores de Busca',
-    'Marketing de Conteúdo',
-    'Gestão de Redes Sociais',
-    'Desenvolvimento de Sites',
-    'Consultoria Completa'
-  ];
-
   return (
     <section id="contact" className="py-24 bg-black">
       <div className="container mx-auto px-6">
@@ -90,220 +11,61 @@ _Enviado através do formulário do site LADUNA STUDIO_`;
           <h2 className="heading-2 text-white mb-6">
             VAMOS CONVERSAR
           </h2>
-          <p className="body-large max-w-3xl mx-auto text-gray-300">
+          <p className="body-large max-w-3xl mx-auto text-gray-300 mb-8">
             Pronto para transformar sua presença digital? Agende uma consultoria gratuita e descubra como podemos acelerar o crescimento do seu negócio.
           </p>
+          
+          {/* CTA Button */}
+          <a 
+            href="https://tally.so/r/GxKJbk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
+            style={{
+              backgroundColor: '#FFFFFF',
+              color: '#000000',
+              border: 'none'
+            }}
+          >
+            SOLICITE SUA CONSULTORIA GRATUITA
+            <ArrowRight size={20} />
+          </a>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="bg-gray-900 p-8 rounded-lg border border-gray-800">
-            <h3 className="heading-4 text-white mb-6">Solicite sua Consultoria Gratuita</h3>
-            
-            {isSubmitted ? (
-              <div className="text-center py-12">
-                <div className="bg-green-500/20 p-4 rounded-full inline-block mb-4">
-                  <MessageCircle style={{ color: '#25D366' }} size={32} />
-                </div>
-                <h4 className="heading-5 text-white mb-2">WhatsApp Aberto!</h4>
-                <p className="body-small text-gray-300">
-                  Seus dados foram formatados para o WhatsApp. Complete o envio na janela aberta!
-                </p>
+        {/* Contact Information */}
+        <div className="max-w-2xl mx-auto">
+          <h3 className="heading-4 text-white mb-6 text-center">Outras Formas de Contato</h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg border border-gray-800">
+              <div className="bg-white/10 p-3 rounded-lg mb-4">
+                <Mail className="text-white" size={24} />
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-gray-300 mb-2">
-                      Nome Completo*
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors"
-                      placeholder="Seu nome completo"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-gray-300 mb-2">
-                      E-mail*
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors"
-                      placeholder="seu@email.com"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold text-gray-300 mb-2">
-                      Telefone*
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors"
-                      placeholder="(11) 99999-9999"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="company" className="block text-sm font-semibold text-gray-300 mb-2">
-                      Empresa
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors"
-                      placeholder="Nome da sua empresa"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="service" className="block text-sm font-semibold text-gray-300 mb-2">
-                    Serviço de Interesse
-                  </label>
-                  <select
-                    id="service"
-                    name="service"
-                    value={formData.service}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white focus:border-brand-primary focus:outline-none transition-colors"
-                  >
-                    <option value="">Selecione um serviço</option>
-                    {services.map((service, index) => (
-                      <option key={index} value={service}>{service}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-gray-300 mb-2">
-                    Mensagem*
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors resize-vertical"
-                    placeholder="Conte-nos mais sobre seu projeto e objetivos..."
-                  ></textarea>
-                </div>
-
-                <button 
-                  type="submit"
-                  className="btn-primary w-full flex items-center justify-center gap-2"
-                >
-                  ENVIAR MENSAGEM
-                  <Send size={20} />
-                </button>
-
-                <p className="text-xs text-gray-400 text-center">
-                  Ao enviar este formulário, você concorda em ser contatado pela LADUNA sobre nossos serviços.
-                </p>
-              </form>
-            )}
-          </div>
-
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="heading-4 text-white mb-6">Outras Formas de Contato</h3>
-              
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="bg-brand-primary/20 p-3 rounded-lg">
-                    <Mail className="text-brand-primary" size={20} />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-semibold mb-1">E-mail</h4>
-                    <p className="text-gray-300">{companyInfo.contact.email}</p>
-                    <p className="text-sm text-gray-400">Respondemos em até 2 horas</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="bg-brand-primary/20 p-3 rounded-lg">
-                    <Phone className="text-brand-primary" size={20} />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-semibold mb-1">Telefone / WhatsApp</h4>
-                    <a 
-                      href={companyInfo.contact.whatsapp}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-brand-primary hover:text-brand-hover transition-colors"
-                    >
-                      {companyInfo.contact.phone}
-                    </a>
-                    <p className="text-sm text-gray-400">{companyInfo.contact.schedule}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="bg-brand-primary/20 p-3 rounded-lg">
-                    <MapPin className="text-brand-primary" size={20} />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-semibold mb-1">Localização</h4>
-                    <p className="text-gray-300">{companyInfo.contact.address}</p>
-                    <p className="text-sm text-gray-400">Atendimento presencial mediante agendamento</p>
-                  </div>
-                </div>
-              </div>
+              <h4 className="text-white font-semibold mb-2">E-mail</h4>
+              <p className="text-gray-300 text-sm">{companyInfo.contact.email}</p>
             </div>
 
-            {/* FAQ Quick List */}
-            <div className="bg-gray-900 p-6 rounded-lg border border-gray-800">
-              <h4 className="heading-5 text-white mb-4">Perguntas Frequentes</h4>
-              <div className="space-y-4">
-                <div>
-                  <h5 className="text-brand-primary font-semibold mb-1">Quanto tempo para ver resultados?</h5>
-                  <p className="text-sm text-gray-300">Primeiros resultados em 15 dias, otimização contínua.</p>
-                </div>
-                <div>
-                  <h5 className="text-brand-primary font-semibold mb-1">Qual investimento mínimo?</h5>
-                  <p className="text-sm text-gray-300">Definimos o investimento após análise do seu negócio e objetivos.</p>
-                </div>
-                <div>
-                  <h5 className="text-brand-primary font-semibold mb-1">Fazem contratos longos?</h5>
-                  <p className="text-sm text-gray-300">Flexibilidade total, sem fidelidade obrigatória.</p>
-                </div>
+            <div className="flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg border border-gray-800">
+              <div className="bg-white/10 p-3 rounded-lg mb-4">
+                <Phone className="text-white" size={24} />
               </div>
+              <h4 className="text-white font-semibold mb-2">WhatsApp</h4>
+              <a 
+                href={companyInfo.contact.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-white transition-colors text-sm"
+              >
+                {companyInfo.contact.phone}
+              </a>
             </div>
 
-            {/* Social Proof */}
-            <div className="bg-brand-primary/10 p-6 rounded-lg border border-brand-primary/20">
-              <h4 className="text-white font-semibold mb-2">✨ Consultoria 100% Gratuita</h4>
-              <p className="text-sm text-gray-300 mb-4">
-                Análise completa da sua presença digital + estratégia personalizada. Sem compromisso.
-              </p>
-              <ul className="text-sm text-gray-300 space-y-1">
-                <li>• Auditoria completa gratuita</li>
-                <li>• Estratégia personalizada</li>
-                <li>• Proposta sem compromisso</li>
-              </ul>
+            <div className="flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg border border-gray-800">
+              <div className="bg-white/10 p-3 rounded-lg mb-4">
+                <MapPin className="text-white" size={24} />
+              </div>
+              <h4 className="text-white font-semibold mb-2">Localização</h4>
+              <p className="text-gray-300 text-sm">{companyInfo.contact.address}</p>
             </div>
           </div>
         </div>
