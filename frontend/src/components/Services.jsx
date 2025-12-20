@@ -38,22 +38,24 @@ export const Services = () => {
             return (
               <div 
                 key={service.id}
-                className="group relative bg-gray-900 p-6 rounded-lg border border-gray-800 transition-all duration-300 aspect-square flex flex-col"
-                style={{ transitionProperty: 'border-color' }}
+                className="group relative bg-gray-900 p-6 rounded-lg border border-gray-800 transition-all duration-300 flex flex-col"
+                style={{ transitionProperty: 'border-color', minHeight: '180px' }}
                 onMouseEnter={(e) => e.currentTarget.style.borderColor = '#FFFFFF'}
                 onMouseLeave={(e) => e.currentTarget.style.borderColor = '#374151'}
               >
-                <div className="mb-4">
-                  <div className="bg-white/10 p-3 rounded-lg inline-block mb-4">
-                    {IconComponent && <IconComponent style={{ color: '#FFFFFF', opacity: 0.6 }} size={24} />}
+                <div className="flex items-start gap-4">
+                  <div className="bg-white/10 p-3 rounded-lg flex-shrink-0">
+                    {IconComponent && <IconComponent style={{ color: '#FFFFFF', opacity: 0.6 }} size={22} />}
                   </div>
-                  <h3 className="text-white mb-3" style={{ fontSize: '1.25rem', fontWeight: '600' }}>
-                    {service.title}
-                  </h3>
+                  <div>
+                    <h3 className="text-white mb-2" style={{ fontSize: '1.1rem', fontWeight: '600' }}>
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      {service.description}
+                    </p>
+                  </div>
                 </div>
-                <p className="text-gray-300 text-sm leading-relaxed flex-grow">
-                  {service.description}
-                </p>
               </div>
             );
           })}
