@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Instagram, Building2 } from 'lucide-react';
+import { Mail, Phone, Building2, Instagram } from 'lucide-react';
 import { companyInfo } from '../data/mock';
 
 export const Footer = () => {
