@@ -1,8 +1,9 @@
 import React from 'react';
 
 export const ClientLogos = () => {
-  // Primeira linha de logos (6 logos)
-  const firstRowLogos = [
+  // Todas as logos organizadas em 6 linhas de 3
+  const allLogos = [
+    // Linha 1
     {
       id: 1,
       name: "V'Bella",
@@ -18,11 +19,11 @@ export const ClientLogos = () => {
       name: "Churrascada",
       logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/ltd4m338_17.png"
     },
+    // Linha 2
     {
       id: 4,
       name: "UpSmart",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/oerrm3tx_UpSmart%20-%20Logotipo.pdf.png",
-      larger: true
+      logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/oerrm3tx_UpSmart%20-%20Logotipo.pdf.png"
     },
     {
       id: 5,
@@ -33,11 +34,8 @@ export const ClientLogos = () => {
       id: 11,
       name: "Compagni Brasil",
       logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/w47d6bez_25.png"
-    }
-  ];
-
-  // Segunda linha de logos (6 logos)
-  const secondRowLogos = [
+    },
+    // Linha 3
     {
       id: 6,
       name: "ME Fitness",
@@ -53,6 +51,7 @@ export const ClientLogos = () => {
       name: "Brasil Gold",
       logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/x5acsbsw_BRASIL%20GOLD.pdf.png"
     },
+    // Linha 4
     {
       id: 9,
       name: "Fisio Trate",
@@ -67,16 +66,12 @@ export const ClientLogos = () => {
       id: 12,
       name: "Agronegócio Logo",
       logo: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/v1fjs3s5_26.png"
-    }
-  ];
-
-  // Terceira linha de logos (6 logos)
-  const thirdRowLogos = [
+    },
+    // Linha 5
     {
       id: 13,
       name: "Carla Bianconi",
-      logo: "https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/ih7f7k0m_2%20-%20SEM%20FUNDO.png",
-      larger: true // +15%
+      logo: "https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/ih7f7k0m_2%20-%20SEM%20FUNDO.png"
     },
     {
       id: 14,
@@ -88,6 +83,7 @@ export const ClientLogos = () => {
       name: "Oliva",
       logo: "https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/g00lqjl5_LOGO%20OLIVA.png"
     },
+    // Linha 6
     {
       id: 16,
       name: "UpSeg",
@@ -105,26 +101,14 @@ export const ClientLogos = () => {
     }
   ];
 
-  const LogoItem = ({ client, index }) => (
-    <div 
-      className="transition-all duration-300 hover:scale-110 animate-float"
-      style={{ 
-        animationDelay: `${index * 0.2}s`,
-        animationDuration: '3s'
-      }}
-    >
-      <img 
-        src={client.logo}
-        alt={client.name}
-        className={`object-contain transition-all duration-300 hover:drop-shadow-lg ${
-          client.larger ? 'h-24 w-48' : 'h-20 w-40'
-        }`}
-      />
-    </div>
-  );
+  // Dividir em 6 linhas de 3
+  const rows = [];
+  for (let i = 0; i < allLogos.length; i += 3) {
+    rows.push(allLogos.slice(i, i + 3));
+  }
 
   return (
-    <section className="py-12 bg-gradient-to-b from-white via-gray-50 to-white">
+    <section className="py-16 bg-gradient-to-b from-white via-gray-50 to-white">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
@@ -140,28 +124,29 @@ export const ClientLogos = () => {
           </p>
         </div>
 
-        {/* Static Logos Grid - 3 Rows with 6 logos each */}
-        <div className="space-y-10">
-          {/* Primeira Linha */}
-          <div className="flex items-center justify-center gap-8 flex-wrap">
-            {firstRowLogos.map((client, index) => (
-              <LogoItem key={client.id} client={client} index={index} />
-            ))}
-          </div>
-
-          {/* Segunda Linha */}
-          <div className="flex items-center justify-center gap-8 flex-wrap">
-            {secondRowLogos.map((client, index) => (
-              <LogoItem key={client.id} client={client} index={index + 6} />
-            ))}
-          </div>
-
-          {/* Terceira Linha */}
-          <div className="flex items-center justify-center gap-8 flex-wrap">
-            {thirdRowLogos.map((client, index) => (
-              <LogoItem key={client.id} client={client} index={index + 12} />
-            ))}
-          </div>
+        {/* Logos Grid - 6 Rows with 3 logos each */}
+        <div className="space-y-12 max-w-5xl mx-auto">
+          {rows.map((row, rowIndex) => (
+            <div key={rowIndex} className="flex items-center justify-center gap-16">
+              {row.map((client, index) => (
+                <div 
+                  key={client.id}
+                  className="transition-all duration-300 hover:scale-110 animate-float"
+                  style={{ 
+                    animationDelay: `${(rowIndex * 3 + index) * 0.15}s`,
+                    animationDuration: '3s'
+                  }}
+                >
+                  <img 
+                    src={client.logo}
+                    alt={client.name}
+                    className="object-contain transition-all duration-300 hover:drop-shadow-lg"
+                    style={{ height: '100px', width: '200px' }}
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
 
         {/* CTA */}
