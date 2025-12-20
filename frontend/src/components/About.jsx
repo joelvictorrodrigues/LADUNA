@@ -124,6 +124,16 @@ export const About = () => {
           </div>
         </div>
 
+        {/* Apresentação LADUNA Image */}
+        <div className="mb-20 -mx-6">
+          <img 
+            src="https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/tnkdlo9q_APRESENTAC%CC%A7A%CC%83O%20LADUNA%20SHORT.png"
+            alt="Apresentação LADUNA"
+            className="w-full"
+            style={{ display: 'block' }}
+          />
+        </div>
+
         {/* Team Section */}
         <div className="text-center mb-12">
           <h3 className="text-white mb-4" style={{ 
