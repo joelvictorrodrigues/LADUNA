@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, ArrowRight } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import { companyInfo } from '../data/mock';
 
 export const Contact = () => {
