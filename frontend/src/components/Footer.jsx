@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Building2 } from 'lucide-react';
 import { companyInfo } from '../data/mock';
 
 export const Footer = () => {
@@ -33,23 +33,27 @@ export const Footer = () => {
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <Mail size={16} className="text-brand-primary" />
+                <Mail size={16} className="text-gray-300" />
                 <span className="text-gray-300 text-sm">{companyInfo.contact.email}</span>
               </div>
               <div className="flex items-center gap-3">
-                <Phone size={16} className="text-brand-primary" />
+                <Phone size={16} className="text-gray-300" />
                 <a 
                   href={companyInfo.contact.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-primary hover:text-brand-hover transition-colors text-sm"
+                  className="text-gray-300 hover:text-white transition-colors text-sm"
                 >
                   {companyInfo.contact.phone}
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <MapPin size={16} className="text-brand-primary" />
+                <MapPin size={16} className="text-gray-300" />
                 <span className="text-gray-300 text-sm">{companyInfo.contact.address}</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Building2 size={16} className="text-gray-300" />
+                <span className="text-gray-300 text-sm">CNPJ: 64.110.259/0001-78</span>
               </div>
             </div>
           </div>
@@ -61,7 +65,7 @@ export const Footer = () => {
               <li>
                 <button 
                   onClick={() => scrollToSection('home')}
-                  className="text-gray-300 hover:text-brand-primary transition-colors text-sm"
+                  className="text-gray-300 hover:text-white transition-colors text-sm"
                 >
                   Início
                 </button>
@@ -69,7 +73,7 @@ export const Footer = () => {
               <li>
                 <button 
                   onClick={() => scrollToSection('about')}
-                  className="text-gray-300 hover:text-brand-primary transition-colors text-sm"
+                  className="text-gray-300 hover:text-white transition-colors text-sm"
                 >
                   Sobre Nós
                 </button>
@@ -77,23 +81,15 @@ export const Footer = () => {
               <li>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="text-gray-300 hover:text-brand-primary transition-colors text-sm"
+                  className="text-gray-300 hover:text-white transition-colors text-sm"
                 >
                   Serviços
                 </button>
               </li>
               <li>
                 <button 
-                  onClick={() => scrollToSection('portfolio')}
-                  className="text-gray-300 hover:text-brand-primary transition-colors text-sm"
-                >
-                  Portfólio
-                </button>
-              </li>
-              <li>
-                <button 
                   onClick={() => scrollToSection('contact')}
-                  className="text-gray-300 hover:text-brand-primary transition-colors text-sm"
+                  className="text-gray-300 hover:text-white transition-colors text-sm"
                 >
                   Contato
                 </button>
@@ -108,7 +104,7 @@ export const Footer = () => {
               <li>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="text-gray-300 hover:text-brand-primary transition-colors text-sm text-left"
+                  className="text-gray-300 hover:text-white transition-colors text-sm text-left"
                 >
                   Gestão de Redes Sociais
                 </button>
@@ -116,7 +112,7 @@ export const Footer = () => {
               <li>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="text-gray-300 hover:text-brand-primary transition-colors text-sm text-left"
+                  className="text-gray-300 hover:text-white transition-colors text-sm text-left"
                 >
                   Estratégia Digital
                 </button>
@@ -124,7 +120,7 @@ export const Footer = () => {
               <li>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="text-gray-300 hover:text-brand-primary transition-colors text-sm text-left"
+                  className="text-gray-300 hover:text-white transition-colors text-sm text-left"
                 >
                   Tráfego Pago
                 </button>
@@ -132,15 +128,7 @@ export const Footer = () => {
               <li>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="text-gray-300 hover:text-brand-primary transition-colors text-sm text-left"
-                >
-                  SEO
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => scrollToSection('services')}
-                  className="text-gray-300 hover:text-brand-primary transition-colors text-sm text-left"
+                  className="text-gray-300 hover:text-white transition-colors text-sm text-left"
                 >
                   Marketing de Conteúdo
                 </button>
@@ -148,7 +136,7 @@ export const Footer = () => {
               <li>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="text-gray-300 hover:text-brand-primary transition-colors text-sm text-left"
+                  className="text-gray-300 hover:text-white transition-colors text-sm text-left"
                 >
                   Desenvolvimento Web
                 </button>
@@ -167,19 +155,25 @@ export const Footer = () => {
                   href="https://www.instagram.com/ladunastudio?igsh=M2kyNWR4ODlrdXdo"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gray-800 hover:bg-brand-primary/20 p-2 rounded-lg transition-colors"
+                  className="bg-gray-800 hover:bg-white/20 p-2 rounded-lg transition-colors"
                 >
-                  <Instagram size={20} className="text-gray-300 hover:text-brand-primary" />
+                  <Instagram size={20} className="text-gray-300 hover:text-white" />
                 </a>
               </div>
             </div>
             
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="btn-primary"
+            <a 
+              href="https://tally.so/r/GxKJbk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
+              style={{
+                backgroundColor: '#FFFFFF',
+                color: '#000000'
+              }}
             >
               Consultoria Gratuita
-            </button>
+            </a>
           </div>
         </div>
 
@@ -192,10 +186,10 @@ export const Footer = () => {
               </p>
             </div>
             <div className="flex gap-6">
-              <button className="text-gray-400 hover:text-brand-primary text-sm transition-colors">
+              <button className="text-gray-400 hover:text-white text-sm transition-colors">
                 Política de Privacidade
               </button>
-              <button className="text-gray-400 hover:text-brand-primary text-sm transition-colors">
+              <button className="text-gray-400 hover:text-white text-sm transition-colors">
                 Termos de Uso
               </button>
             </div>
