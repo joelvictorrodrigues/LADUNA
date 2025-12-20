@@ -116,8 +116,8 @@ export const Hero = () => {
           {/* Right Content - Logo */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-center lg:-mt-8 lg:-ml-16">
             <img 
-              src="https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/2q3nlgbl_PRETO%20E%20BRANCO.pdf.png" 
-              alt="LADUNA STUDIO Logo" 
+              src="https://customer-assets.emergentagent.com/job_laduna-landing/artifacts/1u969ezp_Marketing%20estrate%CC%81gico%20para%20empresas%20e%20profissionais%20que%20querem%20crescer%20de%20verdade..png" 
+              alt="LADUNA STUDIO Marketing" 
               className="h-56 lg:h-72 w-auto animate-float"
             />
           </div>
