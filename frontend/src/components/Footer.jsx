@@ -102,7 +102,7 @@ export const Footer = () => {
                   onClick={() => scrollToSection('services')}
                   className="text-gray-300 hover:text-white transition-colors text-sm text-left"
                 >
-                  Gestão de Redes Sociais
+                  Estratégia & Diagnóstico
                 </button>
               </li>
               <li>
@@ -110,7 +110,7 @@ export const Footer = () => {
                   onClick={() => scrollToSection('services')}
                   className="text-gray-300 hover:text-white transition-colors text-sm text-left"
                 >
-                  Estratégia Digital
+                  Gestão de Social Media
                 </button>
               </li>
               <li>
@@ -118,7 +118,7 @@ export const Footer = () => {
                   onClick={() => scrollToSection('services')}
                   className="text-gray-300 hover:text-white transition-colors text-sm text-left"
                 >
-                  Tráfego Pago
+                  Conteúdo & Copy
                 </button>
               </li>
               <li>
@@ -126,7 +126,7 @@ export const Footer = () => {
                   onClick={() => scrollToSection('services')}
                   className="text-gray-300 hover:text-white transition-colors text-sm text-left"
                 >
-                  Marketing de Conteúdo
+                  Tráfego Pago & Performance
                 </button>
               </li>
               <li>
@@ -134,7 +134,15 @@ export const Footer = () => {
                   onClick={() => scrollToSection('services')}
                   className="text-gray-300 hover:text-white transition-colors text-sm text-left"
                 >
-                  Desenvolvimento Web
+                  Branding & Identidade Visual
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('services')}
+                  className="text-gray-300 hover:text-white transition-colors text-sm text-left"
+                >
+                  Sites & Landing Pages
                 </button>
               </li>
             </ul>
