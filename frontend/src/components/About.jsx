@@ -255,7 +255,7 @@ export const About = () => {
           <img 
             src="https://customer-assets.emergentagent.com/job_laduna-landing/artifacts/sqxxoulf_3333.png"
             alt="LADUNA STUDIO Team"
-            className="w-full h-64 object-cover"
+            className="w-full"
           />
         </div>
       </div>
