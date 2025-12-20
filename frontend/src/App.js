@@ -5,7 +5,6 @@ import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { Services } from './components/Services';
 import { ClientLogos } from './components/ClientLogos';
-import { FinalCTA } from './components/FinalCTA';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { ChatWidget } from './components/ChatWidget';
@@ -19,7 +18,6 @@ function App() {
         <About />
         <Services />
         <ClientLogos />
-        <FinalCTA />
         <Contact />
       </main>
       <Footer />
