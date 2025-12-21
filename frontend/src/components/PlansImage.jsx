@@ -1,6 +1,13 @@
 import React from 'react';
 
 export const PlansImage = () => {
+  const scrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="bg-white">
       <img 
@@ -12,10 +19,8 @@ export const PlansImage = () => {
       
       {/* CTA Button */}
       <div className="bg-white py-12 text-center">
-        <a 
-          href="https://tally.so/r/GxKJbk"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button 
+          onClick={scrollToContact}
           className="inline-block px-10 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 animate-float"
           style={{
             backgroundColor: '#000000',
@@ -24,7 +29,7 @@ export const PlansImage = () => {
           }}
         >
           Fazer a consultoria e escolher saber mais sobre os planos agora
-        </a>
+        </button>
       </div>
     </section>
   );

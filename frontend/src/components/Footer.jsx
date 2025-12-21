@@ -21,7 +21,7 @@ export const Footer = () => {
           <div className="lg:col-span-2">
             <div className="mb-6">
               <img 
-                src="https://customer-assets.emergentagent.com/job_laduna-landing/artifacts/k6lgluz6_00001.png" 
+                src="https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/1byjv5wa_Marketing%20estrate%CC%81gico%20para%20empresas%20e%20profissionais%20que%20querem%20crescer%20de%20verdade..png" 
                 alt="LADUNA STUDIO Logo" 
                 className="h-16 w-auto mb-4"
               />
