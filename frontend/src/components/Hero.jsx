@@ -21,8 +21,8 @@ export const Hero = () => {
       {/* Background Image */}
       <div className="hero-background">
         <img 
-          src="https://images.unsplash.com/photo-1611829517505-0235064854fc?w=1920&h=1080&fit=crop"
-          alt="Modern Business Architecture"
+          src="https://customer-assets.emergentagent.com/job_laduna-studio/artifacts/04cj29s9_colleagues-working-desktop.jpg"
+          alt="Equipe LADUNA trabalhando"
           className="hero-image"
         />
         <div className="hero-overlay"></div>
