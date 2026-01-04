@@ -178,8 +178,8 @@ export const companyInfo = {
   ],
   contact: {
     email: "ladunastudio@gmail.com",
-    phone: "+55 66 99613-9483",
-    whatsapp: "https://wa.me/5566996139483",
+    phone: "(66) 99636-1345",
+    whatsapp: "https://wa.me/5566996361345",
     address: "",
     schedule: "Segunda a Sexta das 8h às 18h",
     social: {
