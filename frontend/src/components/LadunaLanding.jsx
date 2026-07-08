@@ -286,12 +286,15 @@ function Hero() {
     <section className="ld-hero" id="inicio">
       <div className="ld-container ld-hero-grid">
         <div className="ld-hero-copy ld-reveal">
-          <p className="ld-eyebrow">LADUNA Studio</p>
-          <h1>Sua marca não precisa de mais posts. Precisa de posicionamento.</h1>
+          <p className="ld-eyebrow ld-hero-kicker">LADUNA STUDIO</p>
+          <h1>
+            <span>Marcas fortes não nascem</span>
+            <span>por acaso. Elas são</span>
+            <span>construídas com direção.</span>
+          </h1>
           <p className="ld-hero-text">
-            A LADUNA Studio une estratégia, identidade visual, conteúdo e tráfego para transformar sua presença digital em autoridade, percepção de valor e oportunidades reais de venda.
+            A LADUNA Studio une posicionamento, identidade e estratégia para transformar marcas em presenças mais profissionais, desejadas e preparadas para vender.
           </p>
-          <p className="ld-signature">Posicionamento • Identidade • Estratégia</p>
           <div className="ld-action-row">
             <a className="ld-button ld-button-primary" href={whatsappLink(messages.diagnostic)} target="_blank" rel="noreferrer">
               Solicitar diagnóstico
@@ -301,9 +304,10 @@ function Hero() {
               Ver portfólio
             </a>
           </div>
+          <p className="ld-signature">Posicionamento • Identidade • Estratégia</p>
         </div>
 
-        <div className="ld-hero-visual ld-reveal" aria-label="Mockup visual da presença digital LADUNA">
+        <div className="ld-hero-visual ld-reveal" aria-label="Mockup visual premium da presença digital LADUNA">
           <div className="ld-laptop">
             <div className="ld-laptop-bar">
               <span />
@@ -311,20 +315,46 @@ function Hero() {
               <span />
             </div>
             <div className="ld-laptop-screen">
-              <img src={asset('/favicon-source.jpg')} alt="Identidade visual LADUNA aplicada em fundo claro com dunas" />
-              <div className="ld-screen-panel">
-                <small>Estrutura antes do tráfego</small>
-                <strong>Marca clara, criativo forte e campanha com direção.</strong>
+              <div className="ld-screen-topline">
+                <div>
+                  <img src={asset('/assets/laduna-symbol.png')} alt="" />
+                  <span>LADUNA Studio</span>
+                </div>
+                <small>Brand direction</small>
+              </div>
+              <div className="ld-screen-main">
+                <img src={asset('/assets/laduna-cover.jpg')} alt="Identidade LADUNA com dunas em fundo claro" />
+                <div>
+                  <small>Presença com intenção</small>
+                  <strong>Marca clara, estética refinada e estratégia para vender.</strong>
+                </div>
+              </div>
+              <div className="ld-screen-metrics" aria-hidden="true">
+                <span>Posicionamento</span>
+                <span>Identidade</span>
+                <span>Estratégia</span>
+              </div>
+            </div>
+          </div>
+          <div className="ld-phone-mockup" aria-hidden="true">
+            <div className="ld-phone-screen">
+              <img src={asset('/assets/laduna-facade.jpg')} alt="" />
+              <div>
+                <span>@ladunastudio</span>
+                <strong>Percepção de valor em cada ponto de contato.</strong>
               </div>
             </div>
           </div>
           <div className="ld-floating-card ld-card-one">
-            <span>Ativo digital</span>
-            <strong>Percepção que vende</strong>
+            <span>Criativos</span>
+            <strong>Criativos que geram resultados reais</strong>
           </div>
           <div className="ld-floating-card ld-card-two">
-            <span>Método LADUNA</span>
-            <strong>Estratégia + estética</strong>
+            <img src={asset('/assets/laduna-symbol.png')} alt="" />
+            <div>
+              <span>Método LADUNA</span>
+              <strong>Direção antes da execução</strong>
+            </div>
           </div>
         </div>
       </div>

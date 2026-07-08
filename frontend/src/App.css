@@ -270,27 +270,25 @@ a {
 .ld-hero {
   position: relative;
   min-height: calc(100vh - var(--ld-header-height));
-  padding: 78px 0 96px;
+  padding: 74px 0 96px;
   display: flex;
   align-items: center;
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(247, 247, 247, 0.84) 0%, rgba(255, 255, 255, 1) 64%),
+    linear-gradient(180deg, rgba(247, 247, 247, 0.92) 0%, rgba(255, 255, 255, 1) 62%),
     var(--laduna-white);
 }
 
 .ld-hero::after {
   content: '';
   position: absolute;
-  right: -8vw;
-  bottom: -18vw;
-  width: 42vw;
-  max-width: 560px;
-  aspect-ratio: 1;
+  inset: auto 0 0 auto;
+  width: min(46vw, 640px);
+  height: min(32vw, 430px);
   background:
-    radial-gradient(circle at 42% 36%, rgba(155, 138, 165, 0.72), transparent 34%),
-    linear-gradient(135deg, rgba(45, 45, 45, 0.4), rgba(107, 74, 125, 0.18));
-  opacity: 0.035;
+    linear-gradient(135deg, transparent 0 38%, rgba(107, 74, 125, 0.07) 38% 39%, transparent 39%),
+    linear-gradient(160deg, transparent 0 52%, rgba(45, 45, 45, 0.045) 52% 53%, transparent 53%);
+  opacity: 0.9;
   pointer-events: none;
 }
 
@@ -298,9 +296,9 @@ a {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.98fr);
+  grid-template-columns: minmax(0, 0.94fr) minmax(420px, 1.06fr);
   align-items: center;
-  gap: 56px;
+  gap: 64px;
 }
 
 .ld-hero-copy,
@@ -310,7 +308,23 @@ a {
 }
 
 .ld-hero-copy {
-  gap: 24px;
+  gap: 22px;
+}
+
+.ld-hero-kicker {
+  letter-spacing: 0.16em;
+}
+
+.ld-hero-copy h1 {
+  max-width: 720px;
+  color: #202020;
+  font-size: clamp(4.6rem, 7.1vw, 6.35rem);
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.ld-hero-copy h1 span {
+  display: block;
 }
 
 .ld-eyebrow {
@@ -322,9 +336,10 @@ a {
 }
 
 .ld-hero-text {
-  max-width: 650px;
+  max-width: 610px;
   color: rgba(45, 45, 45, 0.72);
-  font-size: 1.18rem;
+  font-size: 1.17rem;
+  line-height: 1.72;
 }
 
 .ld-signature {
@@ -348,18 +363,44 @@ a {
 
 .ld-hero-visual {
   position: relative;
-  min-height: 530px;
+  min-height: 610px;
+  isolation: isolate;
+}
+
+.ld-hero-visual::before {
+  content: '';
+  position: absolute;
+  inset: 18px 16px 18px 58px;
+  z-index: -1;
+  border: 1px solid rgba(107, 74, 125, 0.12);
+  background:
+    linear-gradient(rgba(45, 45, 45, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 45, 45, 0.035) 1px, transparent 1px),
+    rgba(247, 247, 247, 0.72);
+  background-size: 34px 34px;
+  border-radius: 8px;
 }
 
 .ld-laptop {
   position: absolute;
-  inset: 60px 0 auto auto;
-  width: min(100%, 560px);
+  top: 52px;
+  right: 0;
+  width: min(100%, 620px);
   overflow: hidden;
   background: var(--laduna-white);
   border: 1px solid rgba(45, 45, 45, 0.12);
   border-radius: 8px;
-  box-shadow: 0 30px 80px rgba(45, 45, 45, 0.14);
+  box-shadow: 0 34px 90px rgba(45, 45, 45, 0.16);
+}
+
+.ld-laptop::after {
+  content: '';
+  display: block;
+  width: 84%;
+  height: 12px;
+  margin: 0 auto 12px;
+  background: linear-gradient(90deg, transparent, rgba(45, 45, 45, 0.08), transparent);
+  border-radius: 0 0 18px 18px;
 }
 
 .ld-laptop-bar {
@@ -380,40 +421,77 @@ a {
 
 .ld-laptop-screen {
   position: relative;
-  min-height: 380px;
+  min-height: 420px;
   display: grid;
-  align-items: end;
+  grid-template-rows: auto 1fr auto;
+  gap: 18px;
+  padding: 24px;
   overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(247, 247, 247, 0.86)),
+    var(--laduna-white);
 }
 
-.ld-laptop-screen img {
-  position: absolute;
-  inset: 0;
+.ld-screen-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(45, 45, 45, 0.08);
+}
+
+.ld-screen-topline div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ld-screen-topline img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.ld-screen-topline span {
+  color: var(--laduna-black);
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.ld-screen-topline small {
+  color: var(--laduna-purple);
+  font-weight: 800;
+}
+
+.ld-screen-main {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(220px, 0.78fr);
+  align-items: stretch;
+  gap: 18px;
+}
+
+.ld-screen-main img {
   width: 100%;
-  height: 100%;
+  min-height: 250px;
   object-fit: cover;
+  border: 1px solid rgba(45, 45, 45, 0.1);
+  border-radius: 8px;
 }
 
-.ld-laptop-screen::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.96));
-}
-
-.ld-screen-panel {
-  position: relative;
-  z-index: 1;
-  width: min(calc(100% - 40px), 390px);
-  margin: 0 20px 20px auto;
-  padding: 22px;
+.ld-screen-main div {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 24px;
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(45, 45, 45, 0.1);
   border-radius: 8px;
   box-shadow: var(--ld-shadow-soft);
 }
 
-.ld-screen-panel small,
+.ld-screen-main small,
 .ld-floating-card span,
 .ld-project-card span,
 .ld-plan-card span,
@@ -427,18 +505,84 @@ a {
   font-weight: 800;
 }
 
-.ld-screen-panel strong {
+.ld-screen-main strong {
+  display: block;
+  margin-top: 9px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: var(--laduna-black);
+  font-size: 1.68rem;
+  line-height: 1.08;
+}
+
+.ld-screen-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.ld-screen-metrics span {
+  min-height: 52px;
+  display: grid;
+  place-items: center;
+  padding: 0 10px;
+  color: rgba(45, 45, 45, 0.78);
+  background: rgba(247, 247, 247, 0.94);
+  border: 1px solid rgba(45, 45, 45, 0.08);
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.ld-phone-mockup {
+  position: absolute;
+  left: 0;
+  bottom: 42px;
+  z-index: 2;
+  width: 178px;
+  padding: 10px;
+  background: #272727;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 26px;
+  box-shadow: 0 24px 54px rgba(45, 45, 45, 0.2);
+}
+
+.ld-phone-screen {
+  min-height: 326px;
+  overflow: hidden;
+  background: var(--laduna-white);
+  border-radius: 18px;
+}
+
+.ld-phone-screen img {
+  width: 100%;
+  height: 182px;
+  object-fit: cover;
+}
+
+.ld-phone-screen div {
+  padding: 14px;
+}
+
+.ld-phone-screen span {
+  color: var(--laduna-purple);
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.ld-phone-screen strong {
   display: block;
   margin-top: 6px;
+  color: var(--laduna-black);
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 1.55rem;
-  line-height: 1.08;
+  font-size: 0.92rem;
+  line-height: 1.18;
 }
 
 .ld-floating-card {
   position: absolute;
   z-index: 2;
-  width: 210px;
+  width: 232px;
   padding: 18px;
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(45, 45, 45, 0.1);
@@ -455,12 +599,23 @@ a {
 
 .ld-card-one {
   top: 0;
-  right: 28px;
+  left: 20px;
 }
 
 .ld-card-two {
-  left: 0;
-  bottom: 20px;
+  right: 18px;
+  bottom: 8px;
+  width: 256px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ld-card-two img {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  object-fit: contain;
 }
 
 .ld-stats-band {
@@ -1059,17 +1214,31 @@ a {
   }
 
   .ld-hero-grid {
-    gap: 30px;
+    gap: 42px;
   }
 
   .ld-hero-visual {
-    min-height: 500px;
+    min-height: 560px;
   }
 
   .ld-laptop {
-    left: 40px;
-    right: 0;
-    margin: 0 auto;
+    top: 44px;
+    left: 50%;
+    right: auto;
+    width: min(calc(100% - 72px), 640px);
+    transform: translateX(-50%);
+  }
+
+  .ld-phone-mockup {
+    left: calc(50% - 340px);
+  }
+
+  .ld-card-one {
+    left: calc(50% - 300px);
+  }
+
+  .ld-card-two {
+    right: calc(50% - 318px);
   }
 
   .ld-stats-grid,
@@ -1166,28 +1335,43 @@ a {
   }
 
   .ld-hero-visual {
-    min-height: 450px;
+    min-height: 560px;
   }
 
   .ld-laptop {
-    inset: 42px 0 auto 0;
-    width: 96%;
+    top: 46px;
+    width: min(100%, 620px);
   }
 
   .ld-laptop-screen {
-    min-height: 330px;
+    min-height: 390px;
+    padding: 20px;
+  }
+
+  .ld-screen-main {
+    grid-template-columns: minmax(0, 0.88fr) minmax(190px, 0.72fr);
+  }
+
+  .ld-screen-main strong {
+    font-size: 1.42rem;
+  }
+
+  .ld-phone-mockup {
+    left: 0;
+    width: 164px;
   }
 
   .ld-floating-card {
-    width: min(190px, 46vw);
+    width: min(208px, 42vw);
   }
 
   .ld-card-one {
-    right: 0;
+    left: 0;
   }
 
   .ld-card-two {
-    left: 0;
+    right: 0;
+    width: min(244px, 48vw);
   }
 }
 
@@ -1217,6 +1401,15 @@ a {
     padding-top: 42px;
   }
 
+  .ld-hero-copy h1 {
+    font-size: clamp(2.4rem, 11vw, 2.95rem);
+    line-height: 1.03;
+  }
+
+  .ld-hero-text {
+    font-size: 1.04rem;
+  }
+
   .ld-action-row,
   .ld-final-actions,
   .ld-button {
@@ -1244,19 +1437,64 @@ a {
 
   .ld-hero-visual {
     min-height: auto;
-    padding-top: 430px;
     display: grid;
     gap: 12px;
+    padding-top: 0;
   }
 
-  .ld-screen-panel {
-    width: calc(100% - 28px);
-    margin: 0 14px 14px;
+  .ld-hero-visual::before {
+    inset: 20px 0 auto;
+    height: 360px;
+  }
+
+  .ld-laptop {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    transform: none;
+  }
+
+  .ld-laptop-screen {
+    min-height: auto;
+    padding: 16px;
+  }
+
+  .ld-screen-topline {
+    align-items: flex-start;
+  }
+
+  .ld-screen-topline small {
+    display: none;
+  }
+
+  .ld-screen-main {
+    grid-template-columns: 1fr;
+  }
+
+  .ld-screen-main img {
+    min-height: 176px;
+  }
+
+  .ld-screen-main div {
     padding: 18px;
   }
 
-  .ld-screen-panel strong {
-    font-size: 1.2rem;
+  .ld-screen-main strong {
+    font-size: 1.18rem;
+  }
+
+  .ld-screen-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .ld-phone-mockup {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    width: min(100%, 236px);
+    margin: -44px 0 0 auto;
   }
 
   .ld-floating-card {
@@ -1268,6 +1506,10 @@ a {
   .ld-card-one,
   .ld-card-two {
     inset: auto;
+  }
+
+  .ld-card-two {
+    width: 100%;
   }
 
   .ld-footer-grid {
@@ -1302,11 +1544,19 @@ a {
     font-size: 0.94rem;
   }
 
-  .ld-hero-visual {
-    padding-top: 378px;
+  .ld-hero-copy h1 {
+    font-size: 2.12rem;
   }
 
   .ld-laptop-screen {
-    min-height: 280px;
+    padding: 14px;
+  }
+
+  .ld-screen-main img {
+    min-height: 150px;
+  }
+
+  .ld-phone-mockup {
+    width: min(100%, 220px);
   }
 }
