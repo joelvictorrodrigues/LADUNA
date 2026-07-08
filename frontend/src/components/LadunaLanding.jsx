@@ -218,12 +218,8 @@ const testimonials = [
 
 function LogoMark({ dark = false }) {
   return (
-    <a className="ld-brand" href="#inicio" aria-label="LADUNA Studio, voltar ao início">
-      <img src={asset('/laduna-logo.png')} alt="" />
-      <span>
-        <strong>LADUNA</strong>
-        <small className={dark ? 'is-dark' : ''}>Studio</small>
-      </span>
+    <a className={`ld-brand ${dark ? 'is-dark' : ''}`} href="#inicio" aria-label="LADUNA Studio, voltar ao início">
+      <img src={asset('/assets/laduna-logo-horizontal.png')} alt="LADUNA Studio" />
     </a>
   );
 }
@@ -303,7 +299,7 @@ function Hero() {
         </div>
 
         <div className="ld-hero-visual ld-reveal">
-          <img src={asset('/assets/laduna-cover.jpg')} alt="Identidade visual da LADUNA Studio com logo, slogan e dunas em fundo claro" />
+          <img src={asset('/assets/laduna-hero.png')} alt="Identidade visual oficial da LADUNA Studio" />
         </div>
       </div>
     </section>
@@ -352,7 +348,7 @@ function AboutSection() {
     <section className="ld-section ld-about-section" id="sobre">
       <div className="ld-container ld-about-grid">
         <div className="ld-about-image ld-reveal">
-          <img src={asset('/assets/laduna-facade.jpg')} alt="Símbolo LADUNA aplicado em fachada moderna" loading="lazy" />
+          <img src={asset('/assets/laduna-emblem.png')} alt="Emblema oficial da LADUNA Studio" loading="lazy" />
         </div>
         <div className="ld-section-copy ld-reveal">
           <p className="ld-eyebrow">Sobre a LADUNA</p>
@@ -535,7 +531,7 @@ function DiagnosticSection() {
     <section className="ld-section ld-diagnostic-section" id="diagnostico">
       <div className="ld-container ld-diagnostic-grid">
         <div className="ld-diagnostic-visual ld-reveal">
-          <img src={asset('/laduna-favicon.png')} alt="Aplicação visual da identidade LADUNA em fachada moderna" loading="lazy" />
+          <img src={asset('/assets/laduna-emblem.png')} alt="Emblema oficial da LADUNA Studio" loading="lazy" />
         </div>
         <div className="ld-section-copy ld-reveal">
           <p className="ld-eyebrow">Diagnóstico estratégico</p>

@@ -149,33 +149,21 @@ a {
 .ld-brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  width: clamp(132px, 13vw, 174px);
+  height: 48px;
   min-width: max-content;
 }
 
 .ld-brand img {
-  width: 42px;
-  height: 42px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+  object-position: left center;
 }
 
-.ld-brand strong {
-  display: block;
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 1rem;
-  line-height: 1;
-}
-
-.ld-brand small {
-  display: block;
-  margin-top: 3px;
-  color: var(--laduna-gray);
-  font-size: 0.77rem;
-  font-weight: 700;
-}
-
-.ld-brand small.is-dark {
-  color: rgba(255, 255, 255, 0.58);
+.ld-brand.is-dark img {
+  filter: invert(1) grayscale(1) brightness(1.55);
+  opacity: 0.94;
 }
 
 .ld-menu {
@@ -363,8 +351,9 @@ a {
 .ld-hero-visual img {
   width: 100%;
   aspect-ratio: 16 / 10;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
+  background: var(--laduna-white);
   border: 1px solid rgba(45, 45, 45, 0.1);
   border-radius: 10px;
   box-shadow: 0 28px 70px rgba(45, 45, 45, 0.12);
@@ -492,7 +481,9 @@ a {
 .ld-about-image img {
   width: 100%;
   aspect-ratio: 16 / 10;
-  object-fit: cover;
+  padding: 44px;
+  object-fit: contain;
+  background: var(--laduna-white);
 }
 
 .ld-section-heading {
@@ -825,7 +816,9 @@ a {
 .ld-diagnostic-visual img {
   width: 100%;
   height: min(580px, 60vw);
-  object-fit: cover;
+  padding: 56px;
+  object-fit: contain;
+  background: var(--laduna-white);
 }
 
 .ld-check-list {
@@ -1205,13 +1198,9 @@ a {
     font-size: 1.9rem;
   }
 
-  .ld-brand img {
-    width: 38px;
-    height: 38px;
-  }
-
-  .ld-brand strong {
-    font-size: 0.94rem;
+  .ld-brand {
+    width: 124px;
+    height: 44px;
   }
 
   .ld-hero-copy h1 {
