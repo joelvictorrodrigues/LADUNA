@@ -123,42 +123,36 @@ const services = [
 
 const projects = [
   {
-    initials: 'UP',
     name: 'UPSMART',
     segment: 'Varejo tech',
     objective: 'Campanhas comerciais, tráfego e criativos de venda para varejo de tecnologia.',
     variant: 'tech'
   },
   {
-    initials: 'US',
     name: 'UPSMART Segurança',
     segment: 'Segurança eletrônica',
     objective: 'Conteúdo técnico, autoridade e campanhas para soluções de segurança.',
     variant: 'security'
   },
   {
-    initials: 'ME',
     name: 'MESHOP',
     segment: 'Moda, esporte e pesca',
     objective: 'Promoções sazonais e campanhas de alto apelo visual para varejo.',
     variant: 'meshop'
   },
   {
-    initials: 'MF',
     name: 'MEFITNESS',
     segment: 'Varejo fitness',
     objective: 'Campanhas comerciais, datas locais e presença visual para o segmento fitness.',
     variant: 'fitness'
   },
   {
-    initials: 'CC',
-    name: 'CASA&CIA Peixoto',
-    segment: 'Casa e decoração',
-    objective: 'Comunicação de varejo, ofertas e percepção mais organizada no digital.',
+    name: 'Wanjo Cell',
+    segment: 'Assistência e acessórios',
+    objective: 'Posicionamento para varejo local, assistência técnica e comunicação comercial.',
     variant: 'home'
   },
   {
-    initials: 'LS',
     name: 'Laboratório São Sebastião',
     segment: 'Saúde',
     objective: 'Comunicação em saúde, confiança e conteúdo educativo para pacientes.',
@@ -288,9 +282,10 @@ function Hero() {
         <div className="ld-hero-copy ld-reveal">
           <p className="ld-eyebrow ld-hero-kicker">LADUNA STUDIO</p>
           <h1>
-            <span>Marcas fortes não nascem</span>
-            <span>por acaso. Elas são</span>
-            <span>construídas com direção.</span>
+            <span>Marcas fortes</span>
+            <span>não nascem por acaso.</span>
+            <span>Elas são construídas</span>
+            <span>com direção.</span>
           </h1>
           <p className="ld-hero-text">
             A LADUNA Studio une posicionamento, identidade e estratégia para transformar marcas em presenças mais profissionais, desejadas e preparadas para vender.
@@ -307,55 +302,8 @@ function Hero() {
           <p className="ld-signature">Posicionamento • Identidade • Estratégia</p>
         </div>
 
-        <div className="ld-hero-visual ld-reveal" aria-label="Mockup visual premium da presença digital LADUNA">
-          <div className="ld-laptop">
-            <div className="ld-laptop-bar">
-              <span />
-              <span />
-              <span />
-            </div>
-            <div className="ld-laptop-screen">
-              <div className="ld-screen-topline">
-                <div>
-                  <img src={asset('/assets/laduna-symbol.png')} alt="" />
-                  <span>LADUNA Studio</span>
-                </div>
-                <small>Brand direction</small>
-              </div>
-              <div className="ld-screen-main">
-                <img src={asset('/assets/laduna-cover.jpg')} alt="Identidade LADUNA com dunas em fundo claro" />
-                <div>
-                  <small>Presença com intenção</small>
-                  <strong>Marca clara, estética refinada e estratégia para vender.</strong>
-                </div>
-              </div>
-              <div className="ld-screen-metrics" aria-hidden="true">
-                <span>Posicionamento</span>
-                <span>Identidade</span>
-                <span>Estratégia</span>
-              </div>
-            </div>
-          </div>
-          <div className="ld-phone-mockup" aria-hidden="true">
-            <div className="ld-phone-screen">
-              <img src={asset('/assets/laduna-facade.jpg')} alt="" />
-              <div>
-                <span>@ladunastudio</span>
-                <strong>Percepção de valor em cada ponto de contato.</strong>
-              </div>
-            </div>
-          </div>
-          <div className="ld-floating-card ld-card-one">
-            <span>Criativos</span>
-            <strong>Criativos que geram resultados reais</strong>
-          </div>
-          <div className="ld-floating-card ld-card-two">
-            <img src={asset('/assets/laduna-symbol.png')} alt="" />
-            <div>
-              <span>Método LADUNA</span>
-              <strong>Direção antes da execução</strong>
-            </div>
-          </div>
+        <div className="ld-hero-visual ld-reveal">
+          <img src={asset('/assets/laduna-cover.jpg')} alt="Identidade visual da LADUNA Studio com logo, slogan e dunas em fundo claro" />
         </div>
       </div>
     </section>
@@ -404,7 +352,7 @@ function AboutSection() {
     <section className="ld-section ld-about-section" id="sobre">
       <div className="ld-container ld-about-grid">
         <div className="ld-about-image ld-reveal">
-          <img src={asset('/favicon-source.jpg')} alt="Logo LADUNA com slogan Posicionamento, Identidade e Estratégia" loading="lazy" />
+          <img src={asset('/assets/laduna-facade.jpg')} alt="Símbolo LADUNA aplicado em fachada moderna" loading="lazy" />
         </div>
         <div className="ld-section-copy ld-reveal">
           <p className="ld-eyebrow">Sobre a LADUNA</p>
@@ -485,14 +433,16 @@ function PortfolioSection() {
       <div className="ld-container">
         <SectionHeading
           eyebrow="Portfólio"
-          title="Criativos que geram percepção. Estratégias que geram resultado."
-          text="Cada projeto da LADUNA nasce de uma combinação entre estética, estratégia e objetivo comercial."
+          title="Projetos que saíram do improviso."
+          text="Criativos, campanhas e identidades pensadas para gerar percepção, autoridade e venda."
           wide
         />
         <div className="ld-portfolio-grid">
           {projects.map((project) => (
             <article className="ld-project-card ld-reveal" key={project.name}>
-              <div className={`ld-project-art is-${project.variant}`}>{project.initials}</div>
+              <div className={`ld-project-art is-${project.variant}`} aria-hidden="true">
+                <span>{project.name}</span>
+              </div>
               <div>
                 <span>{project.segment}</span>
                 <h3>{project.name}</h3>
