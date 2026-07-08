@@ -62,13 +62,13 @@ export const portfolioProjects = [
     id: 1,
     title: "UpSmart",
     category: "Tecnologia",
-    description: "Aumentamos em 300% o tráfego orgânico e geramos 150+ leads qualificados mensais através de uma estratégia integrada de SEO e tráfego pago.",
+    description: "Organização de presença digital, campanhas comerciais e criativos de venda para fortalecer percepção e conversão.",
     image: "https://customer-assets.emergentagent.com/job_laduna-digital/artifacts/65bwbsai_1.HEIC",
     results: {
-      trafficIncrease: "300%",
-      leadsGenerated: "150+",
-      conversionRate: "8.5%",
-      roi: "450%"
+      trafficIncrease: "Presença",
+      leadsGenerated: "Criativos",
+      conversionRate: "Campanhas",
+      roi: "Estratégia"
     },
     services: ["SEO", "Google Ads", "Content Marketing"]
   },
@@ -78,13 +78,13 @@ export const portfolioProjects = [
     id: 4,
     title: "Comércio de Fazendas",
     category: "Imobiliária & Agronegócios",
-    description: "Desenvolvemos estratégia digital completa que resultou em 350% de aumento nas consultas e vendas de propriedades rurais em todo o país.",
+    description: "Desenvolvemos uma estrutura de comunicação mais profissional para apresentar ofertas, diferenciais e oportunidades comerciais.",
     image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=400&fit=crop",
     results: {
-      inquiriesIncrease: "350%",
-      salesGrowth: "280%",
-      websiteTraffic: "400%",
-      leadQuality: "90%"
+      inquiriesIncrease: "Direção",
+      salesGrowth: "Comunicação",
+      websiteTraffic: "Conteúdo",
+      leadQuality: "Presença"
     },
     services: ["Google Ads", "SEO Rural", "Marketing de Conteúdo"]
   }
@@ -156,7 +156,7 @@ export const testimonials = [
     name: "Pedro Oliveira",
     company: "EcoTech Solutions",
     position: "CEO",
-    content: "A LADUNA transformou completamente nossa presença digital. Em 6 meses, nosso faturamento online aumentou 400%. Equipe extremamente profissional e resultados excepcionais.",
+    content: "A LADUNA organizou nossa comunicação e deixou nossa marca muito mais profissional. Equipe atenta, estratégica e muito cuidadosa com os detalhes.",
     rating: 5,
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop"
   },
@@ -184,7 +184,7 @@ export const companyInfo = {
     schedule: "Segunda a Sexta das 8h às 18h",
     social: {
       linkedin: "https://linkedin.com/company/laduna-studio",
-      instagram: "https://instagram.com/laduna.studio",
+      instagram: "https://instagram.com/ladunastudio",
       facebook: "https://facebook.com/laduna.studio"
     }
   }
