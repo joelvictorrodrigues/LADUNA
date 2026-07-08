@@ -287,7 +287,9 @@ a {
   width: 42vw;
   max-width: 560px;
   aspect-ratio: 1;
-  background: url('./assets/laduna-symbol.png') center / contain no-repeat;
+  background:
+    radial-gradient(circle at 42% 36%, rgba(155, 138, 165, 0.72), transparent 34%),
+    linear-gradient(135deg, rgba(45, 45, 45, 0.4), rgba(107, 74, 125, 0.18));
   opacity: 0.035;
   pointer-events: none;
 }
@@ -779,9 +781,7 @@ a {
 
 .ld-comparison-panel.is-after {
   color: var(--laduna-white);
-  background:
-    linear-gradient(180deg, rgba(45, 45, 45, 0.35), rgba(45, 45, 45, 0.92)),
-    url('./assets/laduna-cover.jpg') center / cover;
+  background: linear-gradient(135deg, rgba(45, 45, 45, 0.94), rgba(107, 74, 125, 0.78));
 }
 
 .ld-comparison-panel.is-after span {

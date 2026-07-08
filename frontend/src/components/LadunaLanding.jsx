@@ -225,7 +225,7 @@ const testimonials = [
 function LogoMark({ dark = false }) {
   return (
     <a className="ld-brand" href="#inicio" aria-label="LADUNA Studio, voltar ao início">
-      <img src={asset('/assets/laduna-symbol.png')} alt="" />
+      <img src={asset('/laduna-logo.png')} alt="" />
       <span>
         <strong>LADUNA</strong>
         <small className={dark ? 'is-dark' : ''}>Studio</small>
@@ -311,7 +311,7 @@ function Hero() {
               <span />
             </div>
             <div className="ld-laptop-screen">
-              <img src={asset('/assets/laduna-cover.jpg')} alt="Identidade visual LADUNA aplicada em fundo claro com dunas" />
+              <img src={asset('/favicon-source.jpg')} alt="Identidade visual LADUNA aplicada em fundo claro com dunas" />
               <div className="ld-screen-panel">
                 <small>Estrutura antes do tráfego</small>
                 <strong>Marca clara, criativo forte e campanha com direção.</strong>
@@ -374,7 +374,7 @@ function AboutSection() {
     <section className="ld-section ld-about-section" id="sobre">
       <div className="ld-container ld-about-grid">
         <div className="ld-about-image ld-reveal">
-          <img src={asset('/assets/laduna-cover.jpg')} alt="Logo LADUNA com slogan Posicionamento, Identidade e Estratégia" loading="lazy" />
+          <img src={asset('/favicon-source.jpg')} alt="Logo LADUNA com slogan Posicionamento, Identidade e Estratégia" loading="lazy" />
         </div>
         <div className="ld-section-copy ld-reveal">
           <p className="ld-eyebrow">Sobre a LADUNA</p>
@@ -555,7 +555,7 @@ function DiagnosticSection() {
     <section className="ld-section ld-diagnostic-section" id="diagnostico">
       <div className="ld-container ld-diagnostic-grid">
         <div className="ld-diagnostic-visual ld-reveal">
-          <img src={asset('/assets/laduna-facade.jpg')} alt="Aplicação visual da identidade LADUNA em fachada moderna" loading="lazy" />
+          <img src={asset('/laduna-favicon.png')} alt="Aplicação visual da identidade LADUNA em fachada moderna" loading="lazy" />
         </div>
         <div className="ld-section-copy ld-reveal">
           <p className="ld-eyebrow">Diagnóstico estratégico</p>
