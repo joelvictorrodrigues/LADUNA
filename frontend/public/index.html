@@ -1,115 +1,996 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/png" href="/favicon-new.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#ffffff" />
-        <meta name="description" content="A LADUNA Studio cria estratégias de marketing, social media, branding, vídeos, tráfego pago e sites para empresas e profissionais que querem crescer com presença digital forte." />
-        <meta property="og:title" content="LADUNA Studio | Posicionamento, Identidade e Estratégia Digital" />
-        <meta property="og:description" content="Posicionamento, identidade e estratégia para transformar presença digital em autoridade, percepção de valor e vendas." />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="/assets/laduna-hero.png" />
-        <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-        <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LADUNA Studio | Posicionamento, Identidade e Estratégia Digital</title>
+<meta name="description" content="A LADUNA Studio cria estratégias de marketing, social media, branding, vídeos, tráfego pago e sites para empresas e profissionais que querem crescer com presença digital forte.">
+<meta name="keywords" content="agência de marketing, social media, branding, identidade visual, tráfego pago, marketing digital, posicionamento de marca, Peixoto de Azevedo, Mato Grosso, LADUNA Studio">
+<meta property="og:title" content="LADUNA Studio | Posicionamento, Identidade e Estratégia Digital">
+<meta property="og:description" content="Mais que presença digital. Construímos marcas com direção.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --laduna-black:#2D2D2D;
+  --laduna-gray:#7A7A7A;
+  --laduna-light-gray:#D9D9D9;
+  --laduna-white:#FFFFFF;
+  --laduna-off-white:#F7F7F7;
+  --laduna-purple:#6B4A7D;
+  --laduna-purple-dark:#4B3458;
+  --laduna-purple-soft:#9B8AA5;
+  --radius:18px;
+  --shadow-soft:0 18px 50px rgba(45,45,45,.08);
+  --shadow-card:0 8px 28px rgba(45,45,45,.06);
+  --container:1220px;
+  --ease:cubic-bezier(.22,.8,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Quicksand',sans-serif;
+  font-size:16px;line-height:1.7;
+  color:var(--laduna-black);
+  background:var(--laduna-white);
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;line-height:1.15;color:var(--laduna-black)}
+img,svg{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+.container{max-width:var(--container);margin:0 auto;padding:0 28px}
+.section{padding:120px 0}
+.section.tight{padding:96px 0}
+.eyebrow{
+  font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--laduna-purple);
+  display:inline-flex;align-items:center;gap:12px;margin-bottom:20px;
+}
+.eyebrow::before{content:"";width:34px;height:2px;background:var(--laduna-purple);border-radius:2px}
+.eyebrow.center{justify-content:center}
+.eyebrow.center::after{content:"";width:34px;height:2px;background:var(--laduna-purple);border-radius:2px}
+.h-section{font-size:clamp(30px,4vw,44px);font-weight:800;letter-spacing:-.02em;margin-bottom:20px}
+.sub-section{font-size:clamp(16px,1.4vw,19px);color:var(--laduna-gray);max-width:640px}
+.center{text-align:center}
+.center .sub-section{margin:0 auto}
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-        <title>LADUNA Studio | Posicionamento, Identidade e Estratégia Digital</title>
-    </head>
-    <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div id="root"></div>
-        <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;
+  padding:16px 30px;border-radius:999px;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s var(--ease);
+  cursor:pointer;white-space:nowrap;
+}
+.btn svg{width:16px;height:16px;transition:transform .25s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn-primary{background:var(--laduna-purple);color:#fff;box-shadow:0 10px 26px rgba(107,74,125,.28)}
+.btn-primary:hover{background:var(--laduna-purple-dark);transform:translateY(-2px);box-shadow:0 14px 32px rgba(75,52,88,.32)}
+.btn-ghost{background:transparent;color:var(--laduna-black);border:1.5px solid var(--laduna-light-gray)}
+.btn-ghost:hover{border-color:var(--laduna-black);transform:translateY(-2px)}
+.btn-light{background:#fff;color:var(--laduna-black)}
+.btn-light:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.btn-outline-light{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+.btn-outline-light:hover{border-color:#fff;transform:translateY(-2px)}
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+/* Header */
+header{
+  position:sticky;top:0;z-index:60;
+  background:rgba(255,255,255,.86);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(217,217,217,.5);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{width:40px;height:40px;border-radius:50%;border:2px solid var(--laduna-black);display:grid;place-items:center;background:#fff}
+.brand-mark svg{width:22px;height:22px}
+.brand-name{font-family:'Montserrat',sans-serif;font-weight:800;font-size:17px;letter-spacing:.06em}
+.brand-name span{display:block;font-weight:500;font-size:10px;letter-spacing:.34em;color:var(--laduna-gray);text-transform:uppercase}
+.nav-links{display:flex;gap:34px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:14px}
+.nav-links a{color:var(--laduna-gray);transition:color .2s}
+.nav-links a:hover{color:var(--laduna-purple)}
+.nav .btn{padding:12px 24px;font-size:14px}
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--laduna-black);margin:5px 0;border-radius:2px;transition:.3s}
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-        <!-- Emergent badge removed by user request -->
-        <script>
-            !(function (t, e) {
-                var o, n, p, r;
-                e.__SV ||
-                    ((window.posthog = e),
-                    (e._i = []),
-                    (e.init = function (i, s, a) {
-                        function g(t, e) {
-                            var o = e.split(".");
-                            2 == o.length && ((t = t[o[0]]), (e = o[1])),
-                                (t[e] = function () {
-                                    t.push(
-                                        [e].concat(
-                                            Array.prototype.slice.call(
-                                                arguments,
-                                                0,
-                                            ),
-                                        ),
-                                    );
-                                });
-                        }
-                        ((p = t.createElement("script")).type =
-                            "text/javascript"),
-                            (p.crossOrigin = "anonymous"),
-                            (p.async = !0),
-                            (p.src =
-                                s.api_host.replace(
-                                    ".i.posthog.com",
-                                    "-assets.i.posthog.com",
-                                ) + "/static/array.js"),
-                            (r =
-                                t.getElementsByTagName(
-                                    "script",
-                                )[0]).parentNode.insertBefore(p, r);
-                        var u = e;
-                        for (
-                            void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
-                                u.people = u.people || [],
-                                u.toString = function (t) {
-                                    var e = "posthog";
-                                    return (
-                                        "posthog" !== a && (e += "." + a),
-                                        t || (e += " (stub)"),
-                                        e
-                                    );
-                                },
-                                u.people.toString = function () {
-                                    return u.toString(1) + ".people (stub)";
-                                },
-                                o =
-                                    "init me ws ys ps bs capture je Di ks register register_once register_for_session unregister unregister_for_session Ps getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Es $s createPersonProfile Is opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing Ss debug xs getPageViewId captureTraceFeedback captureTraceMetric".split(
-                                        " ",
-                                    ),
-                                n = 0;
-                            n < o.length;
-                            n++
-                        )
-                            g(u, o[n]);
-                        e._i.push([i, s, a]);
-                    }),
-                    (e.__SV = 1));
-            })(document, window.posthog || []);
-            posthog.init("phc_yJW1VjHGGwmCbbrtczfqqNxgBDbhlhOWcdzcIJEOTFE", {
-                api_host: "https://us.i.posthog.com",
-                person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
-            });
-        </script>
-    </body>
+/* Hero */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,var(--laduna-off-white) 100%)}
+.hero-dunes{position:absolute;bottom:-8px;left:0;right:0;opacity:.55;pointer-events:none}
+.hero-grid{
+  position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center;
+  padding:110px 0 130px;
+}
+.hero h1{font-size:clamp(40px,4.9vw,72px);font-weight:800;letter-spacing:-.03em;margin-bottom:26px}
+.hero h1 em{font-style:normal;color:var(--laduna-purple)}
+.hero-sub{font-size:clamp(17px,1.5vw,20px);color:var(--laduna-gray);max-width:520px;margin-bottom:38px}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:34px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--laduna-gray);
+}
+.hero-badge i{width:8px;height:8px;border-radius:50%;background:var(--laduna-purple);display:inline-block}
+
+/* Hero mockup — notebook + phone */
+.hero-visual{position:relative;perspective:1400px}
+.laptop{
+  background:#1c1c1e;border-radius:20px;padding:14px 14px 24px;
+  box-shadow:var(--shadow-soft),0 40px 90px rgba(45,45,45,.16);
+  transform:rotateY(-6deg) rotateX(2deg);
+}
+.laptop-screen{background:#fff;border-radius:10px;overflow:hidden;aspect-ratio:16/10;display:flex;flex-direction:column}
+.laptop-base{height:14px;background:linear-gradient(#e8e8ea,#c9c9cd);border-radius:0 0 14px 14px;margin:0 -34px;box-shadow:0 6px 18px rgba(0,0,0,.14)}
+.mini-nav{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid #f0f0f0}
+.mini-logo{display:flex;align-items:center;gap:6px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:9px;letter-spacing:.08em}
+.mini-logo b{width:14px;height:14px;border-radius:50%;border:1.4px solid var(--laduna-black);display:grid;place-items:center}
+.mini-logo b svg{width:8px;height:8px}
+.mini-links{display:flex;gap:10px}
+.mini-links i{width:26px;height:4px;border-radius:4px;background:#e6e6e6;display:block}
+.mini-btn{width:64px;height:16px;border-radius:999px;background:var(--laduna-purple)}
+.mini-hero{flex:1;display:grid;grid-template-columns:1.1fr .9fr;gap:18px;padding:22px 18px;align-items:center;background:linear-gradient(180deg,#fff,#f7f7f7)}
+.mini-copy i{display:block;border-radius:5px;background:var(--laduna-black)}
+.mini-copy i:nth-child(1){width:88%;height:11px;margin-bottom:7px}
+.mini-copy i:nth-child(2){width:70%;height:11px;margin-bottom:12px}
+.mini-copy i:nth-child(3){width:92%;height:5px;background:#dcdcdc;margin-bottom:5px}
+.mini-copy i:nth-child(4){width:60%;height:5px;background:#dcdcdc;margin-bottom:14px}
+.mini-copy i:nth-child(5){width:84px;height:20px;border-radius:999px;background:var(--laduna-purple)}
+.mini-art{position:relative;height:100%;min-height:120px;border-radius:10px;background:linear-gradient(150deg,var(--laduna-purple) 0%,var(--laduna-purple-dark) 100%);overflow:hidden}
+.mini-art svg{position:absolute;inset:auto 0 0 0;width:100%}
+.phone{
+  position:absolute;right:-26px;bottom:-34px;width:150px;
+  background:#1c1c1e;border-radius:26px;padding:8px;
+  box-shadow:0 30px 60px rgba(45,45,45,.28);
+  transform:rotate(5deg);
+}
+.phone-screen{background:#fff;border-radius:19px;overflow:hidden;aspect-ratio:9/18.5;padding:14px 10px 10px;display:flex;flex-direction:column;gap:8px}
+.phone-screen .story{height:34px;display:flex;gap:6px}
+.phone-screen .story i{width:26px;height:26px;border-radius:50%;border:2px solid var(--laduna-purple);display:block}
+.phone-screen .post{flex:1;border-radius:10px;background:linear-gradient(160deg,var(--laduna-purple-soft),var(--laduna-purple));position:relative;overflow:hidden}
+.phone-screen .post::after{content:"";position:absolute;left:10px;bottom:10px;width:56px;height:6px;border-radius:4px;background:rgba(255,255,255,.85)}
+.phone-screen .row{height:8px;border-radius:4px;background:#ececec}
+.phone-screen .row.short{width:64%}
+.hero-chip{
+  position:absolute;left:-18px;top:26px;background:#fff;border-radius:14px;padding:12px 18px;
+  box-shadow:var(--shadow-card);display:flex;align-items:center;gap:10px;
+  font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;
+}
+.hero-chip i{width:10px;height:10px;border-radius:50%;background:var(--laduna-purple)}
+
+/* Proof strip */
+.proof{padding:0}
+.proof-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:#fff;border:1px solid var(--laduna-light-gray);border-radius:var(--radius);
+  overflow:hidden;box-shadow:var(--shadow-card);transform:translateY(-52px);
+}
+.proof-item{padding:32px 28px;border-right:1px solid #ececec}
+.proof-item:last-child{border-right:none}
+.proof-item b{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:800;display:block;letter-spacing:-.01em}
+.proof-item span{font-size:14px;color:var(--laduna-gray)}
+
+/* Pain */
+.pain{background:var(--laduna-off-white)}
+.pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.pain-list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pain-item{
+  background:#fff;border:1px solid #ececec;border-radius:14px;padding:18px 20px;
+  font-family:'Montserrat',sans-serif;font-weight:600;font-size:14.5px;
+  display:flex;align-items:center;gap:12px;transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+}
+.pain-item:hover{transform:translateY(-3px);box-shadow:var(--shadow-card)}
+.pain-item svg{width:18px;height:18px;flex:none;color:var(--laduna-purple-soft)}
+.pain-close{
+  margin-top:30px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:20px;
+  color:var(--laduna-purple);
+}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:80px;align-items:center}
+.about-visual{position:relative}
+.about-frame{
+  border-radius:var(--radius);overflow:hidden;aspect-ratio:4/4.6;
+  background:linear-gradient(165deg,var(--laduna-black) 0%,#454049 55%,var(--laduna-purple-dark) 130%);
+  position:relative;box-shadow:var(--shadow-soft);
+}
+.about-frame .rings{position:absolute;inset:0;display:grid;place-items:center}
+.about-frame .rings i{position:absolute;border:1px solid rgba(255,255,255,.14);border-radius:50%}
+.about-frame .rings i:nth-child(1){width:70%;aspect-ratio:1}
+.about-frame .rings i:nth-child(2){width:50%;aspect-ratio:1}
+.about-frame .mark{width:120px;height:120px;border-radius:50%;border:2.5px solid #fff;display:grid;place-items:center;position:relative;z-index:2}
+.about-frame .mark svg{width:64px;height:64px}
+.about-frame .dunes-line{position:absolute;left:0;right:0;bottom:0;opacity:.5}
+.about-tag{
+  position:absolute;right:-20px;bottom:34px;background:#fff;border-radius:14px;
+  padding:16px 22px;box-shadow:var(--shadow-card);
+  font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--laduna-purple);
+}
+.about-copy p{color:var(--laduna-gray);margin-bottom:18px;font-size:17px}
+.about-motto{
+  margin-top:26px;padding:20px 26px;border-left:3px solid var(--laduna-purple);
+  background:var(--laduna-off-white);border-radius:0 14px 14px 0;
+  font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;letter-spacing:.14em;text-transform:uppercase;
+}
+
+/* Pillars */
+.pillars{background:var(--laduna-off-white)}
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:60px}
+.pillar{
+  background:#fff;border-radius:var(--radius);padding:44px 38px;border:1px solid #ececec;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease);position:relative;overflow:hidden;
+}
+.pillar::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--laduna-purple);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.pillar:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft)}
+.pillar:hover::before{transform:scaleX(1)}
+.pillar-icon{width:56px;height:56px;border-radius:16px;background:var(--laduna-off-white);display:grid;place-items:center;margin-bottom:26px}
+.pillar-icon svg{width:26px;height:26px;color:var(--laduna-purple)}
+.pillar h3{font-size:21px;font-weight:800;margin-bottom:12px}
+.pillar p{color:var(--laduna-gray);font-size:15.5px}
+
+/* Services */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
+.service{
+  background:#fff;border:1px solid #ececec;border-radius:var(--radius);padding:36px 32px;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s;
+  display:flex;flex-direction:column;gap:14px;
+}
+.service:hover{transform:translateY(-5px);box-shadow:var(--shadow-soft);border-color:var(--laduna-purple-soft)}
+.service-top{display:flex;align-items:center;justify-content:space-between}
+.service-top svg{width:24px;height:24px;color:var(--laduna-purple)}
+.service-num{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--laduna-light-gray);letter-spacing:.1em}
+.service h3{font-size:18px;font-weight:700}
+.service p{color:var(--laduna-gray);font-size:15px;flex:1}
+.service a{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13.5px;color:var(--laduna-purple);display:inline-flex;align-items:center;gap:8px}
+.service a svg{width:14px;height:14px;transition:transform .25s var(--ease)}
+.service a:hover svg{transform:translateX(4px)}
+
+/* Portfolio */
+.portfolio{background:var(--laduna-off-white)}
+.portfolio-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:60px}
+.work.featured{grid-column:span 2}
+.work.featured .work-feed{width:56%}
+.work{
+  border-radius:var(--radius);overflow:hidden;background:#fff;border:1px solid #ececec;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+}
+.work:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft)}
+.work-visual{aspect-ratio:4/3;position:relative;overflow:hidden;display:grid;place-items:center}
+.work-feed{
+  width:74%;display:grid;grid-template-columns:repeat(3,1fr);gap:5px;
+  background:#fff;padding:6px;border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.18);
+  transform:translateY(14%) rotate(-2deg);transition:transform .4s var(--ease);
+}
+.work:hover .work-feed{transform:translateY(8%) rotate(0deg)}
+.work-feed i{aspect-ratio:1;border-radius:5px;display:block}
+.work-meta{padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.work-meta h3{font-size:16px;font-weight:700}
+.work-meta span{display:block;font-size:13px;color:var(--laduna-gray);font-family:'Quicksand',sans-serif;font-weight:500;margin-top:2px}
+.work-meta .dot{width:10px;height:10px;border-radius:50%;flex:none}
+
+/* Before / After */
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:60px}
+.ba-card{border-radius:var(--radius);overflow:hidden;border:1px solid #ececec;background:#fff;box-shadow:var(--shadow-card)}
+.ba-label{
+  padding:16px 26px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;
+  letter-spacing:.2em;text-transform:uppercase;display:flex;align-items:center;gap:10px;
+}
+.ba-label.before{color:var(--laduna-gray);background:var(--laduna-off-white)}
+.ba-label.after{color:#fff;background:var(--laduna-purple)}
+.ba-feed{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:4px}
+.ba-feed i{aspect-ratio:1;display:block;border-radius:3px}
+.ba-caption{padding:20px 26px;font-size:15px;color:var(--laduna-gray)}
+.ba-caption b{color:var(--laduna-black);font-family:'Montserrat',sans-serif;font-weight:700;display:block;margin-bottom:4px;font-size:15px}
+
+/* Plans */
+.plans{background:var(--laduna-off-white)}
+.plans-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:60px}
+.plan{
+  background:#fff;border:1px solid #ececec;border-radius:var(--radius);padding:38px 30px;
+  display:flex;flex-direction:column;transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+}
+.plan:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft)}
+.plan-tier{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--laduna-purple);margin-bottom:12px}
+.plan h3{font-size:26px;font-weight:800;margin-bottom:14px}
+.plan p{color:var(--laduna-gray);font-size:15px;flex:1;margin-bottom:26px}
+.plan .btn{justify-content:center;width:100%;padding:14px 20px;font-size:14px}
+.plan.black{background:var(--laduna-black);border-color:var(--laduna-black)}
+.plan.black h3{color:#fff}
+.plan.black p{color:#b9b9b9}
+.plan.black .plan-tier{color:var(--laduna-purple-soft)}
+.plans-cta{margin-top:44px;text-align:center}
+
+/* Diagnostic */
+.diag{background:linear-gradient(180deg,#fff 0%,var(--laduna-off-white) 100%)}
+.diag-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.diag-visual{position:relative}
+.diag-report{
+  background:#fff;border-radius:var(--radius);box-shadow:var(--shadow-soft);
+  padding:34px 34px 30px;border:1px solid #ececec;transform:rotate(-1.5deg);
+}
+.diag-report-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid #f0f0f0}
+.diag-report-head b{font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;letter-spacing:.1em}
+.diag-report-head span{font-size:12px;color:var(--laduna-gray);font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.diag-row{display:flex;align-items:center;gap:14px;padding:12px 0}
+.diag-row svg{width:20px;height:20px;color:var(--laduna-purple);flex:none}
+.diag-row span{font-family:'Montserrat',sans-serif;font-weight:600;font-size:14.5px}
+.diag-bar{height:7px;border-radius:5px;background:#efefef;flex:1;overflow:hidden}
+.diag-bar i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--laduna-purple-soft),var(--laduna-purple))}
+.diag-stamp{
+  position:absolute;right:-16px;top:-18px;background:var(--laduna-purple);color:#fff;
+  font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  padding:12px 20px;border-radius:999px;box-shadow:0 12px 28px rgba(107,74,125,.35);transform:rotate(3deg);
+}
+.diag-copy .h-section{max-width:520px}
+.diag-copy p{color:var(--laduna-gray);font-size:17px;max-width:520px;margin-bottom:34px}
+
+/* Brands */
+.brands-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:56px}
+.brand-tile{
+  background:#fff;border:1px solid #ececec;border-radius:14px;padding:30px 18px;text-align:center;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s;
+}
+.brand-tile:hover{transform:translateY(-4px);box-shadow:var(--shadow-card);border-color:var(--laduna-purple-soft)}
+.brand-tile b{font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;letter-spacing:.04em;display:block}
+.brand-tile span{font-size:12.5px;color:var(--laduna-gray)}
+
+/* Testimonials */
+.testimonials{background:var(--laduna-off-white)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:60px}
+.testi{
+  background:#fff;border:1px solid #ececec;border-radius:var(--radius);padding:38px 34px;
+  display:flex;flex-direction:column;gap:22px;transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+}
+.testi:hover{transform:translateY(-5px);box-shadow:var(--shadow-soft)}
+.testi-quote svg{width:30px;height:30px;color:var(--laduna-purple-soft)}
+.testi p{font-size:16px;color:var(--laduna-black);flex:1}
+.testi-author{display:flex;align-items:center;gap:14px}
+.testi-author i{width:44px;height:44px;border-radius:50%;background:linear-gradient(140deg,var(--laduna-purple-soft),var(--laduna-purple));flex:none;display:grid;place-items:center;color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;font-style:normal}
+.testi-author b{font-family:'Montserrat',sans-serif;font-size:14.5px;font-weight:700;display:block}
+.testi-author span{font-size:13px;color:var(--laduna-gray)}
+
+/* Final CTA */
+.final{background:var(--laduna-black);color:#fff;position:relative;overflow:hidden}
+.final .h-section{color:#fff}
+.final p{color:#c4c4c4;font-size:18px;max-width:560px;margin:0 auto 40px}
+.final-dunes{position:absolute;bottom:-6px;left:0;right:0;opacity:.16;pointer-events:none}
+.final-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative}
+
+/* Footer */
+footer{background:#232323;color:#a9a9a9;padding:80px 0 36px;font-size:14.5px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:60px;margin-bottom:56px}
+.footer-brand .brand-mark{border-color:#fff;background:transparent}
+.footer-brand .brand-name{color:#fff}
+.footer-brand .brand-name span{color:#8f8f8f}
+.footer-brand p{margin-top:18px;max-width:300px}
+.footer-slogan{margin-top:14px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--laduna-purple-soft)}
+footer h4{color:#fff;font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:22px}
+footer ul li{margin-bottom:12px}
+footer a{transition:color .2s}
+footer a:hover{color:#fff}
+.footer-bottom{border-top:1px solid #3a3a3a;padding-top:28px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;color:#8a8a8a}
+
+/* Reveal animation */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  *{transition:none!important;animation:none!important}
+}
+
+/* Responsive */
+@media (max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:64px;padding:80px 0 110px}
+  .hero-sub{max-width:100%}
+  .hero-visual{max-width:560px;margin:0 auto}
+  .pain-grid,.about-grid,.diag-grid{grid-template-columns:1fr;gap:56px}
+  .pillars-grid,.services-grid,.testi-grid{grid-template-columns:repeat(2,1fr)}
+  .portfolio-grid{grid-template-columns:repeat(2,1fr)}
+  .work.featured .work-feed{width:64%}
+  .plans-grid{grid-template-columns:repeat(2,1fr)}
+  .brands-grid{grid-template-columns:repeat(3,1fr)}
+  .proof-grid{grid-template-columns:repeat(2,1fr)}
+  .proof-item{border-bottom:1px solid #ececec}
+  .proof-item:nth-child(2n){border-right:none}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:680px){
+  .section{padding:72px 0}
+  .section.tight{padding:64px 0}
+  .nav-links{display:none;position:absolute;top:78px;left:0;right:0;background:#fff;flex-direction:column;gap:0;padding:12px 28px 24px;border-bottom:1px solid #ececec;box-shadow:var(--shadow-card)}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:14px 0;border-bottom:1px solid #f2f2f2}
+  .menu-toggle{display:block}
+  .nav .btn{display:none}
+  .hero-grid{padding:64px 0 100px}
+  .hero h1{font-size:clamp(34px,9vw,44px)}
+  .hero-ctas .btn{width:100%;justify-content:center}
+  .phone{width:112px;right:-6px;bottom:-24px}
+  .hero-chip{left:-6px}
+  .pillars-grid,.services-grid,.portfolio-grid,.testi-grid,.plans-grid,.ba-grid,.pain-list{grid-template-columns:1fr}
+  .work.featured{grid-column:span 1}
+  .work-feed,.work.featured .work-feed{width:70%}
+  .brands-grid{grid-template-columns:repeat(2,1fr)}
+  .proof-grid{grid-template-columns:1fr;transform:translateY(-36px)}
+  .proof-item{border-right:none}
+  .footer-grid{grid-template-columns:1fr;gap:44px}
+  .about-tag{right:10px}
+  .diag-stamp{right:6px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="container nav">
+    <a href="#inicio" class="brand" aria-label="LADUNA Studio — Início">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 17L9.5 8L13.5 13L16.5 9.5L21 17" stroke="#2D2D2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="brand-name">LADUNA<span>Studio</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#inicio">Início</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#planos">Planos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="btn btn-primary" href="https://wa.me/5566996361345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20LADUNA%20e%20quero%20solicitar%20um%20diagn%C3%B3stico%20estrat%C3%A9gico%20para%20minha%20marca." target="_blank" rel="noopener">Solicitar diagnóstico</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="inicio">
+  <svg class="hero-dunes" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 120 L0 90 Q 360 20 720 70 T 1440 55 L1440 120 Z" fill="#EFEFEF"/><path d="M0 120 L0 105 Q 480 55 900 95 T 1440 85 L1440 120 Z" fill="#E7E7E7"/></svg>
+  <div class="container hero-grid">
+    <div class="hero-copy reveal">
+      <span class="eyebrow">LADUNA Studio</span>
+      <h1>Marcas fortes não nascem por acaso. Elas são construídas <em>com direção.</em></h1>
+      <p class="hero-sub">A LADUNA Studio une posicionamento, identidade e estratégia para transformar marcas em presenças mais profissionais, desejadas e preparadas para vender.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://wa.me/5566996361345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20LADUNA%20e%20quero%20solicitar%20um%20diagn%C3%B3stico%20estrat%C3%A9gico%20para%20minha%20marca." target="_blank" rel="noopener">Solicitar diagnóstico <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn btn-ghost" href="#portfolio">Ver portfólio</a>
+      </div>
+      <span class="hero-badge"><i></i>Posicionamento • Identidade • Estratégia</span>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="hero-chip"><i></i>Criativos que geram resultados reais</div>
+      <div class="laptop">
+        <div class="laptop-screen" aria-hidden="true">
+          <div class="mini-nav">
+            <span class="mini-logo"><b><svg viewBox="0 0 24 24" fill="none"><path d="M3 17L9.5 8L13.5 13L16.5 9.5L21 17" stroke="#2D2D2D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></b>LADUNA</span>
+            <span class="mini-links"><i></i><i></i><i></i></span>
+            <span class="mini-btn"></span>
+          </div>
+          <div class="mini-hero">
+            <div class="mini-copy"><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="mini-art">
+              <svg viewBox="0 0 200 90" preserveAspectRatio="none"><path d="M0 90 L0 70 Q 50 30 100 55 T 200 45 L200 90 Z" fill="rgba(255,255,255,.22)"/><path d="M0 90 L0 82 Q 70 55 130 74 T 200 66 L200 90 Z" fill="rgba(255,255,255,.16)"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="laptop-base"></div>
+      <div class="phone" aria-hidden="true">
+        <div class="phone-screen">
+          <div class="story"><i></i><i></i><i></i></div>
+          <div class="post"></div>
+          <span class="row"></span>
+          <span class="row short"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROVA RÁPIDA ============ -->
+<section class="proof">
+  <div class="container">
+    <div class="proof-grid reveal">
+      <div class="proof-item"><b>10 marcas</b><span>na vitrine de projetos</span></div>
+      <div class="proof-item"><b>4 planos</b><span>para diferentes níveis de presença</span></div>
+      <div class="proof-item"><b>Local e online</b><span>Peixoto de Azevedo, região e Brasil</span></div>
+      <div class="proof-item"><b>Branding + tráfego</b><span>da percepção à conversão</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOR ============ -->
+<section class="section pain">
+  <div class="container pain-grid">
+    <div class="reveal">
+      <span class="eyebrow">O problema</span>
+      <h2 class="h-section">Sua marca está postando, mas não está se posicionando?</h2>
+      <p class="sub-section">Muitas empresas aparecem no Instagram, mas não constroem percepção. Publicam sem direção, usam artes inconsistentes, não têm linha editorial e acabam parecendo menores do que realmente são.</p>
+      <p class="pain-close">É aqui que a LADUNA entra.</p>
+    </div>
+    <div class="pain-list reveal">
+      <div class="pain-item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Visual amador</div>
+      <div class="pain-item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Conteúdo sem estratégia</div>
+      <div class="pain-item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Perfil desorganizado</div>
+      <div class="pain-item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Baixa percepção de valor</div>
+      <div class="pain-item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Campanhas sem direção</div>
+      <div class="pain-item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Tráfego sem criativo forte</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSTITUCIONAL ============ -->
+<section class="section" id="sobre">
+  <div class="container about-grid">
+    <div class="about-visual reveal">
+      <div class="about-frame">
+        <div class="rings"><i></i><i></i>
+          <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M3 17L9.5 8L13.5 13L16.5 9.5L21 17" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <svg class="dunes-line" viewBox="0 0 400 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 90 L0 66 Q 100 26 200 52 T 400 42 L400 90 Z" fill="rgba(255,255,255,.08)"/><path d="M0 90 L0 78 Q 140 50 260 70 T 400 62 L400 90 Z" fill="rgba(255,255,255,.06)"/></svg>
+      </div>
+      <div class="about-tag">Estúdio estratégico</div>
+    </div>
+    <div class="about-copy reveal">
+      <span class="eyebrow">Sobre a LADUNA</span>
+      <h2 class="h-section">Mais que presença digital. Construímos marcas com direção.</h2>
+      <p>A LADUNA Studio é uma agência de marketing, posicionamento e mídia digital criada para transformar marcas em presenças fortes, profissionais e comercialmente estratégicas.</p>
+      <p>Mais do que criar artes bonitas, construímos comunicação com direção, estética e intenção de venda.</p>
+      <div class="about-motto">Posicionamento • Identidade • Estratégia</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PILARES ============ -->
+<section class="section pillars">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow center">Método</span>
+      <h2 class="h-section">O método LADUNA nasce de três pilares.</h2>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar reveal">
+        <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg></div>
+        <h3>Posicionamento</h3>
+        <p>Definimos como sua marca deve ser percebida, para quem ela fala e o que faz ela ser escolhida.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 17L9.5 8L13.5 13L16.5 9.5L21 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 21h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3>Identidade</h3>
+        <p>Criamos uma estética coerente, profissional e memorável para fortalecer sua presença em todos os pontos de contato.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V10M10 19V5M16 19v-8M21 19H3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3>Estratégia</h3>
+        <p>Planejamos conteúdos, campanhas e criativos com intenção comercial, não apenas visual bonita.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVIÇOS ============ -->
+<section class="section" id="servicos">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow center">Soluções</span>
+      <h2 class="h-section">Soluções para transformar presença em crescimento.</h2>
+      <p class="sub-section">Da identidade visual ao tráfego pago, criamos estruturas digitais para que sua marca seja vista, lembrada e escolhida.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service reveal">
+        <div class="service-top"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></svg><span class="service-num">01</span></div>
+        <h3>Gestão de Redes Sociais</h3>
+        <p>Planejamento, criação e organização da presença digital da sua marca, com consistência e linha editorial.</p>
+        <a href="https://wa.me/5566996361345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20LADUNA%20e%20quero%20solicitar%20um%20diagn%C3%B3stico%20estrat%C3%A9gico%20para%20minha%20marca." target="_blank" rel="noopener">Conversar sobre isso <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="service reveal">
+        <div class="service-top"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l2.4 5.3L20 9l-4 4 1 5.7L12 16l-5 2.7 1-5.7-4-4 5.6-.7L12 3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span class="service-num">02</span></div>
+        <h3>Branding &amp; Identidade Visual</h3>
+        <p>Marcas mais profissionais, coerentes e memoráveis, do logotipo aos pontos de contato.</p>
+        <a href="https://wa.me/5566996361345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20LADUNA%20e%20quero%20solicitar%20um%20diagn%C3%B3stico%20estrat%C3%A9gico%20para%20minha%20marca." target="_blank" rel="noopener">Conversar sobre isso <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="service reveal">
+        <div class="service-top"><svg viewBox="0 0 24 24" fill="none"><path d="M12 20l-8-4.5v-7L12 4l8 4.5v7L12 20z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 12l8-4.5M12 12v8M12 12L4 7.5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span class="service-num">03</span></div>
+        <h3>Conteúdo &amp; Criativos</h3>
+        <p>Posts, carrosséis, campanhas e peças que convencem com intenção comercial, não apenas visual bonito.</p>
+        <a href="https://wa.me/5566996361345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20LADUNA%20e%20quero%20solicitar%20um%20diagn%C3%B3stico%20estrat%C3%A9gico%20para%20minha%20marca." target="_blank" rel="noopener">Conversar sobre isso <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="service reveal">
+        <div class="service-top"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="13" height="12" rx="3" stroke="currentColor" stroke-width="2"/><path d="M16 10.5l5-3v9l-5-3" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span class="service-num">04</span></div>
+        <h3>Produção Audiovisual</h3>
+        <p>Reels, vídeos, fotos e roteiros que elevam a percepção da marca e sustentam campanhas.</p>
+        <a href="https://wa.me/5566996361345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20LADUNA%20e%20quero%20solicitar%20um%20diagn%C3%B3stico%20estrat%C3%A9gico%20para%20minha%20marca." target="_blank" rel="noopener">Conversar sobre isso <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="service reveal">
+        <div class="service-top"><svg viewBox="0 0 24 24" fill="none"><path d="M3 17l6-6 4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 7h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="service-num">05</span></div>
+        <h3>Tráfego Pago</h3>
+        <p>Campanhas com estratégia, segmentação, criativos e análise voltadas para resultado.</p>
+        <a href="https://wa.me/5566996361345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20LADUNA%20e%20quero%20solicitar%20um%20diagn%C3%B3stico%20estrat%C3%A9gico%20para%20minha%20marca." target="_blank" rel="noopener">Conversar sobre isso <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="service reveal">
+        <div class="service-top"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="3" stroke="currentColor" stroke-width="2"/><path d="M3 9h18M8 21h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="service-num">06</span></div>
+        <h3>Sites &amp; Landing Pages</h3>
+        <p>Páginas modernas para apresentar, captar e converter, alinhadas à identidade da marca.</p>
+        <a href="https://wa.me/5566996361345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20LADUNA%20e%20quero%20solicitar%20um%20diagn%C3%B3stico%20estrat%C3%A9gico%20para%20minha%20marca." target="_blank" rel="noopener">Conversar sobre isso <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="service reveal">
+        <div class="service-top"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="service-num">07</span></div>
+        <h3>Consultoria Estratégica</h3>
+        <p>Diagnóstico de marca, plano de marketing e direção de crescimento para sair do improviso.</p>
+        <a href="https://wa.me/5566996361345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20LADUNA%20e%20quero%20solicitar%20um%20diagn%C3%B3stico%20estrat%C3%A9gico%20para%20minha%20marca." target="_blank" rel="noopener">Conversar sobre isso <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PORTFÓLIO ============ -->
+<section class="section portfolio" id="portfolio">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow center">Portfólio</span>
+      <h2 class="h-section">Projetos que saíram do improviso.</h2>
+      <p class="sub-section">Criativos, campanhas e identidades pensadas para gerar percepção, autoridade e venda.</p>
+    </div>
+    <div class="portfolio-grid">
+
+      <!-- Substituir cada .work-feed por prints reais dos feeds/criativos quando disponíveis -->
+      <div class="work featured reveal">
+        <div class="work-visual" style="background:linear-gradient(150deg,#1a1a1a,#3a3a3a)">
+          <div class="work-feed">
+            <i style="background:#F5C84B"></i><i style="background:#232323"></i><i style="background:#EDEDED"></i>
+            <i style="background:#232323"></i><i style="background:#F5C84B"></i><i style="background:#3a3a3a"></i>
+            <i style="background:#EDEDED"></i><i style="background:#3a3a3a"></i><i style="background:#F5C84B"></i>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div><h3>UPSMART</h3><span>Varejo de tecnologia • Campanhas, criativos e tráfego</span></div>
+          <span class="dot" style="background:#F5C84B"></span>
+        </div>
+      </div>
+
+      <div class="work featured reveal">
+        <div class="work-visual" style="background:linear-gradient(150deg,#F2DCA0,#E8C87E)">
+          <div class="work-feed">
+            <i style="background:#5B2A3B"></i><i style="background:#F6E8C8"></i><i style="background:#C9A24B"></i>
+            <i style="background:#F6E8C8"></i><i style="background:#C9A24B"></i><i style="background:#5B2A3B"></i>
+            <i style="background:#C9A24B"></i><i style="background:#5B2A3B"></i><i style="background:#F6E8C8"></i>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div><h3>ME FITNESS</h3><span>Moda fitness • Campanhas, estética e posicionamento</span></div>
+          <span class="dot" style="background:#C9A24B"></span>
+        </div>
+      </div>
+
+      <div class="work reveal">
+        <div class="work-visual" style="background:linear-gradient(150deg,#2b2b2b,#4c4c4c)">
+          <div class="work-feed">
+            <i style="background:#F5C84B"></i><i style="background:#1c1c1c"></i><i style="background:#4a4a4a"></i>
+            <i style="background:#1c1c1c"></i><i style="background:#F5C84B"></i><i style="background:#1c1c1c"></i>
+            <i style="background:#4a4a4a"></i><i style="background:#1c1c1c"></i><i style="background:#F5C84B"></i>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div><h3>UPSMART Segurança</h3><span>Segurança eletrônica • Conteúdo técnico e campanhas</span></div>
+          <span class="dot" style="background:#F5C84B"></span>
+        </div>
+      </div>
+
+      <div class="work reveal">
+        <div class="work-visual" style="background:linear-gradient(150deg,#3d3d3d,#5a5a5a)">
+          <div class="work-feed">
+            <i style="background:#2d2d2d"></i><i style="background:#e8e8e8"></i><i style="background:#6B4A7D"></i>
+            <i style="background:#e8e8e8"></i><i style="background:#2d2d2d"></i><i style="background:#e8e8e8"></i>
+            <i style="background:#6B4A7D"></i><i style="background:#e8e8e8"></i><i style="background:#2d2d2d"></i>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div><h3>MESHOP</h3><span>Varejo • Promoções, criadores e campanhas de alto giro</span></div>
+          <span class="dot" style="background:#2d2d2d"></span>
+        </div>
+      </div>
+
+      <div class="work reveal">
+        <div class="work-visual" style="background:linear-gradient(150deg,#DCEEE9,#BBDCD3)">
+          <div class="work-feed">
+            <i style="background:#2E7D6E"></i><i style="background:#F4FAF8"></i><i style="background:#8FC4B8"></i>
+            <i style="background:#F4FAF8"></i><i style="background:#2E7D6E"></i><i style="background:#F4FAF8"></i>
+            <i style="background:#8FC4B8"></i><i style="background:#F4FAF8"></i><i style="background:#2E7D6E"></i>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div><h3>Laboratório São Sebastião</h3><span>Saúde • Comunicação acessível e educativa</span></div>
+          <span class="dot" style="background:#2E7D6E"></span>
+        </div>
+      </div>
+
+      <div class="work reveal">
+        <div class="work-visual" style="background:linear-gradient(150deg,#e9e9ec,#cfcfd4)">
+          <div class="work-feed">
+            <i style="background:#1d1d1f"></i><i style="background:#f5f5f7"></i><i style="background:#86868b"></i>
+            <i style="background:#f5f5f7"></i><i style="background:#86868b"></i><i style="background:#1d1d1f"></i>
+            <i style="background:#86868b"></i><i style="background:#1d1d1f"></i><i style="background:#f5f5f7"></i>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div><h3>Wanjo Cell</h3><span>Assistência técnica e seminovos • Conteúdo e ofertas</span></div>
+          <span class="dot" style="background:#1d1d1f"></span>
+        </div>
+      </div>
+
+      <div class="work reveal">
+        <div class="work-visual" style="background:linear-gradient(150deg,#EFE3D8,#DCC5B0)">
+          <div class="work-feed">
+            <i style="background:#C97B4A"></i><i style="background:#F7EFE7"></i><i style="background:#6B4A3A"></i>
+            <i style="background:#F7EFE7"></i><i style="background:#6B4A3A"></i><i style="background:#C97B4A"></i>
+            <i style="background:#6B4A3A"></i><i style="background:#C97B4A"></i><i style="background:#F7EFE7"></i>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div><h3>CASA&amp;CIA Peixoto</h3><span>Casa e decoração • Estética, percepção e vendas</span></div>
+          <span class="dot" style="background:#C97B4A"></span>
+        </div>
+      </div>
+
+      <div class="work reveal">
+        <div class="work-visual" style="background:linear-gradient(150deg,#F0E2E4,#DDC3C8)">
+          <div class="work-feed">
+            <i style="background:#B0777F"></i><i style="background:#F9F2F3"></i><i style="background:#E4CDD1"></i>
+            <i style="background:#F9F2F3"></i><i style="background:#B0777F"></i><i style="background:#F9F2F3"></i>
+            <i style="background:#E4CDD1"></i><i style="background:#F9F2F3"></i><i style="background:#B0777F"></i>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div><h3>Karine Alcantara</h3><span>Marca pessoal • Posicionamento e conteúdo</span></div>
+          <span class="dot" style="background:#B0777F"></span>
+        </div>
+      </div>
+
+      <div class="work reveal">
+        <div class="work-visual" style="background:linear-gradient(150deg,#241f1b,#4a3a2e)">
+          <div class="work-feed">
+            <i style="background:#C1440E"></i><i style="background:#1f1b18"></i><i style="background:#8a5a3b"></i>
+            <i style="background:#1f1b18"></i><i style="background:#C1440E"></i><i style="background:#1f1b18"></i>
+            <i style="background:#8a5a3b"></i><i style="background:#1f1b18"></i><i style="background:#C1440E"></i>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div><h3>Churrascada</h3><span>Eventos e gastronomia • Campanhas e cobertura</span></div>
+          <span class="dot" style="background:#C1440E"></span>
+        </div>
+      </div>
+
+      <div class="work reveal">
+        <div class="work-visual" style="background:linear-gradient(150deg,#C0262C,#8E1B20)">
+          <div class="work-feed">
+            <i style="background:#FFFFFF"></i><i style="background:#C0262C"></i><i style="background:#F2F2F2"></i>
+            <i style="background:#C0262C"></i><i style="background:#F2F2F2"></i><i style="background:#FFFFFF"></i>
+            <i style="background:#F2F2F2"></i><i style="background:#FFFFFF"></i><i style="background:#C0262C"></i>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div><h3>Master Embalagens</h3><span>Comércio • Relatórios, conteúdo e performance</span></div>
+          <span class="dot" style="background:#C0262C"></span>
+        </div>
+      </div>
+
+    </div>
+    <div class="plans-cta reveal">
+      <a class="btn btn-primary" href="https://wa.me/5566996361345?text=Ol%C3%A1%2C%20vi%20o%20portf%C3%B3lio%20da%20LADUNA%20no%20site%20e%20quero%20conversar%20sobre%20um%20projeto%20para%20minha%20marca." target="_blank" rel="noopener">Conversar sobre um projeto <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ANTES E DEPOIS ============ -->
+<section class="section">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow center">Antes e depois</span>
+      <h2 class="h-section">Do improviso à presença profissional.</h2>
+      <p class="sub-section">Uma marca forte não depende de post bonito. Ela precisa de linha visual, mensagem clara, oferta bem apresentada e campanha com intenção.</p>
+    </div>
+    <div class="ba-grid">
+      <!-- Substituir os feeds simulados por prints reais de antes/depois quando disponíveis -->
+      <div class="ba-card reveal">
+        <div class="ba-label before"><svg viewBox="0 0 24 24" fill="none" width="16" height="16"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Antes</div>
+        <div class="ba-feed">
+          <i style="background:#e74c3c"></i><i style="background:#27ae60"></i><i style="background:#f1c40f"></i>
+          <i style="background:#8e44ad"></i><i style="background:#e67e22"></i><i style="background:#2980b9"></i>
+          <i style="background:#c0392b"></i><i style="background:#16a085"></i><i style="background:#d35400"></i>
+        </div>
+        <div class="ba-caption"><b>Postagens soltas</b>Visual sem padrão, cores aleatórias e pouca direção comercial.</div>
+      </div>
+      <div class="ba-card reveal">
+        <div class="ba-label after"><svg viewBox="0 0 24 24" fill="none" width="16" height="16"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M8.5 12.5l2.5 2.5 5-5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Depois</div>
+        <div class="ba-feed">
+          <i style="background:#4B3458"></i><i style="background:#F7F7F7"></i><i style="background:#9B8AA5"></i>
+          <i style="background:#F7F7F7"></i><i style="background:#6B4A7D"></i><i style="background:#F7F7F7"></i>
+          <i style="background:#9B8AA5"></i><i style="background:#F7F7F7"></i><i style="background:#4B3458"></i>
+        </div>
+        <div class="ba-caption"><b>Identidade consistente</b>Conteúdo com intenção, estética coerente e campanhas conectadas.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLANOS ============ -->
+<section class="section plans" id="planos">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow center">Planos</span>
+      <h2 class="h-section">Escolha o nível de presença que sua marca precisa.</h2>
+      <p class="sub-section">Planos pensados para diferentes estágios de maturidade digital, sempre com direção estratégica.</p>
+    </div>
+    <div class="plans-grid">
+      <div class="plan reveal">
+        <span class="plan-tier">Plano</span>
+        <h3>Start</h3>
+        <p>Para marcas que precisam começar com presença profissional.</p>
+        <a class="btn btn-ghost" href="https://wa.me/5566996361345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20LADUNA%20e%20quero%20entender%20qual%20plano%20faz%20mais%20sentido%20para%20minha%20marca." target="_blank" rel="noopener">Esse plano é para mim</a>
+      </div>
+      <div class="plan reveal">
+        <span class="plan-tier">Plano</span>
+        <h3>Gold</h3>
+        <p>Para empresas que querem consistência, organização e estética.</p>
+        <a class="btn btn-ghost" href="https://wa.me/5566996361345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20LADUNA%20e%20quero%20entender%20qual%20plano%20faz%20mais%20sentido%20para%20minha%20marca." target="_blank" rel="noopener">Esse plano é para mim</a>
+      </div>
+      <div class="plan reveal">
+        <span class="plan-tier">Plano</span>
+        <h3>Premium</h3>
+        <p>Para marcas que precisam de estratégia, volume e campanhas mais fortes.</p>
+        <a class="btn btn-ghost" href="https://wa.me/5566996361345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20LADUNA%20e%20quero%20entender%20qual%20plano%20faz%20mais%20sentido%20para%20minha%20marca." target="_blank" rel="noopener">Esse plano é para mim</a>
+      </div>
+      <div class="plan black reveal">
+        <span class="plan-tier">Plano</span>
+        <h3>Black</h3>
+        <p>Para negócios que querem domínio digital completo.</p>
+        <a class="btn btn-primary" href="https://wa.me/5566996361345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20LADUNA%20e%20quero%20entender%20qual%20plano%20faz%20mais%20sentido%20para%20minha%20marca." target="_blank" rel="noopener">Esse plano é para mim</a>
+      </div>
+    </div>
+    <div class="plans-cta reveal">
+      <a class="btn btn-primary" href="https://wa.me/5566996361345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20LADUNA%20e%20quero%20entender%20qual%20plano%20faz%20mais%20sentido%20para%20minha%20marca." target="_blank" rel="noopener">Descobrir plano ideal <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIAGNÓSTICO ============ -->
+<section class="section diag">
+  <div class="container diag-grid">
+    <div class="diag-visual reveal">
+      <div class="diag-stamp">Diagnóstico LADUNA</div>
+      <div class="diag-report">
+        <div class="diag-report-head"><b>DIAGNÓSTICO ESTRATÉGICO</b><span>Relatório</span></div>
+        <div class="diag-row"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M8.5 12.5l2.5 2.5 5-5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Presença digital</span><span class="diag-bar"><i style="width:78%"></i></span></div>
+        <div class="diag-row"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M8.5 12.5l2.5 2.5 5-5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Identidade visual</span><span class="diag-bar"><i style="width:62%"></i></span></div>
+        <div class="diag-row"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M8.5 12.5l2.5 2.5 5-5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Comunicação</span><span class="diag-bar"><i style="width:54%"></i></span></div>
+        <div class="diag-row"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M8.5 12.5l2.5 2.5 5-5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Concorrência</span><span class="diag-bar"><i style="width:70%"></i></span></div>
+        <div class="diag-row"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M8.5 12.5l2.5 2.5 5-5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Oportunidades</span><span class="diag-bar"><i style="width:86%"></i></span></div>
+      </div>
+    </div>
+    <div class="diag-copy reveal">
+      <span class="eyebrow">Diagnóstico estratégico</span>
+      <h2 class="h-section">Antes de criar mais conteúdo, descubra o que está travando sua marca.</h2>
+      <p>O diagnóstico LADUNA analisa sua presença digital, identidade visual, comunicação, concorrência e oportunidades para criar uma direção clara de crescimento.</p>
+      <a class="btn btn-primary" href="https://wa.me/5566996361345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20LADUNA%20e%20quero%20solicitar%20um%20diagn%C3%B3stico%20estrat%C3%A9gico%20para%20minha%20marca." target="_blank" rel="noopener">Quero meu diagnóstico <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARCAS ============ -->
+<section class="section tight">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow center">Vitrine</span>
+      <h2 class="h-section">Marcas que confiaram na estratégia LADUNA.</h2>
+    </div>
+    <div class="brands-grid reveal">
+      <div class="brand-tile"><b>UPSMART</b><span>Varejo tech</span></div>
+      <div class="brand-tile"><b>UpSeg</b><span>Segurança</span></div>
+      <div class="brand-tile"><b>MESHOP</b><span>Varejo</span></div>
+      <div class="brand-tile"><b>ME FITNESS</b><span>Moda fitness</span></div>
+      <div class="brand-tile"><b>CASA&amp;CIA</b><span>Casa</span></div>
+      <div class="brand-tile"><b>Wanjo Cell</b><span>Assistência</span></div>
+      <div class="brand-tile"><b>São Sebastião</b><span>Saúde</span></div>
+      <div class="brand-tile"><b>Karine Alcantara</b><span>Marca pessoal</span></div>
+      <div class="brand-tile"><b>Churrascada</b><span>Eventos</span></div>
+      <div class="brand-tile"><b>Master Embalagens</b><span>Comércio</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPOIMENTOS ============ -->
+<section class="section testimonials">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow center">Depoimentos</span>
+      <h2 class="h-section">Quem já saiu do improviso com a LADUNA.</h2>
+    </div>
+    <div class="testi-grid">
+      <!-- IMPORTANTE: substituir nome e empresa pelos dados reais autorizados antes de publicar -->
+      <div class="testi reveal">
+        <div class="testi-quote"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 12c0-4 2.5-6.5 6-7l.5 2C8.5 7.6 7.4 9 7.2 10.6c.3-.1.6-.1 1-.1 1.8 0 3.1 1.3 3.1 3.1 0 1.9-1.4 3.4-3.4 3.4C5.6 17 4 15 4 12zm9 0c0-4 2.5-6.5 6-7l.5 2c-2 .6-3.1 2-3.3 3.6.3-.1.6-.1 1-.1 1.8 0 3.1 1.3 3.1 3.1 0 1.9-1.4 3.4-3.4 3.4-2.3 0-3.9-2-3.9-5z"/></svg></div>
+        <p>"A LADUNA organizou nossa comunicação e deixou nossa marca muito mais profissional."</p>
+        <div class="testi-author"><i>NC</i><div><b>Nome do cliente</b><span>Empresa</span></div></div>
+      </div>
+      <div class="testi reveal">
+        <div class="testi-quote"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 12c0-4 2.5-6.5 6-7l.5 2C8.5 7.6 7.4 9 7.2 10.6c.3-.1.6-.1 1-.1 1.8 0 3.1 1.3 3.1 3.1 0 1.9-1.4 3.4-3.4 3.4C5.6 17 4 15 4 12zm9 0c0-4 2.5-6.5 6-7l.5 2c-2 .6-3.1 2-3.3 3.6.3-.1.6-.1 1-.1 1.8 0 3.1 1.3 3.1 3.1 0 1.9-1.4 3.4-3.4 3.4-2.3 0-3.9-2-3.9-5z"/></svg></div>
+        <p>"A presença digital ficou mais clara, bonita e conectada com o que vendemos."</p>
+        <div class="testi-author"><i>NC</i><div><b>Nome do cliente</b><span>Empresa</span></div></div>
+      </div>
+      <div class="testi reveal">
+        <div class="testi-quote"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 12c0-4 2.5-6.5 6-7l.5 2C8.5 7.6 7.4 9 7.2 10.6c.3-.1.6-.1 1-.1 1.8 0 3.1 1.3 3.1 3.1 0 1.9-1.4 3.4-3.4 3.4C5.6 17 4 15 4 12zm9 0c0-4 2.5-6.5 6-7l.5 2c-2 .6-3.1 2-3.3 3.6.3-.1.6-.1 1-.1 1.8 0 3.1 1.3 3.1 3.1 0 1.9-1.4 3.4-3.4 3.4-2.3 0-3.9-2-3.9-5z"/></svg></div>
+        <p>"Conseguimos sair dos posts soltos e começar a comunicar com estratégia."</p>
+        <div class="testi-author"><i>NC</i><div><b>Nome do cliente</b><span>Empresa</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="section final center" id="contato">
+  <svg class="final-dunes" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true"><path d="M0 140 L0 100 Q 360 20 720 75 T 1440 60 L1440 140 Z" fill="#ffffff"/><path d="M0 140 L0 118 Q 480 60 900 105 T 1440 92 L1440 140 Z" fill="#ffffff"/></svg>
+  <div class="container reveal" style="position:relative">
+    <h2 class="h-section">Sua marca já tem potencial.<br>Falta direção.</h2>
+    <p>Vamos construir uma presença digital mais profissional, estratégica e preparada para vender.</p>
+    <div class="final-ctas">
+      <a class="btn btn-light" href="https://wa.me/5566996361345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20LADUNA%20e%20quero%20solicitar%20um%20diagn%C3%B3stico%20estrat%C3%A9gico%20para%20minha%20marca." target="_blank" rel="noopener">Falar com a LADUNA</a>
+      <a class="btn btn-outline-light" href="#servicos">Ver serviços</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M3 17L9.5 8L13.5 13L16.5 9.5L21 17" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="brand-name">LADUNA<span>Studio</span></span>
+        </div>
+        <div class="footer-slogan">Posicionamento • Identidade • Estratégia</div>
+        <p>Agência de marketing, posicionamento e mídia digital. Atendimento local, regional e online.</p>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://instagram.com/ladunastudio" target="_blank" rel="noopener">@ladunastudio</a></li>
+          <li><a href="https://wa.me/5566996361345" target="_blank" rel="noopener">(66) 9 9636-1345</a></li>
+          <li><a href="mailto:ladunastudio@gmail.com">ladunastudio@gmail.com</a></li>
+          <li>Peixoto de Azevedo — MT</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Links rápidos</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#planos">Planos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 LADUNA Studio. Todos os direitos reservados.</span>
+      <span>CNPJ 64.110.259/0001-78</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Menu mobile
+const toggle=document.getElementById('menuToggle');
+const links=document.getElementById('navLinks');
+toggle.addEventListener('click',()=>links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+
+// Reveal on scroll
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
 </html>
