@@ -128,13 +128,12 @@ header::after{
 }
 .laptop-screen{background:#fff;border-radius:10px;overflow:hidden;aspect-ratio:16/10;display:flex;flex-direction:column}
 .laptop-base{height:14px;background:linear-gradient(#e8e8ea,#c9c9cd);border-radius:0 0 14px 14px;margin:0 -34px;box-shadow:0 6px 18px rgba(0,0,0,.14)}
-.mini-nav{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid #f0f0f0}
+.mini-nav{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid #f0f0f0}
 .mini-logo{display:flex;align-items:center;gap:6px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:9px;letter-spacing:.08em}
 .mini-logo b{width:14px;height:14px;border-radius:50%;display:grid;place-items:center;overflow:hidden;background:#fff}
 .mini-logo b img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.mini-links{display:flex;gap:10px}
-.mini-links i{width:26px;height:4px;border-radius:4px;background:#e6e6e6;display:block}
-.mini-btn{width:64px;height:16px;border-radius:999px;background:var(--laduna-purple)}
+.mini-links{display:flex;gap:8px}
+.mini-links i{width:22px;height:3px;border-radius:4px;background:#ececec;display:block}
 .mini-hero{flex:1;display:grid;grid-template-columns:1.1fr .9fr;gap:18px;padding:22px 18px;align-items:center;background:linear-gradient(180deg,#fff,#f7f7f7)}
 .mini-copy i{display:block;border-radius:5px;background:var(--laduna-black)}
 .mini-copy i:nth-child(1){width:88%;height:11px;margin-bottom:7px}
@@ -160,13 +159,6 @@ header::after{
 .phone-screen .post::after{content:"";position:absolute;left:10px;bottom:10px;width:56px;height:6px;border-radius:4px;background:rgba(255,255,255,.85)}
 .phone-screen .row{height:8px;border-radius:4px;background:#ececec}
 .phone-screen .row.short{width:64%}
-.hero-chip{
-  position:absolute;left:-18px;top:26px;background:#fff;border-radius:14px;padding:12px 18px;
-  box-shadow:var(--shadow-card);display:flex;align-items:center;gap:10px;
-  font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;
-  animation:floatChip 5.8s ease-in-out infinite;
-}
-.hero-chip i{width:10px;height:10px;border-radius:50%;background:var(--laduna-purple);animation:pulseDot 2.4s ease-in-out infinite}
 
 /* Proof strip */
 .proof{padding:0}
@@ -494,7 +486,6 @@ footer a:hover{color:#fff}
   .hero h1{font-size:clamp(34px,9vw,44px)}
   .hero-ctas .btn{width:100%;justify-content:center}
   .phone{width:112px;right:-6px;bottom:-24px}
-  .hero-chip{left:-6px}
   .pillars-grid,.services-grid,.portfolio-grid,.testi-grid,.plans-grid,.ba-grid,.pain-list{grid-template-columns:1fr}
   .work.featured{grid-column:span 1}
   .work-feed,.work.featured .work-feed{width:70%}
@@ -546,13 +537,11 @@ footer a:hover{color:#fff}
       <span class="hero-badge"><i></i>Posicionamento • Identidade • Estratégia</span>
     </div>
     <div class="hero-visual reveal">
-      <div class="hero-chip"><i></i>Criativos que geram resultados reais</div>
       <div class="laptop">
         <div class="laptop-screen" aria-hidden="true">
           <div class="mini-nav">
             <span class="mini-logo"><b><img src="/assets/laduna-emblem.png" alt=""></b>LADUNA Studio</span>
             <span class="mini-links"><i></i><i></i><i></i></span>
-            <span class="mini-btn"></span>
           </div>
           <div class="mini-hero">
             <div class="mini-copy"><i></i><i></i><i></i><i></i><i></i></div>
