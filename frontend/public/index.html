@@ -9,9 +9,33 @@
 <meta property="og:title" content="LADUNA Studio | Posicionamento, Identidade e Estratégia Digital">
 <meta property="og:description" content="Mais que presença digital. Construímos marcas com direção.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://ladunastudio.com/">
+<meta property="og:image" content="https://ladunastudio.com/assets/laduna-cover.jpg">
+<meta property="og:image:alt" content="LADUNA Studio — Posicionamento, Identidade e Estratégia">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LADUNA Studio | Posicionamento, Identidade e Estratégia Digital">
+<meta name="twitter:description" content="Mais que presença digital. Construímos marcas com direção.">
+<meta name="twitter:image" content="https://ladunastudio.com/assets/laduna-cover.jpg">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="canonical" href="https://ladunastudio.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ProfessionalService",
+  "name":"LADUNA Studio",
+  "url":"https://ladunastudio.com/",
+  "logo":"https://ladunastudio.com/assets/laduna-logo-horizontal.png",
+  "image":"https://ladunastudio.com/assets/laduna-cover.jpg",
+  "description":"Estúdio de posicionamento, identidade, estratégia e mídia digital.",
+  "telephone":"+55 66 99636-1345",
+  "email":"ladunastudio@gmail.com",
+  "address":{"@type":"PostalAddress","addressLocality":"Peixoto de Azevedo","addressRegion":"MT","addressCountry":"BR"},
+  "sameAs":["https://instagram.com/ladunastudio"]
+}
+</script>
 <style>
 :root{
   --laduna-black:#2D2D2D;
@@ -30,6 +54,9 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:96px}
+button,input,select,textarea{font:inherit}
+button{color:inherit}
 body{
   font-family:'Quicksand',sans-serif;
   font-size:16px;line-height:1.7;
@@ -232,6 +259,43 @@ header::after{
 .pillar h3{font-size:21px;font-weight:800;margin-bottom:12px}
 .pillar p{color:var(--laduna-gray);font-size:15.5px}
 
+/* Method journey */
+.method-flow{
+  --method-progress:0;position:relative;display:grid;grid-template-columns:repeat(4,1fr);
+  gap:34px;margin-top:72px;padding-top:2px;
+}
+.method-flow::before,.method-flow::after{
+  content:"";position:absolute;top:23px;left:12.5%;right:12.5%;height:2px;border-radius:2px;
+}
+.method-flow::before{background:#dedede}
+.method-flow::after{background:var(--laduna-purple);transform:scaleX(var(--method-progress));transform-origin:left;transition:transform .8s var(--ease)}
+.method-step{position:relative;z-index:1;text-align:center}
+.method-index{
+  width:46px;height:46px;border-radius:50%;margin:0 auto 24px;display:grid;place-items:center;
+  background:#fff;border:1px solid var(--laduna-light-gray);color:var(--laduna-gray);
+  font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;transition:.4s var(--ease);
+}
+.method-step.is-active .method-index{background:var(--laduna-purple);border-color:var(--laduna-purple);color:#fff;box-shadow:0 10px 24px rgba(107,74,125,.2)}
+.method-step h3{font-size:17px;margin-bottom:10px}
+.method-step p{font-size:14.5px;color:var(--laduna-gray);max-width:230px;margin:0 auto}
+
+/* Team */
+.team{background:#fff}
+.team-intro{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:end;margin-bottom:58px}
+.team-intro .sub-section{max-width:560px}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8}
+.team-person{padding:34px 34px 38px;border-right:1px solid #e8e8e8}
+.team-person:last-child{border-right:none}
+.team-person-head{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.team-initial{
+  width:48px;height:48px;border-radius:50%;display:grid;place-items:center;flex:none;
+  background:var(--laduna-off-white);color:var(--laduna-purple);
+  font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;
+}
+.team-person h3{font-size:18px;margin-bottom:3px}
+.team-role{font-size:13px;color:var(--laduna-purple);font-weight:700}
+.team-person p{color:var(--laduna-gray);font-size:14.5px}
+
 /* Services */
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
 .service{
@@ -330,7 +394,22 @@ header::after{
   padding:12px 20px;border-radius:999px;box-shadow:0 12px 28px rgba(107,74,125,.35);transform:rotate(3deg);
 }
 .diag-copy .h-section{max-width:520px}
-.diag-copy p{color:var(--laduna-gray);font-size:17px;max-width:520px;margin-bottom:34px}
+.diag-copy>p{color:var(--laduna-gray);font-size:17px;max-width:560px;margin-bottom:28px}
+.diagnostic-form{background:#fff;border:1px solid #e8e8e8;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow-card)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.form-field{display:flex;flex-direction:column;gap:7px}
+.form-field.full{grid-column:1/-1}
+.form-field label{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--laduna-black)}
+.form-field input,.form-field select,.form-field textarea{
+  width:100%;border:1px solid #dedede;border-radius:10px;background:#fff;color:var(--laduna-black);
+  padding:13px 14px;outline:none;transition:border-color .2s,box-shadow .2s;
+}
+.form-field textarea{min-height:92px;resize:vertical}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--laduna-purple);box-shadow:0 0 0 3px rgba(107,74,125,.1)}
+.form-actions{display:flex;align-items:center;gap:16px;margin-top:20px;flex-wrap:wrap}
+.form-actions .btn{border:0}
+.form-note{font-size:12.5px;color:var(--laduna-gray);max-width:230px;line-height:1.45}
+.form-status{font-size:13px;color:var(--laduna-purple-dark);font-weight:700;margin-top:12px;min-height:20px}
 
 /* Brands */
 .brands-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:56px}
@@ -341,6 +420,18 @@ header::after{
 .brand-tile:hover{transform:translateY(-4px);box-shadow:var(--shadow-card);border-color:var(--laduna-purple-soft)}
 .brand-tile b{font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;letter-spacing:.04em;display:block}
 .brand-tile span{font-size:12.5px;color:var(--laduna-gray)}
+.brands-marquee{
+  margin-top:58px;overflow:hidden;border-top:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+}
+.brands-track{display:flex;width:max-content;animation:brandMarquee 34s linear infinite}
+.brands-marquee:hover .brands-track{animation-play-state:paused}
+.brand-word{
+  width:190px;height:104px;display:flex;align-items:center;justify-content:center;padding:20px 24px;position:relative;flex:none;
+}
+.brand-word::after{content:"";position:absolute;right:-2px;width:5px;height:5px;border-radius:50%;background:var(--laduna-purple-soft)}
+.brand-word img{max-width:142px;max-height:62px;object-fit:contain;filter:grayscale(1);opacity:.68;transition:.3s var(--ease)}
+.brand-word:hover img{filter:grayscale(0);opacity:1;transform:scale(1.05)}
 
 /* Testimonials */
 .testimonials{background:var(--laduna-off-white)}
@@ -356,6 +447,64 @@ header::after{
 .testi-author i{width:44px;height:44px;border-radius:50%;background:linear-gradient(140deg,var(--laduna-purple-soft),var(--laduna-purple));flex:none;display:grid;place-items:center;color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;font-style:normal}
 .testi-author b{font-family:'Montserrat',sans-serif;font-size:14.5px;font-weight:700;display:block}
 .testi-author span{font-size:13px;color:var(--laduna-gray)}
+
+/* Project stories */
+.stories{background:var(--laduna-off-white)}
+.stories-head{display:flex;align-items:end;justify-content:space-between;gap:32px}
+.stories-head .sub-section{max-width:600px}
+.story-carousel{margin-top:58px;position:relative}
+.story-stage{border-top:1px solid #dedede;border-bottom:1px solid #dedede;min-height:330px}
+.story-slide{display:grid;grid-template-columns:.72fr 1.28fr;gap:70px;align-items:center;padding:54px 0}
+.story-slide[hidden]{display:none}
+.story-kicker{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--laduna-purple);margin-bottom:14px}
+.story-slide h3{font-size:clamp(28px,3.2vw,42px);margin-bottom:12px}
+.story-segment{color:var(--laduna-gray);font-size:15px}
+.story-details{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.story-detail{border-left:2px solid var(--laduna-purple-soft);padding-left:18px}
+.story-detail b{display:block;font-family:'Montserrat',sans-serif;font-size:13px;margin-bottom:8px}
+.story-detail span{color:var(--laduna-gray);font-size:14.5px}
+.carousel-controls{display:flex;align-items:center;justify-content:space-between;margin-top:24px}
+.carousel-buttons{display:flex;gap:10px}
+.icon-button{
+  width:46px;height:46px;border-radius:50%;border:1px solid #d8d8d8;background:#fff;display:grid;place-items:center;
+  cursor:pointer;transition:.25s var(--ease);
+}
+.icon-button:hover{border-color:var(--laduna-purple);color:var(--laduna-purple);transform:translateY(-2px)}
+.icon-button svg{width:18px;height:18px}
+.carousel-dots{display:flex;gap:8px}
+.carousel-dot{width:9px;height:9px;border-radius:50%;border:0;background:#d2d2d2;cursor:pointer;padding:0;transition:.25s}
+.carousel-dot.is-active{width:28px;border-radius:10px;background:var(--laduna-purple)}
+
+/* FAQ */
+.faq{background:#fff}
+.faq-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:80px;align-items:start}
+.faq-intro{position:sticky;top:118px}
+.faq-list{border-top:1px solid #dedede}
+.faq-item{border-bottom:1px solid #dedede}
+.faq-question{width:100%;border:0;background:transparent;text-align:left;padding:24px 0;display:flex;align-items:center;justify-content:space-between;gap:24px;cursor:pointer}
+.faq-question span:first-child{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700}
+.faq-icon{width:28px;height:28px;border-radius:50%;border:1px solid #d8d8d8;position:relative;flex:none;transition:.3s}
+.faq-icon::before,.faq-icon::after{content:"";position:absolute;left:8px;right:8px;top:13px;height:1.5px;background:currentColor;transition:.3s}
+.faq-icon::after{transform:rotate(90deg)}
+.faq-item.open .faq-icon{background:var(--laduna-purple);border-color:var(--laduna-purple);color:#fff}
+.faq-item.open .faq-icon::after{transform:rotate(0)}
+.faq-answer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s var(--ease)}
+.faq-answer>div{overflow:hidden}
+.faq-answer p{color:var(--laduna-gray);padding:0 50px 24px 0;font-size:15.5px}
+.faq-item.open .faq-answer{grid-template-rows:1fr}
+
+/* Persistent actions */
+.floating-actions{position:fixed;right:24px;bottom:24px;z-index:70;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.floating-action{
+  width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.35);display:grid;place-items:center;
+  cursor:pointer;box-shadow:0 12px 30px rgba(45,45,45,.18);transition:.25s var(--ease);
+}
+.floating-action:hover{transform:translateY(-3px)}
+.floating-action svg{width:22px;height:22px}
+.floating-wa{background:var(--laduna-purple);color:#fff}
+.back-top{background:#fff;color:var(--laduna-black);opacity:0;visibility:hidden;transform:translateY(8px)}
+.back-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 /* Final CTA */
 .final{background:var(--laduna-black);color:#fff;position:relative;overflow:hidden}
@@ -415,6 +564,10 @@ footer a:hover{color:#fff}
   from{transform:scaleX(0)}
   to{transform:scaleX(1)}
 }
+@keyframes brandMarquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
 .reveal{
   opacity:0;transform:translate3d(var(--from-x,0),58px,0) scale(.94) rotateX(6deg);filter:blur(12px);
   transition:opacity 1s var(--ease),transform 1s var(--ease),filter 1s var(--ease);
@@ -455,6 +608,7 @@ footer a:hover{color:#fff}
   html{scroll-behavior:auto}
   .reveal,.proof-grid .proof-item,.pain-list .pain-item,.brands-grid .brand-tile,.diag-row{opacity:1;transform:none;filter:none;transition:none}
   .diag-bar i{transform:scaleX(1)}
+  .brands-track{animation:none}
   *{transition:none!important;animation:none!important}
 }
 
@@ -464,7 +618,12 @@ footer a:hover{color:#fff}
   .hero-sub{max-width:100%}
   .hero-visual{max-width:560px;margin:0 auto}
   .pain-grid,.about-grid,.diag-grid{grid-template-columns:1fr;gap:56px}
+  .team-intro,.faq-grid{grid-template-columns:1fr;gap:42px}
+  .faq-intro{position:static}
   .pillars-grid,.services-grid,.testi-grid{grid-template-columns:repeat(2,1fr)}
+  .team-grid{grid-template-columns:1fr}
+  .team-person{border-right:none;border-bottom:1px solid #e8e8e8}
+  .team-person:last-child{border-bottom:none}
   .portfolio-grid{grid-template-columns:repeat(2,1fr)}
   .work.featured .work-feed{width:64%}
   .plans-grid{grid-template-columns:repeat(2,1fr)}
@@ -484,9 +643,22 @@ footer a:hover{color:#fff}
   .nav .btn{display:none}
   .hero-grid{padding:64px 0 100px}
   .hero h1{font-size:clamp(34px,9vw,44px)}
+  .hero-dunes,.final-dunes{animation:none}
+  .reveal.from-left,.reveal.from-right{--from-x:0}
   .hero-ctas .btn{width:100%;justify-content:center}
   .phone{width:112px;right:-6px;bottom:-24px}
   .pillars-grid,.services-grid,.portfolio-grid,.testi-grid,.plans-grid,.ba-grid,.pain-list{grid-template-columns:1fr}
+  .method-flow{grid-template-columns:1fr;gap:30px;padding-left:56px;margin-top:52px}
+  .method-flow::before,.method-flow::after{top:22px;bottom:22px;left:22px;right:auto;width:2px;height:auto;transform-origin:top}
+  .method-flow::after{transform:scaleY(var(--method-progress))}
+  .method-step{text-align:left}
+  .method-index{position:absolute;left:-56px;top:0;margin:0}
+  .method-step p{margin:0;max-width:none}
+  .form-grid,.story-slide,.story-details{grid-template-columns:1fr}
+  .story-slide{gap:28px;padding:40px 0}
+  .story-details{gap:18px}
+  .stories-head{display:block}
+  .stories-head .carousel-buttons{margin-top:24px}
   .work.featured{grid-column:span 1}
   .work-feed,.work.featured .work-feed{width:70%}
   .brands-grid{grid-template-columns:repeat(2,1fr)}
@@ -495,6 +667,11 @@ footer a:hover{color:#fff}
   .footer-grid{grid-template-columns:1fr;gap:44px}
   .about-tag{right:10px}
   .diag-stamp{right:6px}
+  .diagnostic-form{padding:22px 18px}
+  .form-actions .btn{width:100%;justify-content:center}
+  .faq-question{padding-right:58px}
+  .floating-actions{right:16px;bottom:16px}
+  .floating-action{width:48px;height:48px}
 }
 </style>
 </head>
@@ -619,7 +796,7 @@ footer a:hover{color:#fff}
 </section>
 
 <!-- ============ PILARES ============ -->
-<section class="section pillars">
+<section class="section pillars" id="metodo">
   <div class="container">
     <div class="center reveal">
       <span class="eyebrow center">Método</span>
@@ -641,6 +818,55 @@ footer a:hover{color:#fff}
         <h3>Estratégia</h3>
         <p>Planejamos conteúdos, campanhas e criativos com intenção comercial, não apenas visual bonita.</p>
       </div>
+    </div>
+    <div class="method-flow reveal" aria-label="Etapas do Método LADUNA">
+      <div class="method-step">
+        <span class="method-index">01</span>
+        <h3>Diagnóstico</h3>
+        <p>Entendemos o cenário, os gargalos e o momento atual da marca.</p>
+      </div>
+      <div class="method-step">
+        <span class="method-index">02</span>
+        <h3>Direção</h3>
+        <p>Definimos posicionamento, prioridades e o caminho estratégico.</p>
+      </div>
+      <div class="method-step">
+        <span class="method-index">03</span>
+        <h3>Construção</h3>
+        <p>Transformamos a direção em identidade, conteúdo e campanhas.</p>
+      </div>
+      <div class="method-step">
+        <span class="method-index">04</span>
+        <h3>Evolução</h3>
+        <p>Acompanhamos a resposta do público e refinamos a presença da marca.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EQUIPE ============ -->
+<section class="section team" id="equipe">
+  <div class="container">
+    <div class="team-intro reveal">
+      <div>
+        <span class="eyebrow">Quem constrói</span>
+        <h2 class="h-section">Estratégia ganha força quando existe direção por trás.</h2>
+      </div>
+      <p class="sub-section">A LADUNA reúne visão de performance, conteúdo, SEO, projetos e análise para construir marcas mais profissionais e comercialmente preparadas.</p>
+    </div>
+    <div class="team-grid reveal">
+      <article class="team-person">
+        <div class="team-person-head"><span class="team-initial">JR</span><div><h3>Joel Rodrigues</h3><span class="team-role">Diretor de Performance</span></div></div>
+        <p>Estratégia de marketing, conteúdo e desenvolvimento da presença digital.</p>
+      </article>
+      <article class="team-person">
+        <div class="team-person-head"><span class="team-initial">TV</span><div><h3>Talita Vieira</h3><span class="team-role">Head de SEO</span></div></div>
+        <p>Gestão de redes sociais, estratégia digital e otimização para busca.</p>
+      </article>
+      <article class="team-person">
+        <div class="team-person-head"><span class="team-initial">AR</span><div><h3>Amanda Rodrigues</h3><span class="team-role">Projetos e Análise de Resultados</span></div></div>
+        <p>Elaboração de projetos, análise de dados e acompanhamento estratégico.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -931,7 +1157,7 @@ footer a:hover{color:#fff}
 </section>
 
 <!-- ============ DIAGNÓSTICO ============ -->
-<section class="section diag">
+<section class="section diag" id="diagnostico">
   <div class="container diag-grid">
     <div class="diag-visual reveal">
       <div class="diag-stamp">Diagnóstico LADUNA</div>
@@ -948,7 +1174,45 @@ footer a:hover{color:#fff}
       <span class="eyebrow">Diagnóstico estratégico</span>
       <h2 class="h-section">Antes de criar mais conteúdo, descubra o que está travando sua marca.</h2>
       <p>O diagnóstico LADUNA analisa sua presença digital, identidade visual, comunicação, concorrência e oportunidades para criar uma direção clara de crescimento.</p>
-      <a class="btn btn-primary" href="https://wa.me/5566996361345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20LADUNA%20e%20quero%20solicitar%20um%20diagn%C3%B3stico%20estrat%C3%A9gico%20para%20minha%20marca." target="_blank" rel="noopener">Quero meu diagnóstico <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <form class="diagnostic-form" id="diagnosticForm">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="diagName">Seu nome</label>
+            <input id="diagName" name="name" type="text" autocomplete="name" required placeholder="Como podemos chamar você?">
+          </div>
+          <div class="form-field">
+            <label for="diagPhone">WhatsApp</label>
+            <input id="diagPhone" name="phone" type="tel" autocomplete="tel" required placeholder="(00) 00000-0000">
+          </div>
+          <div class="form-field">
+            <label for="diagBrand">Empresa ou Instagram</label>
+            <input id="diagBrand" name="brand" type="text" required placeholder="Nome da marca ou @perfil">
+          </div>
+          <div class="form-field">
+            <label for="diagNeed">Principal necessidade</label>
+            <select id="diagNeed" name="need" required>
+              <option value="">Selecione</option>
+              <option>Posicionamento e estratégia</option>
+              <option>Identidade visual</option>
+              <option>Gestão de redes sociais</option>
+              <option>Conteúdo e criativos</option>
+              <option>Tráfego pago</option>
+              <option>Site ou landing page</option>
+              <option>Produção audiovisual</option>
+              <option>Não sei qual serviço preciso</option>
+            </select>
+          </div>
+          <div class="form-field full">
+            <label for="diagChallenge">O que mais está travando sua marca hoje?</label>
+            <textarea id="diagChallenge" name="challenge" required placeholder="Conte um pouco sobre o momento atual da marca."></textarea>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit">Enviar pelo WhatsApp <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <span class="form-note">Suas respostas serão enviadas somente quando você confirmar no WhatsApp.</span>
+        </div>
+        <p class="form-status" id="formStatus" aria-live="polite"></p>
+      </form>
     </div>
   </div>
 </section>
@@ -960,44 +1224,130 @@ footer a:hover{color:#fff}
       <span class="eyebrow center">Vitrine</span>
       <h2 class="h-section">Marcas que confiaram na estratégia LADUNA.</h2>
     </div>
-    <div class="brands-grid reveal">
-      <div class="brand-tile"><b>UPSMART</b><span>Varejo tech</span></div>
-      <div class="brand-tile"><b>UpSeg</b><span>Segurança</span></div>
-      <div class="brand-tile"><b>MESHOP</b><span>Varejo</span></div>
-      <div class="brand-tile"><b>ME FITNESS</b><span>Moda fitness</span></div>
-      <div class="brand-tile"><b>CASA&amp;CIA</b><span>Casa</span></div>
-      <div class="brand-tile"><b>Wanjo Cell</b><span>Assistência</span></div>
-      <div class="brand-tile"><b>São Sebastião</b><span>Saúde</span></div>
-      <div class="brand-tile"><b>Karine Alcantara</b><span>Marca pessoal</span></div>
-      <div class="brand-tile"><b>Churrascada</b><span>Eventos</span></div>
-      <div class="brand-tile"><b>Master Embalagens</b><span>Comércio</span></div>
+    <div class="brands-marquee reveal" aria-label="Marcas atendidas pela LADUNA">
+      <div class="brands-track">
+        <span class="brand-word"><img src="/assets/clients/vbella.png" alt="V'Bella"></span>
+        <span class="brand-word"><img src="/assets/clients/master-embalagens.png" alt="Master Festa e Embalagens"></span>
+        <span class="brand-word"><img src="/assets/clients/churrascada.png" alt="Churrascada"></span>
+        <span class="brand-word"><img src="/assets/clients/upsmart.png" alt="UPSMART"></span>
+        <span class="brand-word"><img src="/assets/clients/acqua-sabao.png" alt="Acqua &amp; Sabão"></span>
+        <span class="brand-word"><img src="/assets/clients/compagni-brasil.png" alt="Compagni Brasil"></span>
+        <span class="brand-word"><img src="/assets/clients/mefitness.png" alt="MEFITNESS"></span>
+        <span class="brand-word"><img src="/assets/clients/brasil-gold.png" alt="Brasil Gold"></span>
+        <span class="brand-word"><img src="/assets/clients/fisio-trate.png" alt="Fisio Trate"></span>
+        <span class="brand-word"><img src="/assets/clients/me-esportes.png" alt="ME Mundo dos Esportes"></span>
+        <span class="brand-word"><img src="/assets/clients/carla-bianconi.png" alt="Carla Bianconi"></span>
+        <span class="brand-word"><img src="/assets/clients/karine-alcantara.png" alt="Karine Alcantara"></span>
+        <span class="brand-word"><img src="/assets/clients/oliva.png" alt="Oliva"></span>
+        <span class="brand-word"><img src="/assets/clients/upseg.png" alt="UPSMART Segurança"></span>
+        <span class="brand-word"><img src="/assets/clients/transparente.png" alt="Transparente"></span>
+        <span class="brand-word"><img src="/assets/clients/powerfit.png" alt="PowerFit"></span>
+        <span class="brand-word" aria-hidden="true"><img src="/assets/clients/vbella.png" alt=""></span>
+        <span class="brand-word" aria-hidden="true"><img src="/assets/clients/master-embalagens.png" alt=""></span>
+        <span class="brand-word" aria-hidden="true"><img src="/assets/clients/churrascada.png" alt=""></span>
+        <span class="brand-word" aria-hidden="true"><img src="/assets/clients/upsmart.png" alt=""></span>
+        <span class="brand-word" aria-hidden="true"><img src="/assets/clients/acqua-sabao.png" alt=""></span>
+        <span class="brand-word" aria-hidden="true"><img src="/assets/clients/compagni-brasil.png" alt=""></span>
+        <span class="brand-word" aria-hidden="true"><img src="/assets/clients/mefitness.png" alt=""></span>
+        <span class="brand-word" aria-hidden="true"><img src="/assets/clients/brasil-gold.png" alt=""></span>
+        <span class="brand-word" aria-hidden="true"><img src="/assets/clients/fisio-trate.png" alt=""></span>
+        <span class="brand-word" aria-hidden="true"><img src="/assets/clients/me-esportes.png" alt=""></span>
+        <span class="brand-word" aria-hidden="true"><img src="/assets/clients/carla-bianconi.png" alt=""></span>
+        <span class="brand-word" aria-hidden="true"><img src="/assets/clients/karine-alcantara.png" alt=""></span>
+        <span class="brand-word" aria-hidden="true"><img src="/assets/clients/oliva.png" alt=""></span>
+        <span class="brand-word" aria-hidden="true"><img src="/assets/clients/upseg.png" alt=""></span>
+        <span class="brand-word" aria-hidden="true"><img src="/assets/clients/transparente.png" alt=""></span>
+        <span class="brand-word" aria-hidden="true"><img src="/assets/clients/powerfit.png" alt=""></span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ DEPOIMENTOS ============ -->
-<section class="section testimonials">
+<!-- ============ HISTÓRIAS DE PROJETO ============ -->
+<section class="section stories" id="historias">
   <div class="container">
-    <div class="center reveal">
-      <span class="eyebrow center">Depoimentos</span>
-      <h2 class="h-section">Quem já saiu do improviso com a LADUNA.</h2>
+    <div class="stories-head reveal">
+      <div>
+        <span class="eyebrow">Projetos em destaque</span>
+        <h2 class="h-section">Estratégia aplicada a negócios reais.</h2>
+        <p class="sub-section">Conheça algumas das frentes construídas pela LADUNA para marcas de diferentes segmentos.</p>
+      </div>
+      <div class="carousel-buttons" aria-label="Navegação dos projetos">
+        <button class="icon-button" id="storyPrev" type="button" aria-label="Projeto anterior"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button class="icon-button" id="storyNext" type="button" aria-label="Próximo projeto"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
     </div>
-    <div class="testi-grid">
-      <!-- IMPORTANTE: substituir nome e empresa pelos dados reais autorizados antes de publicar -->
-      <div class="testi reveal">
-        <div class="testi-quote"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 12c0-4 2.5-6.5 6-7l.5 2C8.5 7.6 7.4 9 7.2 10.6c.3-.1.6-.1 1-.1 1.8 0 3.1 1.3 3.1 3.1 0 1.9-1.4 3.4-3.4 3.4C5.6 17 4 15 4 12zm9 0c0-4 2.5-6.5 6-7l.5 2c-2 .6-3.1 2-3.3 3.6.3-.1.6-.1 1-.1 1.8 0 3.1 1.3 3.1 3.1 0 1.9-1.4 3.4-3.4 3.4-2.3 0-3.9-2-3.9-5z"/></svg></div>
-        <p>"A LADUNA organizou nossa comunicação e deixou nossa marca muito mais profissional."</p>
-        <div class="testi-author"><i>NC</i><div><b>Nome do cliente</b><span>Empresa</span></div></div>
+    <div class="story-carousel reveal" id="storyCarousel">
+      <div class="story-stage" aria-live="polite">
+        <article class="story-slide" data-story="0">
+          <div><div class="story-kicker">Projeto 01</div><h3>UPSMART</h3><p class="story-segment">Varejo de tecnologia</p></div>
+          <div class="story-details">
+            <div class="story-detail"><b>Direção</b><span>Comunicação mais organizada para campanhas e ofertas de alto giro.</span></div>
+            <div class="story-detail"><b>Construção</b><span>Criativos, conteúdo comercial e presença visual consistente.</span></div>
+            <div class="story-detail"><b>Performance</b><span>Campanhas e tráfego conectados às prioridades do negócio.</span></div>
+          </div>
+        </article>
+        <article class="story-slide" data-story="1" hidden>
+          <div><div class="story-kicker">Projeto 02</div><h3>MEFITNESS</h3><p class="story-segment">Moda fitness</p></div>
+          <div class="story-details">
+            <div class="story-detail"><b>Direção</b><span>Posicionamento alinhado ao estilo, ao público e à proposta da marca.</span></div>
+            <div class="story-detail"><b>Construção</b><span>Estética de campanha, conteúdo e comunicação para lançamentos.</span></div>
+            <div class="story-detail"><b>Presença</b><span>Unidade visual para fortalecer reconhecimento e percepção.</span></div>
+          </div>
+        </article>
+        <article class="story-slide" data-story="2" hidden>
+          <div><div class="story-kicker">Projeto 03</div><h3>Laboratório São Sebastião</h3><p class="story-segment">Saúde</p></div>
+          <div class="story-details">
+            <div class="story-detail"><b>Direção</b><span>Comunicação acessível para aproximar serviços e público.</span></div>
+            <div class="story-detail"><b>Conteúdo</b><span>Informação educativa apresentada com clareza e consistência.</span></div>
+            <div class="story-detail"><b>Confiança</b><span>Presença profissional adequada à responsabilidade do segmento.</span></div>
+          </div>
+        </article>
       </div>
-      <div class="testi reveal">
-        <div class="testi-quote"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 12c0-4 2.5-6.5 6-7l.5 2C8.5 7.6 7.4 9 7.2 10.6c.3-.1.6-.1 1-.1 1.8 0 3.1 1.3 3.1 3.1 0 1.9-1.4 3.4-3.4 3.4C5.6 17 4 15 4 12zm9 0c0-4 2.5-6.5 6-7l.5 2c-2 .6-3.1 2-3.3 3.6.3-.1.6-.1 1-.1 1.8 0 3.1 1.3 3.1 3.1 0 1.9-1.4 3.4-3.4 3.4-2.3 0-3.9-2-3.9-5z"/></svg></div>
-        <p>"A presença digital ficou mais clara, bonita e conectada com o que vendemos."</p>
-        <div class="testi-author"><i>NC</i><div><b>Nome do cliente</b><span>Empresa</span></div></div>
+      <div class="carousel-controls">
+        <span class="story-segment" id="storyCounter">01 / 03</span>
+        <div class="carousel-dots" aria-label="Escolher projeto">
+          <button class="carousel-dot is-active" type="button" data-story-dot="0" aria-label="Ver projeto UPSMART"></button>
+          <button class="carousel-dot" type="button" data-story-dot="1" aria-label="Ver projeto MEFITNESS"></button>
+          <button class="carousel-dot" type="button" data-story-dot="2" aria-label="Ver projeto Laboratório São Sebastião"></button>
+        </div>
       </div>
-      <div class="testi reveal">
-        <div class="testi-quote"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 12c0-4 2.5-6.5 6-7l.5 2C8.5 7.6 7.4 9 7.2 10.6c.3-.1.6-.1 1-.1 1.8 0 3.1 1.3 3.1 3.1 0 1.9-1.4 3.4-3.4 3.4C5.6 17 4 15 4 12zm9 0c0-4 2.5-6.5 6-7l.5 2c-2 .6-3.1 2-3.3 3.6.3-.1.6-.1 1-.1 1.8 0 3.1 1.3 3.1 3.1 0 1.9-1.4 3.4-3.4 3.4-2.3 0-3.9-2-3.9-5z"/></svg></div>
-        <p>"Conseguimos sair dos posts soltos e começar a comunicar com estratégia."</p>
-        <div class="testi-author"><i>NC</i><div><b>Nome do cliente</b><span>Empresa</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section faq" id="faq">
+  <div class="container faq-grid">
+    <div class="faq-intro reveal">
+      <span class="eyebrow">Dúvidas frequentes</span>
+      <h2 class="h-section">Clareza antes de começar.</h2>
+      <p class="sub-section">As respostas essenciais para entender como a LADUNA pode construir o próximo passo da sua marca.</p>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false"><span>A LADUNA atende empresas de outras cidades?</span><span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-answer"><div><p>Sim. O atendimento pode ser local, regional ou totalmente online, permitindo acompanhar marcas de diferentes regiões do Brasil.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false"><span>Preciso saber qual serviço contratar?</span><span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-answer"><div><p>Não. O diagnóstico existe justamente para identificar o que está travando a marca e qual combinação de serviços faz mais sentido para o momento atual.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false"><span>Como funciona o diagnóstico estratégico?</span><span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-answer"><div><p>Você envia algumas informações sobre a marca. A LADUNA analisa presença digital, comunicação, identidade e oportunidades para orientar o próximo passo.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false"><span>A LADUNA faz somente posts para redes sociais?</span><span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-answer"><div><p>Não. Conteúdo é uma das ferramentas. O trabalho pode envolver posicionamento, identidade, planejamento, campanhas, tráfego, audiovisual, sites e direção estratégica.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false"><span>Em quanto tempo o projeto pode começar?</span><span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-answer"><div><p>O prazo depende do escopo e da agenda de produção. Depois do diagnóstico, a LADUNA apresenta a direção recomendada e informa o cronograma possível.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false"><span>Os planos podem ser adaptados?</span><span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-answer"><div><p>Os planos representam níveis de presença, mas a recomendação considera a realidade, as prioridades e os objetivos de cada marca.</p></div></div>
       </div>
     </div>
   </div>
@@ -1041,9 +1391,11 @@ footer a:hover{color:#fff}
         <h4>Links rápidos</h4>
         <ul>
           <li><a href="#inicio">Início</a></li>
+          <li><a href="#metodo">Método</a></li>
           <li><a href="#servicos">Serviços</a></li>
           <li><a href="#portfolio">Portfólio</a></li>
           <li><a href="#planos">Planos</a></li>
+          <li><a href="#faq">Dúvidas frequentes</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </div>
@@ -1055,15 +1407,99 @@ footer a:hover{color:#fff}
   </div>
 </footer>
 
+<div class="floating-actions" aria-label="Ações rápidas">
+  <button class="floating-action back-top" id="backToTop" type="button" aria-label="Voltar ao topo" title="Voltar ao topo">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M6 14l6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <a class="floating-action floating-wa" href="https://wa.me/5566996361345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20LADUNA%20e%20quero%20entender%20qual%20%C3%A9%20o%20pr%C3%B3ximo%20passo%20para%20minha%20marca." target="_blank" rel="noopener" aria-label="Falar com a LADUNA pelo WhatsApp" title="Falar pelo WhatsApp">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M20 11.6a8 8 0 0 1-11.8 7L4 20l1.4-4.1A8 8 0 1 1 20 11.6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.4 8.1c.3-.5.6-.5.9-.5h.4c.1 0 .3 0 .4.4l.7 1.7c.1.3.1.5-.1.7l-.5.7c-.2.2-.2.4 0 .7.4.7 1 1.4 1.7 1.8.8.5 1.4.7 1.7.8.3.1.5.1.7-.1l.9-1c.2-.2.4-.3.7-.2l1.6.8c.3.1.5.2.5.4.1.2 0 1-.3 1.7-.4.7-1.3 1.3-2 1.4-.5.1-1.2.2-3.5-.8-2.9-1.2-4.7-4.2-4.9-4.5-.1-.2-1.2-1.6-1.2-3 0-.7.2-1.4.6-1.9z" fill="currentColor"/></svg>
+  </a>
+</div>
+
 <script>
 // Menu mobile
 const toggle=document.getElementById('menuToggle');
 const links=document.getElementById('navLinks');
 toggle.addEventListener('click',()=>links.classList.toggle('open'));
 links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Conversion events are ready for Google Tag Manager when the official container ID is added.
+window.dataLayer=window.dataLayer||[];
+const trackEvent=(eventName,details={})=>window.dataLayer.push({event:eventName,...details});
+document.querySelectorAll('a[href*="wa.me"]').forEach(link=>{
+  link.addEventListener('click',()=>trackEvent('whatsapp_click',{
+    cta_text:link.textContent.trim()||link.getAttribute('aria-label')||'WhatsApp',
+    section:link.closest('section')?.id||(link.closest('footer')?'footer':'global')
+  }));
+});
+
+// Diagnostic form: prepares the conversation without storing personal data on the site.
+const diagnosticForm=document.getElementById('diagnosticForm');
+const formStatus=document.getElementById('formStatus');
+diagnosticForm.addEventListener('submit',event=>{
+  event.preventDefault();
+  const data=new FormData(diagnosticForm);
+  const message=[
+    'Olá, vim pelo site da LADUNA e quero solicitar um diagnóstico estratégico.',
+    '',
+    `Nome: ${data.get('name')}`,
+    `WhatsApp: ${data.get('phone')}`,
+    `Empresa ou Instagram: ${data.get('brand')}`,
+    `Principal necessidade: ${data.get('need')}`,
+    `Maior desafio hoje: ${data.get('challenge')}`
+  ].join('\n');
+  const url=`https://wa.me/5566996361345?text=${encodeURIComponent(message)}`;
+  trackEvent('diagnostic_submit',{need:data.get('need')});
+  formStatus.textContent='Tudo certo. Abrindo a conversa no WhatsApp...';
+  window.open(url,'_blank','noopener');
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(question=>{
+  question.addEventListener('click',()=>{
+    const item=question.closest('.faq-item');
+    const willOpen=!item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(openItem=>{
+      openItem.classList.remove('open');
+      openItem.querySelector('.faq-question').setAttribute('aria-expanded','false');
+    });
+    if(willOpen){
+      item.classList.add('open');
+      question.setAttribute('aria-expanded','true');
+      trackEvent('faq_open',{question:question.firstElementChild.textContent.trim()});
+    }
+  });
+});
+
+// Project stories carousel
+const storyCarousel=document.getElementById('storyCarousel');
+const storySlides=[...document.querySelectorAll('.story-slide')];
+const storyDots=[...document.querySelectorAll('[data-story-dot]')];
+const storyCounter=document.getElementById('storyCounter');
+let currentStory=0;
+let storyTimer;
+const showStory=index=>{
+  currentStory=(index+storySlides.length)%storySlides.length;
+  storySlides.forEach((slide,slideIndex)=>slide.hidden=slideIndex!==currentStory);
+  storyDots.forEach((dot,dotIndex)=>dot.classList.toggle('is-active',dotIndex===currentStory));
+  storyCounter.textContent=`${String(currentStory+1).padStart(2,'0')} / ${String(storySlides.length).padStart(2,'0')}`;
+};
+const stopStories=()=>clearInterval(storyTimer);
+const startStories=()=>{
+  stopStories();
+  if(!reduceMotion) storyTimer=setInterval(()=>showStory(currentStory+1),7000);
+};
+document.getElementById('storyPrev').addEventListener('click',()=>{showStory(currentStory-1);startStories();});
+document.getElementById('storyNext').addEventListener('click',()=>{showStory(currentStory+1);startStories();});
+storyDots.forEach(dot=>dot.addEventListener('click',()=>{showStory(Number(dot.dataset.storyDot));startStories();}));
+storyCarousel.addEventListener('mouseenter',stopStories);
+storyCarousel.addEventListener('mouseleave',startStories);
+storyCarousel.addEventListener('focusin',stopStories);
+storyCarousel.addEventListener('focusout',startStories);
+startStories();
 
 // Motion layer
-const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 document.querySelectorAll('.service,.pillar,.work,.plan,.testi,.ba-card').forEach(el=>el.classList.add('interactive-card'));
 document.querySelectorAll('.hero-copy,.about-visual,.diag-visual').forEach(el=>el.classList.add('from-left'));
 document.querySelectorAll('.hero-visual,.about-copy,.diag-copy').forEach(el=>el.classList.add('from-right'));
@@ -1120,6 +1556,9 @@ const parallaxItems=[
   {el:document.querySelector('.diag-visual'),speed:-.07,limit:30},
   {el:document.querySelector('.final .container'),speed:.06,limit:26}
 ].filter(item=>item.el);
+const methodFlow=document.querySelector('.method-flow');
+const methodSteps=[...document.querySelectorAll('.method-step')];
+const backToTop=document.getElementById('backToTop');
 const sectionLinks=[...links.querySelectorAll('a[href^="#"]')];
 const sections=[...document.querySelectorAll('section[id]')];
 let ticking=false;
@@ -1127,6 +1566,14 @@ const clamp=(value,min,max)=>Math.max(min,Math.min(max,value));
 const updateScrollMotion=()=>{
   const maxScroll=document.documentElement.scrollHeight-window.innerHeight;
   document.documentElement.style.setProperty('--scroll-progress',maxScroll>0?window.scrollY/maxScroll:0);
+  backToTop.classList.toggle('visible',window.scrollY>700);
+  if(methodFlow){
+    const methodRect=methodFlow.getBoundingClientRect();
+    const methodProgress=clamp((window.innerHeight*.78-methodRect.top)/(methodRect.height+window.innerHeight*.22),0,1);
+    methodFlow.style.setProperty('--method-progress',methodProgress.toFixed(3));
+    const activeSteps=Math.ceil(methodProgress*methodSteps.length);
+    methodSteps.forEach((step,index)=>step.classList.toggle('is-active',index<activeSteps));
+  }
   if(!reduceMotion){
     parallaxItems.forEach(({el,speed,limit})=>{
       const rect=el.getBoundingClientRect();
@@ -1149,6 +1596,10 @@ const requestScrollMotion=()=>{
 };
 window.addEventListener('scroll',requestScrollMotion,{passive:true});
 window.addEventListener('resize',requestScrollMotion);
+backToTop.addEventListener('click',()=>{
+  window.scrollTo({top:0,behavior:reduceMotion?'auto':'smooth'});
+  trackEvent('back_to_top');
+});
 requestScrollMotion();
 
 const io=new IntersectionObserver(entries=>{
