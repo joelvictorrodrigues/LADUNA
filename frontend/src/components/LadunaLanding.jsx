@@ -147,10 +147,10 @@ const projects = [
     variant: 'fitness'
   },
   {
-    name: 'Wanjo Cell',
-    segment: 'Assistência e acessórios',
-    objective: 'Posicionamento para varejo local, assistência técnica e comunicação comercial.',
-    variant: 'home'
+    name: 'UPSEG Distribuidora',
+    segment: 'Distribuição de segurança eletrônica',
+    objective: 'Comunicação comercial para distribuição, conteúdo técnico e campanhas de segurança eletrônica.',
+    variant: 'security'
   },
   {
     name: 'Laboratório São Sebastião',
@@ -191,7 +191,7 @@ const brands = [
   ['MESHOP', 'Varejo'],
   ['MEFITNESS', 'Fitness'],
   ['CASA&CIA', 'Casa'],
-  ['Wanjo Cell', 'Assistência'],
+  ['UPSEG Distribuidora', 'Segurança eletrônica'],
   ['São Sebastião', 'Saúde'],
   ['Karine Alcantara', 'Fisioterapia'],
   ['Churrascada', 'Eventos'],

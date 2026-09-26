@@ -77,9 +77,7 @@ ul{list-style:none}
   letter-spacing:.22em;text-transform:uppercase;color:var(--laduna-purple);
   display:inline-flex;align-items:center;gap:12px;margin-bottom:20px;
 }
-.eyebrow::before{content:"";width:34px;height:2px;background:var(--laduna-purple);border-radius:2px}
 .eyebrow.center{justify-content:center}
-.eyebrow.center::after{content:"";width:34px;height:2px;background:var(--laduna-purple);border-radius:2px}
 .h-section{font-size:clamp(30px,4vw,44px);font-weight:800;letter-spacing:-.02em;margin-bottom:20px}
 .sub-section{font-size:clamp(16px,1.4vw,19px);color:var(--laduna-gray);max-width:640px}
 .center{text-align:center}
@@ -333,10 +331,14 @@ header::after{
 .work-feed i{aspect-ratio:1;border-radius:5px;display:block}
 .work-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 10%,rgba(255,255,255,.24) 48%,transparent 82%);transform:translateX(-120%);transition:transform .75s var(--ease);pointer-events:none}
 .work:hover .work-visual::after{transform:translateX(120%)}
-.work-meta{padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.work-meta{padding:22px 26px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.work-meta>div{min-width:0}
 .work-meta h3{font-size:16px;font-weight:700}
-.work-meta span{display:block;font-size:13px;color:var(--laduna-gray);font-family:'Quicksand',sans-serif;font-weight:500;margin-top:2px}
+.work-meta .work-description{display:block;font-size:13px;color:var(--laduna-gray);font-family:'Quicksand',sans-serif;font-weight:500;margin-top:2px}
 .work-meta .dot{width:10px;height:10px;border-radius:50%;flex:none}
+.work-instagram{display:inline-flex;align-items:center;gap:7px;margin-top:12px;color:var(--laduna-purple);font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;transition:color .2s var(--ease),transform .2s var(--ease)}
+.work-instagram::before{content:"@";display:grid;place-items:center;width:18px;height:18px;border:1px solid currentColor;border-radius:50%;font-size:10px;line-height:1}
+.work-instagram:hover{color:var(--laduna-purple-dark);transform:translateX(2px)}
 
 /* Before / After */
 .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:60px}
@@ -661,6 +663,7 @@ footer a:hover{color:#fff}
   .stories-head .carousel-buttons{margin-top:24px}
   .work.featured{grid-column:span 1}
   .work-feed,.work.featured .work-feed{width:70%}
+  .work-instagram{font-size:10px;overflow-wrap:anywhere}
   .brands-grid{grid-template-columns:repeat(2,1fr)}
   .proof-grid{grid-template-columns:1fr;transform:translateY(-36px)}
   .proof-item{border-right:none}
@@ -946,7 +949,7 @@ footer a:hover{color:#fff}
           </div>
         </div>
         <div class="work-meta">
-          <div><h3>UPSMART</h3><span>Varejo de tecnologia • Campanhas, criativos e tráfego</span></div>
+          <div><h3>UPSMART</h3><span class="work-description">Varejo de tecnologia • Campanhas, criativos e tráfego</span><a class="work-instagram" href="https://www.instagram.com/upsmartpeixoto/" target="_blank" rel="noopener" aria-label="Ver UPSMART no Instagram">@upsmartpeixoto</a></div>
           <span class="dot" style="background:#F5C84B"></span>
         </div>
       </div>
@@ -960,7 +963,7 @@ footer a:hover{color:#fff}
           </div>
         </div>
         <div class="work-meta">
-          <div><h3>ME FITNESS</h3><span>Moda fitness • Campanhas, estética e posicionamento</span></div>
+          <div><h3>ME FITNESS</h3><span class="work-description">Moda fitness • Campanhas, estética e posicionamento</span><a class="work-instagram" href="https://www.instagram.com/mefitnessmatupa/" target="_blank" rel="noopener" aria-label="Ver ME FITNESS no Instagram">@mefitnessmatupa</a></div>
           <span class="dot" style="background:#C9A24B"></span>
         </div>
       </div>
@@ -974,7 +977,7 @@ footer a:hover{color:#fff}
           </div>
         </div>
         <div class="work-meta">
-          <div><h3>UPSMART Segurança</h3><span>Segurança eletrônica • Conteúdo técnico e campanhas</span></div>
+          <div><h3>UPSMART Segurança</h3><span class="work-description">Segurança eletrônica • Conteúdo técnico e campanhas</span><a class="work-instagram" href="https://www.instagram.com/upsmartseg/" target="_blank" rel="noopener" aria-label="Ver UPSMART Segurança no Instagram">@upsmartseg</a></div>
           <span class="dot" style="background:#F5C84B"></span>
         </div>
       </div>
@@ -988,7 +991,7 @@ footer a:hover{color:#fff}
           </div>
         </div>
         <div class="work-meta">
-          <div><h3>MESHOP</h3><span>Varejo • Promoções, criadores e campanhas de alto giro</span></div>
+          <div><h3>MESHOP</h3><span class="work-description">Varejo • Promoções, criadores e campanhas de alto giro</span><a class="work-instagram" href="https://www.instagram.com/meshop.mt/" target="_blank" rel="noopener" aria-label="Ver MESHOP no Instagram">@meshop.mt</a></div>
           <span class="dot" style="background:#2d2d2d"></span>
         </div>
       </div>
@@ -1002,22 +1005,22 @@ footer a:hover{color:#fff}
           </div>
         </div>
         <div class="work-meta">
-          <div><h3>Laboratório São Sebastião</h3><span>Saúde • Comunicação acessível e educativa</span></div>
+          <div><h3>Laboratório São Sebastião</h3><span class="work-description">Saúde • Comunicação acessível e educativa</span><a class="work-instagram" href="https://www.instagram.com/laboratoriosaosebastiaopeixoto/" target="_blank" rel="noopener" aria-label="Ver Laboratório São Sebastião no Instagram">@laboratoriosaosebastiao<wbr>peixoto</a></div>
           <span class="dot" style="background:#2E7D6E"></span>
         </div>
       </div>
 
       <div class="work reveal">
-        <div class="work-visual" style="background:linear-gradient(150deg,#e9e9ec,#cfcfd4)">
+        <div class="work-visual" style="background:linear-gradient(150deg,#151515,#383838)">
           <div class="work-feed">
-            <i style="background:#1d1d1f"></i><i style="background:#f5f5f7"></i><i style="background:#86868b"></i>
-            <i style="background:#f5f5f7"></i><i style="background:#86868b"></i><i style="background:#1d1d1f"></i>
-            <i style="background:#86868b"></i><i style="background:#1d1d1f"></i><i style="background:#f5f5f7"></i>
+            <i style="background:#FFD400"></i><i style="background:#181818"></i><i style="background:#F5F5F5"></i>
+            <i style="background:#181818"></i><i style="background:#FFD400"></i><i style="background:#303030"></i>
+            <i style="background:#F5F5F5"></i><i style="background:#303030"></i><i style="background:#FFD400"></i>
           </div>
         </div>
         <div class="work-meta">
-          <div><h3>Wanjo Cell</h3><span>Assistência técnica e seminovos • Conteúdo e ofertas</span></div>
-          <span class="dot" style="background:#1d1d1f"></span>
+          <div><h3>UPSEG Distribuidora</h3><span class="work-description">Segurança eletrônica • Distribuição, conteúdo e campanhas</span><a class="work-instagram" href="https://www.instagram.com/upsegdistribuidora/" target="_blank" rel="noopener" aria-label="Ver UPSEG Distribuidora no Instagram">@upsegdistribuidora</a></div>
+          <span class="dot" style="background:#FFD400"></span>
         </div>
       </div>
 
@@ -1030,7 +1033,7 @@ footer a:hover{color:#fff}
           </div>
         </div>
         <div class="work-meta">
-          <div><h3>CASA&amp;CIA Peixoto</h3><span>Casa e decoração • Estética, percepção e vendas</span></div>
+          <div><h3>CASA&amp;CIA Peixoto</h3><span class="work-description">Casa e decoração • Estética, percepção e vendas</span><a class="work-instagram" href="https://www.instagram.com/casaeciapeixoto/" target="_blank" rel="noopener" aria-label="Ver CASA e CIA Peixoto no Instagram">@casaeciapeixoto</a></div>
           <span class="dot" style="background:#C97B4A"></span>
         </div>
       </div>
@@ -1044,7 +1047,7 @@ footer a:hover{color:#fff}
           </div>
         </div>
         <div class="work-meta">
-          <div><h3>Karine Alcantara</h3><span>Marca pessoal • Posicionamento e conteúdo</span></div>
+          <div><h3>Karine Alcantara</h3><span class="work-description">Marca pessoal • Posicionamento e conteúdo</span><a class="work-instagram" href="https://www.instagram.com/fisiokarinealcantara/" target="_blank" rel="noopener" aria-label="Ver Karine Alcantara no Instagram">@fisiokarinealcantara</a></div>
           <span class="dot" style="background:#B0777F"></span>
         </div>
       </div>
@@ -1058,7 +1061,7 @@ footer a:hover{color:#fff}
           </div>
         </div>
         <div class="work-meta">
-          <div><h3>Churrascada</h3><span>Eventos e gastronomia • Campanhas e cobertura</span></div>
+          <div><h3>Churrascada</h3><span class="work-description">Eventos e gastronomia • Campanhas e cobertura</span><a class="work-instagram" href="https://www.instagram.com/churrascadaig/" target="_blank" rel="noopener" aria-label="Ver Churrascada no Instagram">@churrascadaig</a></div>
           <span class="dot" style="background:#C1440E"></span>
         </div>
       </div>
@@ -1072,7 +1075,7 @@ footer a:hover{color:#fff}
           </div>
         </div>
         <div class="work-meta">
-          <div><h3>Master Embalagens</h3><span>Comércio • Relatórios, conteúdo e performance</span></div>
+          <div><h3>Master Embalagens</h3><span class="work-description">Comércio • Relatórios, conteúdo e performance</span><a class="work-instagram" href="https://www.instagram.com/masterfestamt/" target="_blank" rel="noopener" aria-label="Ver Master Embalagens no Instagram">@masterfestamt</a></div>
           <span class="dot" style="background:#C0262C"></span>
         </div>
       </div>
@@ -1239,7 +1242,7 @@ footer a:hover{color:#fff}
         <span class="brand-word"><img src="/assets/clients/carla-bianconi.png" alt="Carla Bianconi"></span>
         <span class="brand-word"><img src="/assets/clients/karine-alcantara.png" alt="Karine Alcantara"></span>
         <span class="brand-word"><img src="/assets/clients/oliva.png" alt="Oliva"></span>
-        <span class="brand-word"><img src="/assets/clients/upseg.png" alt="UPSMART Segurança"></span>
+        <span class="brand-word"><img src="/assets/clients/upseg.png" alt="UPSEG Distribuidora"></span>
         <span class="brand-word"><img src="/assets/clients/transparente.png" alt="Transparente"></span>
         <span class="brand-word"><img src="/assets/clients/powerfit.png" alt="PowerFit"></span>
         <span class="brand-word" aria-hidden="true"><img src="/assets/clients/vbella.png" alt=""></span>
