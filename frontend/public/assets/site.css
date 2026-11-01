@@ -148,6 +148,7 @@ footer{background:var(--white);border-top:1px solid var(--line)}
 .problems{background:var(--laduna-lilac)}
 .problems-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:24px;row-gap:48px}
 .problem{min-width:0}
+.problem-toggle{display:none}
 .problem-image{aspect-ratio:4/3;margin:0 0 16px;background-image:url('/assets/marketing-problems-sprite.jpg');background-size:400% 300%;background-repeat:no-repeat}
 .problem-image[data-scene="1"]{background-position:0 0}
 .problem-image[data-scene="2"]{background-position:33.333% 0}
@@ -164,11 +165,24 @@ footer{background:var(--white);border-top:1px solid var(--line)}
 .problem>span{font:500 11px/1.5 var(--font-title);color:var(--laduna-purple)}
 .problem h3{margin:12px 0 8px;font:600 17px/1.35 var(--font-title);color:var(--laduna-black)}
 .problem p{font-size:14px;line-height:1.65;color:var(--muted)}
-@media(max-width:960px){.problems-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 24px}}
-@media(max-width:380px){.problems-grid{grid-template-columns:1fr;row-gap:32px}.problem-image{aspect-ratio:4/3}}
+@media(max-width:960px){.problems-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 18px}}
 .faq{padding-top:32px;border-top:1px solid var(--line)}.faq h2{margin-top:0}@media(max-width:700px){.faq{padding-top:28px}}
-@media(max-width:700px){.problems-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 12px}.problem-image{aspect-ratio:1/1;margin-bottom:10px}.problem h3{font-size:13px;line-height:1.35;margin:8px 0 6px}.problem p{font-size:12px;line-height:1.5}}
-@media(max-width:360px){.problems-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 14px}.problem h3{font-size:15px}.problem p{font-size:13px;line-height:1.5}}
+@media(max-width:700px){
+  .problems-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .problem{position:relative;aspect-ratio:1;overflow:hidden;background:var(--laduna-black)}
+  .problem-toggle{display:block;position:absolute;inset:0;z-index:3;width:100%;height:100%;padding:0;border:0;background:transparent;cursor:pointer}
+  .problem-toggle:focus-visible{outline:2px solid var(--laduna-purple);outline-offset:-4px}
+  .problem-image{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;margin:0;background-size:400% 300%;transition:transform .35s ease,filter .35s ease}
+  .problem::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(25,22,28,.18),rgba(25,22,28,.82));opacity:0;transition:opacity .25s ease}
+  .problem>span,.problem h3,.problem p{position:absolute;z-index:2;left:12px;right:12px;margin:0;color:#fff;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .22s ease,transform .22s ease,visibility .22s}
+  .problem>span{top:9px;font-size:8px;line-height:1.25;color:#eee5f2}
+  .problem h3{top:27px;bottom:auto;font-size:11px;line-height:1.12;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .problem p{top:auto;bottom:9px;font-size:9px;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .problem.is-row-active .problem-image{filter:brightness(.68)}
+  .problem.is-row-active::after{opacity:1}
+  .problem.is-row-active>span,.problem.is-row-active h3,.problem.is-row-active p{opacity:1;visibility:visible;transform:translateY(0)}
+}
+@media(max-width:360px){.problems-grid{gap:8px}.problem>span,.problem h3,.problem p{left:8px;right:8px}.problem>span{top:7px;font-size:8px}.problem h3{top:22px;font-size:9.5px;line-height:1.12}.problem p{bottom:7px;font-size:8px;line-height:1.15}}
 .reveal{transition:opacity .78s cubic-bezier(.16,1,.3,1),transform .78s cubic-bezier(.16,1,.3,1),filter .78s cubic-bezier(.16,1,.3,1);transition-delay:var(--reveal-delay,0ms)}.reveal.pending{transform:translateY(36px) scale(.98);filter:blur(3px)}
 .method-step.pending .method-visual img,.service-path.pending .service-path-image img{transform:scale(1.06);filter:saturate(.55)}
 @media(hover:hover) and (pointer:fine){

@@ -80,6 +80,54 @@ document.querySelectorAll('[data-project]').forEach(button => button.addEventLis
 }));
 
 const reducedMotion = matchMedia('(prefers-reduced-motion:reduce)');
+const problemsGrid = document.querySelector('.problems-grid');
+if (problemsGrid) {
+  let activeProblemRow = -1;
+  let problemScrollFrame = 0;
+  const updateProblemRow = () => {
+    problemScrollFrame = 0;
+    if (!matchMedia('(max-width:700px)').matches) {
+      problemsGrid.querySelectorAll('.problem.is-row-active').forEach(card => card.classList.remove('is-row-active'));
+      activeProblemRow = -1;
+      return;
+    }
+    const cards = [...problemsGrid.querySelectorAll('.problem')];
+    const focusY = innerHeight * .52;
+    let closestRow = -1;
+    let closestDistance = Infinity;
+    for (let start = 0, row = 0; start < cards.length; start += 3, row++) {
+      const rowCards = cards.slice(start, start + 3);
+      const top = Math.min(...rowCards.map(card => card.getBoundingClientRect().top));
+      const bottom = Math.max(...rowCards.map(card => card.getBoundingClientRect().bottom));
+      if (bottom <= 72 || top >= innerHeight) continue;
+      const distance = Math.abs((top + bottom) / 2 - focusY);
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestRow = row;
+      }
+    }
+    if (closestRow === activeProblemRow) return;
+    cards.forEach((card, index) => card.classList.toggle('is-row-active', Math.floor(index / 3) === closestRow));
+    activeProblemRow = closestRow;
+  };
+  const scheduleProblemRowUpdate = () => {
+    if (!problemScrollFrame) problemScrollFrame = requestAnimationFrame(updateProblemRow);
+  };
+  problemsGrid.querySelectorAll('.problem-toggle').forEach(button => button.addEventListener('click', () => {
+    if (!matchMedia('(max-width:700px)').matches) return;
+    const cards = [...problemsGrid.querySelectorAll('.problem')];
+    const index = cards.indexOf(button.closest('.problem'));
+    const rowCards = cards.slice(Math.floor(index / 3) * 3, Math.floor(index / 3) * 3 + 3);
+    const top = Math.min(...rowCards.map(card => card.getBoundingClientRect().top));
+    const bottom = Math.max(...rowCards.map(card => card.getBoundingClientRect().bottom));
+    const distance = (top + bottom) / 2 - innerHeight * .52;
+    if (Math.abs(distance) > 12) window.scrollBy({ top: distance, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+    else scheduleProblemRowUpdate();
+  }));
+  window.addEventListener('scroll', scheduleProblemRowUpdate, { passive: true });
+  window.addEventListener('resize', scheduleProblemRowUpdate);
+  scheduleProblemRowUpdate();
+}
 document.querySelectorAll('.method,.problems-grid,.service-paths').forEach(group => {
   [...group.children].filter(element => element.classList.contains('reveal')).forEach((element, index) => {
     element.style.setProperty('--reveal-delay', `${Math.min(index, 4) * 75}ms`);
