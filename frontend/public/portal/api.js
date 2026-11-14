@@ -6,9 +6,19 @@ import {
   emptyDashboard
 } from './data.js';
 
-const SESSION_KEY = 'laduna_portal_session';
-
+const SESSION_KEY = 'laduna_portal_firebase_session';
 const clone = (value) => JSON.parse(JSON.stringify(value));
+
+const firebaseError = (code = '') => {
+  const messages = {
+    EMAIL_NOT_FOUND: 'E-mail ou senha incorretos.',
+    INVALID_PASSWORD: 'E-mail ou senha incorretos.',
+    INVALID_LOGIN_CREDENTIALS: 'E-mail ou senha incorretos.',
+    USER_DISABLED: 'Este acesso está pausado. Fale com a LADUNA.',
+    TOO_MANY_ATTEMPTS_TRY_LATER: 'Muitas tentativas. Aguarde alguns minutos e tente novamente.',
+  };
+  return messages[code] || 'Não foi possível entrar agora. Tente novamente.';
+};
 
 export class PortalApi {
   constructor(config, demo = false) {
@@ -17,316 +27,187 @@ export class PortalApi {
     this.session = this.readSession();
     this.demoOrganizations = clone(DEMO_ORGANIZATIONS);
     this.demoProfiles = clone(DEMO_PROFILES);
-    this.demoDashboards = {
-      'demo-org-1': clone(DEMO_DASHBOARD),
-      'demo-org-2': emptyDashboard('Empresa Modelo')
-    };
+    this.demoDashboards = {'demo-org-1':clone(DEMO_DASHBOARD),'demo-org-2':emptyDashboard('Empresa Modelo')};
     this.demoRequests = clone(DEMO_REQUESTS);
+    this.portal = null;
   }
 
   static async initialize() {
     const params = new URLSearchParams(window.location.search);
-    const localPreview = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+    const localPreview = ['localhost','127.0.0.1'].includes(window.location.hostname);
     const demo = params.get('demo') === '1' && localPreview;
-    if (demo) return new PortalApi({ ready: true }, true);
-
+    if (demo) return new PortalApi({ready:true},true);
     try {
-      const response = await fetch('/.netlify/functions/portal-config', { headers: { Accept: 'application/json' } });
+      const response = await fetch('/.netlify/functions/portal-config',{headers:{Accept:'application/json'},cache:'no-store'});
       const config = await response.json();
-      return new PortalApi(config, false);
-    } catch (error) {
-      return new PortalApi({ ready: false, message: 'A conexão segura do portal ainda não foi configurada.' }, false);
+      return new PortalApi(config,false);
+    } catch {
+      return new PortalApi({ready:false,message:'A conexão segura do portal ainda não foi configurada.'},false);
     }
   }
 
   readSession() {
-    try {
-      return JSON.parse(localStorage.getItem(SESSION_KEY) || 'null');
-    } catch (error) {
-      return null;
-    }
+    try { return JSON.parse(localStorage.getItem(SESSION_KEY)||'null'); }
+    catch { return null; }
   }
 
   saveSession(session) {
-    this.session = session;
-    if (session) localStorage.setItem(SESSION_KEY, JSON.stringify(session));
+    this.session=session;
+    if(session) localStorage.setItem(SESSION_KEY,JSON.stringify(session));
     else localStorage.removeItem(SESSION_KEY);
   }
 
   isConfigured() {
-    return this.demo || Boolean(this.config?.ready && this.config?.supabaseUrl && this.config?.publishableKey);
+    return this.demo || Boolean(this.config?.ready&&this.config?.apiKey&&this.config?.databaseURL);
   }
 
-  async login(email, password) {
-    if (this.demo) {
-      const role = email.toLowerCase().includes('cliente') ? 'client' : 'admin';
-      const profile = this.demoProfiles.find((item) => item.role === role);
-      const session = { access_token: `demo-${role}`, refresh_token: '', user: { id: profile.id, email: profile.email } };
+  async login(email,password) {
+    if(this.demo){
+      const profile=this.demoProfiles.find(item=>item.role==='client');
+      const session={idToken:'demo-client',refreshToken:'',expiresAt:Date.now()+3600000,user:{id:profile.id,email:profile.email}};
       this.saveSession(session);
       return session;
     }
-
-    const response = await fetch(`${this.config.supabaseUrl}/auth/v1/token?grant_type=password`, {
-      method: 'POST',
-      headers: {
-        apikey: this.config.publishableKey,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email, password })
+    const response=await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${encodeURIComponent(this.config.apiKey)}`,{
+      method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password,returnSecureToken:true})
     });
-    const payload = await response.json();
-    if (!response.ok) throw new Error('E-mail ou senha incorretos.');
-    this.saveSession(payload);
-    return payload;
+    const payload=await response.json().catch(()=>({}));
+    if(!response.ok) throw new Error(firebaseError(payload?.error?.message));
+    const session={
+      idToken:payload.idToken,
+      refreshToken:payload.refreshToken,
+      expiresAt:Date.now()+(Number(payload.expiresIn||3600)*1000),
+      user:{id:payload.localId,email:payload.email}
+    };
+    this.saveSession(session);
+    return session;
   }
 
   async logout() {
-    if (!this.demo && this.session?.access_token) {
-      try {
-        await fetch(`${this.config.supabaseUrl}/auth/v1/logout`, {
-          method: 'POST',
-          headers: {
-            apikey: this.config.publishableKey,
-            Authorization: `Bearer ${this.session.access_token}`
-          }
-        });
-      } catch (error) {
-        // Local sign-out must still succeed when the remote session has expired.
-      }
-    }
+    this.portal=null;
     this.saveSession(null);
   }
 
   async refreshSession() {
-    if (this.demo || !this.session?.refresh_token) return this.session;
-    const response = await fetch(`${this.config.supabaseUrl}/auth/v1/token?grant_type=refresh_token`, {
-      method: 'POST',
-      headers: {
-        apikey: this.config.publishableKey,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ refresh_token: this.session.refresh_token })
+    if(this.demo||!this.session?.refreshToken) return this.session;
+    const response=await fetch(`https://securetoken.googleapis.com/v1/token?key=${encodeURIComponent(this.config.apiKey)}`,{
+      method:'POST',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body:new URLSearchParams({grant_type:'refresh_token',refresh_token:this.session.refreshToken})
     });
-    if (!response.ok) {
-      this.saveSession(null);
-      return null;
+    const payload=await response.json().catch(()=>({}));
+    if(!response.ok){this.saveSession(null);return null;}
+    const session={
+      idToken:payload.id_token,
+      refreshToken:payload.refresh_token,
+      expiresAt:Date.now()+(Number(payload.expires_in||3600)*1000),
+      user:{id:payload.user_id,email:this.session.user.email}
+    };
+    this.saveSession(session);
+    return session;
+  }
+
+  async ensureSession() {
+    if(!this.session) return null;
+    if(this.demo) return this.session;
+    if(Date.now()>=Number(this.session.expiresAt||0)-60000) return this.refreshSession();
+    return this.session;
+  }
+
+  async database(path,options={},retry=true) {
+    const session=await this.ensureSession();
+    if(!session?.idToken) throw new Error('Sua sessão expirou. Entre novamente.');
+    const clean=String(path||'').split('/').filter(Boolean).map(encodeURIComponent).join('/');
+    const response=await fetch(`${String(this.config.databaseURL).replace(/\/$/,'')}/${clean}.json?auth=${encodeURIComponent(session.idToken)}`,{
+      cache:'no-store',...options,
+      headers:{...(options.body?{'Content-Type':'application/json'}:{}),...(options.headers||{})}
+    });
+    if(response.status===401&&retry&&this.session?.refreshToken){
+      const refreshed=await this.refreshSession();
+      if(refreshed) return this.database(path,options,false);
     }
-    const payload = await response.json();
-    this.saveSession(payload);
+    const text=await response.text();
+    let payload=null;
+    try{payload=text?JSON.parse(text):null;}catch{payload=null;}
+    if(!response.ok) throw new Error(payload?.error||'Não foi possível carregar os dados do portal.');
     return payload;
   }
 
-  async rest(path, options = {}, retry = true) {
-    if (!this.session?.access_token) throw new Error('Sua sessão expirou. Entre novamente.');
-    const response = await fetch(`${this.config.supabaseUrl}/rest/v1/${path}`, {
-      ...options,
-      headers: {
-        apikey: this.config.publishableKey,
-        Authorization: `Bearer ${this.session.access_token}`,
-        'Content-Type': 'application/json',
-        ...(options.headers || {})
-      }
-    });
-
-    if (response.status === 401 && retry && this.session?.refresh_token) {
-      const refreshed = await this.refreshSession();
-      if (refreshed) return this.rest(path, options, false);
-    }
-
-    const text = await response.text();
-    const payload = text ? JSON.parse(text) : null;
-    if (!response.ok) throw new Error(payload?.message || payload?.hint || 'Não foi possível concluir a operação.');
-    return payload;
+  async loadPortal() {
+    if(this.demo) return null;
+    if(this.portal) return this.portal;
+    const uid=this.session?.user?.id;
+    if(!uid) return null;
+    this.portal=await this.database(`portalClientes/${uid}`);
+    return this.portal;
   }
 
   async getProfile() {
-    if (this.demo) {
-      const role = this.session?.access_token?.includes('client') ? 'client' : 'admin';
-      return clone(this.demoProfiles.find((item) => item.role === role));
-    }
-    const userId = this.session?.user?.id;
-    if (!userId) return null;
-    const rows = await this.rest(`profiles?id=eq.${encodeURIComponent(userId)}&select=*`);
-    return rows?.[0] || null;
+    if(this.demo) return clone(this.demoProfiles.find(item=>item.role==='client'));
+    const portal=await this.loadPortal();
+    if(!portal) return null;
+    return {
+      id:this.session.user.id,
+      full_name:portal.profile?.full_name||portal.empresa?.name||'Cliente LADUNA',
+      email:this.session.user.email,
+      role:'client',
+      active:portal.status==='active'
+    };
   }
 
   async getMembership(userId) {
-    if (this.demo) {
-      const profile = this.demoProfiles.find((item) => item.id === userId);
-      return profile?.organization_id ? { user_id: userId, organization_id: profile.organization_id, role: 'client_admin' } : null;
-    }
-    const rows = await this.rest(`memberships?user_id=eq.${encodeURIComponent(userId)}&select=*&limit=1`);
-    return rows?.[0] || null;
-  }
-
-  async listOrganizations() {
-    if (this.demo) return clone(this.demoOrganizations);
-    return this.rest('organizations?select=*&order=name.asc');
+    if(this.demo) return {user_id:userId,organization_id:'demo-org-1',role:'client'};
+    const portal=await this.loadPortal();
+    return portal?{user_id:userId,organization_id:userId,role:'client'}:null;
   }
 
   async getOrganization(id) {
-    if (this.demo) return clone(this.demoOrganizations.find((item) => item.id === id));
-    const rows = await this.rest(`organizations?id=eq.${encodeURIComponent(id)}&select=*`);
-    return rows?.[0] || null;
+    if(this.demo) return clone(this.demoOrganizations[0]);
+    const portal=await this.loadPortal();
+    if(!portal) return null;
+    return {
+      id,
+      name:portal.empresa?.name||'Cliente LADUNA',
+      segment:portal.empresa?.segment||'Cliente LADUNA',
+      logo_url:portal.empresa?.logo_url||'',
+      accent_color:portal.empresa?.accent_color||'#6B4A7D',
+      status:portal.status||'paused',
+      modules:portal.modules||{},
+      updated_at:portal.atualizadoEm||portal.dashboard?.atualizadoEm||''
+    };
   }
 
-  async createOrganization(input) {
-    if (this.demo) {
-      const organization = {
-        id: `demo-org-${Date.now()}`,
-        ...input,
-        status: 'active',
-        updated_at: new Date().toISOString()
-      };
-      this.demoOrganizations.push(organization);
-      this.demoDashboards[organization.id] = emptyDashboard(organization.name);
-      return clone(organization);
-    }
-
-    const rows = await this.rest('organizations', {
-      method: 'POST',
-      headers: { Prefer: 'return=representation' },
-      body: JSON.stringify(input)
-    });
-    const organization = rows[0];
-    await this.rest('dashboard_content', {
-      method: 'POST',
-      headers: { Prefer: 'return=minimal' },
-      body: JSON.stringify({ organization_id: organization.id, content: emptyDashboard(organization.name) })
-    });
-    return organization;
+  async getDashboard() {
+    if(this.demo) return clone(this.demoDashboards['demo-org-1']);
+    const portal=await this.loadPortal();
+    return portal?.dashboard||emptyDashboard(portal?.empresa?.name||'Cliente');
   }
 
-  async updateOrganization(id, input) {
-    if (this.demo) {
-      const index = this.demoOrganizations.findIndex((item) => item.id === id);
-      this.demoOrganizations[index] = { ...this.demoOrganizations[index], ...input, updated_at: new Date().toISOString() };
-      return clone(this.demoOrganizations[index]);
-    }
-    const rows = await this.rest(`organizations?id=eq.${encodeURIComponent(id)}`, {
-      method: 'PATCH',
-      headers: { Prefer: 'return=representation' },
-      body: JSON.stringify(input)
-    });
-    return rows[0];
-  }
-
-  async getDashboard(organizationId) {
-    if (this.demo) return clone(this.demoDashboards[organizationId] || emptyDashboard('Cliente'));
-    const rows = await this.rest(`dashboard_content?organization_id=eq.${encodeURIComponent(organizationId)}&select=*`);
-    return rows?.[0]?.content || emptyDashboard('Cliente');
-  }
-
-  async saveDashboard(organizationId, content) {
-    if (this.demo) {
-      this.demoDashboards[organizationId] = clone(content);
-      return clone(content);
-    }
-    await this.rest('dashboard_content?on_conflict=organization_id', {
-      method: 'POST',
-      headers: { Prefer: 'resolution=merge-duplicates,return=minimal' },
-      body: JSON.stringify({ organization_id: organizationId, content, updated_at: new Date().toISOString() })
-    });
-    return content;
-  }
-
-  async listProfiles() {
-    if (this.demo) return clone(this.demoProfiles);
-    const profiles = await this.rest('profiles?select=*,memberships(organization_id)&order=full_name.asc');
-    return profiles.map((profile) => ({
-      ...profile,
-      organization_id: profile.memberships?.[0]?.organization_id || null
-    }));
-  }
-
-  async createClientUser(input) {
-    if (this.demo) {
-      const profile = {
-        id: `demo-user-${Date.now()}`,
-        full_name: input.fullName,
-        email: input.email,
-        role: 'client',
-        active: true,
-        organization_id: input.organizationId
-      };
-      this.demoProfiles.push(profile);
-      return clone(profile);
-    }
-    const response = await fetch('/.netlify/functions/admin-user', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${this.session.access_token}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(input)
-    });
-    const payload = await response.json();
-    if (!response.ok) throw new Error(payload?.message || 'Não foi possível criar o acesso.');
-    return payload;
-  }
-
-  async resetClientPassword(userId, password) {
-    if (this.demo) return { success: true };
-    const response = await fetch('/.netlify/functions/admin-user', {
-      method: 'PATCH',
-      headers: {
-        Authorization: `Bearer ${this.session.access_token}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ userId, password })
-    });
-    const payload = await response.json();
-    if (!response.ok) throw new Error(payload?.message || 'Não foi possível redefinir a senha.');
-    return payload;
-  }
-
-  async setUserActive(userId, active) {
-    if (this.demo) {
-      const profile = this.demoProfiles.find((item) => item.id === userId);
-      if (profile) profile.active = active;
-      return profile;
-    }
-    const rows = await this.rest(`profiles?id=eq.${encodeURIComponent(userId)}`, {
-      method: 'PATCH',
-      headers: { Prefer: 'return=representation' },
-      body: JSON.stringify({ active })
-    });
-    return rows[0];
-  }
-
-  async listRequests(organizationId = '') {
-    if (this.demo) {
-      return clone(organizationId ? this.demoRequests.filter((item) => item.organization_id === organizationId) : this.demoRequests);
-    }
-    const filter = organizationId ? `&organization_id=eq.${encodeURIComponent(organizationId)}` : '';
-    return this.rest(`client_requests?select=*&order=created_at.desc${filter}`);
+  async listRequests() {
+    if(this.demo) return clone(this.demoRequests);
+    const uid=this.session?.user?.id;
+    const payload=await this.database(`portalSolicitacoes/${uid}`);
+    return Object.values(payload||{}).sort((a,b)=>String(b.created_at||'').localeCompare(String(a.created_at||'')));
   }
 
   async createRequest(input) {
-    if (this.demo) {
-      const item = { id: `request-${Date.now()}`, status: 'open', created_at: new Date().toISOString(), ...input };
+    if(this.demo){
+      const item={id:`request-${Date.now()}`,status:'open',created_at:new Date().toISOString(),...input};
       this.demoRequests.unshift(item);
       return clone(item);
     }
-    const rows = await this.rest('client_requests', {
-      method: 'POST',
-      headers: { Prefer: 'return=representation' },
-      body: JSON.stringify(input)
-    });
-    return rows[0];
-  }
-
-  async updateRequest(id, status) {
-    if (this.demo) {
-      const item = this.demoRequests.find((request) => request.id === id);
-      if (item) item.status = status;
-      return clone(item);
-    }
-    const rows = await this.rest(`client_requests?id=eq.${encodeURIComponent(id)}`, {
-      method: 'PATCH',
-      headers: { Prefer: 'return=representation' },
-      body: JSON.stringify({ status })
-    });
-    return rows[0];
+    const uid=this.session?.user?.id;
+    const id=`solicitacao-${Date.now()}-${Math.random().toString(36).slice(2,8)}`;
+    const item={
+      id,
+      organization_id:uid,
+      created_by:uid,
+      title:String(input?.title||'').trim().slice(0,120),
+      message:String(input?.message||'').trim().slice(0,1500),
+      status:'open',
+      created_at:new Date().toISOString()
+    };
+    await this.database(`portalSolicitacoes/${uid}/${id}`,{method:'PUT',body:JSON.stringify(item)});
+    return item;
   }
 }

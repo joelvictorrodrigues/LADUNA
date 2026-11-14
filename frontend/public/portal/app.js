@@ -64,6 +64,7 @@ function slugify(value = '') {
 
 function safeExternalUrl(value = '') {
   if (!value || value === '#') return '';
+  if (/^data:image\/(png|jpeg|webp);base64,/i.test(value)) return value;
   try {
     const url = new URL(value, window.location.origin);
     return ['http:', 'https:'].includes(url.protocol) ? url.href : '';
@@ -339,33 +340,31 @@ function renderOverview(dashboard) {
   const data = dashboard.overview;
   return `${pageHead(state.dashboard.periodLabel, data.title, data.summary)}${metrics(data.kpis)}
     <div class="dashboard-grid">
-      <section class="panel"><header class="panel-header"><div><h3>Evolução do período</h3><p>Realizado por etapa, com referência de meta.</p></div></header>${chart(data.series)}</section>
-      <section class="panel"><header class="panel-header"><div><h3>Pontos de atenção</h3><p>Leituras prioritárias para tomada de decisão.</p></div></header><div class="panel-body">${alerts(data.alerts)}</div></section>
+      <section class="panel"><header class="panel-header"><div><h3>Evolução registrada</h3><p>Acompanhamento dos números publicados pela LADUNA.</p></div></header>${chart(data.series)}</section>
+      <section class="panel"><header class="panel-header"><div><h3>Atualizações importantes</h3><p>Campanhas, orientações e pontos compartilhados com sua empresa.</p></div></header><div class="panel-body">${alerts(data.alerts)}</div></section>
     </div>`;
 }
 
 function renderSales(data) {
-  setPageHeading('Vendas e receita');
-  return `${pageHead('Desempenho comercial', data.title, data.summary)}${metrics(data.kpis)}
+  setPageHeading('Crescimento');
+  return `${pageHead('Evolução digital', data.title, data.summary)}${metrics(data.kpis)}
     <div class="split-grid">
-      <section class="panel"><header class="panel-header"><div><h3>Resultado por categoria</h3><p>Progresso em relação à meta definida.</p></div></header><div class="table-wrap"><table class="data-table"><thead><tr><th>Categoria</th><th>Realizado</th><th>Meta</th><th>Progresso</th></tr></thead><tbody>${(data.categories || []).map((item) => `<tr><td><strong>${escapeHtml(item.name)}</strong></td><td>${escapeHtml(item.value)}</td><td>${escapeHtml(item.target)}</td><td><div class="progress-track"><div class="progress-fill" style="width:${Math.min(100, Number(item.progress) || 0)}%"></div></div></td></tr>`).join('')}</tbody></table></div></section>
-      <section class="panel"><header class="panel-header"><div><h3>Canais de venda</h3><p>Participação estimada no resultado.</p></div></header><div class="table-wrap"><table class="data-table"><thead><tr><th>Canal</th><th>Receita</th><th>Participação</th></tr></thead><tbody>${(data.channels || []).map((item) => `<tr><td><strong>${escapeHtml(item.name)}</strong></td><td>${escapeHtml(item.value)}</td><td>${escapeHtml(item.share)}</td></tr>`).join('')}</tbody></table></div></section>
+      <section class="panel"><header class="panel-header"><div><h3>Histórico de seguidores</h3><p>Medições registradas ao longo do acompanhamento.</p></div></header><div class="table-wrap"><table class="data-table"><thead><tr><th>Data</th><th>Seguidores</th><th>Referência</th><th>Evolução</th></tr></thead><tbody>${(data.categories || []).map((item) => `<tr><td><strong>${escapeHtml(item.name)}</strong></td><td>${escapeHtml(item.value)}</td><td>${escapeHtml(item.target)}</td><td><div class="progress-track"><div class="progress-fill" style="width:${Math.min(100, Number(item.progress) || 0)}%"></div></div></td></tr>`).join('') || '<tr><td colspan="4">Nenhuma medição publicada ainda.</td></tr>'}</tbody></table></div></section>
+      <section class="panel"><header class="panel-header"><div><h3>Leitura da LADUNA</h3><p>Novos indicadores aparecerão aqui conforme forem registrados.</p></div></header><div class="panel-body">${(data.channels || []).length ? `<div class="table-wrap"><table class="data-table"><tbody>${data.channels.map((item) => `<tr><td><strong>${escapeHtml(item.name)}</strong></td><td>${escapeHtml(item.value)}</td><td>${escapeHtml(item.share)}</td></tr>`).join('')}</tbody></table></div>` : '<div class="empty-state"><strong>Acompanhamento em atualização</strong><span>A equipe LADUNA publicará novas leituras neste espaço.</span></div>'}</div></section>
     </div>
-    <section class="panel" style="margin-top:24px"><header class="panel-header"><div><h3>Desempenho da equipe</h3><p>Consolidado comercial informado para o período.</p></div></header><div class="table-wrap"><table class="data-table"><thead><tr><th>Equipe</th><th>Vendas</th><th>Receita</th><th>Ticket</th></tr></thead><tbody>${(data.team || []).map((item) => `<tr><td><strong>${escapeHtml(item.name)}</strong></td><td>${escapeHtml(item.sales)}</td><td>${escapeHtml(item.revenue)}</td><td>${escapeHtml(item.ticket)}</td></tr>`).join('')}</tbody></table></div></section>`;
+    `;
 }
 
 function renderMarketing(data) {
-  setPageHeading('Leads e marketing');
-  return `${pageHead('Aquisição e campanhas', data.title, data.summary)}${metrics(data.kpis)}
-    <section class="panel"><header class="panel-header"><div><h3>Funil de aquisição</h3><p>Da audiência alcançada até o resultado comercial.</p></div></header><div class="panel-body"><div class="funnel">${(data.funnel || []).map((item) => `<div class="funnel-row"><span class="funnel-label">${escapeHtml(item.label)}</span><div class="funnel-bar"><span style="width:${Math.min(100, Number(item.percent) || 0)}%"></span></div><strong class="funnel-value">${escapeHtml(item.value)}</strong></div>`).join('')}</div></div></section>
-    <section class="panel" style="margin-top:24px"><header class="panel-header"><div><h3>Campanhas</h3><p>Investimento, geração de demanda e retorno atribuído.</p></div></header><div class="table-wrap"><table class="data-table"><thead><tr><th>Campanha</th><th>Status</th><th>Investimento</th><th>Leads</th><th>Receita</th><th>Retorno</th></tr></thead><tbody>${(data.campaigns || []).map((item) => `<tr><td><strong>${escapeHtml(item.name)}</strong></td><td><span class="status ${item.status === 'Ativa' ? '' : 'warning'}">${escapeHtml(item.status)}</span></td><td>${escapeHtml(item.investment)}</td><td>${escapeHtml(item.leads)}</td><td>${escapeHtml(item.result)}</td><td><strong>${escapeHtml(item.return)}</strong></td></tr>`).join('')}</tbody></table></div></section>`;
+  setPageHeading('Campanhas e ideias');
+  return `${pageHead('Planejamento criativo', data.title, data.summary)}${metrics(data.kpis)}
+    <div class="report-list">${(data.campaigns || []).map((item) => `<article class="report-item" style="min-height:190px"><span class="report-icon">${icon('megaphone')}</span><strong>${escapeHtml(item.name)}</strong><span class="status warning">${escapeHtml(item.status || 'Em planejamento')}</span><p style="white-space:pre-wrap;line-height:1.6;color:var(--muted);margin:10px 0 0">${escapeHtml(item.result || '')}</p></article>`).join('') || '<section class="panel"><div class="empty-state"><strong>Nenhuma campanha publicada ainda</strong><span>Os planejamentos liberados pela LADUNA aparecerão aqui.</span></div></section>'}</div>`;
 }
 
 function renderGoals(data) {
-  setPageHeading('Metas');
-  return `${pageHead('Prioridades e progresso', data.title, data.summary)}
-    <section class="goal-summary"><div><p>Resultado alcançado</p><strong>${escapeHtml(data.achieved)}</strong><div class="progress-track"><div class="progress-fill" style="width:${Math.min(100, Number(data.progress) || 0)}%"></div></div></div><div><p>Meta definida</p><strong class="goal-percentage">${escapeHtml(data.target)}</strong></div></section>
-    <div class="goal-list">${(data.items || []).map((item) => `<article class="goal-item"><span>${escapeHtml(item.label)}</span><strong>${escapeHtml(item.value)}</strong><div class="progress-track"><div class="progress-fill" style="width:${Math.min(100, Number(item.progress) || 0)}%"></div></div></article>`).join('')}</div>`;
+  setPageHeading('Notas da LADUNA');
+  return `${pageHead('Orientações e recados', data.title, data.summary)}
+    <div class="goal-list">${(data.items || []).map((item) => `<article class="goal-item" style="min-height:90px"><span style="font-size:15px;line-height:1.55">${escapeHtml(item.label)}</span></article>`).join('') || '<section class="panel"><div class="empty-state"><strong>Nenhuma nota publicada</strong><span>Recados e orientações da LADUNA aparecerão aqui.</span></div></section>'}</div>`;
 }
 
 function renderCalendar(data) {
