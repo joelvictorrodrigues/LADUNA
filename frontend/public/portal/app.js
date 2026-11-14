@@ -146,7 +146,6 @@ function loginScreen(errorMessage = '') {
         <p class="login-meta">Problemas com o acesso? Solicite uma nova senha diretamente à LADUNA.</p>
       </section>
       <aside class="login-art" aria-hidden="true">
-        <div class="login-art-lines"></div>
         <div class="login-art-copy">
           <strong>Direção clara.<br>Decisões melhores.</strong>
           <p>Um espaço central para acompanhar resultados, prioridades e entregas da sua empresa.</p>
