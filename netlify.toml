@@ -2,6 +2,36 @@
   publish = "public"
   functions = "../netlify/functions"
 
+[[redirects]]
+  from = "https://sistema.ladunastudio.com.br/*"
+  to = "https://ladunadiretoria.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://clientes.ladunastudio.com.br/.netlify/functions/*"
+  to = "https://laduna.netlify.app/.netlify/functions/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://clientes.ladunastudio.com.br/assets/*"
+  to = "https://laduna.netlify.app/assets/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://clientes.ladunastudio.com.br/portal/*"
+  to = "https://laduna.netlify.app/portal/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://clientes.ladunastudio.com.br/*"
+  to = "https://laduna.netlify.app/portal/:splat"
+  status = 200
+  force = true
+
 [[headers]]
   for = "/portal/*"
   [headers.values]
