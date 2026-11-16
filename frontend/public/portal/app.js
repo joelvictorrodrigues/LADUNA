@@ -121,11 +121,11 @@ function loginScreen(errorMessage = '') {
         </a>
         <p class="login-kicker">Portal do cliente</p>
         <h1>Acesso reservado</h1>
-        <p class="login-intro">Entre com o e-mail e a senha fornecidos pela equipe LADUNA.</p>
+        <p class="login-intro">Entre com seu e-mail ou usuário e a senha fornecidos pela equipe LADUNA.</p>
         <form class="login-form" id="loginForm">
           <div class="field">
-            <label for="loginEmail">E-mail</label>
-            <input id="loginEmail" name="email" type="email" autocomplete="username" required>
+            <label for="loginEmail">E-mail ou usuário</label>
+            <input id="loginEmail" name="email" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" required>
           </div>
           <div class="field">
             <label for="loginPassword">Senha</label>
@@ -795,3 +795,4 @@ async function boot() {
 }
 
 boot();
+

@@ -5,6 +5,7 @@ import {
   DEMO_REQUESTS,
   emptyDashboard
 } from './data.js';
+import {portalLogin} from './login.js';
 
 const SESSION_KEY = 'laduna_portal_firebase_session';
 const clone = (value) => JSON.parse(JSON.stringify(value));
@@ -68,6 +69,7 @@ export class PortalApi {
       this.saveSession(session);
       return session;
     }
+    email=portalLogin(email).email;
     const response=await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${encodeURIComponent(this.config.apiKey)}`,{
       method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password,returnSecureToken:true})
     });
@@ -211,3 +213,4 @@ export class PortalApi {
     return item;
   }
 }
+
