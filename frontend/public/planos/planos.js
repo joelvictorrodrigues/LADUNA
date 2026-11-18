@@ -1,5 +1,5 @@
 (() => {
-  const PHONE = '5566996361345';
+  const PHONE = '556696361345';
   const DIAG = 250;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -34,8 +34,8 @@
     ]}
   };
 
-  const DEFAULT_PLAN = { empresa: 'premium', pessoal: 'gold' };
-  const state = { line: 'empresa', plan: 'premium', months: 1, off: 0, touched: false };
+  const DEFAULT_PLAN = { empresa: 'gold', pessoal: 'gold' };
+  const state = { line: 'empresa', plan: 'gold', months: 1, off: 0, touched: false };
   const $ = s => document.querySelector(s);
   const brl = n => 'R$ ' + Math.round(n).toLocaleString('pt-BR');
   const waLink = text => `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
@@ -107,7 +107,7 @@
     cards.classList.toggle('enter', !!animate);
     cards.querySelectorAll('[data-n]').forEach(el => count(el, Number(el.dataset.n)));
     const on = cards.querySelector('.is-on');
-    if (on && innerWidth <= 860) cards.scrollLeft = on.offsetLeft - (cards.clientWidth - on.clientWidth) / 2;
+    if (on && innerWidth <= 860) requestAnimationFrame(() => { cards.scrollLeft = on.offsetLeft - (cards.clientWidth - on.clientWidth) / 2; });
   };
 
   const renderSummary = () => {
@@ -128,17 +128,18 @@
       const monthly = p.price * (1 - state.off / 100);
       const total = monthly * state.months;
       if (state.months === 1) {
-        lines = [['Mensalidade', `${brl(p.price)}/mês`], ['Diagnóstico de entrada', `${brl(DIAG)} no 1º pagamento`], ['Primeiro pagamento', `<strong>${brl(p.price + DIAG)}</strong>`]];
-        msg = `Olá! Quero contratar o plano ${name}, pagamento mensal de ${brl(p.price)}, mais o diagnóstico de entrada de ${brl(DIAG)} no primeiro pagamento.`;
+        lines = [['Mensalidade', `${brl(p.price)}/mês`], ['Forma de pagamento', 'Pix ou boleto, todo mês'], ['Diagnóstico de entrada', `${brl(DIAG)} no 1º pagamento`], ['Primeiro pagamento', `<strong>${brl(p.price + DIAG)}</strong>`]];
+        msg = `Olá! Quero contratar o plano ${name}, pagamento mensal de ${brl(p.price)} no Pix ou boleto, mais o diagnóstico de entrada de ${brl(DIAG)} no primeiro pagamento.`;
       } else {
         lines = [
           ['Sai por', `${brl(monthly)}/mês <s>${brl(p.price)}</s>`],
           [`Valor dos ${state.months} meses`, brl(total)],
           ['Você economiza', brl(p.price * state.months - total)],
           ['Diagnóstico de entrada', brl(DIAG)],
-          ['Total no cartão, de uma vez', `<strong>${brl(total + DIAG)}</strong>`]
+          ['Forma de pagamento', 'Só cartão de crédito, de uma vez'],
+          ['Total no cartão', `<strong>${brl(total + DIAG)}</strong>`]
         ];
-        msg = `Olá! Quero contratar o plano ${name}, pagamento ${modeName(state.months).toLowerCase()} de uma vez no cartão: ${brl(total)} pelos ${state.months} meses (sai por ${brl(monthly)}/mês), mais o diagnóstico de entrada de ${brl(DIAG)}. Total: ${brl(total + DIAG)}.`;
+        msg = `Olá! Quero contratar o plano ${name}, pagamento ${modeName(state.months).toLowerCase()} de uma vez no cartão de crédito: ${brl(total)} pelos ${state.months} meses (sai por ${brl(monthly)}/mês), mais o diagnóstico de entrada de ${brl(DIAG)}. Total: ${brl(total + DIAG)}.`;
       }
       go.textContent = 'Contratar pelo WhatsApp';
       note.innerHTML = 'Você confirma tudo com a gente antes de pagar. Depois, preenche o <a href="https://tally.so/r/GxKJbk" target="_blank" rel="noopener">formulário do diagnóstico</a>.';
@@ -153,7 +154,7 @@
       if (p.from) { per.textContent = ''; how.textContent = ''; return; }
       const v = p.price * (1 - off / 100);
       per.textContent = `${brl(v)}/mês`;
-      how.textContent = m === 1 ? 'pago todo mês' : `${brl(v * m)} de uma vez no cartão`;
+      how.textContent = m === 1 ? 'todo mês, no Pix ou boleto' : `${brl(v * m)} de uma vez, só no cartão de crédito`;
     });
     go.href = waLink(msg); go.target = '_blank'; go.rel = 'noopener';
     $('#cartName').textContent = `${name} · ${modeName(state.months)}`;

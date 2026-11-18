@@ -190,6 +190,7 @@ em{font-style:normal}
 .mode-price{display:block;margin-top:6px;font:700 17px/1.2 var(--font-title);font-style:normal;color:var(--purple-dark)}
 .mode-how{display:block;font-size:12px;line-height:1.35;color:var(--muted)}
 .modes-note{max-width:920px;margin:-8px auto 20px;text-align:center;font-size:14px;color:var(--muted)}
+.modes-note b{color:var(--purple-dark);font-weight:600}
 .mode[aria-checked="true"]{border-color:var(--purple);background:var(--lilac)}
 .mode[aria-checked="true"] b{color:var(--purple-dark)}
 @media(hover:hover){.mode:hover{transform:translateY(-3px);border-color:var(--purple)}}
@@ -286,7 +287,7 @@ em{font-style:normal}
 }
 @media(max-width:960px){
   .hero-in{grid-template-columns:1fr;gap:40px}
-  .hero-art{justify-self:center;max-width:460px;margin-right:6%}
+  .hero-art{justify-self:center;max-width:460px;margin-right:6%;order:-1}
   .summary{grid-template-columns:1fr;gap:18px}
 }
 @media(max-width:860px){
@@ -305,7 +306,7 @@ em{font-style:normal}
   .paths{grid-template-columns:1fr}
   .path{grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:14px;row-gap:10px;padding:16px}
   .path-go{grid-column:2}
-  .hero-art{max-width:320px;margin:12px 4% 0 auto}
+  .hero-art{max-width:300px;margin:4px 6% 8px auto}
   .hero-knight{width:24%;left:-2%}
   .chip{font-size:11px;padding:8px 10px 8px 8px}
   .chip i{width:28px;height:28px}

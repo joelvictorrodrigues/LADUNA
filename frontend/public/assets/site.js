@@ -18,7 +18,7 @@ document.addEventListener('click', event => {
 });
 compactNavigation.addEventListener('change', () => setMenu(false));
 
-const whatsappUrl = message => 'https://wa.me/5566996361345?text=' + encodeURIComponent(message);
+const whatsappUrl = message => 'https://wa.me/556696361345?text=' + encodeURIComponent(message);
 document.querySelectorAll('[data-message]').forEach(link => {
   link.href = whatsappUrl('Olá, vim pelo site da LADUNA. ' + link.dataset.message);
 });

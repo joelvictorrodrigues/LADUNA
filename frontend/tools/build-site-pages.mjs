@@ -3,7 +3,7 @@
 import { writeFileSync } from 'node:fs';
 const out = process.argv[2];
 const HOME = '/';
-const wa = text => `https://wa.me/5566996361345?text=${encodeURIComponent(text)}`;
+const wa = text => `https://wa.me/556696361345?text=${encodeURIComponent(text)}`;
 const wm = '<span class="wm" role="img" aria-label="LADUNA"></span>';
 
 const head = ({ title, description, path, jsonld }) => `<!doctype html>
@@ -74,7 +74,7 @@ const foot = whatsappText => `
       </div>
       <div>
         <strong>Converse com a gente</strong>
-        <a href="https://wa.me/5566996361345" target="_blank" rel="noopener" data-track="click_whatsapp" data-place="rodape">(66) 9 9636-1345</a>
+        <a href="https://wa.me/556696361345" target="_blank" rel="noopener" data-track="click_whatsapp" data-place="rodape">(66) 9 9636-1345</a>
         <a href="https://www.instagram.com/ladunastudio/" target="_blank" rel="noopener">@ladunastudio</a>
         <a href="mailto:ladunastudio@gmail.com">ladunastudio@gmail.com</a>
         <a href="/links/">Todos os canais</a>

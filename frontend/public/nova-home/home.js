@@ -255,7 +255,7 @@ if(form) {
     lines.push(`Quero melhorar: ${data.get('objetivo')}`);
     const message = String(data.get('mensagem') || '').trim();
     if(message) lines.push(message);
-    window.open(`https://wa.me/5566996361345?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener');
+    window.open(`https://wa.me/556696361345?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener');
     form.querySelector('[type=submit]').textContent = 'Recebido. Continue no WhatsApp';
   });
 }
