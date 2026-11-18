@@ -193,6 +193,20 @@ a:focus-visible{outline:3px solid var(--laduna-purple);outline-offset:6px}
 .talk-back i:nth-child(3){left:calc(53 * var(--u))}
 .talk-front{left:calc(16 * var(--u));top:calc(-24 * var(--u));width:calc(140 * var(--u));height:calc(112 * var(--u));overflow:hidden;border-radius:calc(26 * var(--u)) calc(26 * var(--u)) calc(26 * var(--u)) calc(6 * var(--u));background:var(--laduna-off-white);color:var(--laduna-purple);font:600 calc(170 * var(--u))/1 var(--font-editorial);text-align:center;padding-top:calc(6 * var(--u))}
 
+/* Every scene moves a little. Reduced motion switches all of it off below. */
+.laptop{animation:float 5s ease-in-out infinite}
+.scene-object{animation:float 6s ease-in-out infinite}
+.art-facebook .scene-mark{animation:breathe 3.6s ease-in-out infinite}
+.pin{animation:float 4.5s ease-in-out infinite}
+.pin-pattern,.pin-palette{animation-delay:-1.5s}
+.pin-mark,.pin-emblem{animation-delay:-3s}
+.talk-front{animation:nudge 3.2s ease-in-out infinite}
+.talk-back i{animation:typing 1.4s ease-in-out infinite}
+.talk-back i:nth-child(2){animation-delay:.2s}
+.talk-back i:nth-child(3){animation-delay:.4s}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 calc(-4 * var(--u))}}
+@keyframes breathe{0%,100%{scale:1}50%{scale:1.035}}
+
 /* States */
 .banner:active,.banner.is-pressed{transform:scale(.985)}
 .banner.waiting{opacity:0;transform:translateY(20px)}
