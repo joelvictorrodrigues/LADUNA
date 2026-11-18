@@ -28,7 +28,7 @@ const head = ({ title, description, path, jsonld }) => `<!doctype html>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Quicksand:wght@500;600&display=swap" rel="stylesheet">
   <script>document.documentElement.classList.add('js');window.LADUNA_TRACKING={ga4:'',metaPixel:''};</script>
-  <link rel="stylesheet" href="/nova-home/home.css?v=20">
+  <link rel="stylesheet" href="/nova-home/home.css?v=21">
   <script type="module" src="/nova-home/home.js?v=20"></script>
 </head>
 <body>
@@ -42,6 +42,7 @@ const head = ({ title, description, path, jsonld }) => `<!doctype html>
         <a href="${HOME}#metodo">Como funciona</a>
         <a href="${HOME}#sobre">Sobre</a>
         <a href="${HOME}#faq">Perguntas</a>
+        <a class="nav-plan" href="/planos/" data-track="click_cta" data-place="menu-planos">Escolher meu plano</a>
         <a class="nav-client" href="https://clientes.ladunastudio.com.br" data-track="click_portal">Área do cliente</a>
       </nav>
       <a class="btn btn-solid top-client" href="https://clientes.ladunastudio.com.br" data-track="click_portal" data-place="menu">Área do cliente</a>

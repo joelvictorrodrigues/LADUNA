@@ -26,7 +26,7 @@
     // Tracking IDs: fill in to switch measurement on. Empty means nothing loads and no consent bar appears.
     window.LADUNA_TRACKING = { ga4: '', metaPixel: '' };
   </script>
-  <link rel="stylesheet" href="/nova-home/home.css?v=20">
+  <link rel="stylesheet" href="/nova-home/home.css?v=21">
   <script type="module" src="/nova-home/home.js?v=20"></script>
 </head>
 <body>
@@ -51,6 +51,7 @@
         <a href="#metodo">Como funciona</a>
         <a href="#sobre">Sobre</a>
         <a href="#faq">Perguntas</a>
+        <a class="nav-plan" href="/planos/" data-track="click_cta" data-place="menu-planos">Escolher meu plano</a>
         <a class="nav-client" href="https://clientes.ladunastudio.com.br" data-track="click_portal">Área do cliente</a>
       </nav>
       <a class="btn btn-solid top-client" href="https://clientes.ladunastudio.com.br" data-track="click_portal" data-place="menu">Área do cliente</a>
@@ -142,6 +143,7 @@
             <a class="service-link" href="/servicos/crescimento/">Ver a frente de Crescimento</a>
           </article>
         </div>
+        <div class="services-plan" data-reveal><a class="btn btn-outline" href="/planos/" data-track="click_cta" data-place="servicos-planos">Escolher meu plano</a></div>
       </div>
     </section>
 
@@ -153,6 +155,10 @@
           <h2 id="diag-titulo">Tudo começa pelo diagnóstico.</h2>
           <p>Antes de qualquer proposta, a gente entende o seu momento. Você sai com clareza do que priorizar, mesmo que decida não seguir com a <span class="wm" role="img" aria-label="LADUNA"></span>.</p>
           <a class="btn btn-solid" href="#contato" data-track="click_cta" data-place="diagnostico">Solicitar diagnóstico</a>
+          <div class="diag-alt">
+            <p>Já conhece os serviços e quer só escolher o seu plano?</p>
+            <a class="btn btn-outline" href="/planos/" data-track="click_cta" data-place="diagnostico-planos">Escolher meu plano</a>
+          </div>
         </div>
         <ol class="diag-list">
           <li data-reveal><b>Você conta</b><span>O que oferece, para quem e o que não está funcionando hoje.</span></li>

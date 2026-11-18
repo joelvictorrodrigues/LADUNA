@@ -407,7 +407,7 @@ em{font-style:normal}
 }
 
 /* Medium screens: the longer menu button needs room, so the links move into the menu icon. */
-@media(min-width:860px) and (max-width:1099px){
+@media(min-width:860px) and (max-width:1279px){
   .menu-toggle{display:grid}
   .top-nav{position:absolute;inset:72px 0 auto 0;display:grid;gap:0;margin:0;padding:8px 40px 20px;background:var(--white);border-bottom:1px solid var(--line);font-size:16px;opacity:0;visibility:hidden;translate:0 -10px}
   .top-nav.open{opacity:1;visibility:visible;translate:0 0}
@@ -622,7 +622,33 @@ em{font-style:normal}
   .top-client{display:inline-flex}
   .top-nav .nav-client{display:none}
 }
-@media(min-width:860px) and (max-width:1099px){
+@media(min-width:860px) and (max-width:1279px){
   .top-client{margin-left:auto}
   .top-cta{margin-left:0}
 }
+
+/* Atalho para quem já quer o plano */
+.diag-alt{margin-top:30px;padding-top:22px;border-top:1px solid rgb(107 74 125/.2);max-width:30em}
+.diag-alt p{font-size:15px;color:var(--muted)}
+.diag-grid .diag-alt .btn{margin-top:12px}
+.diag-alt .btn-outline:hover{background:var(--purple);color:var(--white)}
+
+/* "Escolher meu plano" no menu: contorno roxo, ao lado dos outros botões */
+.top-nav .nav-plan{color:var(--purple-dark)}
+@media(max-width:1279px){
+  .top-nav .nav-plan{margin-top:12px;padding:14px 20px;border:1.5px solid var(--purple);border-radius:999px;text-align:center}
+  .top-nav .nav-plan+.nav-client{margin-top:10px}
+}
+@media(min-width:1280px){
+  .top-nav .nav-plan{padding:9px 16px;border:1.5px solid var(--purple);border-radius:999px;transition:background .3s,color .3s}
+  .top-nav .nav-plan:hover{background:var(--purple);color:var(--white)}
+}
+.top-row .brand{flex-shrink:0}
+.top-row>.btn{flex-shrink:0}
+@media(min-width:1280px) and (max-width:1439px){.top-row{gap:14px}.top-nav{gap:20px}}
+.services-plan{display:flex;justify-content:center;margin-top:36px}
+.services-plan .btn-outline:hover{background:var(--purple);color:var(--white)}
+/* Menos espaço entre "Escolher meu plano" e "Como começa" */
+#servicos{padding-bottom:44px}
+.section.diag{padding-top:52px}
+@media(min-width:860px){#servicos{padding-bottom:60px}.section.diag{padding-top:72px}}
