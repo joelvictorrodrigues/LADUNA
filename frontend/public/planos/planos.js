@@ -141,13 +141,13 @@
           [`Valor dos ${state.months} meses`, brl(total)],
           ['Você economiza', brl(p.price * state.months - total)],
           ['Diagnóstico de entrada', brl(DIAG)],
-          ['Pagamento', 'Cartão de crédito, 1x'],
+          ['Pagamento', 'Cartão, à vista ou até 12x'],
           ['Total no cartão', `<strong>${brl(total + DIAG)}</strong>`]
         ];
-        msg = `Olá! Quero contratar o plano ${name}, pagamento ${modeName(state.months).toLowerCase()} de uma vez no cartão de crédito: ${brl(total)} pelos ${state.months} meses (sai por ${brl(monthly)}/mês), mais o diagnóstico de entrada de ${brl(DIAG)}. Total: ${brl(total + DIAG)}.`;
+        msg = `Olá! Quero contratar o plano ${name}, pagamento ${modeName(state.months).toLowerCase()} no cartão de crédito: ${brl(total)} pelos ${state.months} meses (sai por ${brl(monthly)}/mês), mais o diagnóstico de entrada de ${brl(DIAG)}. Total: ${brl(total + DIAG)}, à vista ou parcelado em até 12x com as taxas do cartão.`;
       }
       go.textContent = 'Contratar pelo WhatsApp';
-      note.innerHTML = 'Você confirma tudo com a gente antes de pagar. Depois, preenche o <a href="https://tally.so/r/GxKJbk" target="_blank" rel="noopener">formulário do diagnóstico</a>.';
+      note.innerHTML = (state.months > 1 ? 'Parcelando, as taxas da maquininha do cartão são acrescentadas ao valor. ' : '') + 'Você confirma tudo com a gente antes de pagar. Depois, preenche o <a href="https://tally.so/r/GxKJbk" target="_blank" rel="noopener">formulário do diagnóstico</a>.';
       cartPrice = state.months === 1 ? `${brl(p.price)}/mês` : `${brl(total + DIAG)} no cartão`;
     }
     $('#sumLines').innerHTML = lines.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('');
@@ -159,7 +159,7 @@
       if (p.from) { per.textContent = ''; how.textContent = ''; return; }
       const v = p.price * (1 - off / 100);
       per.textContent = `${brl(v)}/mês`;
-      how.textContent = m === 1 ? 'todo mês, no Pix ou boleto' : `${brl(v * m)} de uma vez, só no cartão de crédito`;
+      how.textContent = m === 1 ? 'todo mês, no Pix ou boleto' : `${brl(v * m)} no cartão, à vista ou em até 12x`;
     });
     go.href = waLink(msg); go.target = '_blank'; go.rel = 'noopener';
     $('#cartName').textContent = `${name} · ${modeName(state.months)}`;
