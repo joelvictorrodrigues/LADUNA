@@ -81,6 +81,11 @@
   }), { threshold: .12, rootMargin: '0px 0px -30px 0px' }) : null;
   const watch = el => io ? io.observe(el) : el.classList.add('in');
   document.querySelectorAll('.reveal').forEach(watch);
+  const chat = $('.chat');
+  if (chat) {
+    if (reduce || !('IntersectionObserver' in window)) chat.classList.add('play');
+    else new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { chat.classList.add('play'); o.disconnect(); } }), { threshold: .4 }).observe(chat);
+  }
 
   const cards = $('#cards');
   const current = () => PLANS[state.line].list.find(p => p.id === state.plan);
@@ -128,7 +133,7 @@
       const monthly = p.price * (1 - state.off / 100);
       const total = monthly * state.months;
       if (state.months === 1) {
-        lines = [['Mensalidade', `${brl(p.price)}/mês`], ['Forma de pagamento', 'Pix ou boleto, todo mês'], ['Diagnóstico de entrada', `${brl(DIAG)} no 1º pagamento`], ['Primeiro pagamento', `<strong>${brl(p.price + DIAG)}</strong>`]];
+        lines = [['Mensalidade', `${brl(p.price)}/mês`], ['Pagamento', 'Pix ou boleto, todo mês'], ['Diagnóstico de entrada', `${brl(DIAG)} no 1º pagamento`], ['Primeiro pagamento', `<strong>${brl(p.price + DIAG)}</strong>`]];
         msg = `Olá! Quero contratar o plano ${name}, pagamento mensal de ${brl(p.price)} no Pix ou boleto, mais o diagnóstico de entrada de ${brl(DIAG)} no primeiro pagamento.`;
       } else {
         lines = [
@@ -136,7 +141,7 @@
           [`Valor dos ${state.months} meses`, brl(total)],
           ['Você economiza', brl(p.price * state.months - total)],
           ['Diagnóstico de entrada', brl(DIAG)],
-          ['Forma de pagamento', 'Só cartão de crédito, de uma vez'],
+          ['Pagamento', 'Cartão de crédito, 1x'],
           ['Total no cartão', `<strong>${brl(total + DIAG)}</strong>`]
         ];
         msg = `Olá! Quero contratar o plano ${name}, pagamento ${modeName(state.months).toLowerCase()} de uma vez no cartão de crédito: ${brl(total)} pelos ${state.months} meses (sai por ${brl(monthly)}/mês), mais o diagnóstico de entrada de ${brl(DIAG)}. Total: ${brl(total + DIAG)}.`;
