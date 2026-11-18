@@ -5,39 +5,42 @@
 
   const PLANS = {
     empresa: { label: 'Empresarial', sub: 'Planos para empresas com equipe', list: [
-      { id: 'start', name: 'Start', title: 'Presença básica com o seu material', price: 999,
+      { id: 'start', name: 'Start', title: 'Presença básica com o seu material', price: 999, off: { 3: 10, 6: 15, 12: 20 },
         items: ['1 rede (Instagram)', '2 posts por mês', '5 stories por semana, 1 de produtos por dia útil', 'Ajuste de bio e destaques', 'Suporte no WhatsApp em horário comercial'],
         note: 'Fotos e conteúdo enviados por você.' },
-      { id: 'gold', name: 'Gold', title: 'Constância com planejamento', price: 1499, seats: 4,
+      { id: 'gold', name: 'Gold', title: 'Constância com planejamento', price: 1499, seats: 4, off: { 3: 6, 6: 13, 12: 20 },
         items: ['Planejamento estratégico', '2 redes (Instagram e Facebook)', '6 posts por mês: post, reels e carrossel', '10 stories por semana, 2 de produtos', '2 avisos ou artes de datas festivas', 'Social media parcial: criamos, você publica', '1 visita por mês para gravar, até 1h', 'Relatório a cada 3 meses'] },
-      { id: 'premium', name: 'Premium', title: 'Sua empresa presente todo dia, sem você precisar postar', price: 2599, featured: true, seats: 2,
+      { id: 'premium', name: 'Premium', title: 'Sua empresa presente todo dia, sem você precisar postar', price: 2599, featured: true, seats: 2, off: { 3: 8, 6: 13, 12: 19 },
         items: ['Social media completo: criamos e publicamos', '3 redes (Instagram, Facebook e TikTok)', '8 posts por mês e 25 stories por semana', '1 campanha por mês', '4 avisos ou artes de datas festivas', 'Perfil refeito e consultoria de imagem', 'Visita a cada 15 dias para gravar, até 1h', 'Reunião e relatório a cada 2 meses', 'WhatsApp prioritário e cronograma'] },
-      { id: 'black', name: 'Black', title: 'Domínio local, com vídeo e anúncios', price: 3699, seats: 1, plus: 'Tudo do Premium, mais:',
+      { id: 'black', name: 'Black', title: 'Domínio local, com vídeo e anúncios', price: 3699, seats: 1, off: { 3: 5, 6: 12, 12: 18 }, plus: 'Tudo do Premium, mais:',
         items: ['12 posts por mês e 35 stories por semana', '2 campanhas por mês', 'Conteúdo de sábado e domingo, entregue na sexta', '1 vídeo cinematográfico por mês', 'Gestão de anúncios no Meta (verba à parte)', 'Google Meu Negócio', 'Visita semanal para gravar, até 1h', 'Reunião mensal e relatório completo', '30% de desconto em identidade visual'] },
       { id: 'enterprise', name: 'Enterprise', title: 'Seu departamento de marketing, sem contratar uma equipe', price: 7500, from: true, dark: true, seats: 2, plus: 'Tudo do Black, mais:',
         items: ['Anúncios no Meta e no Google', '2 vídeos cinematográficos por mês', 'Imagens com drone', 'Google Meu Negócio para cada unidade', 'Treinamento da equipe de vendas a cada 3 meses', 'Reunião mensal com a direção e relatório mensal'],
-        note: 'Fechado por proposta, depois do diagnóstico.' }
+        note: 'Valor sob consulta, depois do diagnóstico.' }
     ]},
     pessoal: { label: 'Profissional', sub: 'Planos para quem é a cara do negócio', list: [
-      { id: 'start', name: 'Start', title: 'Seu perfil arrumado e ativo', price: 900,
+      { id: 'start', name: 'Start', title: 'Seu perfil arrumado e ativo', price: 900, off: { 3: 6, 6: 11, 12: 19 },
         items: ['1 rede (Instagram)', '4 posts por mês', 'Ajuste de bio e destaques', 'Suporte no WhatsApp em horário comercial'],
         note: 'Contrato mínimo de 2 meses.' },
-      { id: 'gold', name: 'Gold', title: 'Constância com planejamento', price: 1199,
+      { id: 'gold', name: 'Gold', title: 'Constância com planejamento', price: 1199, off: { 3: 6, 6: 12, 12: 21 },
         items: ['Planejamento estratégico', '2 redes (Instagram e Facebook)', '6 posts por mês: post, reels e carrossel', '2 stories por semana', 'Ajuste de bio e destaques', '1 visita por mês para gravar, até 1h', 'Relatório a cada 3 meses'] },
-      { id: 'premium', name: 'Premium', title: 'Autoridade construída post a post', price: 1999, featured: true,
+      { id: 'premium', name: 'Premium', title: 'Autoridade construída post a post', price: 1999, featured: true, off: { 3: 7, 6: 12, 12: 20 },
         items: ['Social media parcial: criamos, você publica', '2 redes (Instagram e Facebook)', '8 posts por mês e 2 stories por semana', '1 campanha e 1 Reels com roteiro por mês', '2 avisos ou artes de datas festivas', 'Perfil refeito e consultoria de imagem', 'Visita a cada 15 dias para gravar, até 1h', 'Relatório a cada 2 meses e reunião a cada 3'] },
-      { id: 'black', name: 'Black', title: 'Você em evidência, com vídeo e anúncios', price: 2799,
+      { id: 'black', name: 'Black', title: 'Você em evidência, com vídeo e anúncios', price: 2799, off: { 3: 6, 6: 11, 12: 20 },
         items: ['Social media completo: criamos e publicamos', '3 redes (Instagram, Facebook e TikTok)', '12 posts por mês e 5 stories por semana', 'Campanhas e tendências do momento', '1 vídeo cinematográfico por mês', 'Gestão de anúncios no Meta (verba à parte)', 'Visita semanal para gravar, até 1h', 'Relatório mensal e reunião a cada 2 meses', 'WhatsApp prioritário e cronograma'] },
       { id: 'enterprise', name: 'Enterprise', title: 'Seu nome como referência no seu mercado', price: 4900, from: true, dark: true, seats: 1, plus: 'Tudo do Black, mais:',
         items: ['Reposicionamento da sua marca pessoal', '2 vídeos cinematográficos por mês', 'Sessão de fotos a cada 3 meses', 'Anúncios no Meta e no Google', 'Landing page para captar clientes', 'Reunião a cada 15 dias'],
-        note: 'Fechado por proposta, depois do diagnóstico.' }
+        note: 'Valor sob consulta, depois do diagnóstico.' }
     ]}
   };
 
+  const DEFAULT_PLAN = { empresa: 'premium', pessoal: 'gold' };
   const state = { line: 'empresa', plan: 'premium', months: 1, off: 0, touched: false };
   const $ = s => document.querySelector(s);
   const brl = n => 'R$ ' + Math.round(n).toLocaleString('pt-BR');
   const waLink = text => `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
+  const DEF_OFF = { 1: 0, 3: 6, 6: 12, 12: 18 };
+  const offFor = (p, m) => m === 1 ? 0 : ((p.off && p.off[m]) ?? DEF_OFF[m]);
   const modeName = m => ({ 1: 'Mensal', 3: 'Trimestral', 6: 'Semestral', 12: 'Anual' })[m];
 
   document.querySelectorAll('[data-wa]').forEach(a => { a.href = waLink(a.dataset.wa); a.target = '_blank'; a.rel = 'noopener'; });
@@ -111,13 +114,14 @@
     const L = PLANS[state.line], p = current();
     const name = `${p.name} ${L.label}`;
     $('#sumName').textContent = name;
-    $('#sumMode').textContent = modeName(state.months) + (state.off ? ` · ${state.off}% de desconto` : '');
+    state.off = offFor(p, state.months);
+    $('#sumMode').textContent = modeName(state.months) + (state.off && !p.from ? ` · ${state.off}% de desconto` : '');
     const go = $('#sumGo'), note = $('#sumNote');
     let lines, msg, cartPrice;
     if (p.from) {
-      lines = [['Investimento', `a partir de ${brl(p.price)}/mês`], ['Como funciona', 'Proposta sob medida depois do diagnóstico'], ['Diagnóstico de entrada', brl(DIAG)]];
-      msg = `Olá! Quero conversar sobre o plano ${name}, no pagamento ${modeName(state.months).toLowerCase()}.`;
-      go.textContent = 'Pedir proposta pelo WhatsApp';
+      lines = [['Investimento', `a partir de ${brl(p.price)}/mês`], ['Valor final', 'Sob consulta, depois do diagnóstico'], ['Diagnóstico de entrada', brl(DIAG)]];
+      msg = `Olá! Quero consultar o plano ${name}, no pagamento ${modeName(state.months).toLowerCase()}.`;
+      go.textContent = 'Consultar pelo WhatsApp';
       note.textContent = 'Vagas limitadas. Respondemos em horário comercial.';
       cartPrice = `a partir de ${brl(p.price)}/mês`;
     } else {
@@ -142,10 +146,11 @@
     }
     $('#sumLines').innerHTML = lines.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('');
     document.querySelectorAll('.mode').forEach(b => {
-      const m = Number(b.dataset.months), off = Number(b.dataset.off);
+      const m = Number(b.dataset.months), off = offFor(p, m);
+      b.querySelector('span').textContent = p.from ? 'Valor sob consulta' : m === 1 ? 'Sem desconto' : `${off}% de desconto`;
       const per = b.querySelector('.mode-price') || b.appendChild(Object.assign(document.createElement('em'), { className: 'mode-price' }));
       const how = b.querySelector('.mode-how') || b.appendChild(Object.assign(document.createElement('small'), { className: 'mode-how' }));
-      if (p.from) { per.textContent = 'sob proposta'; how.textContent = ''; return; }
+      if (p.from) { per.textContent = ''; how.textContent = ''; return; }
       const v = p.price * (1 - off / 100);
       per.textContent = `${brl(v)}/mês`;
       how.textContent = m === 1 ? 'pago todo mês' : `${brl(v * m)} de uma vez no cartão`;
@@ -169,6 +174,7 @@
   document.querySelectorAll('.who-card').forEach(b => b.addEventListener('click', () => {
     if (state.line === b.dataset.line) { $('#planos').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); return; }
     state.line = b.dataset.line;
+    state.plan = DEFAULT_PLAN[state.line];
     document.querySelectorAll('.who-card').forEach(x => x.setAttribute('aria-checked', String(x === b)));
     renderCards(true); renderSummary();
     setTimeout(() => $('#planos').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }), 250);
@@ -183,7 +189,7 @@
   });
 
   document.querySelectorAll('.mode').forEach(b => b.addEventListener('click', () => {
-    state.months = Number(b.dataset.months); state.off = Number(b.dataset.off); state.touched = true;
+    state.months = Number(b.dataset.months); state.touched = true;
     document.querySelectorAll('.mode').forEach(x => x.setAttribute('aria-checked', String(x === b)));
     renderSummary(); updateCart();
   }));
@@ -211,7 +217,7 @@
     if (r.top < innerHeight && r.bottom > 0) cart.classList.remove('show');
   }, { passive: true });
 
-  if (location.hash === '#pessoal') state.line = 'pessoal';
+  if (location.hash === '#pessoal') { state.line = 'pessoal'; state.plan = DEFAULT_PLAN.pessoal; }
   document.querySelectorAll('.who-card').forEach(x => x.setAttribute('aria-checked', String(x.dataset.line === state.line)));
   renderCards(false); renderSummary();
 })();
