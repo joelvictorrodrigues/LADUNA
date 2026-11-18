@@ -28,7 +28,7 @@ const head = ({ title, description, path, jsonld }) => `<!doctype html>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Quicksand:wght@500;600&display=swap" rel="stylesheet">
   <script>document.documentElement.classList.add('js');window.LADUNA_TRACKING={ga4:'',metaPixel:''};</script>
-  <link rel="stylesheet" href="/nova-home/home.css?v=21">
+  <link rel="stylesheet" href="/nova-home/home.css?v=22">
   <script type="module" src="/nova-home/home.js?v=20"></script>
 </head>
 <body>
@@ -260,7 +260,10 @@ for(const s of services) {
         <div class="page-cta" data-reveal>
           <div class="client-rings" aria-hidden="true"><i></i><i></i><b></b></div>
           <div><h2>Vamos ver se ${s.name} é o seu próximo passo?</h2><p style="margin-top:12px">O diagnóstico mostra por onde começar, mesmo que a resposta seja outra frente.</p></div>
-          <a class="btn btn-light" href="${HOME}#contato" data-track="click_cta" data-place="servico-${s.slug}-fim">Solicitar diagnóstico</a>
+          <div class="page-cta-actions">
+            <a class="btn btn-light" href="${HOME}#contato" data-track="click_cta" data-place="servico-${s.slug}-fim">Solicitar diagnóstico</a>
+            <a class="btn btn-light" href="/planos/" data-track="click_cta" data-place="servico-${s.slug}-planos">Escolher meu plano</a>
+          </div>
         </div>
         <div class="other">${others}</div>
       </div>

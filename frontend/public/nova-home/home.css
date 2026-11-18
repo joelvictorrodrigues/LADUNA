@@ -652,3 +652,10 @@ em{font-style:normal}
 #servicos{padding-bottom:44px}
 .section.diag{padding-top:52px}
 @media(min-width:860px){#servicos{padding-bottom:60px}.section.diag{padding-top:72px}}
+/* Card final das frentes: diagnóstico e plano lado a lado */
+.page-cta-actions{display:flex;flex-wrap:wrap;gap:12px}
+.page-cta-actions .btn{white-space:nowrap}
+@media(max-width:859px){
+  .page-cta-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
+  .page-cta-actions .btn{min-height:54px;padding:10px 12px;font-size:13px;line-height:1.25;white-space:normal;text-align:center;justify-content:center}
+}
