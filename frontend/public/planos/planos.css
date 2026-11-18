@@ -45,7 +45,7 @@ em{font-style:normal}
 .top{position:sticky;top:0;z-index:40;background:rgb(255 255 255 / .92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
 .top.scrolled{border-bottom-color:var(--line)}
 .top-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
-.brand img{width:138px;height:auto}
+.brand img{width:132px;height:auto}
 
 /* Hero */
 .hero{position:relative;overflow:hidden;color:var(--off-white);background:radial-gradient(120% 90% at 85% 20%,#7d5a90 0%,var(--purple) 32%,var(--purple-dark) 68%,var(--deep) 100%);padding:60px 0 72px}
@@ -275,6 +275,7 @@ em{font-style:normal}
 @keyframes msg{to{opacity:1;translate:0 0}}
 .foot{padding:22px 0 96px;font-size:12px;line-height:1.6;color:var(--muted);text-align:center}
 .foot span{display:block;text-wrap:balance}
+.foot-logo{width:110px;height:auto;margin:14px auto 0;opacity:.85}
 p,dd,small,.sum-note,.mode-how,.note,.modes-note{text-wrap:pretty}
 .sum-note,.modes-note,.sec-sub,.lead{text-wrap:balance}
 

@@ -127,7 +127,7 @@
       lines = [['Investimento', `a partir de ${brl(p.price)}/mês`], ['Valor final', 'Sob consulta, depois do diagnóstico'], ['Diagnóstico de entrada', brl(DIAG)]];
       msg = `Olá! Quero consultar o plano ${name}, no pagamento ${modeName(state.months).toLowerCase()}.`;
       go.textContent = 'Consultar pelo WhatsApp';
-      note.textContent = 'Vagas limitadas. Respondemos em horário comercial.';
+      note.textContent = 'Vagas limitadas. Respondemos logo logo.';
       cartPrice = `a partir de ${brl(p.price)}/mês`;
     } else {
       const monthly = p.price * (1 - state.off / 100);
