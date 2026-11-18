@@ -5,11 +5,12 @@
   --ease:cubic-bezier(.2,.8,.2,1);--scroll:0;--mx:0;--my:0;--py:0px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;overflow-x:clip;scroll-padding-top:76px}
+html{scroll-behavior:smooth;overflow-x:clip;scroll-padding-top:76px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{margin:0;overflow-x:clip;background:var(--white);color:var(--black);font:500 16px/1.6 var(--font-body);-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
-button{font:inherit;color:inherit}
+button{font:inherit;color:inherit;-webkit-appearance:none;appearance:none}
+a,button,label,summary{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 h1,h2,h3,p,ul,ol,dl,dd{margin:0}
 ul,ol{padding:0;list-style:none}
 h1,h2,h3{font-family:var(--font-title);line-height:1.12;letter-spacing:-.02em;text-wrap:balance}
