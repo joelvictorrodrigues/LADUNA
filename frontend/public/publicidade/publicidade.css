@@ -1,0 +1,160 @@
+/* Página /publicidade: usa /planos/planos.css como base; aqui só o que é próprio dela. */
+.lead-text{max-width:540px;font-size:18px;color:rgb(247 247 247 / .88);text-wrap:pretty}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn-ghost{border-color:rgb(247 247 247 / .55);color:var(--off-white)}
+@media(hover:hover){.btn-ghost:hover{background:rgb(247 247 247 / .12)}}
+
+.tv-art{position:relative;justify-self:end;width:100%;max-width:520px;padding:24px 0 34px}
+.tv{position:relative;animation:in-up 1.1s var(--ease) both}
+.tv-screen{position:relative;aspect-ratio:16/9;overflow:hidden;border:10px solid #17121b;border-radius:18px;background:#17121b;box-shadow:0 40px 60px -30px rgb(0 0 0 / .7),0 0 0 1px rgb(247 247 247 / .12)}
+.tv-foot{height:26px;display:grid;justify-items:center}
+.tv-foot i{width:34%;height:8px;margin-top:14px;border-radius:0 0 10px 10px;background:#17121b}
+.tv-foot::before{content:'';width:8%;height:14px;background:#17121b;grid-area:1/1}
+.slide{position:absolute;inset:0;display:grid;align-content:center;justify-items:center;gap:6px;padding:8%;text-align:center;color:#fff;opacity:0;animation:slide 12s infinite}
+.slide small{font:600 clamp(10px,1.4vw,13px)/1.2 var(--font-title);letter-spacing:.16em;text-transform:uppercase;opacity:.85}
+.slide b{font:700 clamp(26px,4.6vw,46px)/1.05 var(--font-title);letter-spacing:-.02em}
+.slide span{font-size:clamp(13px,1.8vw,17px);opacity:.9}
+.s1{background:linear-gradient(135deg,#6B4A7D,#4B3458)}
+.s2{background:linear-gradient(135deg,#2D2D2D,#4B3458);animation-delay:4s}
+.s3{background:linear-gradient(135deg,#8a64a0,#6B4A7D);animation-delay:8s}
+@keyframes slide{0%{opacity:0;scale:1.04}5%,34%{opacity:1;scale:1}39%,100%{opacity:0;scale:1}}
+.tv-art .chip-a{top:0;right:-2%}
+.tv-art .chip-b{top:auto;bottom:0;left:4%}
+
+.how{padding:64px 0 24px}
+.steps{display:grid;gap:12px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.steps li{display:flex;gap:14px;align-items:flex-start;padding:20px;border:1.5px solid var(--line);border-radius:20px;background:var(--white)}
+.steps span{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--lilac);color:var(--purple);font:700 15px var(--font-title)}
+.steps h3{font-size:17px;margin-bottom:4px}
+.steps p{font-size:15px;line-height:1.5;color:var(--muted)}
+
+.why{padding:40px 0 24px}
+.why-grid{display:grid;gap:14px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.why-card{display:grid;gap:8px;align-content:start;padding:24px;border-radius:22px;background:var(--lilac)}
+.why-card h3{font-size:18px;color:var(--purple-dark)}
+.why-card p{font-size:15px;color:var(--muted)}
+.todo{padding:8px 12px;border:1.5px dashed #c98a2b;border-radius:10px;background:#fff7e8;color:#8a5a10!important;font:600 13px/1.4 var(--font-title)}
+
+.cards.cards-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.cards-4 .card{grid-column:auto}
+.cards-4 .seats{text-transform:none}
+.price-word{font-size:26px!important;letter-spacing:-.01em!important}
+.payways{display:grid;gap:0 28px;grid-template-columns:repeat(3,minmax(0,1fr));max-width:1000px;margin:28px auto 0;padding:6px 24px;border:1.5px solid var(--line);border-radius:20px;background:var(--white)}
+.payways div{padding:16px 0}
+.payways h3{font-size:15px;margin-bottom:4px;color:var(--purple-dark)}
+.payways p{font-size:14px;color:var(--muted)}
+
+.sim{display:grid;gap:10px;max-width:920px;margin:0 auto 22px}
+.sim-label{margin-top:10px;font:600 15px/1.3 var(--font-title);color:var(--purple-dark)}
+.modes.modes-3{grid-template-columns:repeat(3,minmax(0,1fr));margin:0;max-width:none}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip-btn{min-width:52px;min-height:46px;padding:8px 14px;border:2px solid var(--line);border-radius:14px;background:var(--white);font:600 15px var(--font-title);cursor:pointer;transition:border-color .25s,background .25s,transform .3s var(--ease)}
+.chip-btn small{display:block;font:500 11px var(--font-body);color:var(--muted)}
+.chip-btn[aria-checked="true"]{border-color:var(--purple);background:var(--lilac);color:var(--purple-dark)}
+@media(hover:hover){.chip-btn:hover{border-color:var(--purple);transform:translateY(-2px)}}
+.date{justify-self:start;min-height:50px;padding:10px 16px;border:2px solid var(--line);border-radius:14px;background:var(--white);color:var(--black);font:600 16px var(--font-title)}
+.date:focus{border-color:var(--purple);outline:none}
+
+.ans{padding:0 20px 18px;font-size:15px;color:var(--muted)}
+.ans.todo{margin:0 20px 18px;padding:8px 12px}
+.final-simple .shell{display:grid;justify-items:center;text-align:center;gap:16px;max-width:640px}
+.final-simple img{width:76px;height:76px;border-radius:50%;background:var(--off-white);padding:5px;animation:pulse 3.2s ease-in-out infinite}
+.final-simple p{color:rgb(247 247 247 / .85)}
+.final-simple .contact{justify-content:center}
+
+@media(max-width:1180px){
+  .cards.cards-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cards-4 .card:nth-child(4){grid-column:auto}
+}
+@media(max-width:960px){
+  .tv-art{justify-self:center;order:-1;max-width:460px;padding-bottom:30px}
+}
+@media(max-width:860px){
+  .steps,.why-grid,.payways{grid-template-columns:1fr}
+  .payways div+div{border-top:1px solid var(--line)}
+  .modes.modes-3{grid-template-columns:1fr}
+  .cards.cards-4{display:flex}
+}
+@media(max-width:600px){
+  .tv-art{max-width:330px;padding-top:18px}
+  .tv-screen{border-width:7px;border-radius:14px}
+  .date{justify-self:stretch}
+}
+
+/* v2: fotos reais das telas no topo e números em destaque */
+.hero-art.ads{aspect-ratio:1/.82;max-width:540px}
+.ads .hp-main{inset:0 6% 20% 0}
+.ads .hp-main img{object-position:30% 50%}
+.ads .hp-side{width:44%;aspect-ratio:4/3;right:0;bottom:0}
+.ads .chip-a{top:4%;right:-3%}
+.ads .chip-b{top:auto;bottom:6%;left:-4%}
+.why-num{font:700 48px/1 var(--font-title)!important;letter-spacing:-.03em;color:var(--purple)!important}
+.why-card h3{margin-top:-4px}
+.where{max-width:720px;margin:22px auto 0;text-align:center;font-size:14px;color:var(--muted);text-wrap:balance}
+@media(max-width:600px){.hero-art.ads{max-width:340px}.ads .chip-b{left:-2%}}
+
+/* v3: foto das 4 telas em cima, close embaixo */
+.hero-art.ads{aspect-ratio:1/.9}
+.ads .hp-main{inset:0 0 auto 0;aspect-ratio:1600/630}
+.ads .hp-main img{object-position:50% 50%}
+.ads .hp-side{width:58%;aspect-ratio:3/2;right:0;bottom:0}
+.ads .chip-a{top:-4%;right:-2%}
+.ads .chip-b{top:auto;bottom:10%;left:-3%}
+@media(max-width:600px){.ads .chip-b{left:0;bottom:6%}}
+
+/* v4: foto grande no topo e faixa larga das 4 telas */
+.hero-in.hero-wide{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:40px}
+.ad-shot{position:relative;animation:in-up 1s var(--ease) both}
+.ad-shot img{width:100%;height:auto;border-radius:26px;box-shadow:0 40px 70px -30px rgb(0 0 0 / .7)}
+.ad-shot .chip-a{top:-14px;right:-10px}
+.ad-shot .chip-b{top:auto;bottom:-16px;left:-10px}
+.wide-shot{margin:56px auto 0;padding:0}
+.wide-shot img{width:100%;height:auto;border-radius:26px}
+.wide-shot figcaption{margin-top:12px;text-align:center;font-size:15px;color:var(--muted)}
+.how{padding-top:48px}
+@media(max-width:960px){.hero-in.hero-wide{grid-template-columns:1fr}.ad-shot{order:-1}}
+@media(max-width:600px){.ad-shot img{border-radius:18px}.ad-shot .chip-a{right:4px}.ad-shot .chip-b{left:4px}.wide-shot{margin-top:36px}.wide-shot img{border-radius:16px}}
+
+/* v5: fotos mostrando a academia */
+.ad-shot img{aspect-ratio:1/1.02;object-fit:cover;object-position:30% 20%}
+@media(max-width:960px){.ad-shot img{aspect-ratio:4/3.4}}
+
+/* v6: foto das 4 telas dentro de 'Quem vai ver' */
+.why .wide-shot{margin:28px 0 0}
+.how{padding-top:64px}
+
+/* v7: foto do topo no formato natural, etiqueta perto da pilastra, passos centralizados */
+.ad-shot img{aspect-ratio:auto;object-fit:initial}
+@media(max-width:960px){.ad-shot img{aspect-ratio:auto}}
+.ad-shot .chip-a{top:47%;right:6%}
+.ad-shot .chip-b{bottom:-16px;left:-10px}
+.steps li{flex-direction:column;align-items:center;text-align:center;gap:12px;padding:28px 22px}
+.steps span{width:44px;height:44px;font-size:17px}
+.steps p{max-width:34ch;margin-inline:auto;text-wrap:balance}
+@media(max-width:600px){.ad-shot .chip-a{right:4%;top:44%}.ad-shot .chip-b{left:6px;bottom:-14px}.hero .hero-in{gap:34px}}
+
+.final-simple p{text-wrap:balance}
+
+/* v9: quebras de texto. Cada frase em sua linha nos passos; nada de palavra sozinha no fim. */
+.steps p span{display:block;text-wrap:balance}
+.steps p span+span{margin-top:2px}
+.lead-text span{display:block;text-wrap:pretty}
+.lead-text span+span{margin-top:8px}
+.why-card p,.payways p,.ans,.card li,.card h3,.note,.sum-note,.wide-shot figcaption,.where,.sec-sub{text-wrap:pretty}
+.sec-head h2,.card h3,.final-simple h2,.hero h1{text-wrap:balance}
+/* v10: as frases dos passos não herdam o estilo da bolinha do número */
+.steps p span{all:unset;display:block;text-wrap:balance}
+.steps p span+span{margin-top:2px}
+.lead-text span{text-wrap:balance}
+
+/* v11: 5 planos, faixa e caixa de cliente LADUNA */
+.client-strip{max-width:720px;margin:22px auto 0;padding:14px 20px;border-radius:16px;background:var(--white);border:1.5px dashed var(--purple);text-align:center;font-size:15px;color:var(--muted);text-wrap:balance}
+.client-strip b{color:var(--purple-dark);font-family:var(--font-title)}
+.client-check{display:flex;align-items:center;gap:12px;margin-top:6px;padding:12px 16px;border:2px solid var(--line);border-radius:14px;background:var(--white);cursor:pointer;font:600 15px var(--font-title)}
+.client-check small{font:500 13px var(--font-body);color:var(--muted)}
+.client-check input{position:absolute;opacity:0;width:1px;height:1px}
+.client-check input:checked+.box{border-color:var(--purple);background:var(--purple) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.8 8.3l2.7 2.7L12.2 5.2' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/80% no-repeat}
+.client-check input:focus-visible+.box{outline:3px solid var(--purple);outline-offset:3px}
+.client-check.off{opacity:.45;pointer-events:none}
+.sim .modes{margin:0;max-width:none}
+.card .seats{white-space:nowrap}
