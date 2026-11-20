@@ -189,3 +189,19 @@
 @media(min-width:861px){#meses,#meses:has(> :nth-child(7)){grid-template-columns:repeat(6,minmax(0,1fr))}}
 .card.card-black h3{padding-right:52px}
 .card.card-black .card-top{padding-right:58px}
+
+/* Botão BLACK no topo: leva direto ao card da Promo Black */
+.black-cta{position:relative;display:flex;align-items:center;gap:14px;width:fit-content;max-width:100%;margin-bottom:22px;padding:10px 12px 10px 10px;border:2px solid #e11d2a;border-radius:18px;background:linear-gradient(135deg,#000 0%,#1a0406 60%,#4a0b10 100%);color:#fff;text-decoration:none;overflow:hidden;box-shadow:0 0 0 4px rgb(225 29 42 / .22),0 18px 40px -14px rgb(225 29 42 / .9);animation:black-cta-pulse 2.2s ease-in-out infinite,in-up .9s var(--ease) both}
+.black-cta::after{content:'';position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgb(255 255 255 / .28) 50%,transparent 65%);translate:-120% 0;animation:shine 3s ease-in-out infinite;pointer-events:none}
+.bc-tag{flex:none;display:grid;place-items:center;width:58px;height:58px;border-radius:14px;background:#e11d2a;font:700 19px/1 var(--font-title);letter-spacing:-.02em}
+.bc-txt{display:grid;gap:3px}
+.bc-txt b{font:700 22px/1 var(--font-title);letter-spacing:.06em;text-transform:uppercase}
+.bc-txt small{font:500 13px/1.2 var(--font-body);color:rgb(255 255 255 / .75)}
+.bc-go{display:inline-flex;align-items:center;gap:6px;margin-left:6px;padding:10px 14px;border-radius:12px;background:#fff;color:#000;font:700 14px/1 var(--font-title);white-space:nowrap}
+.bc-go svg{width:15px;height:15px;animation:bc-bob 1.4s ease-in-out infinite}
+@media(hover:hover){.black-cta:hover .bc-go{background:#ff3b47;color:#fff}}
+@media(max-width:520px){.black-cta{width:100%;gap:12px}.bc-tag{width:52px;height:52px;font-size:17px}.bc-txt b{font-size:19px}.bc-go{margin-left:auto;padding:10px 11px}.bc-go{font-size:0;gap:0}.bc-go svg{width:18px;height:18px}}
+#black{scroll-margin-top:90px}
+@keyframes black-cta-pulse{0%,100%{box-shadow:0 0 0 4px rgb(225 29 42 / .22),0 18px 40px -14px rgb(225 29 42 / .8)}50%{box-shadow:0 0 0 8px rgb(225 29 42 / .32),0 18px 50px -10px rgb(225 29 42 / 1)}}
+@keyframes bc-bob{0%,100%{translate:0 0}50%{translate:0 3px}}
+@media(prefers-reduced-motion:reduce){.black-cta,.black-cta::after,.bc-go svg{animation:none}}
