@@ -158,3 +158,34 @@
 .client-check.off{opacity:.45;pointer-events:none}
 .sim .modes{margin:0;max-width:none}
 .card .seats{white-space:nowrap}
+
+/* Promo Black: card preto e vermelho, o mais chamativo da página */
+.card.card-black{z-index:2;background:radial-gradient(130% 70% at 50% 0%,#4a0b10 0%,#120405 48%,#000 100%);border:2px solid #e11d2a;color:#fff;box-shadow:0 0 0 4px rgb(225 29 42 / .2),0 30px 60px -22px rgb(225 29 42 / .6);animation:black-glow 2.8s ease-in-out infinite}
+.card.card-black .tier{font-size:16px;letter-spacing:.22em;color:#ff3b47;text-shadow:0 0 18px rgb(255 59 71 / .55)}
+.card.card-black h3{color:#fff;font-weight:700}
+.card.card-black .price{border-color:rgb(255 255 255 / .14)}
+.card.card-black .price b{font-size:46px;color:#fff}
+.card.card-black .price small{color:rgb(255 255 255 / .72)}
+.card.card-black .plus{font-size:15px;color:#fff}
+.card.card-black .plus s{color:rgb(255 255 255 / .5);text-decoration-color:#ff3b47;text-decoration-thickness:2px}
+.card.card-black li{color:rgb(255 255 255 / .9)}
+.card.card-black li::before{background-color:#e11d2a;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.3l2.2 2.2 4.8-4.9' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.card.card-black .note{color:rgb(255 255 255 / .62)}
+.card.card-black .pick{min-height:54px;background:#e11d2a;border-color:#e11d2a;color:#fff;font-size:16px;box-shadow:0 14px 28px -12px rgb(225 29 42 / .9)}
+@media(hover:hover){.card.card-black .pick:hover{background:#ff2e3b;border-color:#ff2e3b}}
+.card.card-black .ribbon{background:linear-gradient(120deg,#8f0d16,#e11d2a 55%,#ff4d57);box-shadow:0 10px 20px -8px rgb(225 29 42 / .9);font-size:13px;padding:8px 16px 8px 12px}
+.card.card-black .ribbon svg{fill:#fff}
+.stamp{position:absolute;top:14px;right:14px;display:grid;place-items:center;align-content:center;width:64px;height:64px;border-radius:50%;background:#e11d2a;color:#fff;font:700 11px/1 var(--font-title);text-transform:uppercase;letter-spacing:.08em;rotate:12deg;box-shadow:0 0 0 3px #000,0 0 0 5px #e11d2a,0 10px 22px -6px rgb(225 29 42 / .9);animation:stamp-beat 2.8s ease-in-out infinite}
+.stamp b{font-size:19px;letter-spacing:-.02em}
+@media(min-width:861px){.card.card-black.is-on{transform:translateY(-10px) scale(1.04)}}
+@keyframes black-glow{0%,100%{box-shadow:0 0 0 4px rgb(225 29 42 / .2),0 30px 60px -22px rgb(225 29 42 / .55)}50%{box-shadow:0 0 0 6px rgb(225 29 42 / .34),0 30px 70px -18px rgb(225 29 42 / .85)}}
+@keyframes stamp-beat{0%,100%{scale:1}50%{scale:1.08}}
+@media(prefers-reduced-motion:reduce){.card.card-black,.stamp{animation:none}}
+
+/* Meses: grade cheia, alinhada com os botões de plano */
+#meses{display:grid;gap:10px;grid-template-columns:repeat(3,minmax(0,1fr))}
+#meses:has(> :nth-child(7)){grid-template-columns:repeat(4,minmax(0,1fr))}
+#meses .chip-btn{min-width:0;padding:10px 6px;text-align:center}
+@media(min-width:861px){#meses,#meses:has(> :nth-child(7)){grid-template-columns:repeat(6,minmax(0,1fr))}}
+.card.card-black h3{padding-right:52px}
+.card.card-black .card-top{padding-right:58px}
