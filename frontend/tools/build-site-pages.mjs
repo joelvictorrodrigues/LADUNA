@@ -72,6 +72,7 @@ const foot = whatsappText => `
         <a href="/servicos/marca/">Marca</a>
         <a href="/servicos/conteudo/">Conteúdo</a>
         <a href="/servicos/crescimento/">Crescimento</a>
+        <a href="/tvs/">Divulgação TVs PowerFit</a>
       </div>
       <div>
         <strong>Converse com a gente</strong>
