@@ -21,7 +21,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Quicksand:wght@500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="/tvs/media/topo.jpg">
 <link rel="stylesheet" href="/planos/planos.css?v=10">
-<link rel="stylesheet" href="/tvs/tvs.css?v=7">
+<link rel="stylesheet" href="/tvs/tvs.css?v=18">
 </head>
 <body>
 <a class="skip" href="#planos">Pular para os planos</a>
@@ -35,10 +35,10 @@
 </header>
 
 <main id="conteudo">
-  <section class="hero">
+  <section class="hero hero-live">
     <div class="shell hero-in hero-wide">
       <div class="hero-copy">
-        <a class="black-cta" href="#black"><span class="bc-tag">-52%</span><span class="bc-txt"><b>Promo Black</b><small>Termina em <span data-countdown="short">poucos dias</span></small></span><span class="bc-go" aria-hidden="true">Ver oferta <svg viewBox="0 0 16 16"><path d="M8 3v10M3.5 8.5L8 13l4.5-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a class="black-cta" href="#black"><span class="bc-tag"><b>52%</b><small>off</small></span><span class="bc-txt"><b>Promo Black</b><small>Termina em <span data-countdown="short">poucos dias</span></small></span><span class="bc-go" aria-hidden="true">Ver oferta <svg viewBox="0 0 16 16"><path d="M8 3v10M3.5 8.5L8 13l4.5-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
         <h1>Sua marca <em>onde o público está.</em></h1>
         <p class="lead-text">Aqui não tem botão de pular anúncio.</p>
         <div class="actions">
@@ -61,7 +61,6 @@
         <h2 id="planos-t">Escolha como anunciar</h2>
         <p class="sec-sub">Contrate por um período fechado ou deixe como assinatura. Sem cobrança escondida.</p>
       </div>
-      <p class="swipe" aria-hidden="true">Deslize para ver os 4 planos</p>
       <div class="cards cards-4" id="cards">
         <article class="card card-featured card-black is-on" id="black">
           <span class="stamp" aria-hidden="true"><b>-52%</b>off</span>
@@ -118,12 +117,8 @@
           <a class="btn btn-light pick" data-wa="Olá! Quero anunciar nas telas e preciso de um plano personalizado." href="https://wa.me/556696361345">Falar com a LADUNA</a>
         </article>
       </div>
+      <div class="dots" id="cardDots"><button type="button" class="dot-arrow" data-dir="-1" aria-label="Plano anterior"><svg viewBox="0 0 16 16"><path d="M10 3.5L5.5 8l4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="dot-row" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span><button type="button" class="dot-arrow" data-dir="1" aria-label="Próximo plano"><svg viewBox="0 0 16 16"><path d="M6 3.5L10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
 
-      <div class="payways reveal">
-        <div><h3>Mês a mês</h3><p>Você paga todo mês, com vencimento num dia fixo.</p></div>
-        <div><h3>Pacote adiantado</h3><p>Você paga vários meses juntos, quantos quiser. O anúncio vale da data do pagamento até o fim do período. Exemplo: pagou em 20/11 por 6 meses, fica no ar até 19/05.</p></div>
-        <div><h3>Assinatura</h3><p>Prefere não se preocupar? Deixe como assinatura: renova sozinha até você pedir para parar. No período fechado, a gente avisa antes de acabar.</p></div>
-      </div>
     </div>
   </section>
 
@@ -183,17 +178,17 @@
       </div>
       <div class="why-grid">
         <article class="why-card reveal">
-          <p class="why-num">700</p>
+          <p class="why-num" data-count="700">700</p>
           <h3>alunos veem as telas</h3>
           <p>Gente de Peixoto e região, que pode virar seu cliente ou seu paciente.</p>
         </article>
         <article class="why-card reveal">
-          <p class="why-num">16h</p>
+          <p class="why-num" data-count="16" data-suffix="h">16h</p>
           <h3>no ar por dia</h3>
           <p>Das 5h às 21h. Seu vídeo entra no rodízio das telas e é exibido a cada 3 a 5 minutos.</p>
         </article>
         <article class="why-card reveal">
-          <p class="why-num">4</p>
+          <p class="why-num" data-count="4">4</p>
           <h3>telas de 75 polegadas</h3>
           <p>No alto da parede, à vista de todo mundo. Cada TV tem a sua programação, e o seu vídeo pode aparecer em todas, em momentos diferentes.</p>
         </article>
@@ -229,6 +224,9 @@
       <details><summary>Não tenho fotos nem vídeos do meu negócio. E agora?</summary><p class="ans">A LADUNA também grava e fotografa para você. É um serviço à parte, feito sob orçamento.</p></details>
       <details><summary>Posso trocar o vídeo durante o período?</summary><p class="ans">Pode. No Essencial, você troca até 1 vez por mês, com adicional de R$ 50 por troca. No Completo, a LADUNA pode mudar o seu vídeo todos os meses.</p></details>
       <details><summary>Quanto tempo meu anúncio aparece?</summary><p class="ans">O anúncio é um vídeo de até 1 minuto. Ele entra no rodízio das TVs e é exibido a cada 3 a 5 minutos, das 5h às 21h. Cada TV tem a sua programação, então ele pode aparecer em todas elas, em momentos diferentes.</p></details>
+      <details><summary>Posso pagar mês a mês?</summary><p class="ans">Pode. Você paga todo mês, com vencimento num dia fixo.</p></details>
+      <details><summary>Posso pagar vários meses adiantado?</summary><p class="ans">Pode, quantos meses quiser. O anúncio vale da data do pagamento até o fim do período. Exemplo: pagou em 20/11 por 6 meses, fica no ar até 19/05.</p></details>
+      <details><summary>Tem assinatura?</summary><p class="ans">Tem. Se preferir não se preocupar, deixe como assinatura: renova sozinha até você pedir para parar. No período fechado, a gente avisa antes de acabar.</p></details>
       <details><summary>Quem é cliente mensal LADUNA paga menos?</summary><p class="ans">Sim. Todos os clientes LADUNA têm um desconto especial na mensalidade das TVs.</p></details>
       <details><summary>Até quando vale a Promo Black?</summary><p class="ans">Até 10 de dezembro. Quem contratar até lá mantém o valor pelo período que escolher.</p></details>
     </div>
@@ -247,6 +245,6 @@
 
 <footer class="foot"><div class="shell"><span>Promo Black válida até 10/12/2026. Valores sujeitos a mudança com aviso prévio.</span><span>LADUNA Studio · CNPJ 64.110.259/0001-78</span><img class="foot-logo" src="/planos/media/laduna-logo-240.png" width="240" height="64" alt="LADUNA Studio" loading="lazy"></div></footer>
 <noscript><p style="padding:16px;text-align:center">Ative o JavaScript para usar o simulador, ou fale com a gente pelo WhatsApp: (66) 99636-1345.</p></noscript>
-<script src="/tvs/tvs.js?v=3" defer></script>
+<script src="/tvs/tvs.js?v=6" defer></script>
 </body>
 </html>

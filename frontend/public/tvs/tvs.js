@@ -49,6 +49,23 @@
   };
   if (tick()) { const t = setInterval(() => { if (!tick()) clearInterval(t); }, 1000); }
 
+  // Valor total "correndo" até o número novo
+  let lastTotal = 567, tweenId = 0;
+  const tweenTotal = to => {
+    const el = $('#sumTotal'), from = lastTotal; lastTotal = to;
+    if (!el) return;
+    if (reduce || from === to) { el.textContent = brl(to); return; }
+    const id = ++tweenId, t0 = performance.now(), dur = 650;
+    const step = now => {
+      if (id !== tweenId) return;
+      const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      const v = from + (to - from) * e;
+      el.textContent = k < 1 ? brl(Math.round(v)) : brl(to);
+      if (k < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
   const mesesBox = $('#meses'), outro = $('#outroMeses'), outroBox = $('#outroBox'), outroHint = $('#outroHint');
 
   const renderMonths = () => {
@@ -77,9 +94,10 @@
       ['Valor por mês', brl(p.perMonth)],
       ['Período', period],
       ['Vídeo', video],
-      ['Valor total', `<strong>${brl(total)}</strong>`]
+      ['Valor total', `<strong id="sumTotal">${brl(lastTotal)}</strong>`]
     ];
     $('#sumLines').innerHTML = lines.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('');
+    tweenTotal(total);
     $('#sumNote').textContent = state.plan === 'promo'
       ? (state.months >= 6 ? 'Promo Black com vídeo criado pela LADUNA. Só até 10 de dezembro.' : 'A partir de 6 meses, a LADUNA cria o seu vídeo. Só até 10 de dezembro.')
       : 'Abre o WhatsApp da LADUNA com a sua escolha já escrita.';
@@ -117,6 +135,63 @@
   });
   outro.addEventListener('change', () => { if (state.custom) outro.value = state.months; });
   renderMonths(); render();
+
+  // Motion: números contando, cards em sequência, foto acompanhando mouse e scroll
+  if (!reduce && 'IntersectionObserver' in window) {
+    const countIO = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      countIO.unobserve(e.target);
+      const el = e.target, to = Number(el.dataset.count), suf = el.dataset.suffix || '', t0 = performance.now(), dur = 1400;
+      const step = now => {
+        const k = Math.min(1, (now - t0) / dur), v = Math.round(to * (1 - Math.pow(1 - k, 3)));
+        el.textContent = v + suf;
+        if (k < 1) requestAnimationFrame(step);
+      };
+      el.textContent = '0' + suf;
+      requestAnimationFrame(step);
+    }), { threshold: .6 });
+    document.querySelectorAll('[data-count]').forEach(el => countIO.observe(el));
+
+    const cardsEl = $('#cards');
+    if (cardsEl) {
+      cardsEl.querySelectorAll('.card').forEach((c, i) => c.style.setProperty('--i', i));
+      cardsEl.classList.add('pre');
+      const cardIO = new IntersectionObserver(es => es.forEach(e => {
+        if (e.isIntersecting) { cardsEl.classList.remove('pre'); cardsEl.classList.add('enter'); cardIO.disconnect(); }
+      }), { threshold: .15 });
+      cardIO.observe(cardsEl);
+    }
+
+    const hero = $('.hero-live');
+    if (hero) {
+      if (matchMedia('(hover: hover)').matches) hero.addEventListener('pointermove', e => {
+        const r = hero.getBoundingClientRect();
+        hero.style.setProperty('--mx', ((e.clientX - r.left) / r.width - .5).toFixed(3));
+        hero.style.setProperty('--my', ((e.clientY - r.top) / r.height - .5).toFixed(3));
+      });
+      addEventListener('scroll', () => { if (scrollY < innerHeight) hero.style.setProperty('--py', (scrollY * 0.08).toFixed(1) + 'px'); }, { passive: true });
+    }
+  }
+
+  // Bolinhas abaixo dos cards no celular: mostram qual plano está na tela
+  const cardsBox = $('#cards'), dots = [...document.querySelectorAll('#cardDots .dot-row i')];
+  if (cardsBox && dots.length) {
+    const cardsList = [...cardsBox.querySelectorAll('.card')];
+    const sync = () => {
+      const mid = cardsBox.scrollLeft + cardsBox.clientWidth / 2;
+      let best = 0, dist = Infinity;
+      cardsList.forEach((c, i) => { const d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid); if (d < dist) { dist = d; best = i; } });
+      if (cardsBox.scrollLeft < 8) best = 0;
+      dots.forEach((dot, i) => dot.classList.toggle('on', i === best));
+    };
+    cardsBox.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
+    document.querySelectorAll('#cardDots .dot-arrow').forEach(b => b.addEventListener('click', () => {
+      const cur = dots.findIndex(x => x.classList.contains('on'));
+      const next = Math.max(0, Math.min(cardsList.length - 1, cur + Number(b.dataset.dir)));
+      const c = cardsList[next];
+      cardsBox.scrollTo({ left: c.offsetLeft - (cardsBox.clientWidth - c.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+    }));
+  }
 
   // Vídeo das telas: só baixa e toca quando aparece na tela
   const clip = $('#clipVideo');

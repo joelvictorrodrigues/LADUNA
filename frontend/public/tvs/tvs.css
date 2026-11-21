@@ -272,3 +272,107 @@
 .outro.on{border-color:var(--purple);background:var(--lilac)}
 .outro.on input{border-color:var(--purple)}
 .outro{flex-wrap:wrap}.outro>span{white-space:nowrap}
+
+/* ===== Motion v1 ===== */
+@property --spin{syntax:'<angle>';inherits:false;initial-value:0deg}
+
+/* Topo vivo: brilho que passeia no fundo roxo */
+.hero-live{isolation:isolate}
+.hero-live::after{content:'';position:absolute;z-index:-1;width:62vmax;aspect-ratio:1;left:-18vmax;top:-26vmax;border-radius:50%;background:radial-gradient(circle,rgb(225 29 42 / .32),rgb(225 29 42 / 0) 62%);filter:blur(10px);animation:drift 14s ease-in-out infinite alternate;pointer-events:none}
+.hero-live .hero-in::before{content:'';position:absolute;z-index:-1;width:48vmax;aspect-ratio:1;right:-14vmax;bottom:-30vmax;border-radius:50%;background:radial-gradient(circle,rgb(170 120 210 / .38),rgb(170 120 210 / 0) 64%);animation:drift2 18s ease-in-out infinite alternate;pointer-events:none}
+@keyframes drift{to{transform:translate(26vmax,16vmax) scale(1.15)}}
+@keyframes drift2{to{transform:translate(-20vmax,-12vmax) scale(1.2)}}
+
+/* Título: marca-texto que se desenha */
+.hero h1 .hl{background:linear-gradient(transparent 62%,rgb(225 29 42 / .55) 62%,rgb(225 29 42 / .55) 92%,transparent 92%) no-repeat 0 0/0% 100%;animation:hl-draw 1.1s .9s var(--ease) forwards;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+@keyframes hl-draw{to{background-size:100% 100%}}
+.hero .lead-text{animation:rise .9s .35s var(--ease) both}
+
+/* Foto do topo acompanha mouse e scroll */
+.hero-live .ad-shot img{translate:calc(var(--mx) * -14px) calc(var(--my) * -10px + var(--py));transition:translate .3s ease-out}
+.hero-live .ad-shot .chip-a{translate:calc(var(--mx) * 18px) calc(var(--my) * 14px)}
+.hero-live .ad-shot .chip-b{translate:calc(var(--mx) * 24px) calc(var(--my) * 18px)}
+
+/* Faixa rolando */
+.ticker{position:relative;overflow:hidden;background:#0b0b0b;border-block:2px solid #e11d2a;color:#fff;transform:rotate(-1.2deg);margin:-14px -2vw 0;width:104vw;z-index:3;box-shadow:0 18px 30px -18px rgb(225 29 42 / .7)}
+.ticker-track{display:flex;width:max-content;animation:tick 28s linear infinite}
+.ticker-row{display:flex;align-items:center;gap:22px;padding:14px 11px;white-space:nowrap;font:700 15px/1 var(--font-title);letter-spacing:.08em;text-transform:uppercase}
+.ticker-row b{color:#ff3b47}
+.ticker-row i{width:9px;height:9px;flex:none;background:#e11d2a;rotate:45deg}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media(max-width:600px){.ticker-row{font-size:13px;gap:18px;padding:12px 9px}.ticker{margin-top:-10px}}
+body{overflow-x:clip}
+
+/* Borda da Black girando */
+.card.card-black{border:2px solid transparent;background:radial-gradient(130% 70% at 50% 0%,#4a0b10 0%,#120405 48%,#000 100%) padding-box,conic-gradient(from var(--spin),#e11d2a,#2a0003 25%,#ff5a63 50%,#2a0003 75%,#e11d2a) border-box;animation:black-glow 2.8s ease-in-out infinite,spin-border 4s linear infinite}
+@keyframes spin-border{to{--spin:360deg}}
+
+/* Cards entrando em sequência */
+.cards.pre .card{opacity:0;translate:0 26px}
+.cards.enter .card{animation:rise .7s var(--ease) both;animation-delay:calc(var(--i) * 110ms)}
+.cards.enter .card.card-black{animation:rise .7s var(--ease) both,black-glow 2.8s 1s ease-in-out infinite,spin-border 4s linear infinite}
+
+/* Passos, cartões e perguntas entrando em sequência */
+.steps li.reveal:nth-child(2),.why-grid .reveal:nth-child(2){transition-delay:.12s}
+.steps li.reveal:nth-child(3),.why-grid .reveal:nth-child(3){transition-delay:.24s}
+.steps li.reveal.in span{animation:pop .6s .2s var(--ease) both}
+.why-num{font-variant-numeric:tabular-nums}
+
+/* Botões principais respirando */
+.sum-go .btn-solid{animation:breathe 2.6s ease-in-out infinite}
+@keyframes breathe{0%,100%{box-shadow:0 0 0 0 rgb(107 74 125 / .45)}50%{box-shadow:0 0 0 10px rgb(107 74 125 / 0)}}
+
+@media(prefers-reduced-motion:reduce){
+  .hero-live::after,.hero-live .hero-in::before,.ticker-track,.sum-go .btn-solid,.card.card-black{animation:none}
+  .hero h1 .hl{animation:none;background-size:100% 100%}
+  .cards.pre .card{opacity:1;translate:none}
+}
+.ticker,.ticker{margin-top:0}@media(max-width:600px){.ticker{margin-top:0}}
+.bc-tag{display:grid;place-items:center;align-content:center;gap:2px}
+.bc-tag b{font:700 19px/1 var(--font-title);letter-spacing:-.02em}
+.bc-tag small{font:700 11px/1 var(--font-title);letter-spacing:.16em;text-transform:uppercase}
+@media(max-width:520px){.bc-tag b{font-size:17px}.bc-tag small{font-size:10px}}
+@media(max-width:860px){.swipe{margin:0 0 6px}}
+
+/* Black: sem o halo rosa que era cortado pela área dos cards; só uma sombra vermelha suave */
+.card.card-black,.card.card-black.is-on{box-shadow:0 22px 40px -20px rgb(225 29 42 / .75)}
+@keyframes black-glow{0%,100%{box-shadow:0 22px 40px -20px rgb(225 29 42 / .6)}50%{box-shadow:0 26px 48px -18px rgb(225 29 42 / .95)}}
+@media(max-width:860px){.cards.cards-4{padding-bottom:40px}.swipe{margin:-12px 0 6px}}
+
+/* Indicador de planos no celular (bolinhas) */
+.dots{display:none}
+@media(max-width:860px){
+  .dots{display:flex;justify-content:center;gap:8px;margin:-18px 0 8px}
+  .dots i{width:8px;height:8px;border-radius:999px;background:var(--lilac-2);transition:width .35s var(--ease),background .35s}
+  .dots i.on{width:26px;background:var(--purple)}
+  .dots i:first-child.on{background:#e11d2a}
+  .card.card-black,.card.card-black.is-on{box-shadow:none;animation:spin-border 4s linear infinite}
+  .cards.enter .card.card-black{animation:rise .7s var(--ease) both,spin-border 4s linear infinite}
+}
+
+/* Setas ao lado das bolinhas */
+@media(max-width:860px){
+  .dots{align-items:center;gap:14px}
+  .dot-row{display:flex;gap:8px}
+  .dot-arrow{display:grid;place-items:center;width:40px;height:40px;border:1.5px solid var(--line);border-radius:50%;background:var(--white);color:var(--purple);cursor:pointer;box-shadow:0 8px 16px -10px rgb(75 52 88 / .5)}
+  .dot-arrow svg{width:16px;height:16px}
+  .dot-arrow[data-dir="1"]{animation:nudge 1.6s ease-in-out infinite}
+}
+/* Formas de pagamento agora ficam junto das perguntas */
+.extras .payways{margin-top:28px}
+
+/* Botão Promo Black do simulador: letras maiores */
+.mode-black{padding:22px 16px 20px}
+.mode-black b{font-size:clamp(22px,5.6vw,26px);letter-spacing:.04em;text-transform:uppercase}
+.mode-black span{font-size:16px!important;font-weight:600}
+.mode-black i{font-size:12px!important;padding:5px 12px!important;top:-12px!important}
+
+/* Caixinha "Ou digite" centralizada */
+.outro{justify-content:center;text-align:center}
+.outro small{text-align:center}
+
+/* Todos os cards com a mesma altura da Promo Black */
+.cards.cards-4{align-items:stretch;grid-auto-rows:1fr}
+.cards-4 .card{height:auto}
+.cards-4 .card .pick{margin-top:auto}
+@media(max-width:860px){.cards.cards-4{align-items:stretch}}
