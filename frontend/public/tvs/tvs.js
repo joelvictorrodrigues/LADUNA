@@ -109,8 +109,8 @@
     $('#sumLines').innerHTML = lines.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('');
     tweenTotal(total);
     $('#sumNote').textContent = state.plan === 'promo'
-      ? (state.months >= 6 ? 'Com vídeo criado pela LADUNA. Pagamento seguro pelo Asaas: Pix, boleto ou cartão.' : 'Pagamento seguro pelo Asaas: Pix, boleto ou cartão. A partir de 6 meses, a LADUNA cria o seu vídeo.')
-      : mensal ? 'Pagamento seguro pelo Asaas. Cancele quando quiser.' : 'Pagamento seguro pelo Asaas: Pix, boleto ou cartão.';
+      ? (state.months >= 6 ? 'Com vídeo criado pela LADUNA. Pagamento seguro pelo Asaas: Pix,\u00a0boleto\u00a0ou\u00a0cartão.' : 'Pagamento seguro pelo Asaas: Pix,\u00a0boleto\u00a0ou\u00a0cartão. A partir de 6 meses, a LADUNA cria o seu vídeo.')
+      : mensal ? 'Assinatura no cartão de crédito, cobrada sozinha todo mês. Para cancelar, é só falar com a gente no WhatsApp.' : 'Pagamento seguro pelo Asaas: Pix,\u00a0boleto\u00a0ou\u00a0cartão.';
     const go = $('#sumGo');
     go.href = waLink(`Olá! Tenho uma dúvida sobre anunciar nas telas.\nPlano: ${p.name}\n${mensal ? 'Pagamento: assinatura mensal' : `Período: ${period}`}\nValor: ${brl(total)}${mensal ? ' por mês' : ` (${brl(p.perMonth)} por mês)`}`);
     go.target = '_blank'; go.rel = 'noopener';

@@ -41,7 +41,7 @@ export default async (req) => {
 
   const headers = { access_token: key, 'Content-Type': 'application/json', 'User-Agent': 'LADUNA-Site/1.0' };
   // "v2": links criados depois da chave Pix (os antigos não mostram Pix)
-  const ref = mode === 'mensal' ? `tvs2-${input.plan}-mensal` : `tvs2-${input.plan}-${months}m`;
+  const ref = mode === 'mensal' ? `tvs2-${input.plan}-mensal-cartao` : `tvs2-${input.plan}-${months}m`;
   const period = `${months} ${months === 1 ? 'mês' : 'meses'}`;
 
   // Reaproveita o link se ele já existir (um por plano + período)
@@ -57,8 +57,8 @@ export default async (req) => {
   const body = mode === 'mensal'
     ? {
         name: `Anúncio nas TVs PowerFit · ${plan.name} · assinatura mensal`,
-        description: `Seu vídeo nas 4 telas de 75 polegadas da academia PowerFit. Cobrança todo mês até você pedir para parar. ${videoText(input.plan, months)}`,
-        billingType: 'UNDEFINED', chargeType: 'RECURRENT', subscriptionCycle: 'MONTHLY', value, dueDateLimitDays: 3
+        description: `Seu vídeo nas 4 telas de 75 polegadas da academia PowerFit. Cobrança automática no cartão de crédito todo mês. Para cancelar, é só falar com a LADUNA no WhatsApp (66) 99636-1345. ${videoText(input.plan, months)}`,
+        billingType: 'CREDIT_CARD', chargeType: 'RECURRENT', subscriptionCycle: 'MONTHLY', value, dueDateLimitDays: 3
       }
     : {
         name: `Anúncio nas TVs PowerFit · ${plan.name} · ${period}`,

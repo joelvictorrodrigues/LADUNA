@@ -387,3 +387,6 @@ body{overflow-x:clip}
 #buyBtn:disabled{opacity:.75;cursor:wait}
 [hidden]{display:none!important}
 .sum-go .btn-ghost-light{background:transparent!important;color:#fff!important;border:1.5px solid rgb(255 255 255 / .55)!important;animation:none!important}
+.sum-note{text-wrap:balance}
+.foot-cancel{color:inherit;text-decoration:underline;text-underline-offset:3px;opacity:.85}
+.foot-cancel:hover{opacity:1}
