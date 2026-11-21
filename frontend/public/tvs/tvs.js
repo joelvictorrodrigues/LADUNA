@@ -139,9 +139,11 @@
   const buy = $('#buyBtn');
   buy.hidden = true;
   fetch('/.netlify/functions/tvs-checkout', { cache: 'no-store' }).then(r => r.json()).then(d => { if (d && d.ready) buy.hidden = false; }).catch(() => {});
+  const label = buy.textContent;
+  // Ao voltar do Asaas pelo "voltar" do navegador, a página volta da memória: destrava o botão
+  window.addEventListener('pageshow', () => { buy.disabled = false; buy.textContent = label; });
   buy.addEventListener('click', async () => {
     if (buy.disabled) return;
-    const label = buy.textContent;
     buy.disabled = true; buy.textContent = 'Abrindo o pagamento…';
     try {
       const r = await fetch('/.netlify/functions/tvs-checkout', {
