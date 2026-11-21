@@ -40,7 +40,8 @@ export default async (req) => {
   if (plan.endDate && Date.now() > new Date(`${plan.endDate}T23:59:59-04:00`).getTime()) return json(410, { error: 'A Promo Black já terminou.' });
 
   const headers = { access_token: key, 'Content-Type': 'application/json', 'User-Agent': 'LADUNA-Site/1.0' };
-  const ref = mode === 'mensal' ? `tvs-${input.plan}-mensal` : `tvs-${input.plan}-${months}m`;
+  // "v2": links criados depois da chave Pix (os antigos não mostram Pix)
+  const ref = mode === 'mensal' ? `tvs2-${input.plan}-mensal` : `tvs2-${input.plan}-${months}m`;
   const period = `${months} ${months === 1 ? 'mês' : 'meses'}`;
 
   // Reaproveita o link se ele já existir (um por plano + período)
