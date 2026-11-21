@@ -390,3 +390,4 @@ body{overflow-x:clip}
 .sum-note{text-wrap:balance}
 .foot-cancel{color:inherit;text-decoration:underline;text-underline-offset:3px;opacity:.85}
 .foot-cancel:hover{opacity:1}
+.foot .shell .foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px}
