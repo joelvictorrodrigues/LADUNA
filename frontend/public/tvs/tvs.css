@@ -376,3 +376,14 @@ body{overflow-x:clip}
 .cards-4 .card{height:auto}
 .cards-4 .card .pick{margin-top:auto}
 @media(max-width:860px){.cards.cards-4{align-items:stretch}}
+
+/* Compra online */
+.pay-chips{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pay-chips .chip-btn{padding:14px 10px;font-size:16px}
+.sum-go{display:grid;gap:10px;justify-items:stretch}
+.btn-ghost-light{border-color:rgb(247 247 247 / .5);color:var(--off-white);background:transparent}
+@media(hover:hover){.btn-ghost-light:hover{background:rgb(247 247 247 / .12)}}
+#buyBtn{font-size:16px}
+#buyBtn:disabled{opacity:.75;cursor:wait}
+[hidden]{display:none!important}
+.sum-go .btn-ghost-light{background:transparent!important;color:#fff!important;border:1.5px solid rgb(255 255 255 / .55)!important;animation:none!important}

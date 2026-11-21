@@ -21,7 +21,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Quicksand:wght@500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="/tvs/media/topo.jpg">
 <link rel="stylesheet" href="/planos/planos.css?v=10">
-<link rel="stylesheet" href="/tvs/tvs.css?v=18">
+<link rel="stylesheet" href="/tvs/tvs.css?v=20">
 </head>
 <body>
 <a class="skip" href="#planos">Pular para os planos</a>
@@ -137,9 +137,19 @@
           <button class="mode" role="radio" aria-checked="false" data-plan="completo"><b>Completo</b><span>R$ 350 por mês</span></button>
         </div>
 
+        <div id="mesesBox">
         <p class="sim-label" id="l-meses">2. Por quantos meses?</p>
         <div class="chips" id="meses" role="radiogroup" aria-labelledby="l-meses"></div>
         <label class="outro" id="outroBox"><span>Ou digite:</span><input type="number" id="outroMeses" inputmode="numeric" min="1" max="60" step="1" placeholder="ex.: 18" aria-describedby="outroHint"><span>meses</span><small id="outroHint">Quantos meses quiser.</small></label>
+        </div>
+
+        <div id="payBox" hidden>
+          <p class="sim-label" id="l-pagar">3. Como quer pagar?</p>
+          <div class="pay-chips" role="radiogroup" aria-labelledby="l-pagar">
+            <button class="chip-btn pay-btn" type="button" role="radio" aria-checked="true" data-pay="pacote">Pacote<small>paga o período escolhido</small></button>
+            <button class="chip-btn pay-btn" type="button" role="radio" aria-checked="false" data-pay="mensal">Mensal<small>assinatura, todo mês</small></button>
+          </div>
+        </div>
       </div>
 
       <div class="summary reveal" aria-live="polite">
@@ -150,8 +160,9 @@
         </div>
         <dl class="sum-lines" id="sumLines"></dl>
         <div class="sum-go">
-          <a class="btn btn-solid btn-lg" id="sumGo" href="https://wa.me/556696361345">Quero anunciar</a>
-          <p class="sum-note" id="sumNote">Abre o WhatsApp da LADUNA com a sua escolha já escrita.</p>
+          <button class="btn btn-solid btn-lg" id="buyBtn" type="button">Comprar agora</button>
+          <a class="btn btn-ghost-light" id="sumGo" href="https://wa.me/556696361345">Tirar dúvida no WhatsApp</a>
+          <p class="sum-note" id="sumNote">Pagamento seguro pelo Asaas: Pix, boleto ou cartão.</p>
         </div>
       </div>
     </div>
@@ -245,6 +256,6 @@
 
 <footer class="foot"><div class="shell"><span>Promo Black válida até 10/12/2026. Valores sujeitos a mudança com aviso prévio.</span><span>LADUNA Studio · CNPJ 64.110.259/0001-78</span><img class="foot-logo" src="/planos/media/laduna-logo-240.png" width="240" height="64" alt="LADUNA Studio" loading="lazy"></div></footer>
 <noscript><p style="padding:16px;text-align:center">Ative o JavaScript para usar o simulador, ou fale com a gente pelo WhatsApp: (66) 99636-1345.</p></noscript>
-<script src="/tvs/tvs.js?v=6" defer></script>
+<script src="/tvs/tvs.js?v=8" defer></script>
 </body>
 </html>

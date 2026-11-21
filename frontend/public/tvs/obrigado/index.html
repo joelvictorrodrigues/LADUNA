@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagamento recebido | LADUNA Studio</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#4B3458">
+<link rel="icon" href="/assets/laduna-emblem.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Quicksand:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/planos/planos.css?v=10">
+<link rel="stylesheet" href="/tvs/tvs.css?v=19">
+<style>
+  .thanks{min-height:100vh;min-height:100svh;display:grid;place-items:center;padding:40px 16px}
+  .thanks .shell{display:grid;justify-items:center;gap:18px;max-width:560px;text-align:center}
+  .thanks .ok{display:grid;place-items:center;width:84px;height:84px;border-radius:50%;background:#3aa96b;color:#fff;box-shadow:0 0 0 10px rgb(58 169 107 / .2);animation:pop .7s var(--ease) both}
+  .thanks .ok svg{width:42px;height:42px}
+  .thanks h1{font-size:clamp(30px,6vw,44px)}
+  .thanks p{font-size:17px;color:rgb(247 247 247 / .88);text-wrap:balance}
+  .thanks .btn{min-width:260px}
+  .thanks small{color:rgb(247 247 247 / .65);font-size:13px}
+</style>
+</head>
+<body>
+<main class="hero hero-live thanks">
+  <div class="shell">
+    <span class="ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <h1>Pagamento recebido!</h1>
+    <p>Obrigado por anunciar com a LADUNA. Agora é só chamar a gente no WhatsApp para combinar o seu vídeo.</p>
+    <a class="btn btn-light btn-lg" id="wa" href="https://wa.me/556696361345">Falar com a LADUNA</a>
+    <small>Pagou com boleto? A confirmação pode levar até 2 dias úteis.</small>
+    <a class="btn btn-ghost" href="/tvs/">Voltar para a página das TVs</a>
+  </div>
+</main>
+<script>
+  document.getElementById('wa').href = 'https://wa.me/556696361345?text=' + encodeURIComponent('Olá! Acabei de pagar o anúncio nas TVs pelo site. Quero combinar o meu vídeo.');
+</script>
+</body>
+</html>

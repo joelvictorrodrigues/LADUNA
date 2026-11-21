@@ -12,7 +12,7 @@
     essencial: { name: 'Essencial', perMonth: 200, months: M12, def: 3 },
     completo: { name: 'Completo', perMonth: 350, months: M12, def: 3 }
   };
-  const state = { plan: 'promo', months: 6 };
+  const state = { plan: 'promo', months: 6, pay: 'pacote' };
 
   const brl = n => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }).replace(/,00$/, '');
   // Quem cria o vídeo: Completo sempre; Promo Black a partir de 6 meses.
@@ -85,12 +85,22 @@
 
   const render = () => {
     const p = PLANS[state.plan];
-    const total = p.perMonth * state.months;
+    if (state.plan === 'promo') state.pay = 'pacote';
+    const mensal = state.pay === 'mensal';
+    $('#payBox').hidden = state.plan === 'promo';
+    $('#mesesBox').hidden = mensal;
+    document.querySelectorAll('.pay-btn').forEach(b => b.setAttribute('aria-checked', String(b.dataset.pay === state.pay)));
+    const total = mensal ? p.perMonth : p.perMonth * state.months;
     const period = `${state.months} ${state.months === 1 ? 'mês' : 'meses'}`;
     const video = ladunaCria() ? 'a LADUNA cria para você' : 'você envia o vídeo pronto';
     $('#sumName').textContent = p.name;
-    $('#sumMode').textContent = period;
-    const lines = [
+    $('#sumMode').textContent = mensal ? 'Assinatura mensal' : period;
+    const lines = mensal ? [
+      ['Valor por mês', brl(p.perMonth)],
+      ['Cobrança', 'todo mês'],
+      ['Vídeo', video],
+      ['Hoje você paga', `<strong id="sumTotal">${brl(lastTotal)}</strong>`]
+    ] : [
       ['Valor por mês', brl(p.perMonth)],
       ['Período', period],
       ['Vídeo', video],
@@ -99,10 +109,10 @@
     $('#sumLines').innerHTML = lines.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('');
     tweenTotal(total);
     $('#sumNote').textContent = state.plan === 'promo'
-      ? (state.months >= 6 ? 'Promo Black com vídeo criado pela LADUNA. Só até 10 de dezembro.' : 'A partir de 6 meses, a LADUNA cria o seu vídeo. Só até 10 de dezembro.')
-      : 'Abre o WhatsApp da LADUNA com a sua escolha já escrita.';
+      ? (state.months >= 6 ? 'Com vídeo criado pela LADUNA. Pagamento seguro pelo Asaas: Pix, boleto ou cartão.' : 'Pagamento seguro pelo Asaas: Pix, boleto ou cartão. A partir de 6 meses, a LADUNA cria o seu vídeo.')
+      : mensal ? 'Pagamento seguro pelo Asaas. Cancele quando quiser.' : 'Pagamento seguro pelo Asaas: Pix, boleto ou cartão.';
     const go = $('#sumGo');
-    go.href = waLink(`Olá! Quero anunciar a minha marca nas telas.\nPlano: ${p.name}\nPeríodo: ${period}\nVídeo: ${video}\nValor total: ${brl(total)} (${brl(p.perMonth)} por mês)`);
+    go.href = waLink(`Olá! Tenho uma dúvida sobre anunciar nas telas.\nPlano: ${p.name}\n${mensal ? 'Pagamento: assinatura mensal' : `Período: ${period}`}\nValor: ${brl(total)}${mensal ? ' por mês' : ` (${brl(p.perMonth)} por mês)`}`);
     go.target = '_blank'; go.rel = 'noopener';
     const s = $('.summary');
     if (!reduce) { s.classList.remove('flash'); void s.offsetWidth; s.classList.add('flash'); }
@@ -123,6 +133,30 @@
     mesesBox.querySelectorAll('.chip-btn').forEach(x => x.setAttribute('aria-checked', String(x === b)));
     render();
   });
+  document.querySelectorAll('.pay-btn').forEach(b => b.addEventListener('click', () => { state.pay = b.dataset.pay; render(); }));
+
+  // Comprar agora: o servidor monta o link de pagamento do Asaas com o preço certo
+  const buy = $('#buyBtn');
+  buy.hidden = true;
+  fetch('/.netlify/functions/tvs-checkout', { cache: 'no-store' }).then(r => r.json()).then(d => { if (d && d.ready) buy.hidden = false; }).catch(() => {});
+  buy.addEventListener('click', async () => {
+    if (buy.disabled) return;
+    const label = buy.textContent;
+    buy.disabled = true; buy.textContent = 'Abrindo o pagamento…';
+    try {
+      const r = await fetch('/.netlify/functions/tvs-checkout', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ plan: state.plan, months: state.months, mode: state.pay })
+      });
+      const data = await r.json().catch(() => ({}));
+      if (r.ok && data.url) { location.href = data.url; return; }
+      throw new Error(data.error || 'erro');
+    } catch (e) {
+      $('#sumNote').textContent = 'Não conseguimos abrir o pagamento agora. Toque em "Tirar dúvida no WhatsApp" que a gente fecha com você por lá.';
+      buy.disabled = false; buy.textContent = label;
+    }
+  });
+
   outro.addEventListener('input', () => {
     let n = Math.floor(Number(outro.value));
     if (!n || n < 1) return;
