@@ -395,7 +395,7 @@ em{font-style:normal}
 .other a:hover{border-color:var(--purple);translate:4px 0}
 .legal{max-width:760px}
 .legal h2{margin-top:44px;font-size:24px}
-.legal p,.legal li{margin-top:12px;color:var(--muted)}
+.legal p,.legal li{margin-top:12px;color:var(--muted);text-wrap:pretty}
 .legal ul{padding-left:20px;list-style:disc}
 @media(min-width:860px){
   .page-hero{padding-block:88px 96px}
