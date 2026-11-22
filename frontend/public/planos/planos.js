@@ -144,10 +144,10 @@
           ['Pagamento', 'Cartão, à vista ou até 12x'],
           ['Total no cartão', `<strong>${brl(total + DIAG)}</strong>`]
         ];
-        msg = `Olá! Quero contratar o plano ${name}, pagamento ${modeName(state.months).toLowerCase()} no cartão de crédito: ${brl(total)} pelos ${state.months} meses (sai por ${brl(monthly)}/mês), mais o diagnóstico de entrada de ${brl(DIAG)}. Total: ${brl(total + DIAG)}, à vista ou parcelado em até 12x com as taxas do cartão.`;
+        msg = `Olá! Quero contratar o plano ${name}, pagamento ${modeName(state.months).toLowerCase()} no cartão de crédito: ${brl(total)} pelos ${state.months} meses (sai por ${brl(monthly)}/mês), mais o diagnóstico de entrada de ${brl(DIAG)}. Total: ${brl(total + DIAG)}, à vista ou parcelado em até 12x.`;
       }
       go.textContent = 'Contratar pelo WhatsApp';
-      note.innerHTML = (state.months > 1 ? 'Parcelando, as taxas da maquininha do cartão são acrescentadas ao valor. ' : '') + 'Você confirma tudo com a gente antes de pagar. Depois, preenche o <a href="https://tally.so/r/GxKJbk" target="_blank" rel="noopener">formulário do diagnóstico</a>.';
+      note.innerHTML = 'Você confirma tudo com a gente antes de pagar. Depois, preenche o <a href="https://tally.so/r/GxKJbk" target="_blank" rel="noopener">formulário do diagnóstico</a>.';
       cartPrice = state.months === 1 ? `${brl(p.price)}/mês` : `${brl(total + DIAG)} no cartão`;
     }
     $('#sumLines').innerHTML = lines.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('');
