@@ -26,6 +26,13 @@
   status = 200
   force = true
 
+# Apresentação isolada do Portal: mesmo endereço do portal, servida pelo Executivo com política própria (sandbox).
+[[redirects]]
+  from = "https://clientes.ladunastudio.com.br/api/portal-presentation"
+  to = "https://ladunadiretoria.netlify.app/api/portal-presentation"
+  status = 200
+  force = true
+
 [[redirects]]
   from = "https://clientes.ladunastudio.com.br/*"
   to = "https://laduna.netlify.app/portal/:splat"
