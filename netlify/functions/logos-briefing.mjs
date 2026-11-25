@@ -7,7 +7,8 @@
 
 const FROM = process.env.BRIEFING_FROM || 'Briefing de logo <onboarding@resend.dev>';
 const ORIGINS = /^https:\/\/((www\.)?ladunastudio\.com\.br|laduna\.netlify\.app|[a-z0-9-]+--laduna\.netlify\.app)$/;
-const MAX_PDF = 400 * 1024;
+const MAX_PDF = 900 * 1024, MAX_CARD = 700 * 1024;
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 const json = (status, body) => new Response(JSON.stringify(body), {
   status,
@@ -42,7 +43,23 @@ export default async (req) => {
   const bytes = Buffer.from(pdf, 'base64');
   if (bytes.length > MAX_PDF || bytes.subarray(0, 5).toString('latin1') !== '%PDF-') return json(400, { error: 'Arquivo inválido.' });
 
+  // Cartão "ponto de partida" (JPEG) vai dentro do corpo do e-mail; é opcional (sem ele, o e-mail sai só com o PDF).
+  let card = null;
+  if (typeof input?.cartao === 'string' && input.cartao) {
+    if (!/^[A-Za-z0-9+/]+=*$/.test(input.cartao) || input.cartao.length > MAX_CARD * 1.4) return json(400, { error: 'Imagem inválida.' });
+    const cb = Buffer.from(input.cartao, 'base64');
+    if (cb.length > MAX_CARD || cb[0] !== 0xFF || cb[1] !== 0xD8) return json(400, { error: 'Imagem inválida.' });
+    card = cb;
+  }
+
   const slug = marca.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 40).replace(/^-+|-+$/g, '') || 'marca';
+  const html = `<div style="font-family:Arial,Helvetica,sans-serif;color:#3F3F3F;max-width:560px;margin:0 auto">
+    <p style="font-size:12px;letter-spacing:2px;color:#644370;font-weight:bold;margin:0 0 6px">NOVO BRIEFING DE LOGO</p>
+    <h1 style="font-size:24px;margin:0 0 4px">${esc(marca)}</h1>
+    <p style="margin:0 0 18px;font-size:14px">${esc(nome)} · WhatsApp ${esc(fone)}</p>
+    ${card ? '<img src="cid:cartao" alt="Cartão do briefing" width="520" style="display:block;width:100%;max-width:520px;height:auto;border-radius:24px;margin:0 0 20px">' : ''}
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;font-size:14px">${linhas.map(([k, v]) => `<tr><td style="padding:8px 12px 8px 0;border-top:1px solid #e2e2e2;color:#644370;font-size:11px;font-weight:bold;text-transform:uppercase;vertical-align:top;width:150px">${esc(k)}</td><td style="padding:8px 0;border-top:1px solid #e2e2e2;vertical-align:top">${esc(v)}</td></tr>`).join('')}</table>
+    <p style="margin:20px 0 0;font-size:12px;color:#777">O briefing completo está no PDF em anexo.</p></div>`;
   const text = [`Novo briefing de logo: ${marca}`, '', `Contato: ${nome} · WhatsApp ${fone}`, '', ...linhas.map(([k, v]) => `${k}: ${v}`), '', 'O briefing completo está no PDF em anexo.'].join('\n');
 
   let r;
@@ -50,7 +67,7 @@ export default async (req) => {
     r = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json', 'Idempotency-Key': `logos-${id}`, 'User-Agent': 'site-briefing/1.0' },
-      body: JSON.stringify({ from: FROM, to: [to], subject: `Briefing de logo — ${marca}`, text, attachments: [{ filename: `briefing-logo-${slug}.pdf`, content: bytes.toString('base64') }] })
+      body: JSON.stringify({ from: FROM, to: [to], subject: `Briefing de logo — ${marca}`, html, text, attachments: [{ filename: `briefing-logo-${slug}.pdf`, content: bytes.toString('base64') }].concat(card ? [{ filename: `cartao-${slug}.jpg`, content: card.toString('base64'), content_id: 'cartao' }] : []) })
     });
   } catch { return json(502, { error: 'Não foi possível enviar agora.' }); }
   if (!r.ok) { console.error('logos-briefing: e-mail recusado', r.status); return json(502, { error: 'Não foi possível enviar agora.' }); }

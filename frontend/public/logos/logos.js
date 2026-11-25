@@ -5,7 +5,7 @@
   const stage = document.getElementById('stage'), nav = document.getElementById('nav'), prog = document.getElementById('prog'), live = document.getElementById('live');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const blank = () => ({ v: C.version, i: -1, a: { tom: {} } });
-  let S = blank(), contact = { nome: '', fone: '' }, storageOk = true, note = '', timers = [], asked = false, mail = { ready: null, st: '', id: '' };
+  let S = blank(), contact = { nome: '', fone: '' }, storageOk = true, note = '', timers = [], asked = false, mail = { st: '', id: '' };
 
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const a = () => S.a, arr = k => (Array.isArray(S.a[k]) ? S.a[k] : (S.a[k] = [])), t = k => (typeof S.a[k] === 'string' ? S.a[k].trim() : '');
@@ -122,57 +122,79 @@
   }
   const slug = s => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 40).replace(/^-+|-+$/g, '');
   const fileName = () => `briefing-logo-${slug(nome()) || 'marca'}.pdf`;
-  function wa() {
-    const link = s => `https://wa.me/${C.whatsapp}?text=${encodeURIComponent(s)}`, full = 'Olá, LADUNA! Fiz o briefing de logo no site.\n\n' + fullText();
-    if (link(full).length <= C.waMaxUrl) return { url: link(full), short: false };
-    const keep = ['Marca', 'O que faz', 'Deve parecer', 'Tipo de logo', 'Onde aparece'], cut = s => (s.length > 90 ? s.slice(0, 89) + '…' : s);
-    const s = ['Olá, LADUNA! Fiz o briefing de logo no site.', '', `Contato: ${contact.nome.trim()} · WhatsApp ${contact.fone.trim()}`].concat(lines().filter(r => keep.includes(r[0])).map(([k, v]) => `${k}: ${cut(v)}`), ['', `O briefing completo está no arquivo ${fileName()}, que vou anexar aqui.`]).join('\n');
-    return { url: link(s), short: true };
-  }
-  // O cartão "ponto de partida" desenhado em imagem, para ir dentro do PDF.
+  // O cartão "ponto de partida" redesenhado em imagem, igual ao da tela (2x, para ficar nítido no PDF e no e-mail).
   async function cardImage() {
     const f = letra(), c = cor(), x = a(), bg = c ? c.cores[0] : '#3F3F3F', fg = c ? c.cores[c.cores.length - 1] : '#F4F4F4', ac = c ? c.cores[c.cores.length - 2] : '#9F91A4';
-    try { await document.fonts.load(`${f.weight} 80px ${f.font}`); await document.fonts.load('700 24px Montserrat'); } catch (e) { /* segue com a fonte padrão */ }
-    const Wc = 1040, P = 36, cv = document.createElement('canvas'), g = cv.getContext('2d'), IW = Wc - 2 * P, ajuda = 'A LADUNA ajuda a escolher';
-    const wrapC = (txt, max) => { const out = []; let l = ''; String(txt).split(/\s+/).forEach(w => { const tt = l ? l + ' ' + w : w; if (l && g.measureText(tt).width > max) { out.push(l); l = w; } else l = tt; }); out.push(l); return out; };
-    const box = (bx, by, bw, bh, r, fill, alpha) => { g.globalAlpha = alpha || 1; g.fillStyle = fill; g.beginPath(); if (g.roundRect) g.roundRect(bx, by, bw, bh, r); else g.rect(bx, by, bw, bh); g.fill(); g.globalAlpha = 1; };
-    const words = names('palavras', D.PALAVRAS), usos = names('usos', D.USOS).concat(t('usoOutro') ? [t('usoOutro')] : []);
-    const tiles = [['TIPO DE LOGO', x.tipoAjuda ? ajuda : names('tipo', D.TIPOS).join(' · ')], ['CORES', x.coresAjuda ? ajuda : names('cores', D.CORES).join(' · ')], ['LETRAS', x.letrasAjuda ? ajuda : names('letras', D.LETRAS).join(' · ')], ['TOM', D.TOM.map(o => tomTxt(o, x.tom[o.id])).join(' · ')]];
-    cv.width = Wc; cv.height = P + 250 + 20 + (words.length ? 68 : 0) + 2 * 150 + 16 + (usos.length ? 70 : 0) + P;
-    box(0, 0, Wc, cv.height, 0, bg); box(P, P, IW, 250, 28, fg, .1);
-    let size = f.big ? 150 : 120, nl; g.textAlign = 'center'; g.textBaseline = 'middle';
-    do { g.font = `${f.weight} ${size}px ${f.font}, sans-serif`; nl = wrapC(shown(), IW - 60); size -= 6; } while (size > 30 && (nl.length > 2 || nl.some(l => g.measureText(l).width > IW - 60)));
-    g.fillStyle = fg; nl.slice(0, 3).forEach((l, i, all) => g.fillText(l, Wc / 2, P + 125 + (i - (all.length - 1) / 2) * (size + 6) * 1.1));
-    let y = P + 270; g.textAlign = 'left'; g.font = '700 24px Montserrat, sans-serif';
-    if (words.length) { let px = P; words.forEach(w => { const pw = g.measureText(w).width + 44; box(px, y, pw, 48, 24, ac); g.fillStyle = bg; g.fillText(w, px + 22, y + 25); px += pw + 12; }); y += 68; }
-    tiles.forEach(([k, v], i) => { const tx = P + (i % 2) * (IW / 2 + 8), ty = y + Math.floor(i / 2) * 158, tw = IW / 2 - 8; box(tx, ty, tw, 142, 22, fg, .1); g.fillStyle = fg; g.globalAlpha = .7; g.font = '700 17px Montserrat, sans-serif'; g.fillText(k, tx + 22, ty + 32); g.globalAlpha = 1; g.font = '700 25px Montserrat, sans-serif'; wrapC(v, tw - 44).slice(0, 2).forEach((l, n) => g.fillText(l, tx + 22, ty + 70 + n * 32)); if (k === 'CORES' && c) c.cores.forEach((h, n) => { box(tx + 22 + n * 46 - 1, ty + 105, 42, 24, 6, '#fff'); box(tx + 22 + n * 46, ty + 106, 40, 22, 5, h); }); });
-    y += 2 * 158 + 8;
-    if (usos.length) { g.fillStyle = fg; g.globalAlpha = .9; g.font = '600 23px Montserrat, sans-serif'; wrapC('Onde aparece: ' + usos.join(' · '), IW).slice(0, 2).forEach((l, n) => g.fillText(l, P, y + 20 + n * 30)); g.globalAlpha = 1; }
-    const b64 = cv.toDataURL('image/jpeg', .88).split(',')[1], bin = atob(b64), bytes = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
-    return { bytes, w: cv.width, h: cv.height };
+    try { await document.fonts.load(`${f.weight} 60px ${f.font}`); await document.fonts.load('700 14px Montserrat'); } catch (e) { /* fonte padrão */ }
+    const tipos = arr('tipo').map(id => by(D.TIPOS, id)).filter(Boolean), ajuda = 'A LADUNA ajuda a escolher';
+    const loadLogo = async b => { const r = await fetch(C.logoCdn + b.slug + '.svg'); const svg = (await r.text()).replace('<svg ', `<svg fill="${fg}" width="120" height="120" `); const im = new Image(); im.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg); await im.decode(); return im; };
+    const logos = tipos.length ? (await Promise.all(tipos[0].brands.slice(0, 3).map(b => loadLogo(b).catch(() => null)))).filter(Boolean) : [];
+    const K = 2, W = 520, P = 18, IW = W - 2 * P, cv = document.createElement('canvas'), g = cv.getContext('2d');
+    const font = (w, sz, fam) => { g.font = `${w} ${sz}px ${fam || 'Montserrat'}, sans-serif`; };
+    const wrapT = (txt, max) => { const out = []; let l = ''; String(txt).split(/\s+/).filter(Boolean).forEach(w => { const tt = l ? l + ' ' + w : w; if (l && g.measureText(tt).width > max) { out.push(l); l = w; } else l = tt; }); out.push(l); return out; };
+    const rr = (bx, by, bw, bh, r, fill, alpha, stroke) => { g.save(); g.globalAlpha = alpha == null ? 1 : alpha; g.beginPath(); if (g.roundRect) g.roundRect(bx, by, bw, bh, r); else g.rect(bx, by, bw, bh); if (stroke) { g.lineWidth = 1.5; g.strokeStyle = fill; g.stroke(); } else { g.fillStyle = fill; g.fill(); } g.restore(); };
+    const spaced = v => { if ('letterSpacing' in g) g.letterSpacing = v; };
+    // 1) mede o nome (até 2 linhas) para saber a altura da caixa
+    const nameW = IW - 28; let size = f.big ? 64 : 52, nl;
+    do { font(f.weight, size, f.font); nl = wrapT(shown(), nameW); size -= 1; } while (size > 14 && (nl.length > 2 || nl.some(l => g.measureText(l).width > nameW)));
+    size += 1; const lineH = size * 1.08, nameH = Math.max(150, nl.length * lineH + 44);
+    // 2) chips das palavras
+    font(700, 12.5); const words = names('palavras', D.PALAVRAS), chips = []; let cx = 0, cy = 0;
+    words.forEach(w => { const cw = g.measureText(w).width + 24; if (cx && cx + cw > IW) { cx = 0; cy += 34; } chips.push({ w, x: cx, y: cy, cw }); cx += cw + 6; });
+    const chipsH = words.length ? cy + 28 : 0;
+    // 3) blocos (2 colunas)
+    const TW = (IW - 8) / 2, tiles = [
+      { k: 'TIPO DE LOGO', v: tipos.length ? tipos.map(q => q.label).join(' · ') : ajuda, logos },
+      { k: 'CORES', v: c ? names('cores', D.CORES).join(' · ') : ajuda, sw: c ? c.cores : null },
+      { k: 'LETRAS', v: x.letrasAjuda || !arr('letras').length ? ajuda : names('letras', D.LETRAS).join(' · ') },
+      { k: 'TOM', v: D.TOM.map(o => tomTxt(o, x.tom[o.id])).join(' · ') }];
+    font(700, 13.5); tiles.forEach(tl => { tl.lines = wrapT(tl.v, TW - 24); tl.h = 12 + 14 + 6 + tl.lines.length * 17.5 + (tl.logos && tl.logos.length ? 40 : 0) + (tl.sw ? 28 : 0) + 12; });
+    const row1 = Math.max(tiles[0].h, tiles[1].h), row2 = Math.max(tiles[2].h, tiles[3].h), tilesH = row1 + 8 + row2;
+    // 4) usos
+    font(700, 12.5); const usos = arr('usos').map(id => by(D.USOS, id)).filter(Boolean).map(u => ({ label: u.label, icon: u.icon })).concat(t('usoOutro') ? [{ label: t('usoOutro') }] : []), uchips = []; cx = 0; cy = 0;
+    usos.forEach(u => { const cw = g.measureText(u.label).width + 24 + (u.icon ? 22 : 0); if (cx && cx + cw > IW) { cx = 0; cy += 36; } uchips.push(Object.assign({ x: cx, y: cy, cw }, u)); cx += cw + 6; });
+    const usosH = usos.length ? cy + 30 : 0;
+    const H = P + nameH + (chipsH ? 14 + chipsH : 0) + 14 + tilesH + (usosH ? 14 + usosH : 0) + P;
+    cv.width = W * K; cv.height = Math.ceil(H * K); g.scale(K, K); g.textBaseline = 'middle';
+    g.fillStyle = bg; g.fillRect(0, 0, W, H);
+    let y = P;
+    rr(P, y, IW, nameH, 20, fg, .1); font(f.weight, size, f.font); g.fillStyle = fg; g.textAlign = 'center';
+    nl.forEach((l, n) => g.fillText(l, W / 2, y + nameH / 2 + (n - (nl.length - 1) / 2) * lineH)); g.textAlign = 'left'; y += nameH;
+    if (chipsH) { y += 14; font(700, 12.5); chips.forEach(ch => { rr(P + ch.x, y + ch.y, ch.cw, 28, 14, ac); g.fillStyle = bg; g.fillText(ch.w, P + ch.x + 12, y + ch.y + 14.5); }); y += chipsH; }
+    y += 14;
+    tiles.forEach((tl, n) => { const tx = P + (n % 2) * (TW + 8), ty = y + (n < 2 ? 0 : row1 + 8), th = n < 2 ? row1 : row2; rr(tx, ty, TW, th, 16, fg, .1);
+      let yy = ty + 12 + 7; font(700, 10); spaced('1.4px'); g.globalAlpha = .7; g.fillStyle = fg; g.fillText(tl.k, tx + 12, yy); g.globalAlpha = 1; spaced('0px');
+      yy += 7 + 6; font(700, 13.5); tl.lines.forEach(l => { g.fillText(l, tx + 12, yy + 8.75); yy += 17.5; });
+      if (tl.logos && tl.logos.length) { yy += 6; tl.logos.forEach((im, m) => g.drawImage(im, tx + 12 + m * 40, yy, 30, 30)); yy += 34; }
+      if (tl.sw) { yy += 6; const sw = TW - 24, cw = sw / tl.sw.length; g.save(); g.beginPath(); if (g.roundRect) g.roundRect(tx + 12, yy, sw, 18, 6); else g.rect(tx + 12, yy, sw, 18); g.clip(); tl.sw.forEach((h, m) => { g.fillStyle = h; g.fillRect(tx + 12 + m * cw, yy, cw + 1, 18); }); g.restore(); rr(tx + 12, yy, sw, 18, 6, '#ffffff', .3, true); }
+    });
+    y += tilesH;
+    if (usosH) { y += 14; font(700, 12.5); uchips.forEach(u => { rr(P + u.x, y + u.y, u.cw, 30, 15, fg, .35, true); let tx = P + u.x + 12; if (u.icon && window.Path2D) { g.save(); g.translate(tx, y + u.y + 7); g.scale(16 / 24, 16 / 24); g.strokeStyle = fg; g.lineWidth = 1.9; g.lineCap = 'round'; g.lineJoin = 'round'; g.stroke(new Path2D(u.icon)); g.restore(); tx += 22; } g.fillStyle = fg; g.fillText(u.label, tx, y + u.y + 15.5); }); }
+    const b64 = cv.toDataURL('image/jpeg', .9).split(',')[1], bin = atob(b64), bytes = new Uint8Array(bin.length); for (let n = 0; n < bin.length; n++) bytes[n] = bin.charCodeAt(n);
+    return { bytes, b64, w: cv.width, h: cv.height };
   }
-  async function makePdf() {
-    let img = null; try { img = await cardImage(); } catch (e) { /* PDF sai sem o cartão */ }
+  async function makePdf(img) {
+    if (img === undefined) { try { img = await cardImage(); } catch (e) { img = null; } }
     return D.pdf({ marca: nome() || 'Nome em definição', contato: `${contact.nome.trim()} · WhatsApp ${contact.fone.trim()}`, data: 'Preenchido em ' + new Date().toLocaleDateString('pt-BR'), rows: lines().slice(1), nota: abertos().length ? 'A LADUNA orienta em: ' + abertos().join(', ') + '.' : '', cores: (cor() || {}).cores, img });
   }
   async function download() { const u = URL.createObjectURL(new Blob([await makePdf()], { type: 'application/pdf' })), l = document.createElement('a'); l.href = u; l.download = fileName(); document.body.appendChild(l); l.click(); l.remove(); setTimeout(() => URL.revokeObjectURL(u), 2000); }
   const endpoint = '/.netlify/functions/logos-briefing';
-  function checkMail() { if (mail.ready !== null) return; mail.ready = false; fetch(endpoint).then(r => (r.ok ? r.json() : {})).then(d => { if (d && d.ready) { mail.ready = true; if (S.i >= N) refresh(); } }).catch(() => {}); }
   async function send() {
     if (mail.st === 'sending' || mail.st === 'sent') return;
     if (!mail.id) mail.id = Array.from(crypto.getRandomValues(new Uint8Array(12)), b => b.toString(16).padStart(2, '0')).join('');
     mail.st = 'sending'; refresh('send');
     try {
-      const bytes = await makePdf(); let bin = ''; for (let i = 0; i < bytes.length; i += 8192) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 8192));
-      const r = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: mail.id, site: '', marca: nome(), contato: { nome: contact.nome.trim(), fone: contact.fone.trim() }, linhas: lines(), pdf: btoa(bin) }) });
+      let img = null; try { img = await cardImage(); } catch (e) { img = null; }
+      const bytes = await makePdf(img); let bin = ''; for (let i = 0; i < bytes.length; i += 8192) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 8192));
+      const r = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: mail.id, site: '', marca: nome(), contato: { nome: contact.nome.trim(), fone: contact.fone.trim() }, linhas: lines(), pdf: btoa(bin), cartao: img ? img.b64 : '' }) });
       const d = await r.json().catch(() => ({}));
       mail.st = r.ok && d.ok ? 'sent' : 'fail';
     } catch (e) { mail.st = 'fail'; }
-    refresh(mail.st === 'sent' ? 'title' : 'wa'); live.textContent = mail.st === 'sent' ? 'Briefing enviado para a LADUNA.' : 'Não foi possível enviar por e-mail.';
+    refresh(mail.st === 'sent' ? 'title' : 'send'); live.textContent = mail.st === 'sent' ? 'Briefing enviado para a LADUNA.' : 'Não foi possível enviar agora.';
   }
 
   function board() {
-    const f = letra(), c = cor(), x = a(), w = wa(), bg = c ? c.cores[0] : '#3F3F3F', fg = c ? c.cores[c.cores.length - 1] : '#F4F4F4', ac = c ? c.cores[c.cores.length - 2] : '#9F91A4';
+    const f = letra(), c = cor(), x = a(), bg = c ? c.cores[0] : '#3F3F3F', fg = c ? c.cores[c.cores.length - 1] : '#F4F4F4', ac = c ? c.cores[c.cores.length - 2] : '#9F91A4';
     const tipos = arr('tipo').map(id => by(D.TIPOS, id)).filter(Boolean);
     return `${head('Pronto', `O ponto de partida da <em>${esc(shown())}</em>`, 'É um retrato das suas escolhas, não a proposta de logo. A criação começa daqui.')}
       <div class="board" style="--bg:${bg};--fg:${fg};--ac:${ac}">
@@ -186,9 +208,8 @@
         </div>
         <div class="b-row use">${arr('usos').map(id => by(D.USOS, id)).filter(Boolean).map(u => `<span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${u.icon}"/></svg>${u.label}</span>`).join('')}</div>
       </div>
-      ${mail.st === 'sent' ? `<div class="sent" role="status"><b>Briefing enviado.</b> A LADUNA recebeu suas respostas em PDF e responde no seu WhatsApp.</div><a class="btn btn-line" id="wa" href="${esc(w.url)}" target="_blank" rel="noopener">Avisar também pelo WhatsApp</a>`
-        : mail.ready && mail.st !== 'fail' ? `<button type="button" class="btn btn-solid ${mail.st === 'sending' ? 'wait' : ''}" id="send" data-act="send" ${mail.st === 'sending' ? 'aria-disabled="true"' : ''}>${mail.st === 'sending' ? 'Enviando…' : 'Enviar para a LADUNA'}</button><p class="hint small">A LADUNA recebe um PDF com as suas respostas e responde no seu WhatsApp.</p>`
-        : `${mail.st === 'fail' ? '<p class="note" role="alert">Não conseguimos enviar agora. Suas respostas continuam aqui: mande pelo WhatsApp, ou baixe o PDF.</p>' : ''}<a class="btn btn-solid" id="wa" href="${esc(w.url)}" target="_blank" rel="noopener">Enviar para a LADUNA no WhatsApp</a><p class="hint small">Revise a mensagem e toque em Enviar no WhatsApp: a LADUNA só recebe depois disso.${w.short ? ' Seu briefing ficou longo: baixe o PDF abaixo e anexe na conversa.' : ''}</p>`}
+      ${mail.st === 'sent' ? '<div class="sent" role="status"><b>Briefing enviado.</b> A LADUNA recebeu suas respostas e responde no seu WhatsApp.</div>'
+        : `${mail.st === 'fail' ? '<p class="note" role="alert">Não conseguimos enviar agora. Suas respostas continuam aqui: tente de novo em instantes.</p>' : ''}<button type="button" class="btn btn-solid ${mail.st === 'sending' ? 'wait' : ''}" id="send" data-act="send" ${mail.st === 'sending' ? 'aria-disabled="true"' : ''}>${mail.st === 'sending' ? 'Enviando…' : mail.st === 'fail' ? 'Tentar enviar de novo' : 'Enviar para a LADUNA'}</button><p class="hint small">A LADUNA recebe este cartão e todas as suas respostas, e responde no seu WhatsApp.</p>`}
       <div class="end"><button type="button" class="link" id="dl" data-act="dl">Baixar meu briefing (PDF)</button><button type="button" class="link" id="edit" data-act="edit">Mudar respostas</button><button type="button" class="link" id="wipe" data-act="wipe">Apagar rascunho</button></div>
       <details class="more"><summary>Ver o texto do briefing</summary><pre id="full">${esc(fullText())}</pre></details>`;
   }
@@ -232,7 +253,6 @@
     stage.innerHTML = `<section class="step ${dir || 'still'} ${S.i < 0 ? 'is-intro' : S.i >= N ? 'is-end' : ''}" aria-labelledby="title">${html}</section>`;
     paintNav(); paintProg();
     if (s && s.mount) s.mount();
-    if (S.i >= N) checkMail();
     if (S.i < 0 && !reduce) { const all = D.TIPOS.flatMap(x => x.brands.map(b => ({ b, label: x.label }))); let n = 0; const box = document.getElementById('rl-logo'), cap = document.getElementById('rl-cap'); timers.push(setInterval(() => { n = (n + 1) % all.length; box.classList.remove('swap'); void box.offsetWidth; box.innerHTML = logo(all[n].b); cap.textContent = all[n].label; box.classList.add('swap'); }, 1300)); }
     fitNames(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitNames);
     if (focus) { window.scrollTo(0, 0); const h = document.getElementById('title'); if (h) h.focus({ preventScroll: true }); }
