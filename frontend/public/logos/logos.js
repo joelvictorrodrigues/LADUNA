@@ -27,7 +27,7 @@
 
   /* ---------- peças ---------- */
   const logo = (b, tint) => `<i class="lg" role="img" aria-label="Logo ${esc(b.name)}" title="${esc(b.name)}" style="--u:url(${C.logoCdn}${b.slug}.svg)${tint && b.hex ? `;color:${b.hex}` : ''}"></i>`;
-  const fit = (text, max, k) => { const w = Math.max(4, ...String(text).split(/\s+/).map(x => x.length)); return `font-size:max(13px,min(${max}px,calc(100cqi / ${w} * ${k || 1.6})))`; };
+  const fit = (text, max, k) => { const w = Math.max(4, ...String(text).split(/\s+/).map(x => x.length * (x === x.toUpperCase() && /[A-Z]/.test(x) ? 1.3 : 1))); return `font-size:max(13px,min(${max}px,calc(100cqi / ${w} * ${k || 1.6})))`; };
   const opt = (k, v, on, inner, cls, i, extra) => `<button type="button" class="opt ${cls || ''} ${on ? 'on' : ''}" aria-pressed="${!!on}" data-k="${k}" data-v="${esc(v)}" id="o-${k}-${esc(v)}" style="--k:${i || 0}" ${extra || ''}>${inner}</button>`;
   const rank = (sel, id) => (sel.includes(id) && sel.length > 1 ? `<b class="rank">${sel.indexOf(id) + 1}ª</b>` : '<u></u>');
   const help = k => opt(k, '?', a()[k + 'Ajuda'], '<span>Não sei, me ajuda a escolher</span><u></u>', 'ghost', 9);
@@ -71,7 +71,7 @@
     },
     letras: {
       html: () => `${head('Letras', 'Qual <em>jeito de escrever</em> é mais a sua cara?', 'Toque em até dois.')}
-        <div class="opts cards">${D.LETRAS.map((x, i) => opt('letras', x.id, arr('letras').includes(x.id), `<span class="word"><span style="font-family:${x.font},sans-serif;font-weight:${x.weight};${fit(shown(), x.big ? 46 : 36, x.big ? 2.1 : 1.6)}">${esc(shown())}</span></span><span class="txt"><b>${x.label}</b><small>${x.desc}</small></span><span class="who">${x.brands.map(b => logo(b)).join('')}</span>${rank(arr('letras'), x.id)}`, 'card type', i)).join('')}${help('letras')}</div>`,
+        <div class="opts cards">${D.LETRAS.map((x, i) => opt('letras', x.id, arr('letras').includes(x.id), `<span class="word"><span style="font-family:${x.font},sans-serif;font-weight:${x.weight};${fit(shown(), x.big ? 46 : 36, x.big ? 1.45 : 1.6)}">${esc(shown())}</span></span><span class="txt"><b>${x.label}</b><small>${x.desc}</small></span><span class="who">${x.brands.map(b => logo(b)).join('')}</span>${rank(arr('letras'), x.id)}`, 'card type', i)).join('')}${help('letras')}</div>`,
       ok: () => arr('letras').length > 0 || !!a().letrasAjuda, msg: 'Toque em um estilo, ou peça ajuda.', max: { letras: 2 }
     },
     cores: {
@@ -176,7 +176,7 @@
     const tipos = arr('tipo').map(id => by(D.TIPOS, id)).filter(Boolean);
     return `${head('Pronto', `O ponto de partida da <em>${esc(shown())}</em>`, 'É um retrato das suas escolhas, não a proposta de logo. A criação começa daqui.')}
       <div class="board" style="--bg:${bg};--fg:${fg};--ac:${ac}">
-        <div class="b-name"><span style="font-family:${f.font},sans-serif;font-weight:${f.weight};${fit(shown(), f.big ? 64 : 52, f.big ? 2.1 : 1.6)}">${esc(shown())}</span></div>
+        <div class="b-name"><span style="font-family:${f.font},sans-serif;font-weight:${f.weight};${fit(shown(), f.big ? 64 : 52, f.big ? 1.45 : 1.6)}">${esc(shown())}</span></div>
         <div class="b-row">${names('palavras', D.PALAVRAS).map(p => `<b>${p}</b>`).join('')}</div>
         <div class="b-grid">
           <div class="b-tile"><small>Tipo de logo</small>${tipos.length ? `<p>${tipos.map(q => q.label).join(' · ')}</p><span class="logos">${tipos[0].brands.slice(0, 3).map(b => logo(b)).join('')}</span>` : '<p>A LADUNA ajuda a escolher</p>'}</div>
@@ -218,6 +218,14 @@
     prog.querySelector('.prog-label').innerHTML = `<span>${D.FASES[fase]}</span><span>${S.i >= N ? 'Pronto' : `${S.i + 1} de ${N}`}</span>`;
     live.textContent = S.i >= N ? 'Resumo pronto.' : `Etapa ${S.i + 1} de ${N}: ${D.FASES[fase]}.`;
   }
+  // Garante que o nome caiba na caixa, mesmo em letras largas (cursiva em maiúsculas, nomes longos).
+  function fitNames() {
+    document.querySelectorAll('.b-name span, .word span, .spec span').forEach(el => {
+      const box = el.parentElement, cs = getComputedStyle(box), room = box.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      let fs = parseFloat(getComputedStyle(el).fontSize), n = 0;
+      while (Math.max(el.scrollWidth, el.getBoundingClientRect().width) > room + 1 && fs > 12 && n++ < 40) { fs -= 1.5; el.style.fontSize = fs + 'px'; }
+    });
+  }
   function mount(dir, focus) {
     timers.forEach(clearInterval); timers = [];
     const s = cur(), html = S.i < 0 ? intro() : S.i >= N ? board() : s.html();
@@ -226,6 +234,7 @@
     if (s && s.mount) s.mount();
     if (S.i >= N) checkMail();
     if (S.i < 0 && !reduce) { const all = D.TIPOS.flatMap(x => x.brands.map(b => ({ b, label: x.label }))); let n = 0; const box = document.getElementById('rl-logo'), cap = document.getElementById('rl-cap'); timers.push(setInterval(() => { n = (n + 1) % all.length; box.classList.remove('swap'); void box.offsetWidth; box.innerHTML = logo(all[n].b); cap.textContent = all[n].label; box.classList.add('swap'); }, 1300)); }
+    fitNames(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitNames);
     if (focus) { window.scrollTo(0, 0); const h = document.getElementById('title'); if (h) h.focus({ preventScroll: true }); }
   }
   function go(i, dir) {
