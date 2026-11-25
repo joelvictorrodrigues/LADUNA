@@ -42,7 +42,7 @@
       html: () => `${head('Para começar', 'Qual é o <em>nome</em> da marca?', 'Escreva do jeito que ele deve aparecer.')}
         <input class="big" id="f-nome" data-f="nome" value="${esc(a().nome || '')}" maxlength="60" placeholder="Nome da marca" autocomplete="off" ${a().nomeIndef ? 'disabled' : ''} aria-label="Nome da marca">
         <div class="spec" aria-hidden="true"><span id="spec-t" style="${fit(shown(), 46)}">${esc(shown())}</span><small id="spec-l">Sem serifa</small></div>
-        <div class="opts chips">${opt('nomeIndef', '1', a().nomeIndef, '<span>Ainda estou definindo o nome</span>', '', 2)}</div>`,
+        <div class="opts solo">${opt('nomeIndef', '1', a().nomeIndef, `<span>${a().nomeIndef ? '✓ ' : ''}Ainda estou definindo o nome</span>`, 'pill', 2)}</div>`,
       ok: () => !!nome() || !!a().nomeIndef, msg: 'Digite o nome, ou marque que ainda está definindo.',
       mount() { let n = 2; const el = document.getElementById('spec-t'), lb = document.getElementById('spec-l'); if (reduce) return; timers.push(setInterval(() => { n = (n + 1) % D.LETRAS.length; const f = D.LETRAS[n]; el.classList.remove('swap'); void el.offsetWidth; el.style.fontFamily = f.font + ',sans-serif'; el.style.fontWeight = f.weight; lb.textContent = f.label; el.classList.add('swap'); }, 1500)); }
     },
@@ -127,7 +127,8 @@
     const f = letra(), c = cor(), x = a(), bg = c ? c.cores[0] : '#3F3F3F', fg = c ? c.cores[c.cores.length - 1] : '#F4F4F4', ac = c ? c.cores[c.cores.length - 2] : '#9F91A4';
     try { await document.fonts.load(`${f.weight} 60px ${f.font}`); await document.fonts.load('700 14px Montserrat'); } catch (e) { /* fonte padrão */ }
     const tipos = arr('tipo').map(id => by(D.TIPOS, id)).filter(Boolean), ajuda = 'A LADUNA ajuda a escolher';
-    const loadLogo = async b => { const r = await fetch(C.logoCdn + b.slug + '.svg'); const svg = (await r.text()).replace('<svg ', `<svg fill="${fg}" width="120" height="120" `); const im = new Image(); im.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg); await im.decode(); return im; };
+    // Logos viram caminhos vetoriais (Path2D), sem imagem: o Safari não bloqueia a exportação do cartão.
+    const loadLogo = async b => { const r = await fetch(C.logoCdn + b.slug + '.svg'); const m = (await r.text()).match(/<path[^>]*\sd="([^"]+)"/); if (!m || !window.Path2D) throw 0; return new Path2D(m[1]); };
     const logos = tipos.length ? (await Promise.all(tipos[0].brands.slice(0, 3).map(b => loadLogo(b).catch(() => null)))).filter(Boolean) : [];
     const K = 2, W = 520, P = 18, IW = W - 2 * P, cv = document.createElement('canvas'), g = cv.getContext('2d');
     const font = (w, sz, fam) => { g.font = `${w} ${sz}px ${fam || 'Montserrat'}, sans-serif`; };
@@ -165,7 +166,7 @@
     tiles.forEach((tl, n) => { const tx = P + (n % 2) * (TW + 8), ty = y + (n < 2 ? 0 : row1 + 8), th = n < 2 ? row1 : row2; rr(tx, ty, TW, th, 16, fg, .1);
       let yy = ty + 12 + 7; font(700, 10); spaced('1.4px'); g.globalAlpha = .7; g.fillStyle = fg; g.fillText(tl.k, tx + 12, yy); g.globalAlpha = 1; spaced('0px');
       yy += 7 + 6; font(700, 13.5); tl.lines.forEach(l => { g.fillText(l, tx + 12, yy + 8.75); yy += 17.5; });
-      if (tl.logos && tl.logos.length) { yy += 6; tl.logos.forEach((im, m) => g.drawImage(im, tx + 12 + m * 40, yy, 30, 30)); yy += 34; }
+      if (tl.logos && tl.logos.length) { yy += 6; tl.logos.forEach((path, m) => { g.save(); g.translate(tx + 12 + m * 40, yy); g.scale(30 / 24, 30 / 24); g.fillStyle = fg; g.fill(path); g.restore(); }); yy += 34; }
       if (tl.sw) { yy += 6; const sw = TW - 24, cw = sw / tl.sw.length; g.save(); g.beginPath(); if (g.roundRect) g.roundRect(tx + 12, yy, sw, 18, 6); else g.rect(tx + 12, yy, sw, 18); g.clip(); tl.sw.forEach((h, m) => { g.fillStyle = h; g.fillRect(tx + 12 + m * cw, yy, cw + 1, 18); }); g.restore(); rr(tx + 12, yy, sw, 18, 6, '#ffffff', .3, true); }
     });
     y += tilesH;
